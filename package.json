@@ -1,0 +1,43 @@
+{
+  "name": "ui-box",
+  "version": "0.8.3",
+  "main": "lib/index.js",
+  "repository": "ssh://git@github.com/segmentio/ui-box.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "enzyme": "^2.7.1",
+    "jest": "^18.1.0",
+    "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.1",
+    "react-remarkable": "^1.1.1",
+    "react-test-renderer": "^15.4.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "glamor": "^2.20.22"
+  },
+  "peerDependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
+  },
+  "scripts": {
+    "storybook": "make server",
+    "deploy": "make deploy",
+    "test": "jest --no-cache --verbose"
+  }
+}
