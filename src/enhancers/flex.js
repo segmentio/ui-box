@@ -4,11 +4,21 @@ import cx from 'classnames'
 
 export const propTypes = {
   flex: PropTypes.string,
-  flexAuto: PropTypes.bool,
-  flexNone: PropTypes.bool,
-  flexColumn: PropTypes.bool,
-  flexWrap: PropTypes.bool,
   alignItems: PropTypes.oneOf([
+    'stretch',
+    'center',
+    'baseline',
+    'flex-start',
+    'flex-end'
+  ]),
+  alignSelf: PropTypes.oneOf([
+    'stretch',
+    'center',
+    'baseline',
+    'flex-start',
+    'flex-end'
+  ]),
+  alignContent: PropTypes.oneOf([
     'stretch',
     'center',
     'baseline',
@@ -27,58 +37,58 @@ export const propTypes = {
     'row-reverse',
     'column',
     'column-reverse'
+  ]),
+  flexWrap: PropTypes.oneOf([
+    'nowrap',
+    'wrap',
+    'wrap-reverse'
+  ]),
+  flexGrow: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  flexShrink: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  flexBasis: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  order: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
   ])
-}
-
-const getFlex = ({ flex, flexAuto, flexNone }) => {
-  if (flexAuto) return { flex: 'auto' }
-  if (flexNone) return { flex: 'none' }
-  if (flex) return { flex: flex }
-  return {}
-}
-
-const getFlexDirection = ({ flexColumn, flexDirection }) => {
-  if (flexColumn) return { flexDirection: 'column' }
-  if (flexDirection) return { flexDirection: flexDirection }
-  return {}
-}
-
-const getFlexWrap = ({ flexWrap }) => {
-  if (flexWrap) return { flexWrap: 'wrap' }
-  return {}
 }
 
 export const parseProps = ({
   flex,
-  flexAuto,
-  flexNone,
-  flexColumn,
+  alignItems,
+  alignSelf,
+  alignContent,
+  justifyContent,
   flexDirection,
   flexWrap,
-  alignItems,
-  justifyContent,
+  flexGrow,
+  flexShrink,
+  flexBasis,
+  order,
   className,
   ...props
-}) => {
-  if (flex !== undefined
-  || flexAuto !== undefined
-  || flexNone !== undefined
-  || flexColumn !== undefined
-  || flexDirection !== undefined
-  || flexWrap !== undefined
-  || alignItems !== undefined
-  || justifyContent !== undefined) {
-    return {
-      className: cx(className, `${css({
-        ...getFlex({ flex, flexAuto, flexNone }),
-        ...getFlexDirection({ flexColumn, flexDirection }),
-        ...getFlexWrap({ flexWrap }),
-        ...(alignItems ? { alignItems: alignItems } : {}),
-        ...(justifyContent ? { justifyContent: justifyContent } : {})
-      })}`),
-      ...props
-    }
-  }
-
-  return { className, ...props }
-}
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    flex !== undefined && css({ flex }).toString(),
+    alignItems !== undefined && css({ alignItems }).toString(),
+    alignSelf !== undefined && css({ alignSelf }).toString(),
+    alignContent !== undefined && css({ alignContent }).toString(),
+    justifyContent !== undefined && css({ justifyContent }).toString(),
+    flexDirection !== undefined && css({ flexDirection }).toString(),
+    flexWrap !== undefined && css({ flexWrap }).toString(),
+    flexGrow !== undefined && css({ flexGrow }).toString(),
+    flexShrink !== undefined && css({ flexShrink }).toString(),
+    flexBasis !== undefined && css({ flexBasis }).toString(),
+    order !== undefined && css({ order }).toString()
+  )
+})

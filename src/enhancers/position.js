@@ -1,4 +1,4 @@
-import { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 
 export const propTypes = {
   position: PropTypes.oneOf([
@@ -19,16 +19,16 @@ export const parseProps = ({
   right,
   bottom,
   left,
-  style,
+  className,
   ...props
-}) => {
-  const newStyles = {}
-
-  if (position !== undefined) newStyles.position = position
-  if (top !== undefined) newStyles.top = top
-  if (right !== undefined) newStyles.right = right
-  if (bottom !== undefined) newStyles.bottom = bottom
-  if (left !== undefined) newStyles.left = left
-
-  return { style: { ...newStyles, ...style }, ...props }
-}
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    position !== undefined && css({ position }).toString(),
+    top !== undefined && css({ top }).toString(),
+    right !== undefined && css({ right }).toString(),
+    bottom !== undefined && css({ bottom }).toString(),
+    left !== undefined && css({ left }).toString(),
+  )
+})

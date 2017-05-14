@@ -1,10 +1,7 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 
 export const propTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
-  ]),
+  width: PropTypes.string,
   height: PropTypes.string,
   minWidth: PropTypes.string,
   minHeight: PropTypes.string,
@@ -19,25 +16,18 @@ export const parseProps = ({
   minHeight,
   maxWidth,
   maxHeight,
-  style,
   ...props
 }) => {
-  const styles = {}
-
-  if (width) {
-    if (typeof width === 'number') {
-      styles.width = `${width/0.12}%`
-    } else {
-      styles.width = width
-    }
+  return {
+    ...props,
+    className: cx(
+      className,
+      width !== undefined && css({ width }).toString(),
+      height !== undefined && css({ height }).toString(),
+      minWidth !== undefined && css({ minWidth }).toString(),
+      minHeight !== undefined && css({ minHeight }).toString(),
+      maxWidth !== undefined && css({ maxWidth }).toString(),
+      maxHeight !== undefined && css({ maxHeight }).toString()
+    )
   }
-
-  if (height) styles.height = height
-
-  if (minWidth) styles.minWidth = minWidth
-  if (minHeight) styles.minHeight = minHeight
-  if (maxWidth) styles.maxWidth = maxWidth
-  if (maxHeight) styles.maxHeight = maxHeight
-
-  return { style: { ...styles, ...style }, ...props }
 }

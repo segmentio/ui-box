@@ -1,39 +1,25 @@
-import React, { PropTypes } from 'react'
-
-const SpacingPropType = PropTypes.oneOfType([
-  PropTypes.bool,
-  PropTypes.string
-])
-
-const NegativeIncludedSpacingPropType = PropTypes.oneOfType([
-  PropTypes.bool,
-  PropTypes.string
-])
+import PropTypes from 'prop-types'
 
 export const propTypes = {
-  padding: SpacingPropType,
-  paddingTop: SpacingPropType,
-  paddingRight: SpacingPropType,
-  paddingBottom: SpacingPropType,
-  paddingLeft: SpacingPropType,
-  paddingX: SpacingPropType,
-  paddingY: SpacingPropType,
-  margin: NegativeIncludedSpacingPropType,
-  marginTop: NegativeIncludedSpacingPropType,
-  marginRight: NegativeIncludedSpacingPropType,
-  marginBottom: NegativeIncludedSpacingPropType,
-  marginLeft: NegativeIncludedSpacingPropType,
-  marginX: NegativeIncludedSpacingPropType,
-  marginY: NegativeIncludedSpacingPropType
-}
-
-const parseUnit = (unit) => {
-  return unit
+  padding: PropTypes.number,
+  paddingTop: PropTypes.number,
+  paddingRight: PropTypes.number,
+  paddingBottom: PropTypes.number,
+  paddingLeft: PropTypes.number,
+  paddingX: PropTypes.number,
+  paddingY: PropTypes.number,
+  margin: PropTypes.number,
+  marginTop: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginX: PropTypes.number,
+  marginY: PropTypes.number
 }
 
 const parseStyleProps = ({ all, top, right, bottom, left }) => {
-  const pAll = parseUnit(all) || 0
-  return `${parseUnit(top) || pAll} ${parseUnit(right) || pAll} ${parseUnit(bottom) || pAll} ${parseUnit(left) || pAll}`
+  const pAll = all || 0
+  return `${top || pAll} ${right || pAll} ${bottom || pAll} ${left || pAll}`
 }
 
 export const parseProps = ({
@@ -53,16 +39,16 @@ export const parseProps = ({
   marginY,
   style,
   ...props
-}) => {
+}) => ({
   const styles = {}
 
-  if (padding !== undefined
-  || paddingTop !== undefined
-  || paddingRight !== undefined
-  || paddingBottom !== undefined
-  || paddingLeft !== undefined
-  || paddingX !== undefined
-  || paddingY !== undefined) {
+  if (padding !== undefined ||
+  paddingTop !== undefined ||
+  paddingRight !== undefined ||
+  paddingBottom !== undefined ||
+  paddingLeft !== undefined ||
+  paddingX !== undefined ||
+  paddingY !== undefined) {
     styles.padding = parseStyleProps({
       all: padding,
       top: paddingTop !== undefined ? paddingTop : paddingY,
@@ -72,13 +58,13 @@ export const parseProps = ({
     })
   }
 
-  if (margin !== undefined
-  || marginTop !== undefined
-  || marginRight !== undefined
-  || marginBottom !== undefined
-  || marginLeft !== undefined
-  || marginX !== undefined
-  || marginY !== undefined) {
+  if (margin !== undefined ||
+  marginTop !== undefined ||
+  marginRight !== undefined ||
+  marginBottom !== undefined ||
+  marginLeft !== undefined ||
+  marginX !== undefined ||
+  marginY !== undefined) {
     styles.margin = parseStyleProps({
       all: margin,
       top: marginTop !== undefined ? marginTop : marginY,
@@ -89,4 +75,4 @@ export const parseProps = ({
   }
 
   return { style: { ...styles, ...style }, ...props }
-}
+})

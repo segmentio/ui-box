@@ -3,25 +3,18 @@ import { css } from 'glamor'
 import cx from 'classnames'
 
 export const propTypes = {
-  clearfix: PropTypes.bool
+  boxShadow: PropTypes.string
 }
 
-const cssClearfix = css({
-  '&:before, &:after': {
-    display: 'table',
-    clear: 'both',
-    content: '""'
-  }
-}).toString()
 
 export const parseProps = ({
-  clearfix,
+  boxShadow,
   className,
   ...props
 }) => ({
-  ...props
+  ...props,
   className: cx(
     className,
-    clearfix && cssClearfix
+    boxShadow !== undefined && css({ boxShadow }).toString()
   )
 })

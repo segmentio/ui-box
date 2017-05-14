@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import cx from 'classnames'
 
 export const propTypes = {
   display: PropTypes.oneOf([
@@ -15,12 +17,14 @@ export const propTypes = {
 
 export const parseProps = ({
   display,
-  style,
+  className,
   ...props
 }) => {
-  const styles = {}
-
-  if (display) styles.display = display
-
-  return { style: { ...styles, ...style }, ...props }
+  return {
+    ...props,
+    className: cx(
+      className,
+      display !== undefined && css({ display }).toString()
+    )
+  }
 }

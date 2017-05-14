@@ -1,12 +1,12 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 
 export const propTypes = {
   borderColor: PropTypes.string,
-  border: PropTypes.bool,
-  borderLeft: PropTypes.bool,
-  borderRight: PropTypes.bool,
-  borderTop: PropTypes.bool,
-  borderBottom: PropTypes.bool
+  border: PropTypes.string,
+  borderLeft: PropTypes.string,
+  borderRight: PropTypes.string,
+  borderTop: PropTypes.string,
+  borderBottom: PropTypes.string
 }
 
 export const parseProps = ({
@@ -16,16 +16,17 @@ export const parseProps = ({
   borderRight,
   borderTop,
   borderBottom,
-  style,
+  className,
   ...props
-}) => {
-  const styles = {}
-
-  if (border || borderLeft) styles.borderLeft = '1px solid'
-  if (border || borderRight) styles.borderRight = '1px solid'
-  if (border || borderTop) styles.borderTop = '1px solid'
-  if (border || borderBottom) styles.borderBottom = '1px solid'
-  if (border || borderColor) styles.borderColor = borderColor
-
-  return { style: { ...styles, ...style }, ...props }
-}
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    border !== undefined && css({ border }),
+    borderColor !== undefined && css({ borderColor }),
+    borderLeft !== undefined && css({ borderLeft }),
+    borderRight !== undefined && css({ borderRight }),
+    borderTop !== undefined && css({ borderTop }),
+    borderBottom !== undefined && css({ borderBottom })
+  )
+})

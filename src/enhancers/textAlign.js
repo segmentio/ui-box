@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import objectValues from 'object-values'
 
 const TextAlign = {
   LEFT: 'left',
@@ -7,7 +8,7 @@ const TextAlign = {
 }
 
 export const propTypes = {
-  textAlign: PropTypes.oneOf(Object.values(TextAlign))
+  textAlign: PropTypes.oneOf(objectValues(TextAlign))
 }
 
 export const parseProps = ({
