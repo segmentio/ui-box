@@ -38,6 +38,7 @@
   },
   "scripts": {
     "storybook": "make server",
+    "prepublish": "make lib",
     "deploy": "make deploy",
     "test": "jest --no-cache --verbose"
   }
