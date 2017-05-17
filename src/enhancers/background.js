@@ -1,30 +1,43 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import cx from 'classnames'
-import theme from '../components/theme'
 
 export const propTypes = {
-  background: PropTypes.oneOf(Object.keys(theme.backgrounds)),
-  interactive: PropTypes.bool
+  background: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  backgroundImage: PropTypes.string,
+  backgroundPosition: PropTypes.string,
+  backgroundSize: PropTypes.string,
+  backgroundOrigin: PropTypes.string,
+  backgroundRepeat: PropTypes.string,
+  backgroundClip: PropTypes.string,
+  backgroundBlendMode: PropTypes.string
 }
 
-const parseBackground = (val, interactive) => {
-  if (theme.backgrounds.hasOwnProperty(val)) {
-    const bg = theme.backgrounds[val]
-    return css({
-      color: bg.textColor,
-      backgroundColor: bg.backgroundColor,
-      borderColor: `${bg.borderColor} !important`,
-      ...(interactive ? {
-        '&:hover, &:active': {
-          borderColor: `${bg.borderColorInteractive} !important`
-        }
-      } : {})
-    })
-  }
-}
-
-export const parseProps = ({ background, interactive, className, ...props }) => ({
-  className: background !== undefined ? cx(`${parseBackground(background, interactive)}`, className) : className,
+export const parseProps = ({
+  background,
+  backgroundColor,
+  backgroundImage,
+  backgroundPosition,
+  backgroundSize,
+  backgroundOrigin,
+  backgroundRepeat,
+  backgroundClip,
+  backgroundBlendMode,
+  className,
   ...props
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    background !== undefined && css({ background }).toString(),
+    backgroundColor !== undefined && css({ backgroundColor }).toString(),
+    backgroundImage !== undefined && css({ backgroundImage }).toString(),
+    backgroundPosition !== undefined && css({ backgroundPosition }).toString(),
+    backgroundSize !== undefined && css({ backgroundSize }).toString(),
+    backgroundOrigin !== undefined && css({ backgroundOrigin }).toString(),
+    backgroundRepeat !== undefined && css({ backgroundRepeat }).toString(),
+    backgroundClip !== undefined && css({ backgroundClip }).toString(),
+    backgroundBlendMode !== undefined && css({ backgroundBlendMode }).toString()
+  )
 })

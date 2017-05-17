@@ -1,20 +1,25 @@
-import { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import cx from 'classnames'
 
 export const propTypes = {
-  overflow: PropTypes.oneOf([
-    'hidden',
-    'visible',
-    'scroll',
-    'auto',
-    'inherit',
-    'initial'
-  ])
+  overflow: PropTypes.string,
+  overflowY: PropTypes.string,
+  overflowX: PropTypes.string
 }
 
-export const parseProps = ({ overflow, style, ...props }) => {
-  const newStyles = {}
-
-  newStyles.overflow = overflow
-
-  return { style: { ...newStyles, ...style }, ...props }
-}
+export const parseProps = ({
+  overflow,
+  overflowX,
+  overflowY,
+  className,
+  ...props
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    overflow !== undefined && css({ overflow }).toString(),
+    overflowX !== undefined && css({ overflowX }).toString(),
+    overflowY !== undefined && css({ overflowY }).toString()
+  )
+})

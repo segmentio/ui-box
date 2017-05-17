@@ -3,17 +3,17 @@ import { css } from 'glamor'
 import cx from 'classnames'
 
 export const propTypes = {
-  display: PropTypes.string
+  boxShadow: PropTypes.string
 }
 
 export const parseProps = ({
-  display,
+  boxShadow,
   className,
   ...props
 }) => ({
   ...props,
   className: cx(
     className,
-    display !== undefined && css({ display }).toString()
+    boxShadow !== undefined && css({ boxShadow }).toString()
   )
 })

@@ -1,8 +1,41 @@
 # ui-box
 > React Component that works as a UI Primitive for design systems
 
-Based on [https://github.com/jxnblk/axs](https://github.com/jxnblk/axs)
+```
+$ yarn add ui-box
+```
 
-* Avoids using HoC's, they make it harder to debug
-* Style encapsulation with glamor
-* Reset styles on component level
+```
+$ npm install --save ui-box
+```
+
+```javascript
+import Box from 'ui-box'
+```
+
+## Authors
+
+[Jeroen Ransijn](https://twitter.com/jeroen_ransijn)
+
+## License (MIT)
+
+```
+WWWWWW||WWWWWW
+ W W W||W W W
+      ||
+    ( OO )__________
+     /  |           \
+    /o o|    MIT     \
+    \___/||_||__||_|| *
+         || ||  || ||
+        _||_|| _||_||
+       (__|__|(__|__|
+```
+
+Copyright (c) 2017 Segment.io, Inc. <friends@segment.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
