@@ -6,7 +6,6 @@ export const propTypes = {
   boxShadow: PropTypes.string
 }
 
-
 export const parseProps = ({
   boxShadow,
   className,

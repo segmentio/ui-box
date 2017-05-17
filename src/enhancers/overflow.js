@@ -1,30 +1,11 @@
 import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import cx from 'classnames'
 
 export const propTypes = {
-  overflow: PropTypes.oneOf([
-    'hidden',
-    'visible',
-    'scroll',
-    'auto',
-    'inherit',
-    'initial'
-  ]),
-  overflowY: PropTypes.oneOf([
-    'hidden',
-    'visible',
-    'scroll',
-    'auto',
-    'inherit',
-    'initial'
-  ]),
-  overflowX: PropTypes.oneOf([
-    'hidden',
-    'visible',
-    'scroll',
-    'auto',
-    'inherit',
-    'initial'
-  ])
+  overflow: PropTypes.string,
+  overflowY: PropTypes.string,
+  overflowX: PropTypes.string
 }
 
 export const parseProps = ({

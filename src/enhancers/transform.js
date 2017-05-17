@@ -6,11 +6,16 @@ export const propTypes = {
   transform: PropTypes.string
 }
 
-const parseTransform = (transform) => css({
-  transform
-})
-
-export const parseProps = ({ transform, className, ...props }) => ({
-  className: transform !== undefined ? cx(`${parseTransform(transform)}`, className) : className,
+export const parseProps = ({
+  transform,
+  transformOrigin,
+  className,
   ...props
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    transform !== undefined && css({ transform }).toString(),
+    transformOrigin !== undefined && css({ transformOrigin }).toString(),
+  )
 })

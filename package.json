@@ -1,6 +1,6 @@
 {
   "name": "ui-box",
-  "version": "0.8.3",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "repository": "ssh://git@github.com/segmentio/ui-box.git",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "enzyme": "^2.7.1",
     "jest": "^18.1.0",
+    "prop-types": "^15.5.10",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.1",

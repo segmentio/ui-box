@@ -1,25 +1,23 @@
 import PropTypes from 'prop-types'
+import { css } from 'glamor'
+import cx from 'classnames'
+import getFirstValidProp from '../utils/getFirstValidProp'
 
 export const propTypes = {
-  padding: PropTypes.number,
-  paddingTop: PropTypes.number,
-  paddingRight: PropTypes.number,
-  paddingBottom: PropTypes.number,
-  paddingLeft: PropTypes.number,
-  paddingX: PropTypes.number,
-  paddingY: PropTypes.number,
-  margin: PropTypes.number,
-  marginTop: PropTypes.number,
-  marginRight: PropTypes.number,
-  marginBottom: PropTypes.number,
-  marginLeft: PropTypes.number,
-  marginX: PropTypes.number,
-  marginY: PropTypes.number
-}
-
-const parseStyleProps = ({ all, top, right, bottom, left }) => {
-  const pAll = all || 0
-  return `${top || pAll} ${right || pAll} ${bottom || pAll} ${left || pAll}`
+  padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const parseProps = ({
@@ -37,42 +35,24 @@ export const parseProps = ({
   marginLeft,
   marginX,
   marginY,
-  style,
+  className,
   ...props
-}) => ({
-  const styles = {}
-
-  if (padding !== undefined ||
-  paddingTop !== undefined ||
-  paddingRight !== undefined ||
-  paddingBottom !== undefined ||
-  paddingLeft !== undefined ||
-  paddingX !== undefined ||
-  paddingY !== undefined) {
-    styles.padding = parseStyleProps({
-      all: padding,
-      top: paddingTop !== undefined ? paddingTop : paddingY,
-      right: paddingRight !== undefined ? paddingRight : paddingX,
-      bottom: paddingBottom !== undefined ? paddingBottom : paddingY,
-      left: paddingLeft !== undefined ? paddingLeft : paddingX
-    })
+}) => {
+  console.log(getFirstValidProp('marginTop', marginTop, marginY))
+  return {
+    ...props,
+    className: cx(
+      className,
+      margin !== undefined && css({ margin }).toString(),
+      padding !== undefined && css({ padding }).toString(),
+      getFirstValidProp('marginTop', marginTop, marginY),
+      getFirstValidProp('marginRight', marginRight, marginX),
+      getFirstValidProp('marginBottom', marginBottom, marginY),
+      getFirstValidProp('marginLeft', marginLeft, marginX),
+      getFirstValidProp('paddingTop', paddingTop, paddingY),
+      getFirstValidProp('paddingRight', paddingRight, paddingX),
+      getFirstValidProp('paddingBottom', paddingBottom, paddingY),
+      getFirstValidProp('paddingLeft', paddingLeft, paddingX)
+    )
   }
-
-  if (margin !== undefined ||
-  marginTop !== undefined ||
-  marginRight !== undefined ||
-  marginBottom !== undefined ||
-  marginLeft !== undefined ||
-  marginX !== undefined ||
-  marginY !== undefined) {
-    styles.margin = parseStyleProps({
-      all: margin,
-      top: marginTop !== undefined ? marginTop : marginY,
-      right: marginRight !== undefined ? marginRight : marginX,
-      bottom: marginBottom !== undefined ? marginBottom : marginY,
-      left: marginLeft !== undefined ? marginLeft : marginX
-    })
-  }
-
-  return { style: { ...styles, ...style }, ...props }
-})
+}

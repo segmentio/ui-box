@@ -1,64 +1,19 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import cx from 'classnames'
 
 export const propTypes = {
   flex: PropTypes.string,
-  alignItems: PropTypes.oneOf([
-    'stretch',
-    'center',
-    'baseline',
-    'flex-start',
-    'flex-end'
-  ]),
-  alignSelf: PropTypes.oneOf([
-    'stretch',
-    'center',
-    'baseline',
-    'flex-start',
-    'flex-end'
-  ]),
-  alignContent: PropTypes.oneOf([
-    'stretch',
-    'center',
-    'baseline',
-    'flex-start',
-    'flex-end'
-  ]),
-  justifyContent: PropTypes.oneOf([
-    'center',
-    'space-around',
-    'space-between',
-    'flex-start',
-    'flex-end'
-  ]),
-  flexDirection: PropTypes.oneOf([
-    'row',
-    'row-reverse',
-    'column',
-    'column-reverse'
-  ]),
-  flexWrap: PropTypes.oneOf([
-    'nowrap',
-    'wrap',
-    'wrap-reverse'
-  ]),
-  flexGrow: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  flexShrink: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  flexBasis: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  order: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  alignItems: PropTypes.string,
+  alignSelf: PropTypes.string,
+  alignContent: PropTypes.string,
+  justifyContent: PropTypes.string,
+  flexDirection: PropTypes.string,
+  flexWrap: PropTypes.string,
+  flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const parseProps = ({

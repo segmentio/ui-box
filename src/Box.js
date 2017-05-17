@@ -40,6 +40,7 @@ const Box = ({
     ...(onRef ? {
       ref: (node) => { onRef(node) }
     } : {})
+  })
 }
 
 Box.propTypes = propTypes
