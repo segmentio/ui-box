@@ -38,7 +38,8 @@
   },
   "scripts": {
     "storybook": "make server",
-    "prepublish": "make lib",
+    "compile": "babel --source-maps inline --out-dir lib src",
+    "prepublish": "npm run compile",
     "deploy": "make deploy",
     "test": "jest --no-cache --verbose"
   }
