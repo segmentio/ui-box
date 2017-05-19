@@ -1,0 +1,9 @@
+# testing
+coverage
+
+# misc
+.DS_Store
+.env
+
+.storybook
+storybook-static/
