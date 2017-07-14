@@ -28,6 +28,7 @@ export const parseProps = ({
   opacity,
   float,
   clear,
+  boxSizing,
   className,
   ...props
 }) => ({
@@ -40,6 +41,7 @@ export const parseProps = ({
     visibility !== undefined && css({ visibility }).toString(),
     opacity !== undefined && css({ opacity }).toString(),
     float !== undefined && css({ float }).toString(),
-    clear !== undefined && css({ clear }).toString()
+    clear !== undefined && css({ clear }).toString(),
+    boxSizing !== undefined && css({ boxSizing }).toString()
   )
 })
