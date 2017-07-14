@@ -38,7 +38,6 @@ export const parseProps = ({
   className,
   ...props
 }) => {
-  console.log(getFirstValidProp('marginTop', marginTop, marginY))
   return {
     ...props,
     className: cx(
