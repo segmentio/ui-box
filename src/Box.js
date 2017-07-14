@@ -9,7 +9,7 @@ const propTypes = enhancersArray.reduce((memo, { propTypes }) => {
   if (propTypes) memo = { ...memo, ...propTypes }
 }, {
   css: PropTypes.object,
-  onRef: PropTypes.func,
+  innerRef: PropTypes.func,
   is: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -27,7 +27,7 @@ const parseProps = (props) => {
 const Box = ({
   is,
   css,
-  onRef,
+  innerRef,
   ...props
 }) => {
   const { className, ...parsedProps } = parseProps(props)
@@ -37,8 +37,8 @@ const Box = ({
   return React.createElement(is, {
     ...parsedProps,
     className: cx(generatedClassName, className),
-    ...(onRef ? {
-      ref: (node) => { onRef(node) }
+    ...(innerRef ? {
+      ref: (node) => { innerRef(node) }
     } : {})
   })
 }

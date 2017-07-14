@@ -105,6 +105,12 @@ export default function boxStory (module) {
     .add('utils', () => (
       <Box>
         <Box cursor='pointer'>Center</Box>
+        <Box boxSizing='border-box'>boxSizing: border-box</Box>
+      </Box>
+    ))
+    .add('innerRef', () => (
+      <Box>
+        <Box innerRef={(ref) => console.log(ref)}>innerRef</Box>
       </Box>
     ))
 }

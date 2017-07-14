@@ -9,7 +9,8 @@ export const propTypes = {
   visibility: PropTypes.string,
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   float: PropTypes.string,
-  clear: PropTypes.string
+  clear: PropTypes.string,
+  boxSizing: PropTypes.string
 }
 
 const cssClearfix = {
