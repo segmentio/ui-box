@@ -5,6 +5,7 @@ import cx from 'classnames'
 export const propTypes = {
   textAlign: PropTypes.string,
   textDecoration: PropTypes.string,
+  textTransform: PropTypes.string,
   color: PropTypes.string,
   font: PropTypes.string,
   fontFamily: PropTypes.string,
@@ -19,6 +20,7 @@ export const propTypes = {
 export const parseProps = ({
   textAlign,
   textDecoration,
+  textTransform,
   textShadow,
   color,
   font,
@@ -38,6 +40,7 @@ export const parseProps = ({
     className,
     textAlign !== undefined && css({ textAlign }).toString(),
     textDecoration !== undefined && css({ textDecoration }).toString(),
+    textTransform !== undefined && css({ textTransform }).toString(),
     textShadow !== undefined && css({ textShadow }).toString(),
     color !== undefined && css({ color }).toString(),
     font !== undefined && css({ font }).toString(),
