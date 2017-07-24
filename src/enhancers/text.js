@@ -33,6 +33,7 @@ export const parseProps = ({
   wordBreak,
   wordWrap,
   whiteSpace,
+  letterSpacing,
   className,
   ...props
 }) => ({
