@@ -14,7 +14,8 @@ export const propTypes = {
   fontVariant: PropTypes.string,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   wordBreak: PropTypes.string,
-  wordWrap: PropTypes.string
+  wordWrap: PropTypes.string,
+  letterSpacing: PropTypes.string
 }
 
 export const parseProps = ({
@@ -52,5 +53,6 @@ export const parseProps = ({
     wordBreak !== undefined && css({ wordBreak }).toString(),
     wordWrap !== undefined && css({ wordWrap }).toString(),
     whiteSpace !== undefined && css({ whiteSpace }).toString(),
+    letterSpacing !== undefined && css({ letterSpacing }).toString(),
   )
 })
