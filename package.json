@@ -1,6 +1,6 @@
 {
   "name": "ui-box",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "lib/index.js",
   "repository": "ssh://git@github.com/segmentio/ui-box.git",
   "license": "MIT",
