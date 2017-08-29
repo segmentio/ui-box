@@ -13,6 +13,7 @@ export const propTypes = {
   fontStyle: PropTypes.string,
   fontVariant: PropTypes.string,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), 
   wordBreak: PropTypes.string,
   wordWrap: PropTypes.string,
   letterSpacing: PropTypes.string
@@ -30,6 +31,7 @@ export const parseProps = ({
   fontStyle,
   fontVariant,
   fontWeight,
+  lineHeight,
   wordBreak,
   wordWrap,
   whiteSpace,
@@ -51,6 +53,7 @@ export const parseProps = ({
     fontStyle !== undefined && css({ fontStyle }).toString(),
     fontVariant !== undefined && css({ fontVariant }).toString(),
     fontWeight !== undefined && css({ fontWeight }).toString(),
+    lineHeight !== undefined && css({ lineHeight }).toString(),
     wordBreak !== undefined && css({ wordBreak }).toString(),
     wordWrap !== undefined && css({ wordWrap }).toString(),
     whiteSpace !== undefined && css({ whiteSpace }).toString(),
