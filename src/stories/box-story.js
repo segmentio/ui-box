@@ -113,4 +113,9 @@ export default function boxStory (module) {
         <Box innerRef={(ref) => console.log(ref)}>innerRef</Box>
       </Box>
     ))
+    .add('css', () => (
+      <Box>
+        <Box css={{ backgroundColor: 'red', ':hover': { backgroundColor: 'red'}}}>css</Box>
+      </Box>
+    ))
 }

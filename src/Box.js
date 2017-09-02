@@ -32,7 +32,7 @@ const Box = ({
 }) => {
   const { className, ...parsedProps } = parseProps(props)
   let generatedClassName
-  if (css) generatedClassName = gcss(css)
+  if (css) generatedClassName = gcss(css).toString()
 
   return React.createElement(is, {
     ...parsedProps,
