@@ -10,15 +10,16 @@ export const propTypes = {
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   float: PropTypes.string,
   clear: PropTypes.string,
-  boxSizing: PropTypes.string
+  boxSizing: PropTypes.string,
+  pointerEvents: PropTypes.string,
 }
 
 const cssClearfix = {
   '&:before, &:after': {
     display: 'table',
     clear: 'both',
-    content: '""'
-  }
+    content: '""',
+  },
 }
 
 export const parseProps = ({
@@ -30,6 +31,7 @@ export const parseProps = ({
   float,
   clear,
   boxSizing,
+  pointerEvents,
   className,
   ...props
 }) => ({
@@ -43,6 +45,7 @@ export const parseProps = ({
     opacity !== undefined && css({ opacity }).toString(),
     float !== undefined && css({ float }).toString(),
     clear !== undefined && css({ clear }).toString(),
-    boxSizing !== undefined && css({ boxSizing }).toString()
-  )
+    boxSizing !== undefined && css({ boxSizing }).toString(),
+    pointerEvents !== undefined && css({ pointerEvents }).toString()
+  ),
 })
