@@ -5,7 +5,8 @@
   "repository": "ssh://git@github.com/segmentio/ui-box.git",
   "license": "MIT",
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
+    "@storybook/addon-options": "^3.2.12",
+    "@storybook/react": "^3.2.12",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-jest": "^18.0.0",
@@ -17,9 +18,9 @@
     "enzyme": "^2.7.1",
     "jest": "^18.1.0",
     "prop-types": "^15.5.10",
-    "react": "^15.4.1",
+    "react": "^16.0.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^15.4.1",
+    "react-dom": "^16.0.0",
     "react-remarkable": "^1.1.1",
     "react-test-renderer": "^15.4.2"
   },
@@ -28,8 +29,8 @@
     "glamor": "^2.20.22"
   },
   "peerDependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "jest": {
     "unmockedModulePathPatterns": [
