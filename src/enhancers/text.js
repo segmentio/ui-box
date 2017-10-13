@@ -6,6 +6,7 @@ export const propTypes = {
   textAlign: PropTypes.string,
   textDecoration: PropTypes.string,
   textTransform: PropTypes.string,
+  textOverflow: PropTypes.string,
   color: PropTypes.string,
   font: PropTypes.string,
   fontFamily: PropTypes.string,
@@ -13,10 +14,10 @@ export const propTypes = {
   fontStyle: PropTypes.string,
   fontVariant: PropTypes.string,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), 
+  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   wordBreak: PropTypes.string,
   wordWrap: PropTypes.string,
-  letterSpacing: PropTypes.string
+  letterSpacing: PropTypes.string,
 }
 
 export const parseProps = ({
@@ -24,6 +25,7 @@ export const parseProps = ({
   textDecoration,
   textTransform,
   textShadow,
+  textOverflow,
   color,
   font,
   fontFamily,
@@ -46,6 +48,7 @@ export const parseProps = ({
     textDecoration !== undefined && css({ textDecoration }).toString(),
     textTransform !== undefined && css({ textTransform }).toString(),
     textShadow !== undefined && css({ textShadow }).toString(),
+    textOverflow !== undefined && css({ textOverflow }).toString(),
     color !== undefined && css({ color }).toString(),
     font !== undefined && css({ font }).toString(),
     fontFamily !== undefined && css({ fontFamily }).toString(),
@@ -57,6 +60,6 @@ export const parseProps = ({
     wordBreak !== undefined && css({ wordBreak }).toString(),
     wordWrap !== undefined && css({ wordWrap }).toString(),
     whiteSpace !== undefined && css({ whiteSpace }).toString(),
-    letterSpacing !== undefined && css({ letterSpacing }).toString(),
-  )
+    letterSpacing !== undefined && css({ letterSpacing }).toString()
+  ),
 })
