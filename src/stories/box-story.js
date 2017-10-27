@@ -37,6 +37,27 @@ export default function boxStory(module) {
         />
       </Box>
     ))
+    .add('click', () => (
+      <Box>
+        <Box
+          cursor="pointer"
+          onClick={() => {
+            console.log('red');
+          }}
+          background="red"
+          width="100px"
+          height="100px"
+        />
+        <Box
+          onClick={() => {
+            console.log('blue');
+          }}
+          backgroundColor="blue"
+          width="100px"
+          height="100px"
+        />
+      </Box>
+    ))
     .add('borderRadius', () => (
       <Box>
         <RedBox borderRadius="5px" />
