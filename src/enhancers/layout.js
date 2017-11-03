@@ -7,8 +7,8 @@ export const propTypes = {
   clearfix: PropTypes.string,
   float: PropTypes.string,
   clear: PropTypes.string,
-  boxSizing: PropTypes.string,
   zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  boxSizing: PropTypes.string,
 }
 
 const cssClearfix = {
@@ -24,8 +24,8 @@ export const parseProps = ({
   clearfix,
   float,
   clear,
-  boxSizing
   zIndex,
+  boxSizing
   className,
   ...props
 }) => ({
@@ -36,7 +36,7 @@ export const parseProps = ({
     clearfix && css(cssClearfix).toString(),
     float !== undefined && css({ float }).toString(),
     clear !== undefined && css({ clear }).toString(),
-    boxSizing !== undefined && css({ boxSizing }).toString(),
     zIndex !== undefined && css({ zIndex }).toString(),
+    boxSizing !== undefined && css({ boxSizing }).toString(),
   ),
 })
