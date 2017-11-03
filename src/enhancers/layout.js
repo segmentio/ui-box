@@ -25,7 +25,7 @@ export const parseProps = ({
   float,
   clear,
   zIndex,
-  boxSizing
+  boxSizing,
   className,
   ...props
 }) => ({
@@ -37,6 +37,6 @@ export const parseProps = ({
     float !== undefined && css({ float }).toString(),
     clear !== undefined && css({ clear }).toString(),
     zIndex !== undefined && css({ zIndex }).toString(),
-    boxSizing !== undefined && css({ boxSizing }).toString(),
+    boxSizing !== undefined && css({ boxSizing }).toString()
   ),
 })
