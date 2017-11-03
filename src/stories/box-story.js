@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Box from '../'
+import Box, { dimensions } from '../'
 
 const RedBox = props => (
   <Box

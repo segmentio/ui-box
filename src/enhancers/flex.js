@@ -8,12 +8,13 @@ export const propTypes = {
   alignSelf: PropTypes.string,
   alignContent: PropTypes.string,
   justifyContent: PropTypes.string,
+  justifySelf: PropTypes.string,
   flexDirection: PropTypes.string,
   flexWrap: PropTypes.string,
   flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const parseProps = ({
@@ -45,5 +46,5 @@ export const parseProps = ({
     flexShrink !== undefined && css({ flexShrink }).toString(),
     flexBasis !== undefined && css({ flexBasis }).toString(),
     order !== undefined && css({ order }).toString()
-  )
+  ),
 })

@@ -11,7 +11,7 @@ export const propTypes = {
   backgroundOrigin: PropTypes.string,
   backgroundRepeat: PropTypes.string,
   backgroundClip: PropTypes.string,
-  backgroundBlendMode: PropTypes.string
+  backgroundBlendMode: PropTypes.string,
 }
 
 export const parseProps = ({
@@ -39,5 +39,5 @@ export const parseProps = ({
     backgroundRepeat !== undefined && css({ backgroundRepeat }).toString(),
     backgroundClip !== undefined && css({ backgroundClip }).toString(),
     backgroundBlendMode !== undefined && css({ backgroundBlendMode }).toString()
-  )
+  ),
 })
