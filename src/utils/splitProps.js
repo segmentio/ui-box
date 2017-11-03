@@ -7,7 +7,7 @@ export default function splitProps(props, keys) {
 
   for (let key in props) {
     if (props.hasOwnProperty(key)) {
-      if (keys.indexOf(key)) {
+      if (keys.indexOf(key) > -1) {
         matchedProps[key] = props[key]
       } else {
         restProps[key] = props[key]
