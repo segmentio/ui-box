@@ -9,6 +9,7 @@
     "@storybook/react": "^3.2.12",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babel-eslint": "^8.0.2",
     "babel-jest": "^18.0.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.22.0",
@@ -16,7 +17,15 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "enzyme": "^2.7.1",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
     "jest": "^18.1.0",
+    "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-addons-test-utils": "^15.4.2",
@@ -26,7 +35,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "glamor": "^2.20.22"
+    "glamor": "^2.20.22",
+    "inline-style-prefixer": "^3.0.8"
   },
   "peerDependencies": {
     "react": "^16.0.0",

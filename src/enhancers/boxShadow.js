@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  boxShadow: PropTypes.string
+  boxShadow: PropTypes.string,
 }
 
-export const parseProps = ({
-  boxShadow,
-  className,
-  ...props
-}) => ({
+export const keysPropTypes = Object.keys(propTypes)
+
+export const parseProps = ({ boxShadow, className, ...props }) => ({
   ...props,
   className: cx(
     className,
-    boxShadow !== undefined && css({ boxShadow }).toString()
-  )
+    boxShadow !== undefined && insertSingleProperty('boxShadow', boxShadow),
+  ),
 })

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -8,8 +8,10 @@ export const propTypes = {
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   width,
@@ -24,11 +26,11 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    width !== undefined && css({ width }).toString(),
-    height !== undefined && css({ height }).toString(),
-    minWidth !== undefined && css({ minWidth }).toString(),
-    minHeight !== undefined && css({ minHeight }).toString(),
-    maxWidth !== undefined && css({ maxWidth }).toString(),
-    maxHeight !== undefined && css({ maxHeight }).toString()
-  )
+    width !== undefined && insertSingleProperty('width', width),
+    height !== undefined && insertSingleProperty('height', height),
+    minWidth !== undefined && insertSingleProperty('minWidth', minWidth),
+    minHeight !== undefined && insertSingleProperty('minHeight', minHeight),
+    maxWidth !== undefined && insertSingleProperty('maxWidth', maxWidth),
+    maxHeight !== undefined && insertSingleProperty('maxHeight', maxHeight),
+  ),
 })

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   border: PropTypes.string,
@@ -24,6 +24,8 @@ export const propTypes = {
   borderBottomStyle: PropTypes.string,
   borderBottomWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   border,
@@ -52,25 +54,42 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    border !== undefined && css({ border }).toString(),
-    borderColor !== undefined && css({ borderColor }).toString(),
-    borderStyle !== undefined && css({ borderStyle }).toString(),
-    borderWidth !== undefined && css({ borderWidth }).toString(),
-    borderLeft !== undefined && css({ borderLeft }).toString(),
-    borderLeftColor !== undefined && css({ borderLeftColor }).toString(),
-    borderLeftStyle !== undefined && css({ borderLeftStyle }).toString(),
-    borderLeftWidth !== undefined && css({ borderLeftWidth }).toString(),
-    borderRight !== undefined && css({ borderRight }).toString(),
-    borderRightColor !== undefined && css({ borderRightColor }).toString(),
-    borderRightStyle !== undefined && css({ borderRightStyle }).toString(),
-    borderRightWidth !== undefined && css({ borderRightWidth }).toString(),
-    borderTop !== undefined && css({ borderTop }).toString(),
-    borderTopColor !== undefined && css({ borderTopColor }).toString(),
-    borderTopStyle !== undefined && css({ borderTopStyle }).toString(),
-    borderTopWidth !== undefined && css({ borderTopWidth }).toString(),
-    borderBottom !== undefined && css({ borderBottom }).toString(),
-    borderBottomColor !== undefined && css({ borderBottomColor }).toString(),
-    borderBottomStyle !== undefined && css({ borderBottomStyle }).toString(),
-    borderBottomWidth !== undefined && css({ borderBottomWidth }).toString()
+    border !== undefined && insertSingleProperty('border', border),
+    borderColor !== undefined &&
+      insertSingleProperty('borderColor', borderColor),
+    borderStyle !== undefined &&
+      insertSingleProperty('borderStyle', borderStyle),
+    borderWidth !== undefined &&
+      insertSingleProperty('borderWidth', borderWidth),
+    borderLeft !== undefined && insertSingleProperty('borderLeft', borderLeft),
+    borderLeftColor !== undefined &&
+      insertSingleProperty('borderLeftColor', borderLeftColor),
+    borderLeftStyle !== undefined &&
+      insertSingleProperty('borderLeftStyle', borderLeftStyle),
+    borderLeftWidth !== undefined &&
+      insertSingleProperty('borderLeftWidth', borderLeftWidth),
+    borderRight !== undefined &&
+      insertSingleProperty('borderRight', borderRight),
+    borderRightColor !== undefined &&
+      insertSingleProperty('borderRightColor', borderRightColor),
+    borderRightStyle !== undefined &&
+      insertSingleProperty('borderRightStyle', borderRightStyle),
+    borderRightWidth !== undefined &&
+      insertSingleProperty('borderRightWidth', borderRightWidth),
+    borderTop !== undefined && insertSingleProperty('borderTop', borderTop),
+    borderTopColor !== undefined &&
+      insertSingleProperty('borderTopColor', borderTopColor),
+    borderTopStyle !== undefined &&
+      insertSingleProperty('borderTopStyle', borderTopStyle),
+    borderTopWidth !== undefined &&
+      insertSingleProperty('borderTopWidth', borderTopWidth),
+    borderBottom !== undefined &&
+      insertSingleProperty('borderBottom', borderBottom),
+    borderBottomColor !== undefined &&
+      insertSingleProperty('borderBottomColor', borderBottomColor),
+    borderBottomStyle !== undefined &&
+      insertSingleProperty('borderBottomStyle', borderBottomStyle),
+    borderBottomWidth !== undefined &&
+      insertSingleProperty('borderBottomWidth', borderBottomWidth),
   ),
 })

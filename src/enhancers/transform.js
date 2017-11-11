@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  transform: PropTypes.string
+  transform: PropTypes.string,
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   transform,
@@ -15,7 +17,8 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    transform !== undefined && css({ transform }).toString(),
-    transformOrigin !== undefined && css({ transformOrigin }).toString(),
-  )
+    transform !== undefined && insertSingleProperty('transform', transform),
+    transformOrigin !== undefined &&
+      insertSingleProperty('transform', transformOrigin),
+  ),
 })

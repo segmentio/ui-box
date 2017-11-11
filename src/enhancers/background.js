@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   background: PropTypes.string,
@@ -13,6 +13,8 @@ export const propTypes = {
   backgroundClip: PropTypes.string,
   backgroundBlendMode: PropTypes.string,
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   background,
@@ -30,14 +32,22 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    background !== undefined && css({ background }).toString(),
-    backgroundColor !== undefined && css({ backgroundColor }).toString(),
-    backgroundImage !== undefined && css({ backgroundImage }).toString(),
-    backgroundPosition !== undefined && css({ backgroundPosition }).toString(),
-    backgroundSize !== undefined && css({ backgroundSize }).toString(),
-    backgroundOrigin !== undefined && css({ backgroundOrigin }).toString(),
-    backgroundRepeat !== undefined && css({ backgroundRepeat }).toString(),
-    backgroundClip !== undefined && css({ backgroundClip }).toString(),
-    backgroundBlendMode !== undefined && css({ backgroundBlendMode }).toString()
+    background !== undefined && insertSingleProperty('background', background),
+    backgroundColor !== undefined &&
+      insertSingleProperty('backgroundColor', backgroundColor),
+    backgroundImage !== undefined &&
+      insertSingleProperty('backgroundImage', backgroundImage),
+    backgroundPosition !== undefined &&
+      insertSingleProperty('backgroundPosition', backgroundPosition),
+    backgroundSize !== undefined &&
+      insertSingleProperty('backgroundSize', backgroundSize),
+    backgroundOrigin !== undefined &&
+      insertSingleProperty('backgroundOrigin', backgroundOrigin),
+    backgroundRepeat !== undefined &&
+      insertSingleProperty('backgroundRepeat', backgroundRepeat),
+    backgroundClip !== undefined &&
+      insertSingleProperty('backgroundClip', backgroundClip),
+    backgroundBlendMode !== undefined &&
+      insertSingleProperty('backgroundBlendMode', backgroundBlendMode),
   ),
 })

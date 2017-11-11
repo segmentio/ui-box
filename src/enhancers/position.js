@@ -1,19 +1,16 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  position: PropTypes.oneOf([
-    'relative',
-    'absolute',
-    'fixed',
-    'static'
-  ]),
+  position: PropTypes.oneOf(['relative', 'absolute', 'fixed', 'static']),
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   position,
@@ -27,10 +24,10 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    position !== undefined && css({ position }).toString(),
-    top !== undefined && css({ top }).toString(),
-    right !== undefined && css({ right }).toString(),
-    bottom !== undefined && css({ bottom }).toString(),
-    left !== undefined && css({ left }).toString(),
-  )
+    position !== undefined && insertSingleProperty('position', position),
+    top !== undefined && insertSingleProperty('top', top),
+    right !== undefined && insertSingleProperty('right', right),
+    bottom !== undefined && insertSingleProperty('bottom', bottom),
+    left !== undefined && insertSingleProperty('left', left),
+  ),
 })

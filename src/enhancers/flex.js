@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   flex: PropTypes.string,
@@ -16,6 +16,8 @@ export const propTypes = {
   flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   flex,
@@ -35,16 +37,19 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    flex !== undefined && css({ flex }).toString(),
-    alignItems !== undefined && css({ alignItems }).toString(),
-    alignSelf !== undefined && css({ alignSelf }).toString(),
-    alignContent !== undefined && css({ alignContent }).toString(),
-    justifyContent !== undefined && css({ justifyContent }).toString(),
-    flexDirection !== undefined && css({ flexDirection }).toString(),
-    flexWrap !== undefined && css({ flexWrap }).toString(),
-    flexGrow !== undefined && css({ flexGrow }).toString(),
-    flexShrink !== undefined && css({ flexShrink }).toString(),
-    flexBasis !== undefined && css({ flexBasis }).toString(),
-    order !== undefined && css({ order }).toString()
+    flex !== undefined && insertSingleProperty('flex', flex),
+    alignItems !== undefined && insertSingleProperty('alignItems', alignItems),
+    alignSelf !== undefined && insertSingleProperty('alignSelf', alignSelf),
+    alignContent !== undefined &&
+      insertSingleProperty('alignContent', alignContent),
+    justifyContent !== undefined &&
+      insertSingleProperty('justifyContent', justifyContent),
+    flexDirection !== undefined &&
+      insertSingleProperty('flexDirection', flexDirection),
+    flexWrap !== undefined && insertSingleProperty('flexWrap', flexWrap),
+    flexGrow !== undefined && insertSingleProperty('flexGrow', flexGrow),
+    flexShrink !== undefined && insertSingleProperty('flexShrink', flexShrink),
+    flexBasis !== undefined && insertSingleProperty('flexBasis', flexBasis),
+    order !== undefined && insertSingleProperty('order', order),
   ),
 })

@@ -68,6 +68,8 @@ export default function boxStory(module) {
         <RedBox />
         <RedBox minWidth="400px" />
         <RedBox minHeight="400px" />
+        <RedBox minWidth={400} />
+        <RedBox minHeight={400} />
       </Box>
     ))
     .add('display', () => (

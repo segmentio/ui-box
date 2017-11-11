@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   display: PropTypes.string,
@@ -11,6 +12,8 @@ export const propTypes = {
   boxSizing: PropTypes.string,
 }
 
+export const keysPropTypes = Object.keys(propTypes)
+
 const cssClearfix = {
   '&:before, &:after': {
     display: 'table',
@@ -20,8 +23,8 @@ const cssClearfix = {
 }
 
 export const parseProps = ({
-  display,
   clearfix,
+  display,
   float,
   clear,
   zIndex,
@@ -32,11 +35,11 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    display !== undefined && css({ display }).toString(),
     clearfix && css(cssClearfix).toString(),
-    float !== undefined && css({ float }).toString(),
-    clear !== undefined && css({ clear }).toString(),
-    zIndex !== undefined && css({ zIndex }).toString(),
-    boxSizing !== undefined && css({ boxSizing }).toString()
+    display !== undefined && insertSingleProperty('display', display),
+    float !== undefined && insertSingleProperty('float', float),
+    clear !== undefined && insertSingleProperty('clear', clear),
+    zIndex !== undefined && insertSingleProperty('zIndex', zIndex),
+    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing),
   ),
 })

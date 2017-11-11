@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 import getFirstValidProp from '../utils/getFirstValidProp'
 
 export const propTypes = {
@@ -17,8 +17,10 @@ export const propTypes = {
   marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   marginLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   marginX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  marginY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  marginY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   padding,
@@ -37,21 +39,19 @@ export const parseProps = ({
   marginY,
   className,
   ...props
-}) => {
-  return {
-    ...props,
-    className: cx(
-      className,
-      margin !== undefined && css({ margin }).toString(),
-      padding !== undefined && css({ padding }).toString(),
-      getFirstValidProp('marginTop', marginTop, marginY),
-      getFirstValidProp('marginRight', marginRight, marginX),
-      getFirstValidProp('marginBottom', marginBottom, marginY),
-      getFirstValidProp('marginLeft', marginLeft, marginX),
-      getFirstValidProp('paddingTop', paddingTop, paddingY),
-      getFirstValidProp('paddingRight', paddingRight, paddingX),
-      getFirstValidProp('paddingBottom', paddingBottom, paddingY),
-      getFirstValidProp('paddingLeft', paddingLeft, paddingX)
-    )
-  }
-}
+}) => ({
+  ...props,
+  className: cx(
+    className,
+    margin !== undefined && insertSingleProperty('margin', margin),
+    padding !== undefined && insertSingleProperty('padding', padding),
+    getFirstValidProp('marginTop', marginTop, marginY),
+    getFirstValidProp('marginRight', marginRight, marginX),
+    getFirstValidProp('marginBottom', marginBottom, marginY),
+    getFirstValidProp('marginLeft', marginLeft, marginX),
+    getFirstValidProp('paddingTop', paddingTop, paddingY),
+    getFirstValidProp('paddingRight', paddingRight, paddingX),
+    getFirstValidProp('paddingBottom', paddingBottom, paddingY),
+    getFirstValidProp('paddingLeft', paddingLeft, paddingX),
+  ),
+})

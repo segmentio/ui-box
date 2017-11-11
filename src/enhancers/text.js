@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   textAlign: PropTypes.string,
@@ -19,6 +19,8 @@ export const propTypes = {
   wordWrap: PropTypes.string,
   letterSpacing: PropTypes.string,
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   textAlign,
@@ -44,22 +46,27 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    textAlign !== undefined && css({ textAlign }).toString(),
-    textDecoration !== undefined && css({ textDecoration }).toString(),
-    textTransform !== undefined && css({ textTransform }).toString(),
-    textShadow !== undefined && css({ textShadow }).toString(),
-    textOverflow !== undefined && css({ textOverflow }).toString(),
-    color !== undefined && css({ color }).toString(),
-    font !== undefined && css({ font }).toString(),
-    fontFamily !== undefined && css({ fontFamily }).toString(),
-    fontSize !== undefined && css({ fontSize }).toString(),
-    fontStyle !== undefined && css({ fontStyle }).toString(),
-    fontVariant !== undefined && css({ fontVariant }).toString(),
-    fontWeight !== undefined && css({ fontWeight }).toString(),
-    lineHeight !== undefined && css({ lineHeight }).toString(),
-    wordBreak !== undefined && css({ wordBreak }).toString(),
-    wordWrap !== undefined && css({ wordWrap }).toString(),
-    whiteSpace !== undefined && css({ whiteSpace }).toString(),
-    letterSpacing !== undefined && css({ letterSpacing }).toString()
+    textAlign !== undefined && insertSingleProperty('textAlign', textAlign),
+    textDecoration !== undefined &&
+      insertSingleProperty('textDecoration', textDecoration),
+    textTransform !== undefined &&
+      insertSingleProperty('textTransform', textTransform),
+    textShadow !== undefined && insertSingleProperty('textShadow', textShadow),
+    textOverflow !== undefined &&
+      insertSingleProperty('textOverflow', textOverflow),
+    color !== undefined && insertSingleProperty('color', color),
+    font !== undefined && insertSingleProperty('font', font),
+    fontFamily !== undefined && insertSingleProperty('fontFamily', fontFamily),
+    fontSize !== undefined && insertSingleProperty('fontSize', fontSize),
+    fontStyle !== undefined && insertSingleProperty('fontStyle', fontStyle),
+    fontVariant !== undefined &&
+      insertSingleProperty('fontVariant', fontVariant),
+    fontWeight !== undefined && insertSingleProperty('fontWeight', fontWeight),
+    lineHeight !== undefined && insertSingleProperty('lineHeight', lineHeight),
+    wordBreak !== undefined && insertSingleProperty('wordBreak', wordBreak),
+    wordWrap !== undefined && insertSingleProperty('wordWrap', wordWrap),
+    whiteSpace !== undefined && insertSingleProperty('whiteSpace', whiteSpace),
+    letterSpacing !== undefined &&
+      insertSingleProperty('letterSpacing', letterSpacing),
   ),
 })

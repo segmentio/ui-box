@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { css } from 'glamor'
 import cx from 'classnames'
+import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   cursor: PropTypes.string,
@@ -8,6 +8,8 @@ export const propTypes = {
   visibility: PropTypes.string,
   pointerEvents: PropTypes.string,
 }
+
+export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   cursor,
@@ -20,9 +22,11 @@ export const parseProps = ({
   ...props,
   className: cx(
     className,
-    cursor !== undefined && css({ cursor }).toString(),
-    userSelect !== undefined && css({ userSelect }).toString(),
-    visibility !== undefined && css({ visibility }).toString(),
-    pointerEvents !== undefined && css({ pointerEvents }).toString()
+    cursor !== undefined && insertSingleProperty('cursor', cursor),
+    userSelect !== undefined && insertSingleProperty('userSelect', userSelect),
+    visibility !== undefined && insertSingleProperty('visibility', visibility),
+    pointerEvents !== undefined &&
+      insertSingleProperty('pointerEvents', pointerEvents),
+    className !== undefined && insertSingleProperty('className', className),
   ),
 })
