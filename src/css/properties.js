@@ -85,10 +85,10 @@ properties.boxShadow = {
 
 properties.width = { key: 'w', isValueEscaped: false }
 properties.height = { key: 'h', isValueEscaped: false }
-properties.minWidth = { key: 'mw', isValueEscaped: false }
-properties.minHeight = { key: 'mh', isValueEscaped: false }
-properties.maxWidth = { key: 'mw', isValueEscaped: false }
-properties.maxHeight = { key: 'mh', isValueEscaped: false }
+properties.minWidth = { key: 'min-w', isValueEscaped: false }
+properties.minHeight = { key: 'min-h', isValueEscaped: false }
+properties.maxWidth = { key: 'max-w', isValueEscaped: false }
+properties.maxHeight = { key: 'max-h', isValueEscaped: false }
 
 properties.flex = { key: 'flx', isUnitParsed: false, isPrefixed: true }
 properties.alignItems = { key: 'algn-itms', isUnitParsed: false }
