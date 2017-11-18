@@ -102,6 +102,10 @@ properties.flexShrink = { key: 'flx-srnk', isUnitParsed: false }
 properties.flexBasis = { key: 'flexBasis', isUnitParsed: false }
 properties.order = { key: 'order', isUnitParsed: false }
 
+properties.overflow = { key: 'ovflw', isUnitParsed: false }
+properties.overflowY = { key: 'ovflw-Y', isUnitParsed: false }
+properties.overflowX = { key: 'ovflw-X', isUnitParsed: false }
+
 properties.cursor = { key: 'crsr', isUnitParsed: false, isValueEscaped: false }
 properties.userSelect = {
   key: 'usr-slct',
