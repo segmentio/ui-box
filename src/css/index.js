@@ -1,6 +1,6 @@
-import StyleSheet from './StyleSheet'
+import StyleSheet from './style-sheet'
 import prefixer from './prefixer'
-import getInsertConfig from './getInsertConfig'
+import getInsertConfig from './get-insert-config'
 import properties from './properties'
 import { camelToDash } from './conversion'
 

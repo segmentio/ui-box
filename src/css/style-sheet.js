@@ -1,5 +1,5 @@
 // This file is loosely based on glamor
-import { getStyleTag } from './styleTag'
+import { getStyleTag } from './style-tag'
 
 const isBrowser = typeof window !== 'undefined'
 const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV

@@ -8,7 +8,7 @@ import {
   spacing,
   transform
 } from '../enhancers'
-import splitProps from './splitProps'
+import splitProps from './split-props'
 
 const wrapperKeys = [
   ...Object.keys(dimensions.propTypes),

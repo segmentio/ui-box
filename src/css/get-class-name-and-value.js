@@ -1,5 +1,5 @@
-import parseUnit from './parseUnit'
-import getSafeValue from './getSafeValue'
+import parseUnit from './parse-unit'
+import getSafeValue from './get-safe-value'
 
 // This is only used for hash based caching
 // Array/index based caching doesn't reacht this code

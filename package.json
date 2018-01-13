@@ -52,7 +52,7 @@
     "singleQuote": true
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"],
+    "*.js": ["xo", "prettier --write", "git add"],
     "*.{json,md}": ["prettier --write", "git add"]
   }
 }

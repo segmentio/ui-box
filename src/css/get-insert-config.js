@@ -1,6 +1,5 @@
-import getSafeValue from './getSafeValue'
-
-import getClassNameAndValue from './getClassNameAndValue'
+import getSafeValue from './get-safe-value'
+import getClassNameAndValue from './get-class-name-and-value'
 
 const indexCaches = {}
 
