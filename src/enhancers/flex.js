@@ -14,7 +14,7 @@ export const propTypes = {
   flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -50,6 +50,6 @@ export const parseProps = ({
     flexGrow !== undefined && insertSingleProperty('flexGrow', flexGrow),
     flexShrink !== undefined && insertSingleProperty('flexShrink', flexShrink),
     flexBasis !== undefined && insertSingleProperty('flexBasis', flexBasis),
-    order !== undefined && insertSingleProperty('order', order),
-  ),
+    order !== undefined && insertSingleProperty('order', order)
+  )
 })

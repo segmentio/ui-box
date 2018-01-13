@@ -22,7 +22,7 @@ export const propTypes = {
   borderBottom: PropTypes.string,
   borderBottomColor: PropTypes.string,
   borderBottomStyle: PropTypes.string,
-  borderBottomWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  borderBottomWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -90,6 +90,6 @@ export const parseProps = ({
     borderBottomStyle !== undefined &&
       insertSingleProperty('borderBottomStyle', borderBottomStyle),
     borderBottomWidth !== undefined &&
-      insertSingleProperty('borderBottomWidth', borderBottomWidth),
-  ),
+      insertSingleProperty('borderBottomWidth', borderBottomWidth)
+  )
 })

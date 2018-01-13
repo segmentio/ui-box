@@ -4,7 +4,7 @@ export const camelToDash = str =>
     .replace(/([A-Z])/g, ([letter]) => `-${letter.toLowerCase()}`)
 
 export function dashToCamel(str) {
-  return str.replace(/([A-Z])/g, function(g) {
+  return str.replace(/([A-Z])/g, g => {
     return '-' + g[0].toLowerCase()
   })
 }

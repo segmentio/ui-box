@@ -1,56 +1,70 @@
 {
   "name": "ui-box",
   "version": "0.5.4",
-  "main": "lib/index.js",
-  "repository": "ssh://git@github.com/segmentio/ui-box.git",
+  "description":
+    "React Component that works as a UI Primitive for design systems.",
+  "contributors": [
+    "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
+    "Roland Warmerdam (https://roland.codes)"
+  ],
+  "keywords": ["react"],
+  "repository": "segmentio/ui-box",
   "license": "MIT",
+  "main": "lib/index.js",
+  "files": ["lib"],
+  "scripts": {
+    "test": "xo",
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 9009",
+    "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
+    "build-storybook": "build-storybook -s .storybook/static -o .out",
+    "release": "np --no-publish"
+  },
   "devDependencies": {
-    "@storybook/addon-options": "^3.2.12",
     "@storybook/react": "^3.2.12",
+    "@storybook/storybook-deployer": "^2.2.0",
     "babel-cli": "^6.18.0",
-    "babel-core": "^6.21.0",
-    "babel-eslint": "^8.0.2",
-    "babel-jest": "^18.0.0",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-polyfill": "^6.22.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
-    "enzyme": "^2.7.1",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.7.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-config-xo-react": "^0.15.0",
     "eslint-plugin-react": "^7.4.0",
-    "jest": "^18.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "np": "^2.18.3",
     "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^16.0.0",
-    "react-remarkable": "^1.1.1",
-    "react-test-renderer": "^15.4.2"
+    "xo": "^0.18.2"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "glamor": "^2.20.22",
-    "inline-style-prefixer": "^3.0.8"
+    "classnames": "^2.2.0",
+    "glamor": "^2.20.0",
+    "inline-style-prefixer": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
-  "jest": {
-    "unmockedModulePathPatterns": [
-      "react"
-    ]
+  "xo": {
+    "parser": "babel-eslint",
+    "extends": ["xo-react", "prettier", "prettier/react"],
+    "envs": ["node", "browser"],
+    "rules": {
+      "indent": ["off"],
+      "react/jsx-indent-props": ["off"],
+      "react/jsx-indent": ["off"]
+    }
   },
-  "scripts": {
-    "storybook": "make server",
-    "compile": "babel --source-maps inline --out-dir lib src",
-    "deploy": "make deploy",
-    "test": "jest --no-cache --verbose"
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.js": ["xo", "prettier --write", "git add"],
+    "*.{json,md}": ["prettier --write", "git add"]
   }
 }

@@ -6,7 +6,7 @@ export const propTypes = {
   cursor: PropTypes.string,
   userSelect: PropTypes.string,
   visibility: PropTypes.string,
-  pointerEvents: PropTypes.string,
+  pointerEvents: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -27,6 +27,6 @@ export const parseProps = ({
     visibility !== undefined && insertSingleProperty('visibility', visibility),
     pointerEvents !== undefined &&
       insertSingleProperty('pointerEvents', pointerEvents),
-    className !== undefined && insertSingleProperty('className', className),
-  ),
+    className !== undefined && insertSingleProperty('className', className)
+  )
 })

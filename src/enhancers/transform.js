@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  transform: PropTypes.string,
+  transform: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -19,6 +19,6 @@ export const parseProps = ({
     className,
     transform !== undefined && insertSingleProperty('transform', transform),
     transformOrigin !== undefined &&
-      insertSingleProperty('transform', transformOrigin),
-  ),
+      insertSingleProperty('transform', transformOrigin)
+  )
 })

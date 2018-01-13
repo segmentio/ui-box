@@ -1,6 +1,5 @@
-import getSafeValue from './getSafeValue'
-
-import getClassNameAndValue from './getClassNameAndValue'
+import getSafeValue from './get-safe-value'
+import getClassNameAndValue from './get-class-name-and-value'
 
 const indexCaches = {}
 
@@ -24,7 +23,7 @@ export default function getInsertConfig({
   isUnitParsed = true,
   defaultUnit = 'px',
   isValueEscaped = true,
-  value: _value,
+  value: _value
 }) {
   let isInCache = false
   let className
@@ -52,11 +51,11 @@ export default function getInsertConfig({
       value,
       isUnitParsed,
       defaultUnit,
-      isValueEscaped,
+      isValueEscaped
     })
 
-    className = result.className // eslint-disable-line
-    value = result.value // eslint-disable-line
+    className = result.className
+    value = result.value
 
     if (hashCache[className]) {
       isInCache = true

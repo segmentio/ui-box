@@ -1,5 +1,5 @@
 // This file is loosely based on glamor
-import { getStyleTag } from './styleTag'
+import { getStyleTag } from './style-tag'
 
 const isBrowser = typeof window !== 'undefined'
 const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV
@@ -9,13 +9,12 @@ function last(arr) {
   return arr[arr.length - 1]
 }
 
-// eslint-disable-next-line
 function sheetForTag(tag) {
   if (tag.sheet) {
     return tag.sheet
   }
 
-  // this weirdness brought to you by firefox
+  // This weirdness brought to you by firefox
   for (let i = 0; i < document.styleSheets.length; i += 1) {
     if (document.styleSheets[i].ownerNode === tag) {
       return document.styleSheets[i]
@@ -23,9 +22,10 @@ function sheetForTag(tag) {
   }
 }
 
-export default function StyleSheet(
-  { speedy = !isDev && !isTest, maxLength = 65000 } = {},
-) {
+export default function StyleSheet({
+  speedy = !isDev && !isTest,
+  maxLength = 65000
+} = {}) {
   // The big drawback here is that the css won't be editable in devtools
   this.isSpeedy = speedy
   this.sheet = undefined
@@ -45,14 +45,14 @@ Object.assign(StyleSheet.prototype, {
     if (isBrowser) {
       this.tags[0] = getStyleTag()
     } else {
-      // server side 'polyfill'. just enough behavior to be useful.
+      // Server side 'polyfill'. just enough behavior to be useful.
       this.sheet = {
         cssRules: [],
         insertRule: rule => {
-          // enough 'spec compliance' to be able to extract the rules later
+          // Enough 'spec compliance' to be able to extract the rules later
           // in other words, just the cssText field
           this.sheet.cssRules.push({ cssText: rule })
-        },
+        }
       }
     }
     this.injected = true
@@ -60,36 +60,34 @@ Object.assign(StyleSheet.prototype, {
   speedy(bool) {
     if (this.ctr !== 0) {
       throw new Error(
-        `StyleSheet cannot change speedy mode after inserting any rule to sheet. Either call speedy(${
-          bool
-        }) earlier in your app, or call flush() before speedy(${bool})`,
+        `StyleSheet cannot change speedy mode after inserting any rule to sheet. Either call speedy(${bool}) earlier in your app, or call flush() before speedy(${bool})`
       )
     }
-    this.isSpeedy = !!bool
+    this.isSpeedy = Boolean(bool)
   },
   _insert(rule) {
-    // this weirdness for perf, and chrome's weird bug
+    // This weirdness for perf, and chrome's weird bug
     // https://stackoverflow.com/questions/20007992/chrome-suddenly-stopped-accepting-insertrule
     try {
       const sheet = this.getSheet()
       sheet.insertRule(rule, sheet.cssRules.length)
-    } catch (e) {
+    } catch (err) {
       if (isDev) {
-        // might need beter dx for this
-        console.warn('StyleSheet illegal rule inserted', rule) // eslint-disable-line no-console
+        // Might need beter dx for this
+        console.warn('StyleSheet illegal rule inserted', rule)
       }
     }
   },
   insert(rule) {
     if (isBrowser) {
-      // this is the ultrafast version, works across browsers
+      // This is the ultrafast version, works across browsers
       if (this.isSpeedy && this.getSheet().insertRule) {
-        this._insert(rule) // eslint-disable-line no-underscore-dangle
+        this._insert(rule)
       } else {
         last(this.tags).appendChild(document.createTextNode(rule))
       }
     } else {
-      // server side is pretty simple
+      // Server side is pretty simple
       this.sheet.insertRule(rule, this.sheet.cssRules.length)
     }
 
@@ -100,7 +98,7 @@ Object.assign(StyleSheet.prototype, {
     return this.ctr - 1
   },
   delete(index) {
-    // we insert a blank rule when 'deleting' so previously returned indexes remain stable
+    // We insert a blank rule when 'deleting' so previously returned indexes remain stable
     return this.replace(index, '')
   },
   flush() {
@@ -109,9 +107,9 @@ Object.assign(StyleSheet.prototype, {
       this.tags = []
       this.sheet = null
       this.ctr = 0
-      // todo - look for remnants in document.styleSheets
+      // Todo - look for remnants in document.styleSheets
     } else {
-      // simpler on server
+      // Simpler on server
       this.sheet.cssRules = []
     }
     this.injected = false
@@ -122,8 +120,8 @@ Object.assign(StyleSheet.prototype, {
     }
     const arr = []
     this.tags.forEach(tag =>
-      arr.splice(arr.length, 0, ...Array.from(sheetForTag(tag).cssRules)),
+      arr.splice(arr.length, 0, ...Array.from(sheetForTag(tag).cssRules))
     )
     return arr
-  },
+  }
 })

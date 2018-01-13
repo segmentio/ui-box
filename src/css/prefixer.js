@@ -1,4 +1,4 @@
-// custom facade for inline-style-prefixer
+// Custom facade for inline-style-prefixer
 
 import staticData from 'inline-style-prefixer/static/staticData'
 
@@ -15,7 +15,7 @@ import imageSet from 'inline-style-prefixer/static/plugins/imageSet'
 import position from 'inline-style-prefixer/static/plugins/position'
 import sizing from 'inline-style-prefixer/static/plugins/sizing'
 import transition from 'inline-style-prefixer/static/plugins/transition'
-import { dashToCamel, camelToDash } from './conversion'
+import { dashToCamel } from './conversion'
 
 const plugins = [
   crossFade,
@@ -27,7 +27,7 @@ const plugins = [
   position,
   sizing,
   transition,
-  flex,
+  flex
 ]
 
 const prefixMap = staticData.prefixMap
@@ -37,7 +37,7 @@ export default function prefixer(property, value) {
 
   const processedValue = prefixValue(plugins, property, value, style, prefixMap)
 
-  // only modify the value if it was touched
+  // Only modify the value if it was touched
   // by any plugin to prevent unnecessary mutations
   if (processedValue) {
     style[property] = processedValue

@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Box, { dimensions } from '../'
+import Box from '../'
 
 const RedBox = props => (
   <Box
@@ -11,6 +11,8 @@ const RedBox = props => (
     {...props}
   />
 )
+
+const logRef = ref => console.log(ref)
 
 export default function boxStory(module) {
   storiesOf('Box', module)
@@ -75,7 +77,7 @@ export default function boxStory(module) {
     .add('display', () => (
       <Box>
         <RedBox display="inline-block" />
-        <RedBox display="inline-block" />
+        <RedBox display="inline">inline</RedBox>
       </Box>
     ))
     .add('flex', () => (
@@ -128,7 +130,7 @@ export default function boxStory(module) {
     ))
     .add('innerRef', () => (
       <Box>
-        <Box innerRef={ref => console.log(ref)}>innerRef</Box>
+        <Box innerRef={logRef}>innerRef</Box>
       </Box>
     ))
     .add('css', () => (

@@ -7,7 +7,7 @@ export const propTypes = {
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -28,6 +28,6 @@ export const parseProps = ({
     top !== undefined && insertSingleProperty('top', top),
     right !== undefined && insertSingleProperty('right', right),
     bottom !== undefined && insertSingleProperty('bottom', bottom),
-    left !== undefined && insertSingleProperty('left', left),
-  ),
+    left !== undefined && insertSingleProperty('left', left)
+  )
 })

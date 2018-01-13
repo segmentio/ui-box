@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { insertSingleProperty } from '../css'
-import getFirstValidProp from '../utils/getFirstValidProp'
+import getFirstValidProp from '../utils/get-first-valid-prop'
 
 export const propTypes = {
   padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -17,7 +17,7 @@ export const propTypes = {
   marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   marginLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   marginX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  marginY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  marginY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -52,6 +52,6 @@ export const parseProps = ({
     getFirstValidProp('paddingTop', paddingTop, paddingY),
     getFirstValidProp('paddingRight', paddingRight, paddingX),
     getFirstValidProp('paddingBottom', paddingBottom, paddingY),
-    getFirstValidProp('paddingLeft', paddingLeft, paddingX),
-  ),
+    getFirstValidProp('paddingLeft', paddingLeft, paddingX)
+  )
 })

@@ -8,7 +8,7 @@ export const propTypes = {
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -31,6 +31,6 @@ export const parseProps = ({
     minWidth !== undefined && insertSingleProperty('minWidth', minWidth),
     minHeight !== undefined && insertSingleProperty('minHeight', minHeight),
     maxWidth !== undefined && insertSingleProperty('maxWidth', maxWidth),
-    maxHeight !== undefined && insertSingleProperty('maxHeight', maxHeight),
-  ),
+    maxHeight !== undefined && insertSingleProperty('maxHeight', maxHeight)
+  )
 })

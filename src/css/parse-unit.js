@@ -3,7 +3,6 @@ export default function parseUnit(_str, _out = [0, '']) {
   const str = String(_str)
   const num = parseFloat(str, 10)
   out[0] = num
-  // eslint-disable-next-line
-  out[1] = str.match(/[\d.\-\+]*\s*(.*)/)[1] || ''
+  out[1] = str.match(/[\d.\-+]*\s*(.*)/)[1] || ''
   return out
 }
