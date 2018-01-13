@@ -1,5 +1,7 @@
 # ui-box
 
+[![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
+
 > React Component that works as a UI Primitive for design systems.
 
 ```
@@ -13,6 +15,12 @@ $ npm install --save ui-box
 ```javascript
 import Box from 'ui-box'
 ```
+
+## Development
+
+* `yarn run storybook` starts the development Storybook at http://localhost:9009/.
+* `yarn test` runs the tests.
+* `yarn run build` transpiles the JavaScript files.
 
 ## Authors
 

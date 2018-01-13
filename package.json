@@ -10,10 +10,14 @@
   "files": ["lib"],
   "scripts": {
     "test": "xo",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 9009",
+    "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
+    "build-storybook": "build-storybook -s .storybook/static -o .out"
   },
   "devDependencies": {
     "@storybook/react": "^3.2.12",
+    "@storybook/storybook-deployer": "^2.2.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.1",
@@ -44,7 +48,9 @@
     "extends": ["xo-react", "prettier", "prettier/react"],
     "envs": ["node", "browser"],
     "rules": {
-      "indent": ["off"]
+      "indent": ["off"],
+      "react/jsx-indent-props": ["off"],
+      "react/jsx-indent": ["off"]
     }
   },
   "prettier": {

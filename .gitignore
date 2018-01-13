@@ -1,5 +1,5 @@
 node_modules
 /lib/
-/storybook-static/
+/.out/
 .DS_Store
 *.log
