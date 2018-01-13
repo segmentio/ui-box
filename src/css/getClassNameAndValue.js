@@ -8,7 +8,7 @@ export default function getClassNameAndValue({
   value: _value,
   isUnitParsed,
   defaultUnit,
-  isValueEscaped,
+  isValueEscaped
 }) {
   let value
   let valueKey

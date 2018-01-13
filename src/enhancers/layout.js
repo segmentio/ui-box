@@ -9,7 +9,7 @@ export const propTypes = {
   float: PropTypes.string,
   clear: PropTypes.string,
   zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  boxSizing: PropTypes.string,
+  boxSizing: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -18,8 +18,8 @@ const cssClearfix = {
   '&:before, &:after': {
     display: 'table',
     clear: 'both',
-    content: '""',
-  },
+    content: '""'
+  }
 }
 
 export const parseProps = ({
@@ -40,6 +40,6 @@ export const parseProps = ({
     float !== undefined && insertSingleProperty('float', float),
     clear !== undefined && insertSingleProperty('clear', clear),
     zIndex !== undefined && insertSingleProperty('zIndex', zIndex),
-    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing),
-  ),
+    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing)
+  )
 })

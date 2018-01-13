@@ -6,47 +6,47 @@ properties.background = {
   key: 'bg',
   isUnitParsed: false,
   isPrefixed: true,
-  cacheType: 'array',
+  cacheType: 'array'
 }
 properties.backgroundColor = {
   key: 'bg-clr',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundImage = {
   key: 'bg-img',
   isPrefixed: true,
-  cacheType: 'array',
+  cacheType: 'array'
 }
 properties.backgroundPosition = {
   key: 'bg-pos',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundSize = {
   key: 'bg-siz',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundOrigin = {
   key: 'bg-orgn',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundRepeat = {
   key: 'bg-rpt',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundClip = {
   key: 'bg-clp',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 properties.backgroundBlendMode = {
   key: 'bg-blnd-md',
   isUnitParsed: false,
-  isPrefixed: true,
+  isPrefixed: true
 }
 
 properties.borderRadius = { key: 'br', isValueEscaped: false }
@@ -80,7 +80,7 @@ properties.boxShadow = {
   key: 'bs',
   isUnitParsed: false,
   isPrefixed: true,
-  cacheType: 'array',
+  cacheType: 'array'
 }
 
 properties.width = { key: 'w', isValueEscaped: false }
@@ -110,17 +110,17 @@ properties.cursor = { key: 'crsr', isUnitParsed: false, isValueEscaped: false }
 properties.userSelect = {
   key: 'usr-slct',
   isPrefixed: true,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.visibility = {
   key: 'vsblt',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.pointerEvents = {
   key: 'ptr-evts',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 
 properties.display = { key: 'dspl', isUnitParsed: false, isValueEscaped: false }
@@ -130,7 +130,7 @@ properties.zIndex = { key: 'z-idx', isUnitParsed: false, isValueEscaped: false }
 properties.boxSizing = {
   key: 'box-szg',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 
 properties.opacity = { key: 'opct', isUnitParsed: false }
@@ -156,14 +156,14 @@ properties.textAlign = { key: 'txt-algn', isUnitParsed: false }
 properties.textDecoration = {
   key: 'txt-deco',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.textTransform = { key: 'txt-trns', isUnitParsed: false }
 properties.textShadow = { key: 'txt-shdw', isUnitParsed: false }
 properties.textOverflow = {
   key: 'txt-ovrf',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.color = { key: 'color', isUnitParsed: false }
 properties.font = { key: 'fnt', cacheType: 'array' }
@@ -172,34 +172,34 @@ properties.fontSize = { key: 'fnt-sze', isValueEscaped: false }
 properties.fontStyle = {
   key: 'fnt-stl',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.fontVariant = {
   key: 'f-vari',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.fontWeight = {
   key: 'f-wght',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 // Use pixels for line-height by default
 properties.lineHeight = { key: 'ln-ht', isValueEscaped: false }
 properties.wordBreak = {
   key: 'wrd-brk',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.wordWrap = {
   key: 'wrd-wrp',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.whiteSpace = {
   key: 'wht-spc',
   isUnitParsed: false,
-  isValueEscaped: false,
+  isValueEscaped: false
 }
 properties.letterSpacing = { key: 'ltr-spc', isValueEscaped: false }
 
@@ -207,7 +207,7 @@ properties.transform = { key: 'tfrm', isUnitParsed: false, cacheType: 'array' }
 properties.transformOrgin = {
   key: 'tfrm-orgn',
   isUnitParsed: false,
-  cacheType: 'array',
+  cacheType: 'array'
 }
 
 Object.keys(properties).forEach(key => {

@@ -6,20 +6,20 @@ export const propTypes = {
   borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderTopLeftRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   borderTopRightRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   borderBottomLeftRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   borderBottomRightRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
-  ]),
+    PropTypes.number
+  ])
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -48,6 +48,6 @@ export const parseProps = ({
     borderBottomLeftRadius !== undefined &&
       insertSingleProperty('borderBottomLeftRadius', borderBottomLeftRadius),
     borderBottomRightRadius !== undefined &&
-      insertSingleProperty('borderBottomRightRadius', borderBottomRightRadius),
-  ),
+      insertSingleProperty('borderBottomRightRadius', borderBottomRightRadius)
+  )
 })

@@ -11,7 +11,7 @@ export const propTypes = {
   backgroundOrigin: PropTypes.string,
   backgroundRepeat: PropTypes.string,
   backgroundClip: PropTypes.string,
-  backgroundBlendMode: PropTypes.string,
+  backgroundBlendMode: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -48,6 +48,6 @@ export const parseProps = ({
     backgroundClip !== undefined &&
       insertSingleProperty('backgroundClip', backgroundClip),
     backgroundBlendMode !== undefined &&
-      insertSingleProperty('backgroundBlendMode', backgroundBlendMode),
-  ),
+      insertSingleProperty('backgroundBlendMode', backgroundBlendMode)
+  )
 })

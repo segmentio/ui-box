@@ -27,7 +27,7 @@ export function insertSingleProperty(property, inputValue) {
 
   const { className, isInCache, value } = getInsertConfig({
     ...propertyInfo,
-    value: inputValue,
+    value: inputValue
   })
 
   if (isInCache) return className

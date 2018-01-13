@@ -1,32 +1,34 @@
 {
   "name": "ui-box",
   "version": "0.5.4",
-  "description": "React Component that works as a UI Primitive for design systems.",
-  "keywords": [
-    "react"
-  ],
+  "description":
+    "React Component that works as a UI Primitive for design systems.",
+  "keywords": ["react"],
   "repository": "segmentio/ui-box",
   "license": "MIT",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
-    "test": ""
+    "test": "xo",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "@storybook/react": "^3.2.12",
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "eslint-config-prettier": "^2.7.0",
+    "eslint-config-xo-react": "^0.15.0",
     "eslint-plugin-react": "^7.4.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "xo": "^0.18.2"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -36,5 +38,21 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
+  },
+  "xo": {
+    "parser": "babel-eslint",
+    "extends": ["xo-react", "prettier", "prettier/react"],
+    "envs": ["node", "browser"],
+    "rules": {
+      "indent": ["off"]
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.js": ["prettier --write", "git add"],
+    "*.{json,md}": ["prettier --write", "git add"]
   }
 }

@@ -5,7 +5,7 @@ import { insertSingleProperty } from '../css'
 export const propTypes = {
   overflow: PropTypes.string,
   overflowY: PropTypes.string,
-  overflowX: PropTypes.string,
+  overflowX: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -22,6 +22,6 @@ export const parseProps = ({
     className,
     overflow !== undefined && insertSingleProperty('overflow', overflow),
     overflowX !== undefined && insertSingleProperty('overflowX', overflowX),
-    overflowY !== undefined && insertSingleProperty('overflowY', overflowY),
-  ),
+    overflowY !== undefined && insertSingleProperty('overflowY', overflowY)
+  )
 })

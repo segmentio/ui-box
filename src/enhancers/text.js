@@ -17,7 +17,7 @@ export const propTypes = {
   lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   wordBreak: PropTypes.string,
   wordWrap: PropTypes.string,
-  letterSpacing: PropTypes.string,
+  letterSpacing: PropTypes.string
 }
 
 export const keysPropTypes = Object.keys(propTypes)
@@ -67,6 +67,6 @@ export const parseProps = ({
     wordWrap !== undefined && insertSingleProperty('wordWrap', wordWrap),
     whiteSpace !== undefined && insertSingleProperty('whiteSpace', whiteSpace),
     letterSpacing !== undefined &&
-      insertSingleProperty('letterSpacing', letterSpacing),
-  ),
+      insertSingleProperty('letterSpacing', letterSpacing)
+  )
 })

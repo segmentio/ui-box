@@ -6,7 +6,7 @@ import {
   opacity,
   position,
   spacing,
-  transform,
+  transform
 } from '../enhancers'
 import splitProps from './splitProps'
 
@@ -18,7 +18,7 @@ const wrapperKeys = [
   ...Object.keys(opacity.propTypes),
   ...Object.keys(position.propTypes),
   ...Object.keys(spacing.propTypes),
-  ...Object.keys(transform.propTypes),
+  ...Object.keys(transform.propTypes)
 ]
 
 /**

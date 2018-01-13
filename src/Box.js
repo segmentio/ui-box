@@ -16,7 +16,7 @@ import {
   spacing,
   text,
   transform,
-  interaction,
+  interaction
 } from './enhancers'
 
 const enhancersArray = [
@@ -33,58 +33,65 @@ const enhancersArray = [
   spacing,
   text,
   transform,
-  interaction,
+  interaction
 ]
-
-const propTypes = {
-  ...background.propTypes,
-  ...borderRadius.propTypes,
-  ...borders.propTypes,
-  ...boxShadow.propTypes,
-  ...dimensions.propTypes,
-  ...layout.propTypes,
-  ...opacity.propTypes,
-  ...flex.propTypes,
-  ...overflow.propTypes,
-  ...position.propTypes,
-  ...spacing.propTypes,
-  ...text.propTypes,
-  ...transform.propTypes,
-  ...interaction.propTypes,
-  css: PropTypes.object,
-  innerRef: PropTypes.func,
-  is: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.func,
-  ]),
-}
 
 /**
  * This is optimized for performance.
  * It can be called many times
  */
 const parseProps = props => {
-  // eslint-disable-next-line
-  outer: for (const propKey in props) {
+  let finalProps = props
+  const propKeys = Object.keys(props)
+
+  for (let i = 0; i < propKeys.length; i++) {
+    const propKey = propKeys[i]
     // Skip children
-    // eslint-disable-next-line
     if (propKey === 'children') continue
 
-    for (let j = 0; j < enhancersArray.length; j += 1) {
-      if (typeof enhancersArray[j].propTypes[propKey] !== 'undefined') {
-        // eslint-disable-next-line
-        props = enhancersArray[j].parseProps(props)
-        // eslint-disable-next-line
-        continue outer
+    for (let i = 0; i < enhancersArray.length; i += 1) {
+      const enhancer = enhancersArray[i]
+      if (enhancer.propTypes[propKey]) {
+        finalProps = enhancer.parseProps(finalProps)
+        continue
       }
     }
   }
 
-  return props
+  return finalProps
 }
 
-class Box extends React.PureComponent {
+export default class Box extends React.PureComponent {
+  static displayName = 'Box'
+  static propTypes = {
+    ...background.propTypes,
+    ...borderRadius.propTypes,
+    ...borders.propTypes,
+    ...boxShadow.propTypes,
+    ...dimensions.propTypes,
+    ...layout.propTypes,
+    ...opacity.propTypes,
+    ...flex.propTypes,
+    ...overflow.propTypes,
+    ...position.propTypes,
+    ...spacing.propTypes,
+    ...text.propTypes,
+    ...transform.propTypes,
+    ...interaction.propTypes,
+    css: PropTypes.object,
+    innerRef: PropTypes.func,
+    is: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element,
+      PropTypes.func
+    ])
+  }
+  static defaultProps = {
+    css: null,
+    innerRef: null,
+    is: 'div'
+  }
+
   render() {
     const { is, css, innerRef, ...props } = this.props
     const { className, ...parsedProps } = parseProps(props)
@@ -98,19 +105,9 @@ class Box extends React.PureComponent {
         ? {
             ref: node => {
               innerRef(node)
-            },
+            }
           }
-        : {}),
+        : {})
     })
   }
 }
-
-Box.propTypes = propTypes
-
-Box.defaultProps = {
-  is: 'div',
-}
-
-Box.displayName = 'Box'
-
-export default Box

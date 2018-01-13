@@ -24,7 +24,7 @@ export default function getInsertConfig({
   isUnitParsed = true,
   defaultUnit = 'px',
   isValueEscaped = true,
-  value: _value,
+  value: _value
 }) {
   let isInCache = false
   let className
@@ -52,11 +52,11 @@ export default function getInsertConfig({
       value,
       isUnitParsed,
       defaultUnit,
-      isValueEscaped,
+      isValueEscaped
     })
 
-    className = result.className // eslint-disable-line
-    value = result.value // eslint-disable-line
+    className = result.className
+    value = result.value
 
     if (hashCache[className]) {
       isInCache = true
