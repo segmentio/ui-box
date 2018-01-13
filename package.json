@@ -3,6 +3,10 @@
   "version": "0.5.4",
   "description":
     "React Component that works as a UI Primitive for design systems.",
+  "contributors": [
+    "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
+    "Roland Warmerdam (https://roland.codes)"
+  ],
   "keywords": ["react"],
   "repository": "segmentio/ui-box",
   "license": "MIT",

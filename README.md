@@ -28,12 +28,8 @@ To release a new version run:
 yarn run release
 ```
 
-## Authors
-
-[Jeroen Ransijn](https://twitter.com/jeroen_ransijn)
-
 ## License
 
 ui-box is released under the MIT license.
 
-Copyright © 2017 Segment.io, Inc. <mailto:friends@segment.com>
+Copyright © 2017 Segment.io, Inc.
