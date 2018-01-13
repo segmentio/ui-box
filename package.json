@@ -18,7 +18,8 @@
     "storybook": "start-storybook -p 9009",
     "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
-    "release": "np --no-publish"
+    "release": "np --no-publish",
+    "size": "size-limit"
   },
   "devDependencies": {
     "@storybook/react": "^3.2.12",
@@ -38,6 +39,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "size-limit": "^0.13.2",
     "xo": "^0.18.2"
   },
   "dependencies": {
@@ -66,5 +68,11 @@
   "lint-staged": {
     "*.js": ["xo", "prettier --write", "git add"],
     "*.{json,md}": ["prettier --write", "git add"]
-  }
+  },
+  "size-limit": [
+    {
+      "path": "lib/index.js",
+      "limit": "17 KB"
+    }
+  ]
 }

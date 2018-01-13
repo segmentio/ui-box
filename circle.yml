@@ -22,6 +22,7 @@ compile:
 test:
   override:
     - yarn run test
+    - yarn run size
 
 deployment:
   deploy-storybook:
