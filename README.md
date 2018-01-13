@@ -5,11 +5,11 @@
 > React Component that works as a UI Primitive for design systems.
 
 ```
-$ yarn add ui-box
+yarn add ui-box
 ```
 
 ```
-$ npm install --save ui-box
+npm install --save ui-box
 ```
 
 ```javascript
@@ -21,6 +21,12 @@ import Box from 'ui-box'
 * `yarn run storybook` starts the development Storybook at http://localhost:9009/.
 * `yarn test` runs the tests.
 * `yarn run build` transpiles the JavaScript files.
+
+To release a new version run:
+
+```
+yarn run release
+```
 
 ## Authors
 
