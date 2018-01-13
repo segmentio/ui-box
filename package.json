@@ -21,6 +21,15 @@
     "release": "np --no-publish",
     "size": "size-limit"
   },
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "glamor": "^2.20.0",
+    "inline-style-prefixer": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
   "devDependencies": {
     "@storybook/react": "^3.2.12",
     "@storybook/storybook-deployer": "^2.2.0",
@@ -41,15 +50,6 @@
     "react-dom": "^16.0.0",
     "size-limit": "^0.13.2",
     "xo": "^0.18.2"
-  },
-  "dependencies": {
-    "classnames": "^2.2.0",
-    "glamor": "^2.20.0",
-    "inline-style-prefixer": "^4.0.0"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
   },
   "xo": {
     "parser": "babel-eslint",
