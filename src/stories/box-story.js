@@ -3,13 +3,7 @@ import { storiesOf } from '@storybook/react'
 import Box from '../'
 
 const RedBox = props => (
-  <Box
-    backgroundColor="red"
-    width="100px"
-    height="100px"
-    margin="20px"
-    {...props}
-  />
+  <Box background="red" width="100px" height="100px" margin="20px" {...props} />
 )
 
 const logRef = ref => console.log(ref)
