@@ -3,7 +3,14 @@ import cx from 'classnames'
 import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  position: PropTypes.oneOf(['relative', 'absolute', 'fixed', 'static']),
+  position: PropTypes.oneOf([
+    'relative',
+    'absolute',
+    'fixed',
+    'static',
+    'sticky',
+    'inherit'
+  ]),
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

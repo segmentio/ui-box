@@ -5,7 +5,7 @@ import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   display: PropTypes.string,
-  clearfix: PropTypes.string,
+  clearfix: PropTypes.bool,
   float: PropTypes.string,
   clear: PropTypes.string,
   zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

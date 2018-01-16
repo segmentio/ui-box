@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  flex: PropTypes.string,
+  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   alignItems: PropTypes.string,
   alignSelf: PropTypes.string,
   alignContent: PropTypes.string,
@@ -25,6 +25,7 @@ export const parseProps = ({
   alignSelf,
   alignContent,
   justifyContent,
+  justifySelf,
   flexDirection,
   flexWrap,
   flexGrow,
@@ -44,6 +45,8 @@ export const parseProps = ({
       insertSingleProperty('alignContent', alignContent),
     justifyContent !== undefined &&
       insertSingleProperty('justifyContent', justifyContent),
+    justifySelf !== undefined &&
+      insertSingleProperty('justifySelf', justifySelf),
     flexDirection !== undefined &&
       insertSingleProperty('flexDirection', flexDirection),
     flexWrap !== undefined && insertSingleProperty('flexWrap', flexWrap),
