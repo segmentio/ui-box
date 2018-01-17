@@ -19,7 +19,8 @@
     "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
-    "size": "size-limit"
+    "size": "size-limit",
+    "benchmark": "react-benchmark tools/benchmark.js"
   },
   "dependencies": {
     "classnames": "^2.2.0",
@@ -47,6 +48,7 @@
     "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
+    "react-benchmark": "^1.0.4",
     "react-dom": "^16.0.0",
     "size-limit": "^0.13.2",
     "xo": "^0.18.2"
