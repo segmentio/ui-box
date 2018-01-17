@@ -8,10 +8,8 @@ export const propTypes = {
 
 export const keysPropTypes = Object.keys(propTypes)
 
-export const parseProps = ({ boxShadow, className, ...props }) => ({
-  ...props,
-  className: cx(
-    className,
+export const parseProps = ({ boxShadow }) => {
+  return cx(
     boxShadow !== undefined && insertSingleProperty('boxShadow', boxShadow)
   )
-})
+}

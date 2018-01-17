@@ -135,6 +135,11 @@ storiesOf('Box', module)
       </Box>
     </Box>
   ))
+  .add('props pass through', () => (
+    <Box>
+      <Box is="input" type="file" />
+    </Box>
+  ))
   .add('frankenstein monster', () => (
     <Box
       backgroundColor="red"

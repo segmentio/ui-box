@@ -28,13 +28,9 @@ export const parseProps = ({
   float,
   clear,
   zIndex,
-  boxSizing,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  boxSizing
+}) => {
+  return cx(
     clearfix && css(cssClearfix).toString(),
     display !== undefined && insertSingleProperty('display', display),
     float !== undefined && insertSingleProperty('float', float),
@@ -42,4 +38,4 @@ export const parseProps = ({
     zIndex !== undefined && insertSingleProperty('zIndex', zIndex),
     boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing)
   )
-})
+}

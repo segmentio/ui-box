@@ -8,10 +8,6 @@ export const propTypes = {
 
 export const keysPropTypes = Object.keys(propTypes)
 
-export const parseProps = ({ opacity, className, ...props }) => ({
-  ...props,
-  className: cx(
-    className,
-    opacity !== undefined && insertSingleProperty('opacity', opacity)
-  )
-})
+export const parseProps = ({ opacity }) => {
+  return cx(opacity !== undefined && insertSingleProperty('opacity', opacity))
+}

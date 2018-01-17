@@ -29,13 +29,9 @@ export const parseProps = ({
   borderTopLeftRadius,
   borderTopRightRadius,
   borderBottomLeftRadius,
-  borderBottomRightRadius,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  borderBottomRightRadius
+}) => {
+  return cx(
     borderRadius !== undefined &&
       insertSingleProperty('borderRadius', borderRadius),
     borderTopLeftRadius !== undefined &&
@@ -47,4 +43,4 @@ export const parseProps = ({
     borderBottomRightRadius !== undefined &&
       insertSingleProperty('borderBottomRightRadius', borderBottomRightRadius)
   )
-})
+}

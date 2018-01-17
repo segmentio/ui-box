@@ -10,18 +10,10 @@ export const propTypes = {
 
 export const keysPropTypes = Object.keys(propTypes)
 
-export const parseProps = ({
-  overflow,
-  overflowX,
-  overflowY,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+export const parseProps = ({ overflow, overflowX, overflowY }) => {
+  return cx(
     overflow !== undefined && insertSingleProperty('overflow', overflow),
     overflowX !== undefined && insertSingleProperty('overflowX', overflowX),
     overflowY !== undefined && insertSingleProperty('overflowY', overflowY)
   )
-})
+}

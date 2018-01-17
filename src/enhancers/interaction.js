@@ -15,18 +15,13 @@ export const parseProps = ({
   cursor,
   userSelect,
   visibility,
-  pointerEvents,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  pointerEvents
+}) => {
+  return cx(
     cursor !== undefined && insertSingleProperty('cursor', cursor),
     userSelect !== undefined && insertSingleProperty('userSelect', userSelect),
     visibility !== undefined && insertSingleProperty('visibility', visibility),
     pointerEvents !== undefined &&
-      insertSingleProperty('pointerEvents', pointerEvents),
-    className !== undefined && insertSingleProperty('className', className)
+      insertSingleProperty('pointerEvents', pointerEvents)
   )
-})
+}

@@ -25,13 +25,9 @@ export const parseProps = ({
   backgroundOrigin,
   backgroundRepeat,
   backgroundClip,
-  backgroundBlendMode,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  backgroundBlendMode
+}) => {
+  return cx(
     background !== undefined && insertSingleProperty('background', background),
     backgroundColor !== undefined &&
       insertSingleProperty('backgroundColor', backgroundColor),
@@ -50,4 +46,4 @@ export const parseProps = ({
     backgroundBlendMode !== undefined &&
       insertSingleProperty('backgroundBlendMode', backgroundBlendMode)
   )
-})
+}

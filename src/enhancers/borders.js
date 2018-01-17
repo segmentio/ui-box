@@ -47,13 +47,9 @@ export const parseProps = ({
   borderBottom,
   borderBottomColor,
   borderBottomStyle,
-  borderBottomWidth,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  borderBottomWidth
+}) => {
+  return cx(
     border !== undefined && insertSingleProperty('border', border),
     borderColor !== undefined &&
       insertSingleProperty('borderColor', borderColor),
@@ -92,4 +88,4 @@ export const parseProps = ({
     borderBottomWidth !== undefined &&
       insertSingleProperty('borderBottomWidth', borderBottomWidth)
   )
-})
+}

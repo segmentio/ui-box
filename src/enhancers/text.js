@@ -39,13 +39,9 @@ export const parseProps = ({
   wordBreak,
   wordWrap,
   whiteSpace,
-  letterSpacing,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  letterSpacing
+}) => {
+  return cx(
     textAlign !== undefined && insertSingleProperty('textAlign', textAlign),
     textDecoration !== undefined &&
       insertSingleProperty('textDecoration', textDecoration),
@@ -69,4 +65,4 @@ export const parseProps = ({
     letterSpacing !== undefined &&
       insertSingleProperty('letterSpacing', letterSpacing)
   )
-})
+}

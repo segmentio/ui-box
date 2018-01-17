@@ -36,13 +36,9 @@ export const parseProps = ({
   marginBottom,
   marginLeft,
   marginX,
-  marginY,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  marginY
+}) => {
+  return cx(
     margin !== undefined && insertSingleProperty('margin', margin),
     padding !== undefined && insertSingleProperty('padding', padding),
     getFirstValidProp('marginTop', marginTop, marginY),
@@ -54,4 +50,4 @@ export const parseProps = ({
     getFirstValidProp('paddingBottom', paddingBottom, paddingY),
     getFirstValidProp('paddingLeft', paddingLeft, paddingX)
   )
-})
+}

@@ -19,22 +19,12 @@ export const propTypes = {
 
 export const keysPropTypes = Object.keys(propTypes)
 
-export const parseProps = ({
-  position,
-  top,
-  right,
-  bottom,
-  left,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+export const parseProps = ({ position, top, right, bottom, left }) => {
+  return cx(
     position !== undefined && insertSingleProperty('position', position),
     top !== undefined && insertSingleProperty('top', top),
     right !== undefined && insertSingleProperty('right', right),
     bottom !== undefined && insertSingleProperty('bottom', bottom),
     left !== undefined && insertSingleProperty('left', left)
   )
-})
+}

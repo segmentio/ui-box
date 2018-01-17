@@ -8,17 +8,10 @@ export const propTypes = {
 
 export const keysPropTypes = Object.keys(propTypes)
 
-export const parseProps = ({
-  transform,
-  transformOrigin,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+export const parseProps = ({ transform, transformOrigin }) => {
+  return cx(
     transform !== undefined && insertSingleProperty('transform', transform),
     transformOrigin !== undefined &&
       insertSingleProperty('transform', transformOrigin)
   )
-})
+}

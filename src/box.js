@@ -41,22 +41,38 @@ const enhancersArray = [
  * It can be called many times
  */
 const parseProps = props => {
-  let finalProps = props
+  const { className } = props
+  const finalProps = {}
   const propKeys = Object.keys(props)
+  let parsedProps = ['children'] // Skip children
+  let finalClassName = className || ''
 
   for (let i = 0; i < propKeys.length; i++) {
     const propKey = propKeys[i]
-    // Skip children
-    if (propKey === 'children') continue
+    let newClassName
+
+    if (parsedProps.includes(propKey)) continue
 
     for (let i = 0; i < enhancersArray.length; i += 1) {
       const enhancer = enhancersArray[i]
+
       if (enhancer.propTypes[propKey]) {
-        finalProps = enhancer.parseProps(finalProps)
-        continue
+        newClassName = enhancer.parseProps(props)
+        finalClassName = `${finalClassName} ${newClassName}`
+
+        // Assume all the enhancers parse unique props
+        parsedProps = parsedProps.concat(enhancer.keysPropTypes)
+        break
       }
     }
+
+    // Only pass through props that weren't parsed
+    if (!newClassName) {
+      finalProps[propKey] = props[propKey]
+    }
   }
+
+  finalProps.className = finalClassName
 
   return finalProps
 }
@@ -93,21 +109,25 @@ export default class Box extends React.PureComponent {
   }
 
   render() {
-    const { is, css, innerRef, ...props } = this.props
+    const { is, css, innerRef, children, ...props } = this.props
     const { className, ...parsedProps } = parseProps(props)
     let generatedClassName
     if (css) generatedClassName = gcss(css).toString()
 
-    return React.createElement(is, {
-      ...parsedProps,
-      className: cx(generatedClassName, className),
-      ...(innerRef
-        ? {
-            ref: node => {
-              innerRef(node)
+    return React.createElement(
+      is,
+      {
+        ...parsedProps,
+        className: cx(generatedClassName, className),
+        ...(innerRef
+          ? {
+              ref: node => {
+                innerRef(node)
+              }
             }
-          }
-        : {})
-    })
+          : {})
+      },
+      children
+    )
   }
 }

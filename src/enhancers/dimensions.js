@@ -19,13 +19,9 @@ export const parseProps = ({
   minWidth,
   minHeight,
   maxWidth,
-  maxHeight,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  maxHeight
+}) => {
+  return cx(
     width !== undefined && insertSingleProperty('width', width),
     height !== undefined && insertSingleProperty('height', height),
     minWidth !== undefined && insertSingleProperty('minWidth', minWidth),
@@ -33,4 +29,4 @@ export const parseProps = ({
     maxWidth !== undefined && insertSingleProperty('maxWidth', maxWidth),
     maxHeight !== undefined && insertSingleProperty('maxHeight', maxHeight)
   )
-})
+}

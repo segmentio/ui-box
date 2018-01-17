@@ -31,13 +31,9 @@ export const parseProps = ({
   flexGrow,
   flexShrink,
   flexBasis,
-  order,
-  className,
-  ...props
-}) => ({
-  ...props,
-  className: cx(
-    className,
+  order
+}) => {
+  return cx(
     flex !== undefined && insertSingleProperty('flex', flex),
     alignItems !== undefined && insertSingleProperty('alignItems', alignItems),
     alignSelf !== undefined && insertSingleProperty('alignSelf', alignSelf),
@@ -55,4 +51,4 @@ export const parseProps = ({
     flexBasis !== undefined && insertSingleProperty('flexBasis', flexBasis),
     order !== undefined && insertSingleProperty('order', order)
   )
-})
+}
