@@ -18,7 +18,7 @@ import Box from 'ui-box'
 
 ## Development
 
-* `yarn run storybook` starts the development Storybook at http://localhost:9009/.
+* `yarn run dev` starts the development Storybook at http://localhost:9009/.
 * `yarn test` runs the tests.
 * `yarn run build` transpiles the JavaScript files.
 

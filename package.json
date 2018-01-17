@@ -15,7 +15,7 @@
   "scripts": {
     "test": "xo",
     "precommit": "lint-staged",
-    "storybook": "start-storybook -p 9009",
+    "dev": "start-storybook -p 9009",
     "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
