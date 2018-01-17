@@ -26,7 +26,6 @@ export const keysPropTypes = Object.keys(propTypes)
 
 export const parseProps = ({
   borderRadius,
-  borderLeftRadius,
   borderTopLeftRadius,
   borderTopRightRadius,
   borderBottomLeftRadius,
@@ -39,8 +38,6 @@ export const parseProps = ({
     className,
     borderRadius !== undefined &&
       insertSingleProperty('borderRadius', borderRadius),
-    borderLeftRadius !== undefined &&
-      insertSingleProperty('borderLeftRadius', borderLeftRadius),
     borderTopLeftRadius !== undefined &&
       insertSingleProperty('borderTopLeftRadius', borderTopLeftRadius),
     borderTopRightRadius !== undefined &&

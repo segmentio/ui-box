@@ -143,7 +143,7 @@ export default function boxStory(module) {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundOrigin="inherit"
-        backgroundRepeat="no-repeate"
+        backgroundRepeat="no-repeat"
         backgroundClip="inherit"
         backgroundBlendMode="inherit"
         width={100}
@@ -153,7 +153,6 @@ export default function boxStory(module) {
         maxWidth={100}
         maxHeight={100}
         borderRadius={5}
-        borderLeftRadius={5}
         borderTopLeftRadius={5}
         borderTopRightRadius={5}
         borderBottomLeftRadius={5}
