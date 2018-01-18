@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css as gcss } from 'glamor'
-import cx from 'classnames'
 import {
   background,
   borderRadius,
@@ -72,9 +71,7 @@ const parseProps = props => {
     }
   }
 
-  finalProps.className = finalClassName
-
-  return finalProps
+  return [finalClassName, finalProps]
 }
 
 export default class Box extends React.PureComponent {
@@ -110,24 +107,21 @@ export default class Box extends React.PureComponent {
 
   render() {
     const { is, css, innerRef, children, ...props } = this.props
-    const { className, ...parsedProps } = parseProps(props)
-    let generatedClassName
-    if (css) generatedClassName = gcss(css).toString()
+    const [className, parsedProps] = parseProps(props)
+    const finalProps = parsedProps
 
-    return React.createElement(
-      is,
-      {
-        ...parsedProps,
-        className: cx(generatedClassName, className),
-        ...(innerRef
-          ? {
-              ref: node => {
-                innerRef(node)
-              }
-            }
-          : {})
-      },
-      children
-    )
+    if (css) {
+      finalProps.className = `${gcss(css).toString()} ${className}`
+    } else {
+      finalProps.className = className
+    }
+
+    if (innerRef) {
+      finalProps.ref = node => {
+        innerRef(node)
+      }
+    }
+
+    return React.createElement(is, finalProps, children)
   }
 }
