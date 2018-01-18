@@ -1,24 +1,36 @@
 import {
+  background,
+  borderRadius,
+  borders,
+  boxShadow,
   dimensions,
   flex,
   interaction,
   layout,
   opacity,
+  overflow,
   position,
   spacing,
+  text,
   transform
 } from '../enhancers'
 import splitProps from './split-props'
 
 const wrapperKeys = [
-  ...Object.keys(dimensions.propTypes),
-  ...Object.keys(flex.propTypes),
-  ...Object.keys(interaction.propTypes),
-  ...Object.keys(layout.propTypes),
-  ...Object.keys(opacity.propTypes),
-  ...Object.keys(position.propTypes),
-  ...Object.keys(spacing.propTypes),
-  ...Object.keys(transform.propTypes)
+  ...background.keysPropTypes,
+  ...borderRadius.keysPropTypes,
+  ...borders.keysPropTypes,
+  ...boxShadow.keysPropTypes,
+  ...dimensions.keysPropTypes,
+  ...flex.keysPropTypes,
+  ...interaction.keysPropTypes,
+  ...layout.keysPropTypes,
+  ...opacity.keysPropTypes,
+  ...overflow.keysPropTypes,
+  ...position.keysPropTypes,
+  ...spacing.keysPropTypes,
+  ...text.keysPropTypes,
+  ...transform.keysPropTypes
 ]
 
 /**

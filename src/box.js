@@ -7,15 +7,15 @@ import {
   borders,
   boxShadow,
   dimensions,
+  flex,
+  interaction,
   layout,
   opacity,
-  flex,
   overflow,
   position,
   spacing,
   text,
-  transform,
-  interaction
+  transform
 } from './enhancers'
 
 const enhancersArray = [
@@ -24,15 +24,15 @@ const enhancersArray = [
   borders,
   boxShadow,
   dimensions,
+  flex,
+  interaction,
   layout,
   opacity,
-  flex,
   overflow,
   position,
   spacing,
   text,
-  transform,
-  interaction
+  transform
 ]
 
 /**
