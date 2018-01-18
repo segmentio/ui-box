@@ -16,15 +16,17 @@ const hashCache = {}
  * Doesn't actually insert anything, so will be easier to write tests
  * for this part in the future.
  */
-export default function getInsertConfig({
-  name,
-  key,
-  cacheType = 'hash',
-  isUnitParsed = true,
-  defaultUnit = 'px',
-  isValueEscaped = true,
-  value: _value
-}) {
+export default function getInsertConfig(
+  {
+    name,
+    key,
+    cacheType = 'hash',
+    isUnitParsed = true,
+    defaultUnit = 'px',
+    isValueEscaped = true
+  },
+  _value
+) {
   let isInCache = false
   let className
   let value = _value

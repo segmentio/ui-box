@@ -25,10 +25,10 @@ export function insertSingleProperty(property, inputValue) {
   const propertyInfo = properties[property]
   if (!propertyInfo) return null
 
-  const { className, isInCache, value } = getInsertConfig({
-    ...propertyInfo,
-    value: inputValue
-  })
+  const { className, isInCache, value } = getInsertConfig(
+    propertyInfo,
+    inputValue
+  )
 
   if (isInCache) return className
 
