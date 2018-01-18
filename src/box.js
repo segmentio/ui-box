@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css as gcss } from 'glamor'
+import cx from 'classnames'
 import {
   background,
   borderRadius,
@@ -57,7 +58,7 @@ const parseProps = props => {
 
       if (enhancer.propTypes[propKey]) {
         newClassName = enhancer.parseProps(props)
-        finalClassName = `${finalClassName} ${newClassName}`
+        finalClassName = cx(finalClassName, newClassName)
 
         // Assume all the enhancers parse unique props
         parsedProps = parsedProps.concat(enhancer.keysPropTypes)
@@ -111,7 +112,7 @@ export default class Box extends React.PureComponent {
     const finalProps = parsedProps
 
     if (css) {
-      finalProps.className = `${gcss(css).toString()} ${className}`
+      finalProps.className = cx(className, gcss(css).toString())
     } else {
       finalProps.className = className
     }
