@@ -13,14 +13,15 @@
   "main": "lib/index.js",
   "files": ["lib"],
   "scripts": {
-    "test": "xo && ava && size-limit",
+    "test": "xo && ava",
     "prepublishOnly": "yarn run build",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009",
     "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
-    "benchmark": "react-benchmark tools/benchmark.js"
+    "benchmark": "react-benchmark tools/benchmark.js",
+    "size": "size-limit"
   },
   "dependencies": {
     "classnames": "^2.2.0",
