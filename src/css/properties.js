@@ -99,7 +99,7 @@ properties.flexDirection = { key: 'flx-drct', isUnitParsed: false }
 properties.flexWrap = { key: 'flx-wrap', isUnitParsed: false }
 properties.flexGrow = { key: 'flx-grow', isUnitParsed: false }
 properties.flexShrink = { key: 'flx-srnk', isUnitParsed: false }
-properties.flexBasis = { key: 'flexBasis', isUnitParsed: false }
+properties.flexBasis = { key: 'flx-basis', isUnitParsed: false }
 properties.order = { key: 'order', isUnitParsed: false }
 
 properties.overflow = { key: 'ovflw', isUnitParsed: false }
@@ -155,8 +155,7 @@ properties.paddingLeft = { key: 'pl', isValueEscaped: false }
 properties.textAlign = { key: 'txt-algn', isUnitParsed: false }
 properties.textDecoration = {
   key: 'txt-deco',
-  isUnitParsed: false,
-  isValueEscaped: false
+  isUnitParsed: false
 }
 properties.textTransform = { key: 'txt-trns', isUnitParsed: false }
 properties.textShadow = { key: 'txt-shdw', isUnitParsed: false }

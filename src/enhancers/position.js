@@ -9,7 +9,8 @@ export const propTypes = {
     'fixed',
     'static',
     'sticky',
-    'inherit'
+    'inherit',
+    'initial'
   ]),
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

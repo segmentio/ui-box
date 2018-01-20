@@ -19,6 +19,7 @@ export default function getClassNameAndValue({
 
     if (Number.isNaN(value)) {
       value = unit
+      valueKey = value
     } else {
       unit = unit || defaultUnit
       value = `${value}${unit}`
