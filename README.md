@@ -1,6 +1,4 @@
-# ui-box
-
-[![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
+# ui-box [![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
 
 > React Component that works as a UI Primitive for design systems.
 
