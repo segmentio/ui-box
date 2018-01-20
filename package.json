@@ -13,13 +13,12 @@
   "main": "lib/index.js",
   "files": ["lib"],
   "scripts": {
-    "test": "xo",
+    "test": "xo && ava && size-limit",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009",
     "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
-    "size": "size-limit",
     "benchmark": "react-benchmark tools/benchmark.js"
   },
   "dependencies": {
@@ -34,11 +33,14 @@
   "devDependencies": {
     "@storybook/react": "^3.2.12",
     "@storybook/storybook-deployer": "^2.2.0",
+    "ava": "^0.24.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-prettier": "^2.7.0",
     "eslint-config-xo-react": "^0.15.0",
     "eslint-plugin-react": "^7.4.0",
@@ -50,6 +52,8 @@
     "react": "^16.0.0",
     "react-benchmark": "^1.0.4",
     "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.2.0",
+    "sinon": "^4.1.6",
     "size-limit": "^0.13.2",
     "xo": "^0.18.2"
   },
@@ -76,5 +80,9 @@
       "path": "lib/index.js",
       "limit": "17 KB"
     }
-  ]
+  ],
+  "ava": {
+    "require": ["babel-register", "./tools/enzyme-config"],
+    "babel": "inherit"
+  }
 }
