@@ -3,15 +3,15 @@ import * as borderRadius from './border-radius'
 import * as borders from './borders'
 import * as boxShadow from './box-shadow'
 import * as dimensions from './dimensions'
+import * as flex from './flex'
+import * as interaction from './interaction'
 import * as layout from './layout'
 import * as opacity from './opacity'
-import * as flex from './flex'
 import * as overflow from './overflow'
 import * as position from './position'
 import * as spacing from './spacing'
 import * as text from './text'
 import * as transform from './transform'
-import * as interaction from './interaction'
 
 export {
   background,
@@ -19,15 +19,15 @@ export {
   borders,
   boxShadow,
   dimensions,
+  flex,
+  interaction,
   layout,
   opacity,
-  flex,
   overflow,
   position,
   spacing,
   text,
-  transform,
-  interaction
+  transform
 }
 
 export const allEnhancers = [
@@ -53,15 +53,15 @@ export const propTypes = {
   ...borders.propTypes,
   ...boxShadow.propTypes,
   ...dimensions.propTypes,
+  ...flex.propTypes,
+  ...interaction.propTypes,
   ...layout.propTypes,
   ...opacity.propTypes,
-  ...flex.propTypes,
   ...overflow.propTypes,
   ...position.propTypes,
   ...spacing.propTypes,
   ...text.propTypes,
-  ...transform.propTypes,
-  ...interaction.propTypes
+  ...transform.propTypes
 }
 
 export const propNames = [

@@ -3,6 +3,8 @@ import cx from 'classnames'
 import { insertSingleProperty } from '../css'
 
 export const propTypes = {
+  bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   position: PropTypes.oneOf([
     'relative',
     'absolute',
@@ -12,20 +14,18 @@ export const propTypes = {
     'inherit',
     'initial'
   ]),
-  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ position, top, right, bottom, left }) => {
+export const parseProps = ({ bottom, left, position, right, top }) => {
   return cx(
-    position !== undefined && insertSingleProperty('position', position),
-    top !== undefined && insertSingleProperty('top', top),
-    right !== undefined && insertSingleProperty('right', right),
     bottom !== undefined && insertSingleProperty('bottom', bottom),
-    left !== undefined && insertSingleProperty('left', left)
+    left !== undefined && insertSingleProperty('left', left),
+    position !== undefined && insertSingleProperty('position', position),
+    right !== undefined && insertSingleProperty('right', right),
+    top !== undefined && insertSingleProperty('top', top)
   )
 }

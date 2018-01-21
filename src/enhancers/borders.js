@@ -4,9 +4,11 @@ import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   border: PropTypes.string,
+  borderBottom: PropTypes.string,
+  borderBottomColor: PropTypes.string,
+  borderBottomStyle: PropTypes.string,
+  borderBottomWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderColor: PropTypes.string,
-  borderStyle: PropTypes.string,
-  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderLeft: PropTypes.string,
   borderLeftColor: PropTypes.string,
   borderLeftStyle: PropTypes.string,
@@ -15,23 +17,23 @@ export const propTypes = {
   borderRightColor: PropTypes.string,
   borderRightStyle: PropTypes.string,
   borderRightWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  borderStyle: PropTypes.string,
   borderTop: PropTypes.string,
   borderTopColor: PropTypes.string,
   borderTopStyle: PropTypes.string,
   borderTopWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  borderBottom: PropTypes.string,
-  borderBottomColor: PropTypes.string,
-  borderBottomStyle: PropTypes.string,
-  borderBottomWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({
   border,
+  borderBottom,
+  borderBottomColor,
+  borderBottomStyle,
+  borderBottomWidth,
   borderColor,
-  borderStyle,
-  borderWidth,
   borderLeft,
   borderLeftColor,
   borderLeftStyle,
@@ -40,23 +42,25 @@ export const parseProps = ({
   borderRightColor,
   borderRightStyle,
   borderRightWidth,
+  borderStyle,
   borderTop,
   borderTopColor,
   borderTopStyle,
   borderTopWidth,
-  borderBottom,
-  borderBottomColor,
-  borderBottomStyle,
-  borderBottomWidth
+  borderWidth
 }) => {
   return cx(
     border !== undefined && insertSingleProperty('border', border),
+    borderBottom !== undefined &&
+      insertSingleProperty('borderBottom', borderBottom),
+    borderBottomColor !== undefined &&
+      insertSingleProperty('borderBottomColor', borderBottomColor),
+    borderBottomStyle !== undefined &&
+      insertSingleProperty('borderBottomStyle', borderBottomStyle),
+    borderBottomWidth !== undefined &&
+      insertSingleProperty('borderBottomWidth', borderBottomWidth),
     borderColor !== undefined &&
       insertSingleProperty('borderColor', borderColor),
-    borderStyle !== undefined &&
-      insertSingleProperty('borderStyle', borderStyle),
-    borderWidth !== undefined &&
-      insertSingleProperty('borderWidth', borderWidth),
     borderLeft !== undefined && insertSingleProperty('borderLeft', borderLeft),
     borderLeftColor !== undefined &&
       insertSingleProperty('borderLeftColor', borderLeftColor),
@@ -72,6 +76,8 @@ export const parseProps = ({
       insertSingleProperty('borderRightStyle', borderRightStyle),
     borderRightWidth !== undefined &&
       insertSingleProperty('borderRightWidth', borderRightWidth),
+    borderStyle !== undefined &&
+      insertSingleProperty('borderStyle', borderStyle),
     borderTop !== undefined && insertSingleProperty('borderTop', borderTop),
     borderTopColor !== undefined &&
       insertSingleProperty('borderTopColor', borderTopColor),
@@ -79,13 +85,7 @@ export const parseProps = ({
       insertSingleProperty('borderTopStyle', borderTopStyle),
     borderTopWidth !== undefined &&
       insertSingleProperty('borderTopWidth', borderTopWidth),
-    borderBottom !== undefined &&
-      insertSingleProperty('borderBottom', borderBottom),
-    borderBottomColor !== undefined &&
-      insertSingleProperty('borderBottomColor', borderBottomColor),
-    borderBottomStyle !== undefined &&
-      insertSingleProperty('borderBottomStyle', borderBottomStyle),
-    borderBottomWidth !== undefined &&
-      insertSingleProperty('borderBottomWidth', borderBottomWidth)
+    borderWidth !== undefined &&
+      insertSingleProperty('borderWidth', borderWidth)
   )
 }

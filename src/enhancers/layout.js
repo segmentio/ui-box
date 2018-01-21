@@ -4,12 +4,12 @@ import cx from 'classnames'
 import { insertSingleProperty } from '../css'
 
 export const propTypes = {
-  display: PropTypes.string,
-  clearfix: PropTypes.bool,
-  float: PropTypes.string,
+  boxSizing: PropTypes.string,
   clear: PropTypes.string,
-  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  boxSizing: PropTypes.string
+  clearfix: PropTypes.bool,
+  display: PropTypes.string,
+  float: PropTypes.string,
+  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propNames = Object.keys(propTypes)
@@ -23,19 +23,19 @@ const cssClearfix = {
 }
 
 export const parseProps = ({
+  boxSizing,
+  clear,
   clearfix,
   display,
   float,
-  clear,
-  zIndex,
-  boxSizing
+  zIndex
 }) => {
   return cx(
+    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing),
+    clear !== undefined && insertSingleProperty('clear', clear),
     clearfix && css(cssClearfix).toString(),
     display !== undefined && insertSingleProperty('display', display),
     float !== undefined && insertSingleProperty('float', float),
-    clear !== undefined && insertSingleProperty('clear', clear),
-    zIndex !== undefined && insertSingleProperty('zIndex', zIndex),
-    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing)
+    zIndex !== undefined && insertSingleProperty('zIndex', zIndex)
   )
 }

@@ -4,8 +4,8 @@ import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   overflow: PropTypes.string,
-  overflowY: PropTypes.string,
-  overflowX: PropTypes.string
+  overflowX: PropTypes.string,
+  overflowY: PropTypes.string
 }
 
 export const propNames = Object.keys(propTypes)

@@ -4,46 +4,46 @@ import { insertSingleProperty } from '../css'
 
 export const propTypes = {
   background: PropTypes.string,
+  backgroundBlendMode: PropTypes.string,
+  backgroundClip: PropTypes.string,
   backgroundColor: PropTypes.string,
   backgroundImage: PropTypes.string,
-  backgroundPosition: PropTypes.string,
-  backgroundSize: PropTypes.string,
   backgroundOrigin: PropTypes.string,
+  backgroundPosition: PropTypes.string,
   backgroundRepeat: PropTypes.string,
-  backgroundClip: PropTypes.string,
-  backgroundBlendMode: PropTypes.string
+  backgroundSize: PropTypes.string
 }
 
 export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({
   background,
+  backgroundBlendMode,
+  backgroundClip,
   backgroundColor,
   backgroundImage,
-  backgroundPosition,
-  backgroundSize,
   backgroundOrigin,
+  backgroundPosition,
   backgroundRepeat,
-  backgroundClip,
-  backgroundBlendMode
+  backgroundSize
 }) => {
   return cx(
     background !== undefined && insertSingleProperty('background', background),
+    backgroundBlendMode !== undefined &&
+      insertSingleProperty('backgroundBlendMode', backgroundBlendMode),
+    backgroundClip !== undefined &&
+      insertSingleProperty('backgroundClip', backgroundClip),
     backgroundColor !== undefined &&
       insertSingleProperty('backgroundColor', backgroundColor),
     backgroundImage !== undefined &&
       insertSingleProperty('backgroundImage', backgroundImage),
-    backgroundPosition !== undefined &&
-      insertSingleProperty('backgroundPosition', backgroundPosition),
-    backgroundSize !== undefined &&
-      insertSingleProperty('backgroundSize', backgroundSize),
     backgroundOrigin !== undefined &&
       insertSingleProperty('backgroundOrigin', backgroundOrigin),
+    backgroundPosition !== undefined &&
+      insertSingleProperty('backgroundPosition', backgroundPosition),
     backgroundRepeat !== undefined &&
       insertSingleProperty('backgroundRepeat', backgroundRepeat),
-    backgroundClip !== undefined &&
-      insertSingleProperty('backgroundClip', backgroundClip),
-    backgroundBlendMode !== undefined &&
-      insertSingleProperty('backgroundBlendMode', backgroundBlendMode)
+    backgroundSize !== undefined &&
+      insertSingleProperty('backgroundSize', backgroundSize)
   )
 }
