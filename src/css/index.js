@@ -2,23 +2,21 @@ import StyleSheet from './style-sheet'
 import prefixer from './prefixer'
 import getInsertConfig from './get-insert-config'
 import properties from './properties'
-import { camelToDash } from './conversion'
 
 // Create and inject the stylesheet
 export const styleSheet = new StyleSheet()
 styleSheet.inject()
 
-function insert(selector, property, value) {
-  styleSheet.insert(`.${selector} { ${property}: ${value};  }`)
-}
+function insert(selector, rules) {
+  const rulesString = rules
+    .map(rule => `${rule.property}: ${rule.value};`)
+    .join('\n')
 
-function prefixedInsert(selector, property, value) {
-  const rules = prefixer(property, value)
-
-  Object.keys(rules).forEach(prefixedProperty => {
-    const prefixedValue = rules[prefixedProperty]
-    insert(selector, camelToDash(prefixedProperty), prefixedValue)
-  })
+  styleSheet.insert(`
+    .${selector} {
+      ${rulesString}
+    }
+  `)
 }
 
 export function insertSingleProperty(property, inputValue) {
@@ -34,9 +32,10 @@ export function insertSingleProperty(property, inputValue) {
 
   // First time for this property and value, insert the CSS rule
   if (propertyInfo.isPrefixed) {
-    prefixedInsert(className, propertyInfo.name, value)
+    const rules = prefixer(property, value)
+    insert(className, rules)
   } else {
-    insert(className, propertyInfo.name, value)
+    insert(className, [{ property: propertyInfo.name, value }])
   }
 
   return className

@@ -1,4 +1,4 @@
-import { camelToDash } from './conversion'
+import decamelize from '../utils/decamelize'
 
 const properties = {}
 
@@ -8,46 +8,18 @@ properties.background = {
   isPrefixed: true,
   cacheType: 'array'
 }
-properties.backgroundColor = {
-  key: 'bg-clr',
-  isUnitParsed: false,
-  isPrefixed: true
-}
+properties.backgroundColor = { key: 'bg-clr', isUnitParsed: false }
 properties.backgroundImage = {
   key: 'bg-img',
   isPrefixed: true,
   cacheType: 'array'
 }
-properties.backgroundPosition = {
-  key: 'bg-pos',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.backgroundSize = {
-  key: 'bg-siz',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.backgroundOrigin = {
-  key: 'bg-orgn',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.backgroundRepeat = {
-  key: 'bg-rpt',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.backgroundClip = {
-  key: 'bg-clp',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.backgroundBlendMode = {
-  key: 'bg-blnd-md',
-  isUnitParsed: false,
-  isPrefixed: true
-}
+properties.backgroundPosition = { key: 'bg-pos', isUnitParsed: false }
+properties.backgroundSize = { key: 'bg-siz', isUnitParsed: false }
+properties.backgroundOrigin = { key: 'bg-orgn', isUnitParsed: false }
+properties.backgroundRepeat = { key: 'bg-rpt', isUnitParsed: false }
+properties.backgroundClip = { key: 'bg-clp', isUnitParsed: false }
+properties.backgroundBlendMode = { key: 'bg-blnd-md', isUnitParsed: false }
 
 properties.borderRadius = { key: 'br', isValueEscaped: false }
 properties.borderTopLeftRadius = { key: 'btlr', isValueEscaped: false }
@@ -79,7 +51,6 @@ properties.borderBottomWidth = { key: 'b-btm-wdt', isValueEscaped: false }
 properties.boxShadow = {
   key: 'bs',
   isUnitParsed: false,
-  isPrefixed: true,
   cacheType: 'array'
 }
 
@@ -91,16 +62,44 @@ properties.maxWidth = { key: 'max-w', isValueEscaped: false }
 properties.maxHeight = { key: 'max-h', isValueEscaped: false }
 
 properties.flex = { key: 'flx', isUnitParsed: false, isPrefixed: true }
-properties.alignItems = { key: 'algn-itms', isUnitParsed: false }
-properties.alignSelf = { key: 'algn-slf', isUnitParsed: false }
-properties.alignContent = { key: 'algn-cnt', isUnitParsed: false }
-properties.justifyContent = { key: 'just-cnt', isUnitParsed: false }
-properties.flexDirection = { key: 'flx-drct', isUnitParsed: false }
-properties.flexWrap = { key: 'flx-wrap', isUnitParsed: false }
-properties.flexGrow = { key: 'flx-grow', isUnitParsed: false }
-properties.flexShrink = { key: 'flx-srnk', isUnitParsed: false }
-properties.flexBasis = { key: 'flx-basis', isUnitParsed: false }
-properties.order = { key: 'order', isUnitParsed: false }
+properties.alignItems = {
+  key: 'algn-itms',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.alignSelf = {
+  key: 'algn-slf',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.alignContent = {
+  key: 'algn-cnt',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.justifyContent = {
+  key: 'just-cnt',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.flexDirection = {
+  key: 'flx-drct',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.flexWrap = { key: 'flx-wrap', isUnitParsed: false, isPrefixed: true }
+properties.flexGrow = { key: 'flx-grow', isUnitParsed: false, isPrefixed: true }
+properties.flexShrink = {
+  key: 'flx-srnk',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.flexBasis = {
+  key: 'flx-basis',
+  isUnitParsed: false,
+  isPrefixed: true
+}
+properties.order = { key: 'order', isUnitParsed: false, isPrefixed: true }
 
 properties.overflow = { key: 'ovflw', isUnitParsed: false }
 properties.overflowY = { key: 'ovflw-Y', isUnitParsed: false }
@@ -109,8 +108,8 @@ properties.overflowX = { key: 'ovflw-X', isUnitParsed: false }
 properties.cursor = { key: 'crsr', isUnitParsed: false, isValueEscaped: false }
 properties.userSelect = {
   key: 'usr-slct',
-  isPrefixed: true,
-  isValueEscaped: false
+  isValueEscaped: false,
+  isPrefixed: true
 }
 properties.visibility = {
   key: 'vsblt',
@@ -123,7 +122,12 @@ properties.pointerEvents = {
   isValueEscaped: false
 }
 
-properties.display = { key: 'dspl', isUnitParsed: false, isValueEscaped: false }
+properties.display = {
+  key: 'dspl',
+  isUnitParsed: false,
+  isValueEscaped: false,
+  isPrefixed: true
+}
 properties.float = { key: 'flt', isUnitParsed: false, isValueEscaped: false }
 properties.clear = { key: 'clr', isUnitParsed: false, isValueEscaped: false }
 properties.zIndex = { key: 'z-idx', isUnitParsed: false, isValueEscaped: false }
@@ -135,7 +139,12 @@ properties.boxSizing = {
 
 properties.opacity = { key: 'opct', isUnitParsed: false }
 
-properties.position = { key: 'pst', isUnitParsed: false, isValueEscaped: false }
+properties.position = {
+  key: 'pst',
+  isUnitParsed: false,
+  isValueEscaped: false,
+  isPrefixed: true
+}
 properties.top = { key: 'top', isValueEscaped: false }
 properties.right = { key: 'rgt', isValueEscaped: false }
 properties.bottom = { key: 'btm', isValueEscaped: false }
@@ -153,10 +162,7 @@ properties.paddingBottom = { key: 'pb', isValueEscaped: false }
 properties.paddingLeft = { key: 'pl', isValueEscaped: false }
 
 properties.textAlign = { key: 'txt-algn', isUnitParsed: false }
-properties.textDecoration = {
-  key: 'txt-deco',
-  isUnitParsed: false
-}
+properties.textDecoration = { key: 'txt-deco', isUnitParsed: false }
 properties.textTransform = { key: 'txt-trns', isUnitParsed: false }
 properties.textShadow = { key: 'txt-shdw', isUnitParsed: false }
 properties.textOverflow = {
@@ -210,7 +216,7 @@ properties.transformOrgin = {
 }
 
 Object.keys(properties).forEach(key => {
-  properties[key].name = camelToDash(key)
+  properties[key].name = decamelize(key)
   properties[key].cacheType = properties[key].cacheType || 'hash'
 })
 
