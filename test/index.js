@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
