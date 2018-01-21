@@ -12,7 +12,7 @@ export const propTypes = {
   boxSizing: PropTypes.string
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 const cssClearfix = {
   '&:before, &:after': {

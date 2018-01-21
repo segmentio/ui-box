@@ -20,7 +20,7 @@ export const propTypes = {
   letterSpacing: PropTypes.string
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({
   textAlign,

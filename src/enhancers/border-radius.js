@@ -22,7 +22,7 @@ export const propTypes = {
   ])
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({
   borderRadius,

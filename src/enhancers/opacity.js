@@ -6,7 +6,7 @@ export const propTypes = {
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({ opacity }) => {
   return cx(opacity !== undefined && insertSingleProperty('opacity', opacity))

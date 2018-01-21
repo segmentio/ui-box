@@ -2,39 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css as gcss } from 'glamor'
 import cx from 'classnames'
-import {
-  background,
-  borderRadius,
-  borders,
-  boxShadow,
-  dimensions,
-  flex,
-  interaction,
-  layout,
-  opacity,
-  overflow,
-  position,
-  spacing,
-  text,
-  transform
-} from './enhancers'
-
-const enhancersArray = [
-  background,
-  borderRadius,
-  borders,
-  boxShadow,
-  dimensions,
-  flex,
-  interaction,
-  layout,
-  opacity,
-  overflow,
-  position,
-  spacing,
-  text,
-  transform
-]
+import { allEnhancers, propTypes } from './enhancers'
 
 /**
  * This is optimized for performance.
@@ -53,15 +21,15 @@ const parseProps = props => {
 
     if (parsedProps.includes(propKey)) continue
 
-    for (let i = 0; i < enhancersArray.length; i += 1) {
-      const enhancer = enhancersArray[i]
+    for (let i = 0; i < allEnhancers.length; i += 1) {
+      const enhancer = allEnhancers[i]
 
       if (enhancer.propTypes[propKey]) {
         newClassName = enhancer.parseProps(props)
         finalClassName = cx(finalClassName, newClassName)
 
         // Assume all the enhancers parse unique props
-        parsedProps = parsedProps.concat(enhancer.keysPropTypes)
+        parsedProps = parsedProps.concat(enhancer.propNames)
         break
       }
     }
@@ -78,20 +46,7 @@ const parseProps = props => {
 export default class Box extends React.PureComponent {
   static displayName = 'Box'
   static propTypes = {
-    ...background.propTypes,
-    ...borderRadius.propTypes,
-    ...borders.propTypes,
-    ...boxShadow.propTypes,
-    ...dimensions.propTypes,
-    ...layout.propTypes,
-    ...opacity.propTypes,
-    ...flex.propTypes,
-    ...overflow.propTypes,
-    ...position.propTypes,
-    ...spacing.propTypes,
-    ...text.propTypes,
-    ...transform.propTypes,
-    ...interaction.propTypes,
+    ...propTypes,
     css: PropTypes.object,
     innerRef: PropTypes.func,
     is: PropTypes.oneOfType([

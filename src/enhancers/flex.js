@@ -17,7 +17,7 @@ export const propTypes = {
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({
   flex,

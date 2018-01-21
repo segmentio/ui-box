@@ -4,39 +4,7 @@ import React from 'react'
 import render from 'react-test-renderer'
 import Box from '../src'
 import allPropertiesComponent from '../tools/all-properties-component'
-import {
-  background,
-  borderRadius,
-  borders,
-  boxShadow,
-  dimensions,
-  flex,
-  interaction,
-  layout,
-  opacity,
-  overflow,
-  position,
-  spacing,
-  text,
-  transform
-} from '../src/enhancers'
-
-const propertyNames = [
-  ...background.keysPropTypes,
-  ...borderRadius.keysPropTypes,
-  ...borders.keysPropTypes,
-  ...boxShadow.keysPropTypes,
-  ...dimensions.keysPropTypes,
-  ...flex.keysPropTypes,
-  ...interaction.keysPropTypes,
-  ...layout.keysPropTypes,
-  ...opacity.keysPropTypes,
-  ...overflow.keysPropTypes,
-  ...position.keysPropTypes,
-  ...spacing.keysPropTypes,
-  ...text.keysPropTypes,
-  ...transform.keysPropTypes
-]
+import { propNames } from '../src/enhancers'
 
 test('all properties', t => {
   const component = allPropertiesComponent()
@@ -46,7 +14,7 @@ test('all properties', t => {
 
 test('all properties set to inherit', t => {
   const properties = {}
-  for (const name of propertyNames) {
+  for (const name of propNames) {
     properties[name] = 'inherit'
   }
   delete properties.clearfix // Non-css property
@@ -57,7 +25,7 @@ test('all properties set to inherit', t => {
 
 test('all properties set to initial', t => {
   const properties = {}
-  for (const name of propertyNames) {
+  for (const name of propNames) {
     properties[name] = 'initial'
   }
   delete properties.clearfix // Non-css property

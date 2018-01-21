@@ -18,7 +18,7 @@ export const propTypes = {
   left: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({ position, top, right, bottom, left }) => {
   return cx(

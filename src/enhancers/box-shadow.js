@@ -6,7 +6,7 @@ export const propTypes = {
   boxShadow: PropTypes.string
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({ boxShadow }) => {
   return cx(

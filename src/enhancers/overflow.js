@@ -8,7 +8,7 @@ export const propTypes = {
   overflowX: PropTypes.string
 }
 
-export const keysPropTypes = Object.keys(propTypes)
+export const propNames = Object.keys(propTypes)
 
 export const parseProps = ({ overflow, overflowX, overflowY }) => {
   return cx(
