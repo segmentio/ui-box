@@ -9,7 +9,7 @@ export default function prefixer(property, value) {
 
   // Convert rules object to an array
   for (const key of Object.keys(rules)) {
-    // Add a dash in front of the prefixes
+    // Add a dash in front of the prefixes and convert from camelcase
     const prop = decamelize(key.match(prefixRegex) ? '-' + key : key)
     const values = rules[key]
 
