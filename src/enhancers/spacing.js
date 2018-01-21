@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { insertSingleProperty } from '../css'
-import getFirstValidProp from '../utils/get-first-valid-prop'
+import { insertSingleProperty, insertFirstValidProperty } from '../css'
 
 export const propTypes = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -41,13 +40,13 @@ export const parseProps = ({
   return cx(
     margin !== undefined && insertSingleProperty('margin', margin),
     padding !== undefined && insertSingleProperty('padding', padding),
-    getFirstValidProp('marginBottom', marginBottom, marginY),
-    getFirstValidProp('marginLeft', marginLeft, marginX),
-    getFirstValidProp('marginRight', marginRight, marginX),
-    getFirstValidProp('marginTop', marginTop, marginY),
-    getFirstValidProp('paddingBottom', paddingBottom, paddingY),
-    getFirstValidProp('paddingLeft', paddingLeft, paddingX),
-    getFirstValidProp('paddingRight', paddingRight, paddingX),
-    getFirstValidProp('paddingTop', paddingTop, paddingY)
+    insertFirstValidProperty('marginBottom', marginBottom, marginY),
+    insertFirstValidProperty('marginLeft', marginLeft, marginX),
+    insertFirstValidProperty('marginRight', marginRight, marginX),
+    insertFirstValidProperty('marginTop', marginTop, marginY),
+    insertFirstValidProperty('paddingBottom', paddingBottom, paddingY),
+    insertFirstValidProperty('paddingLeft', paddingLeft, paddingX),
+    insertFirstValidProperty('paddingRight', paddingRight, paddingX),
+    insertFirstValidProperty('paddingTop', paddingTop, paddingY)
   )
 }

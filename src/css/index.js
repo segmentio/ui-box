@@ -41,3 +41,9 @@ export function insertSingleProperty(property, inputValue) {
 
   return className
 }
+
+export function insertFirstValidProperty(property, ...values) {
+  const val = values.find(p => p !== undefined)
+  if (val === undefined) return
+  return insertSingleProperty(property, val)
+}
