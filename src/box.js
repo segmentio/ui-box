@@ -11,20 +11,20 @@ import { allEnhancers, propTypes } from './enhancers'
 const parseProps = props => {
   const { className } = props
   const finalProps = {}
-  const propKeys = Object.keys(props)
+  const propNames = Object.keys(props)
   let parsedProps = ['children'] // Skip children
   let finalClassName = className || ''
 
-  for (let i = 0; i < propKeys.length; i++) {
-    const propKey = propKeys[i]
+  for (let i = 0; i < propNames.length; i++) {
+    const propName = propNames[i]
     let newClassName
 
-    if (parsedProps.includes(propKey)) continue
+    if (parsedProps.includes(propName)) continue
 
     for (let i = 0; i < allEnhancers.length; i += 1) {
       const enhancer = allEnhancers[i]
 
-      if (enhancer.propTypes[propKey]) {
+      if (enhancer.propTypes[propName]) {
         newClassName = enhancer.parseProps(props)
         finalClassName = cx(finalClassName, newClassName)
 
@@ -36,7 +36,7 @@ const parseProps = props => {
 
     // Only pass through props that weren't parsed
     if (!newClassName) {
-      finalProps[propKey] = props[propKey]
+      finalProps[propName] = props[propName]
     }
   }
 
