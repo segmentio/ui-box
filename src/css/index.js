@@ -11,13 +11,12 @@ styleSheet.inject()
 function insert(selector, rules) {
   const rulesString = rules
     .map(rule => `${rule.property}: ${rule.value};`)
-    .join('\n')
+    .join('\n  ')
 
   styleSheet.insert(`
-    .${selector} {
-      ${rulesString}
-    }
-  `)
+.${selector} {
+  ${rulesString}
+}`)
 }
 
 export function insertSingleProperty(property, value) {
