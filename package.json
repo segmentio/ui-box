@@ -13,15 +13,16 @@
   "main": "lib/index.js",
   "files": ["lib"],
   "scripts": {
-    "test": "xo && ava",
+    "test": "xo && nyc ava",
     "prepublishOnly": "yarn run build",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009",
-    "build": "babel --source-maps inline --out-dir lib --ignore *.test.js src",
+    "build": "babel --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
     "benchmark": "react-benchmark tools/benchmark.js",
-    "size": "size-limit"
+    "size": "size-limit",
+    "coverage": "nyc report --reporter=html"
   },
   "dependencies": {
     "classnames": "^2.2.0",
@@ -49,6 +50,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "np": "^2.18.3",
+    "nyc": "^11.4.1",
     "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
