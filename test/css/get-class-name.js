@@ -13,15 +13,6 @@ test('supports unset', t => {
   t.is(getClassName({ key: 'width' }, 'unset'), 'width_unset')
 })
 
-test('supports numbers', t => {
-  t.is(getClassName({ key: 'width' }, 50.5), 'width_50-5px')
-})
-
-test('defaultUnit changes number unit', t => {
-  const result = getClassName({ key: 'width', defaultUnit: '' }, 50)
-  t.is(result, 'width_50')
-})
-
 test('lengthOnly only transforms dot and percentage', t => {
   const result = getClassName({ key: 'width', lengthOnly: true }, '[50.5%')
   t.is(result, 'width_[50-5prcnt')
