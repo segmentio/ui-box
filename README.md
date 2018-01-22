@@ -16,14 +16,16 @@ import Box from 'ui-box'
 
 ## Development
 
-* `yarn run dev` starts the development Storybook at http://localhost:9009/.
-* `yarn test` runs the tests.
-* `yarn run build` transpiles the JavaScript files.
+* `yarn dev` starts the development Storybook at http://localhost:9009/.
+* `yarn test` runs the linter, unit tests and code coverage.
+* `yarn ava -w` runs the unit tests in watch mode.
+* `yarn ava -u` updates the snapshot tests.
+* `yarn build` transpiles the JavaScript files.
 
 To release a new version run:
 
 ```
-yarn run release
+yarn release
 ```
 
 ## License
