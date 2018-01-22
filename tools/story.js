@@ -141,4 +141,9 @@ storiesOf('Box', module)
       <Box is="input" type="file" />
     </Box>
   ))
-  .add('all properties', () => allPropertiesComponent())
+  .add('all properties', () => (
+    <Box>
+      {allPropertiesComponent()}
+      {allPropertiesComponent()}
+    </Box>
+  ))

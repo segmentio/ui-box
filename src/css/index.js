@@ -1,6 +1,6 @@
 import StyleSheet from './style-sheet'
 import prefixer from './prefixer'
-import getInsertConfig from './get-insert-config'
+import getCachedClassName from './get-cached-class-name'
 import properties from './properties'
 
 // Create and inject the stylesheet
@@ -19,16 +19,13 @@ function insert(selector, rules) {
   `)
 }
 
-export function insertSingleProperty(property, inputValue) {
+export function insertSingleProperty(property, value) {
   const propertyInfo = properties[property]
   if (!propertyInfo) return null
 
-  const { className, isInCache, value } = getInsertConfig(
-    propertyInfo,
-    inputValue
-  )
+  const { className, isCached } = getCachedClassName(propertyInfo, value)
 
-  if (isInCache) return className
+  if (isCached) return className
 
   // First time for this property and value, insert the CSS rule
   if (propertyInfo.isPrefixed) {
