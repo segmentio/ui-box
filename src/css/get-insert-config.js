@@ -1,5 +1,5 @@
 import getSafeValue from './get-safe-value'
-import getClassNameAndValue from './get-class-name-and-value'
+import getClassName from './get-class-name'
 
 const indexCaches = {}
 
@@ -16,20 +16,11 @@ const hashCache = {}
  * Doesn't actually insert anything, so will be easier to write tests
  * for this part in the future.
  */
-export default function getInsertConfig(
-  {
-    name,
-    key,
-    cacheType = 'hash',
-    isUnitParsed = true,
-    defaultUnit = 'px',
-    isValueEscaped = true
-  },
-  _value
-) {
+export default function getInsertConfig(propertyInfo, _value) {
+  const { name, key, cacheType = 'hash' } = propertyInfo
   let isInCache = false
   let className
-  let value = _value
+  const value = _value
 
   if (cacheType === 'array') {
     // Use a indexed based approach
@@ -48,16 +39,7 @@ export default function getInsertConfig(
       className = `${key}_${indexOfValue}`
     }
   } else if (cacheType === 'hash') {
-    const result = getClassNameAndValue({
-      key,
-      value,
-      isUnitParsed,
-      defaultUnit,
-      isValueEscaped
-    })
-
-    className = result.className
-    value = result.value
+    className = getClassName(propertyInfo, value)
 
     if (hashCache[className]) {
       isInCache = true

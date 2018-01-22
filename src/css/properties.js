@@ -4,220 +4,167 @@ const properties = {}
 
 properties.background = {
   key: 'bg',
-  isUnitParsed: false,
   isPrefixed: true,
   cacheType: 'array'
 }
-properties.backgroundColor = { key: 'bg-clr', isUnitParsed: false }
+properties.backgroundColor = { key: 'bg-clr' }
 properties.backgroundImage = {
   key: 'bg-img',
   isPrefixed: true,
   cacheType: 'array'
 }
-properties.backgroundPosition = { key: 'bg-pos', isUnitParsed: false }
-properties.backgroundSize = { key: 'bg-siz', isUnitParsed: false }
-properties.backgroundOrigin = { key: 'bg-orgn', isUnitParsed: false }
-properties.backgroundRepeat = { key: 'bg-rpt', isUnitParsed: false }
-properties.backgroundClip = { key: 'bg-clp', isUnitParsed: false }
-properties.backgroundBlendMode = { key: 'bg-blnd-md', isUnitParsed: false }
+properties.backgroundPosition = { key: 'bg-pos' }
+properties.backgroundSize = { key: 'bg-siz' }
+properties.backgroundOrigin = { key: 'bg-orgn' }
+properties.backgroundRepeat = { key: 'bg-rpt' }
+properties.backgroundClip = { key: 'bg-clp' }
+properties.backgroundBlendMode = { key: 'bg-blnd-md' }
 
-properties.borderRadius = { key: 'br', isValueEscaped: false }
-properties.borderTopLeftRadius = { key: 'btlr', isValueEscaped: false }
-properties.borderTopRightRadius = { key: 'btrr', isValueEscaped: false }
-properties.borderBottomLeftRadius = { key: 'bblr', isValueEscaped: false }
-properties.borderBottomRightRadius = { key: 'bbrr', isValueEscaped: false }
+properties.borderRadius = { key: 'br', lengthOnly: true }
+properties.borderTopLeftRadius = { key: 'btlr', lengthOnly: true }
+properties.borderTopRightRadius = { key: 'btrr', lengthOnly: true }
+properties.borderBottomLeftRadius = { key: 'bblr', lengthOnly: true }
+properties.borderBottomRightRadius = { key: 'bbrr', lengthOnly: true }
 
-properties.border = { key: 'b', isUnitParsed: false }
+properties.border = { key: 'b' }
 properties.borderColor = { key: 'b-clr' }
-properties.borderStyle = { key: 'b-stl', isValueEscaped: false }
-properties.borderWidth = { key: 'b-wdt', isValueEscaped: false }
-properties.borderLeft = { key: 'b-lft', isUnitParsed: false }
+properties.borderStyle = { key: 'b-stl', safeValue: true }
+properties.borderWidth = { key: 'b-wdt', lengthOnly: true }
+properties.borderLeft = { key: 'b-lft' }
 properties.borderLeftColor = { key: 'b-lft-clr' }
-properties.borderLeftStyle = { key: 'b-lft-stl', isValueEscaped: false }
-properties.borderLeftWidth = { key: 'b-lft-wdt', isValueEscaped: false }
+properties.borderLeftStyle = { key: 'b-lft-stl', safeValue: true }
+properties.borderLeftWidth = { key: 'b-lft-wdt', lengthOnly: true }
 properties.borderRight = { key: 'b-rgt' }
 properties.borderRightColor = { key: 'b-rgt-clr' }
-properties.borderRightStyle = { key: 'b-rgt-stl', isValueEscaped: false }
-properties.borderRightWidth = { key: 'b-rgt-wdt', isValueEscaped: false }
-properties.borderTop = { key: 'b-top', isUnitParsed: false }
+properties.borderRightStyle = { key: 'b-rgt-stl', safeValue: true }
+properties.borderRightWidth = { key: 'b-rgt-wdt', lengthOnly: true }
+properties.borderTop = { key: 'b-top' }
 properties.borderTopColor = { key: 'b-top-clr' }
-properties.borderTopStyle = { key: 'b-top-stl', isValueEscaped: false }
-properties.borderTopWidth = { key: 'b-top-wdt', isValueEscaped: false }
-properties.borderBottom = { key: 'b-btm', isUnitParsed: false }
+properties.borderTopStyle = { key: 'b-top-stl', safeValue: true }
+properties.borderTopWidth = { key: 'b-top-wdt', lengthOnly: true }
+properties.borderBottom = { key: 'b-btm' }
 properties.borderBottomColor = { key: 'b-btm-clr' }
-properties.borderBottomStyle = { key: 'b-btm-stl', isValueEscaped: false }
-properties.borderBottomWidth = { key: 'b-btm-wdt', isValueEscaped: false }
+properties.borderBottomStyle = { key: 'b-btm-stl', safeValue: true }
+properties.borderBottomWidth = { key: 'b-btm-wdt', lengthOnly: true }
 
-properties.boxShadow = {
-  key: 'bs',
-  isUnitParsed: false,
-  cacheType: 'array'
-}
+properties.boxShadow = { key: 'bs', cacheType: 'array' }
 
-properties.width = { key: 'w', isValueEscaped: false }
-properties.height = { key: 'h', isValueEscaped: false }
-properties.minWidth = { key: 'min-w', isValueEscaped: false }
-properties.minHeight = { key: 'min-h', isValueEscaped: false }
-properties.maxWidth = { key: 'max-w', isValueEscaped: false }
-properties.maxHeight = { key: 'max-h', isValueEscaped: false }
+properties.width = { key: 'w', lengthOnly: true }
+properties.height = { key: 'h', lengthOnly: true }
+properties.minWidth = { key: 'min-w', lengthOnly: true }
+properties.minHeight = { key: 'min-h', lengthOnly: true }
+properties.maxWidth = { key: 'max-w', lengthOnly: true }
+properties.maxHeight = { key: 'max-h', lengthOnly: true }
 
-properties.flex = { key: 'flx', isUnitParsed: false, isPrefixed: true }
-properties.alignItems = {
-  key: 'algn-itms',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.alignSelf = {
-  key: 'algn-slf',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.alignContent = {
-  key: 'algn-cnt',
-  isUnitParsed: false,
-  isPrefixed: true
-}
-properties.justifyContent = {
-  key: 'just-cnt',
-  isUnitParsed: false,
-  isPrefixed: true
-}
+properties.flex = { key: 'flx', isPrefixed: true, defaultUnit: '' }
+properties.alignItems = { key: 'algn-itms', isPrefixed: true }
+properties.alignSelf = { key: 'algn-slf', isPrefixed: true }
+properties.alignContent = { key: 'algn-cnt', isPrefixed: true }
+properties.justifyContent = { key: 'just-cnt', isPrefixed: true }
 properties.flexDirection = {
   key: 'flx-drct',
-  isUnitParsed: false,
-  isPrefixed: true
+  isPrefixed: true,
+  safeValue: true
 }
-properties.flexWrap = { key: 'flx-wrap', isUnitParsed: false, isPrefixed: true }
-properties.flexGrow = { key: 'flx-grow', isUnitParsed: false, isPrefixed: true }
+properties.flexWrap = {
+  key: 'flx-wrap',
+  isPrefixed: true,
+  safeValue: true
+}
+properties.flexGrow = {
+  key: 'flx-grow',
+  isPrefixed: true,
+  defaultUnit: '',
+  numberOnly: true
+}
 properties.flexShrink = {
   key: 'flx-srnk',
-  isUnitParsed: false,
-  isPrefixed: true
+  isPrefixed: true,
+  defaultUnit: '',
+  numberOnly: true
 }
-properties.flexBasis = {
-  key: 'flx-basis',
-  isUnitParsed: false,
-  isPrefixed: true
+properties.flexBasis = { key: 'flx-basis', isPrefixed: true }
+properties.order = {
+  key: 'order',
+  isPrefixed: true,
+  defaultUnit: '',
+  safeValue: true
 }
-properties.order = { key: 'order', isUnitParsed: false, isPrefixed: true }
 
-properties.overflow = { key: 'ovflw', isUnitParsed: false }
-properties.overflowY = { key: 'ovflw-Y', isUnitParsed: false }
-properties.overflowX = { key: 'ovflw-X', isUnitParsed: false }
+properties.overflow = { key: 'ovflw', safeValue: true }
+properties.overflowY = { key: 'ovflw-y', safeValue: true }
+properties.overflowX = { key: 'ovflw-x', safeValue: true }
 
-properties.cursor = { key: 'crsr', isUnitParsed: false, isValueEscaped: false }
+properties.cursor = { key: 'crsr' }
 properties.userSelect = {
   key: 'usr-slct',
-  isValueEscaped: false,
+  safeValue: true,
   isPrefixed: true
 }
-properties.visibility = {
-  key: 'vsblt',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.pointerEvents = {
-  key: 'ptr-evts',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
+properties.visibility = { key: 'vsblt', safeValue: true }
+properties.pointerEvents = { key: 'ptr-evts', safeValue: true }
 
 properties.display = {
   key: 'dspl',
-  isUnitParsed: false,
-  isValueEscaped: false,
+  safeValue: true,
   isPrefixed: true
 }
-properties.float = { key: 'flt', isUnitParsed: false, isValueEscaped: false }
-properties.clear = { key: 'clr', isUnitParsed: false, isValueEscaped: false }
-properties.zIndex = { key: 'z-idx', isUnitParsed: false, isValueEscaped: false }
-properties.boxSizing = {
-  key: 'box-szg',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
+properties.float = { key: 'flt', safeValue: true }
+properties.clear = { key: 'clr', safeValue: true }
+properties.zIndex = { key: 'z-idx', safeValue: true }
+properties.boxSizing = { key: 'box-szg', safeValue: true }
 
-properties.opacity = { key: 'opct', isUnitParsed: false }
+properties.opacity = { key: 'opct', defaultUnit: '', numberOnly: true }
 
 properties.position = {
   key: 'pst',
-  isUnitParsed: false,
-  isValueEscaped: false,
+  safeValue: true,
   isPrefixed: true
 }
-properties.top = { key: 'top', isValueEscaped: false }
-properties.right = { key: 'rgt', isValueEscaped: false }
-properties.bottom = { key: 'btm', isValueEscaped: false }
-properties.left = { key: 'lft', isValueEscaped: false }
+properties.top = { key: 'top', lengthOnly: true }
+properties.right = { key: 'rgt', lengthOnly: true }
+properties.bottom = { key: 'btm', lengthOnly: true }
+properties.left = { key: 'lft', lengthOnly: true }
 
-properties.margin = { key: 'm', isValueEscaped: false }
-properties.padding = { key: 'p', isValueEscaped: false }
-properties.marginTop = { key: 'mt', isValueEscaped: false }
-properties.marginRight = { key: 'mr', isValueEscaped: false }
-properties.marginBottom = { key: 'mb', isValueEscaped: false }
-properties.marginLeft = { key: 'ml', isValueEscaped: false }
-properties.paddingTop = { key: 'pt', isValueEscaped: false }
-properties.paddingRight = { key: 'pr', isValueEscaped: false }
-properties.paddingBottom = { key: 'pb', isValueEscaped: false }
-properties.paddingLeft = { key: 'pl', isValueEscaped: false }
+properties.margin = { key: 'm' }
+properties.padding = { key: 'p' }
+properties.marginTop = { key: 'mt', lengthOnly: true }
+properties.marginRight = { key: 'mr', lengthOnly: true }
+properties.marginBottom = { key: 'mb', lengthOnly: true }
+properties.marginLeft = { key: 'ml', lengthOnly: true }
+properties.paddingTop = { key: 'pt', lengthOnly: true }
+properties.paddingRight = { key: 'pr', lengthOnly: true }
+properties.paddingBottom = { key: 'pb', lengthOnly: true }
+properties.paddingLeft = { key: 'pl', lengthOnly: true }
 
-properties.textAlign = { key: 'txt-algn', isUnitParsed: false }
-properties.textDecoration = { key: 'txt-deco', isUnitParsed: false }
-properties.textTransform = { key: 'txt-trns', isUnitParsed: false }
-properties.textShadow = { key: 'txt-shdw', isUnitParsed: false }
-properties.textOverflow = {
-  key: 'txt-ovrf',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.color = { key: 'color', isUnitParsed: false }
+properties.textAlign = { key: 'txt-algn', safeValue: true }
+properties.textDecoration = { key: 'txt-deco' }
+properties.textTransform = { key: 'txt-trns', safeValue: true }
+properties.textShadow = { key: 'txt-shdw', cacheType: 'array' }
+properties.textOverflow = { key: 'txt-ovrf', safeValue: true }
+properties.color = { key: 'color' }
 properties.font = { key: 'fnt', cacheType: 'array' }
 properties.fontFamily = { key: 'fnt-fam', cacheType: 'array' }
-properties.fontSize = { key: 'fnt-sze', isValueEscaped: false }
-properties.fontStyle = {
-  key: 'fnt-stl',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.fontVariant = {
-  key: 'f-vari',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.fontWeight = {
-  key: 'f-wght',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
+properties.fontSize = { key: 'fnt-sze', lengthOnly: true }
+properties.fontStyle = { key: 'fnt-stl', safeValue: true }
+properties.fontVariant = { key: 'f-vari' }
+properties.fontWeight = { key: 'f-wght', safeValue: true }
 // Use pixels for line-height by default
-properties.lineHeight = { key: 'ln-ht', isValueEscaped: false }
-properties.wordBreak = {
-  key: 'wrd-brk',
-  isUnitParsed: false,
-  isValueEscaped: false
+properties.lineHeight = {
+  key: 'ln-ht',
+  lengthOnly: true,
+  defaultUnit: ''
 }
-properties.wordWrap = {
-  key: 'wrd-wrp',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.whiteSpace = {
-  key: 'wht-spc',
-  isUnitParsed: false,
-  isValueEscaped: false
-}
-properties.letterSpacing = { key: 'ltr-spc', isValueEscaped: false }
+properties.wordBreak = { key: 'wrd-brk', safeValue: true }
+properties.wordWrap = { key: 'wrd-wrp', safeValue: true }
+properties.whiteSpace = { key: 'wht-spc', safeValue: true }
+properties.letterSpacing = { key: 'ltr-spc', lengthOnly: true }
 
-properties.transform = { key: 'tfrm', isUnitParsed: false, cacheType: 'array' }
-properties.transformOrgin = {
-  key: 'tfrm-orgn',
-  isUnitParsed: false,
-  cacheType: 'array'
-}
+properties.transform = { key: 'tfrm', cacheType: 'array' }
+properties.transformOrgin = { key: 'tfrm-orgn', cacheType: 'array' }
 
 Object.keys(properties).forEach(key => {
   properties[key].name = decamelize(key)
-  properties[key].cacheType = properties[key].cacheType || 'hash'
 })
 
 export default properties
