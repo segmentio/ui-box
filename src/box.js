@@ -4,10 +4,7 @@ import { css as gcss } from 'glamor'
 import cx from 'classnames'
 import { allEnhancers, propTypes } from './enhancers'
 
-/**
- * This is optimized for performance.
- * It can be called many times
- */
+// This is optimized for performance. It gets called a lot of times
 const parseProps = props => {
   const { className } = props
   const finalProps = {}

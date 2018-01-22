@@ -4,12 +4,16 @@
 export default function splitProps(props, keys) {
   const matchedProps = {}
   const restProps = {}
+  const propKeys = Object.keys(props)
 
-  for (const key of Object.keys(props)) {
-    if (keys.indexOf(key) > -1) {
-      matchedProps[key] = props[key]
+  for (let i = 0; i < propKeys.length; i++) {
+    const propKey = propKeys[i]
+    const propValue = props[propKey]
+
+    if (keys.includes(propKey)) {
+      matchedProps[propKey] = propValue
     } else {
-      restProps[key] = props[key]
+      restProps[propKey] = propValue
     }
   }
 

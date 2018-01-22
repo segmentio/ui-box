@@ -6,16 +6,22 @@ const prefixRegex = /^(Webkit|ms|Moz|O)/
 export default function prefixer(property, value) {
   const rules = prefixAll({ [property]: value })
   const rulesArray = []
+  const propertyNames = Object.keys(rules)
 
   // Convert rules object to an array
-  for (const key of Object.keys(rules)) {
-    // Add a dash in front of the prefixes and convert from camelcase
-    const prop = decamelize(key.match(prefixRegex) ? '-' + key : key)
-    const values = rules[key]
+  for (let i = 0; i < propertyNames.length; i++) {
+    const propertyName = propertyNames[i]
+    // Add a dash in front of the prefixes
+    const prefixedProp = propertyName.match(prefixRegex)
+      ? `-${propertyName}`
+      : propertyName
+    const prop = decamelize(prefixedProp)
+    const values = rules[propertyName]
 
+    // Handle prefixed values
     if (Array.isArray(values)) {
-      for (const value of values) {
-        rulesArray.push({ property: prop, value })
+      for (let i = 0; i < values.length; i++) {
+        rulesArray.push({ property: prop, value: values[i] })
       }
     } else {
       rulesArray.push({ property: prop, value: values })

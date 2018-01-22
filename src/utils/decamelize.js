@@ -1,4 +1,5 @@
 // Fork of https://github.com/sindresorhus/decamelize because it contains ES6 code
+// and css properties don't contain unicode
 const separator = '-'
 const regex1 = /([a-z\d])([A-Z])/g
 const regex2 = /([a-z]+)([A-Z][a-z\d]+)/g
