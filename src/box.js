@@ -55,7 +55,8 @@ export default class Box extends React.PureComponent {
   static defaultProps = {
     css: null,
     innerRef: null,
-    is: 'div'
+    is: 'div',
+    boxSizing: 'border-box' // eslint-disable-line react/default-props-match-prop-types
   }
 
   render() {
