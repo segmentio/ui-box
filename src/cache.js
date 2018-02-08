@@ -22,11 +22,15 @@ export default {
     cache.set(property + value, className)
   },
 
-  clear() {
-    cache.clear()
+  export() {
+    return Array.from(cache)
   },
 
   hydrate(newEntries) {
     cache = new Map([...cache, ...newEntries])
+  },
+
+  empty() {
+    cache.clear()
   }
 }
