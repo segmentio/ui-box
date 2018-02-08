@@ -19,7 +19,7 @@
     "dev": "start-storybook -p 9009",
     "build": "babel --out-dir lib --ignore *.test.js src",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
-    "release": "np --no-publish",
+    "release": "np --no-publish --no-cleanup",
     "benchmark": "react-benchmark tools/benchmark.js",
     "size": "size-limit",
     "coverage": "nyc report --reporter=html"
