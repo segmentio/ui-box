@@ -1,4 +1,4 @@
-import decamelize from '../utils/decamelize'
+import decamelize from './utils/decamelize'
 
 const properties = {}
 

@@ -1,5 +1,5 @@
 import test from 'ava'
-import getCss from '../../src/css/get-css'
+import getCss from '../src/get-css'
 
 test('supports basic prop + value', t => {
   const result = getCss('minWidth', '10px')

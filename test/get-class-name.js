@@ -1,5 +1,5 @@
 import test from 'ava'
-import getClassName from '../../src/css/get-class-name'
+import getClassName from '../src/get-class-name'
 
 test('supports inherit', t => {
   t.is(getClassName({ key: 'w' }, 'inherit'), 'w_inherit')

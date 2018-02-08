@@ -1,4 +1,4 @@
-import { propAliases } from '../enhancers'
+import { propAliases } from './enhancers'
 
 export default function expandAliases(props) {
   const propNames = Object.keys(props)

@@ -1,5 +1,5 @@
 import prefixAll from 'inline-style-prefixer/static'
-import decamelize from '../utils/decamelize'
+import decamelize from './utils/decamelize'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 

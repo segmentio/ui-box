@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css as gcss } from 'glamor'
 import cx from 'classnames'
-import StyleSheet from './css/style-sheet'
+import StyleSheet from './utils/style-sheet'
 import cache from './cache'
 import { propEnhancers, propTypes } from './enhancers'
-import expandAliases from './css/expand-aliases'
+import expandAliases from './expand-aliases'
 
 // Create and inject the stylesheet
 export const styleSheet = new StyleSheet()

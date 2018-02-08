@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import getCss from '../css/get-css'
+import getCss from '../get-css'
 
 export const propTypes = {
   color: PropTypes.string,

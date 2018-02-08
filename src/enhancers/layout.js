@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import getCss from '../css/get-css'
+import getCss from '../get-css'
 
 export const propTypes = {
   boxSizing: PropTypes.string,

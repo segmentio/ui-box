@@ -1,5 +1,5 @@
 import test from 'ava'
-import valueToString from '../../src/css/value-to-string'
+import valueToString from '../src/value-to-string'
 
 test('converts numbers to string', t => {
   t.is(valueToString(50.5), '50.5px')

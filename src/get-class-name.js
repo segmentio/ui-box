@@ -1,4 +1,4 @@
-import hash from '../utils/hash'
+import hash from './utils/hash'
 import getSafeValue from './get-safe-value'
 
 // This is only used for hash based caching

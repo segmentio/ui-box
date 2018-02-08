@@ -1,5 +1,5 @@
 import test from 'ava'
-import prefixer from '../../src/css/prefixer'
+import prefixer from '../src/prefixer'
 
 test('prefixes properties', t => {
   t.deepEqual(prefixer('userSelect', 'none'), [
