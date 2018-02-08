@@ -12,6 +12,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "files": ["lib"],
+  "sideEffects": false,
   "scripts": {
     "test": "xo && nyc ava",
     "prepublishOnly": "yarn run build",
