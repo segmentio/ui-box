@@ -2,42 +2,48 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css as gcss } from 'glamor'
 import cx from 'classnames'
-import { allEnhancers, propTypes } from './enhancers'
+import StyleSheet from './css/style-sheet'
+import cache from './cache'
+import { propEnhancers, propTypes } from './enhancers'
+import expandAliases from './css/expand-aliases'
+
+// Create and inject the stylesheet
+export const styleSheet = new StyleSheet()
+styleSheet.inject()
 
 // This is optimized for performance. It gets called a lot of times
-const parseProps = props => {
-  const { className } = props
-  const finalProps = {}
-  const propNames = Object.keys(props)
-  let parsedProps = ['children'] // Skip children
-  let finalClassName = className || ''
+const parseProps = rawProps => {
+  const propsMap = expandAliases(rawProps)
+  const parsedProps = {}
+  let className = rawProps.className || ''
 
-  for (let i = 0; i < propNames.length; i++) {
-    const propName = propNames[i]
-    let newClassName
-
-    if (parsedProps.includes(propName)) continue
-
-    for (let i = 0; i < allEnhancers.length; i += 1) {
-      const enhancer = allEnhancers[i]
-
-      if (enhancer.propTypes[propName]) {
-        newClassName = enhancer.parseProps(props)
-        finalClassName = cx(finalClassName, newClassName)
-
-        // Assume all the enhancers parse unique props
-        parsedProps = parsedProps.concat(enhancer.propNames)
-        break
-      }
+  for (const [propName, propValue] of propsMap) {
+    const cachedClassName = cache.get(propName, propValue)
+    if (cachedClassName) {
+      className = cx(className, cachedClassName)
+      continue
     }
 
-    // Only pass through props that weren't parsed
-    if (!newClassName) {
-      finalProps[propName] = props[propName]
+    const enhancer = propEnhancers[propName]
+    // Skip false boolean enhancers. e.g: clearfix={false}
+    if (enhancer && !propValue) {
+      continue
+    } else if (!enhancer) {
+      // Native prop. e.g: disabled, value, type
+      parsedProps[propName] = propValue
+      continue
     }
+
+    const newCss = enhancer(propValue)
+    // Glamor props (clearfix) don't have css
+    if (newCss.css) {
+      styleSheet.insert(newCss.css)
+    }
+    cache.set(propName, propValue, newCss.className)
+    className = cx(className, newCss.className)
   }
 
-  return [finalClassName, finalProps]
+  return [className, parsedProps]
 }
 
 export default class Box extends React.PureComponent {

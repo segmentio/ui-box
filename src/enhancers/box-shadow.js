@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   boxShadow: PropTypes.string
@@ -8,8 +7,8 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ boxShadow }) => {
-  return cx(
-    boxShadow !== undefined && insertSingleProperty('boxShadow', boxShadow)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  boxShadow: boxShadow => getCss('boxShadow', boxShadow)
 }

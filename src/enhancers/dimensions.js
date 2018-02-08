@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -13,20 +12,13 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  height,
-  maxHeight,
-  maxWidth,
-  minHeight,
-  minWidth,
-  width
-}) => {
-  return cx(
-    height !== undefined && insertSingleProperty('height', height),
-    maxHeight !== undefined && insertSingleProperty('maxHeight', maxHeight),
-    maxWidth !== undefined && insertSingleProperty('maxWidth', maxWidth),
-    minHeight !== undefined && insertSingleProperty('minHeight', minHeight),
-    minWidth !== undefined && insertSingleProperty('minWidth', minWidth),
-    width !== undefined && insertSingleProperty('width', width)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  height: height => getCss('height', height),
+  maxHeight: maxHeight => getCss('maxHeight', maxHeight),
+  maxWidth: maxWidth => getCss('maxWidth', maxWidth),
+  minHeight: minHeight => getCss('minHeight', minHeight),
+  minWidth: minWidth => getCss('minWidth', minWidth),
+  width: width => getCss('width', width)
 }

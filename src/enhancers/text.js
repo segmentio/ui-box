@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   color: PropTypes.string,
@@ -24,47 +23,24 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  color,
-  font,
-  fontFamily,
-  fontSize,
-  fontStyle,
-  fontVariant,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
-  textAlign,
-  textDecoration,
-  textOverflow,
-  textShadow,
-  textTransform,
-  whiteSpace,
-  wordBreak,
-  wordWrap
-}) => {
-  return cx(
-    color !== undefined && insertSingleProperty('color', color),
-    font !== undefined && insertSingleProperty('font', font),
-    fontFamily !== undefined && insertSingleProperty('fontFamily', fontFamily),
-    fontSize !== undefined && insertSingleProperty('fontSize', fontSize),
-    fontStyle !== undefined && insertSingleProperty('fontStyle', fontStyle),
-    fontVariant !== undefined &&
-      insertSingleProperty('fontVariant', fontVariant),
-    fontWeight !== undefined && insertSingleProperty('fontWeight', fontWeight),
-    letterSpacing !== undefined &&
-      insertSingleProperty('letterSpacing', letterSpacing),
-    lineHeight !== undefined && insertSingleProperty('lineHeight', lineHeight),
-    textAlign !== undefined && insertSingleProperty('textAlign', textAlign),
-    textDecoration !== undefined &&
-      insertSingleProperty('textDecoration', textDecoration),
-    textOverflow !== undefined &&
-      insertSingleProperty('textOverflow', textOverflow),
-    textShadow !== undefined && insertSingleProperty('textShadow', textShadow),
-    textTransform !== undefined &&
-      insertSingleProperty('textTransform', textTransform),
-    whiteSpace !== undefined && insertSingleProperty('whiteSpace', whiteSpace),
-    wordBreak !== undefined && insertSingleProperty('wordBreak', wordBreak),
-    wordWrap !== undefined && insertSingleProperty('wordWrap', wordWrap)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  color: color => getCss('color', color),
+  font: font => getCss('font', font),
+  fontFamily: fontFamily => getCss('fontFamily', fontFamily),
+  fontSize: fontSize => getCss('fontSize', fontSize),
+  fontStyle: fontStyle => getCss('fontStyle', fontStyle),
+  fontVariant: fontVariant => getCss('fontVariant', fontVariant),
+  fontWeight: fontWeight => getCss('fontWeight', fontWeight),
+  letterSpacing: letterSpacing => getCss('letterSpacing', letterSpacing),
+  lineHeight: lineHeight => getCss('lineHeight', lineHeight),
+  textAlign: textAlign => getCss('textAlign', textAlign),
+  textDecoration: textDecoration => getCss('textDecoration', textDecoration),
+  textOverflow: textOverflow => getCss('textOverflow', textOverflow),
+  textShadow: textShadow => getCss('textShadow', textShadow),
+  textTransform: textTransform => getCss('textTransform', textTransform),
+  whiteSpace: whiteSpace => getCss('whiteSpace', whiteSpace),
+  wordBreak: wordBreak => getCss('wordBreak', wordBreak),
+  wordWrap: wordWrap => getCss('wordWrap', wordWrap)
 }

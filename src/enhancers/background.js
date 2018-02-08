@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   background: PropTypes.string,
@@ -16,34 +15,22 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  background,
-  backgroundBlendMode,
-  backgroundClip,
-  backgroundColor,
-  backgroundImage,
-  backgroundOrigin,
-  backgroundPosition,
-  backgroundRepeat,
-  backgroundSize
-}) => {
-  return cx(
-    background !== undefined && insertSingleProperty('background', background),
-    backgroundBlendMode !== undefined &&
-      insertSingleProperty('backgroundBlendMode', backgroundBlendMode),
-    backgroundClip !== undefined &&
-      insertSingleProperty('backgroundClip', backgroundClip),
-    backgroundColor !== undefined &&
-      insertSingleProperty('backgroundColor', backgroundColor),
-    backgroundImage !== undefined &&
-      insertSingleProperty('backgroundImage', backgroundImage),
-    backgroundOrigin !== undefined &&
-      insertSingleProperty('backgroundOrigin', backgroundOrigin),
-    backgroundPosition !== undefined &&
-      insertSingleProperty('backgroundPosition', backgroundPosition),
-    backgroundRepeat !== undefined &&
-      insertSingleProperty('backgroundRepeat', backgroundRepeat),
-    backgroundSize !== undefined &&
-      insertSingleProperty('backgroundSize', backgroundSize)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  background: background => getCss('background', background),
+  backgroundBlendMode: backgroundBlendMode =>
+    getCss('backgroundBlendMode', backgroundBlendMode),
+  backgroundClip: backgroundClip => getCss('backgroundClip', backgroundClip),
+  backgroundColor: backgroundColor =>
+    getCss('backgroundColor', backgroundColor),
+  backgroundImage: backgroundImage =>
+    getCss('backgroundImage', backgroundImage),
+  backgroundOrigin: backgroundOrigin =>
+    getCss('backgroundOrigin', backgroundOrigin),
+  backgroundPosition: backgroundPosition =>
+    getCss('backgroundPosition', backgroundPosition),
+  backgroundRepeat: backgroundRepeat =>
+    getCss('backgroundRepeat', backgroundRepeat),
+  backgroundSize: backgroundSize => getCss('backgroundSize', backgroundSize)
 }

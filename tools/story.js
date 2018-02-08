@@ -147,3 +147,8 @@ storiesOf('Box', module)
       {allPropertiesComponent()}
     </Box>
   ))
+  .add('overrides', () => (
+    <Box>
+      <RedBox marginLeft="5px" />
+    </Box>
+  ))

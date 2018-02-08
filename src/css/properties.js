@@ -5,13 +5,13 @@ const properties = {}
 properties.background = {
   key: 'bg',
   isPrefixed: true,
-  cacheType: 'array'
+  complexValue: true
 }
 properties.backgroundColor = { key: 'bg-clr' }
 properties.backgroundImage = {
   key: 'bg-img',
   isPrefixed: true,
-  cacheType: 'array'
+  complexValue: true
 }
 properties.backgroundPosition = { key: 'bg-pos' }
 properties.backgroundSize = { key: 'bg-siz' }
@@ -47,7 +47,7 @@ properties.borderBottomColor = { key: 'b-btm-clr' }
 properties.borderBottomStyle = { key: 'b-btm-stl', safeValue: true }
 properties.borderBottomWidth = { key: 'b-btm-wdt', lengthOnly: true }
 
-properties.boxShadow = { key: 'bs', cacheType: 'array' }
+properties.boxShadow = { key: 'bs', complexValue: true }
 
 properties.width = { key: 'w', lengthOnly: true }
 properties.height = { key: 'h', lengthOnly: true }
@@ -61,6 +61,7 @@ properties.alignItems = { key: 'algn-itms', isPrefixed: true }
 properties.alignSelf = { key: 'algn-slf', isPrefixed: true }
 properties.alignContent = { key: 'algn-cnt', isPrefixed: true }
 properties.justifyContent = { key: 'just-cnt', isPrefixed: true }
+properties.justifySelf = { key: 'just-self', isPrefixed: true }
 properties.flexDirection = {
   key: 'flx-drct',
   isPrefixed: true,
@@ -140,11 +141,11 @@ properties.paddingLeft = { key: 'pl', lengthOnly: true }
 properties.textAlign = { key: 'txt-algn', safeValue: true }
 properties.textDecoration = { key: 'txt-deco' }
 properties.textTransform = { key: 'txt-trns', safeValue: true }
-properties.textShadow = { key: 'txt-shdw', cacheType: 'array' }
+properties.textShadow = { key: 'txt-shdw', complexValue: true }
 properties.textOverflow = { key: 'txt-ovrf', safeValue: true }
 properties.color = { key: 'color' }
-properties.font = { key: 'fnt', cacheType: 'array' }
-properties.fontFamily = { key: 'fnt-fam', cacheType: 'array' }
+properties.font = { key: 'fnt', complexValue: true }
+properties.fontFamily = { key: 'fnt-fam', complexValue: true }
 properties.fontSize = { key: 'fnt-sze', lengthOnly: true }
 properties.fontStyle = { key: 'fnt-stl', safeValue: true }
 properties.fontVariant = { key: 'f-vari' }
@@ -160,8 +161,8 @@ properties.wordWrap = { key: 'wrd-wrp', safeValue: true }
 properties.whiteSpace = { key: 'wht-spc', safeValue: true }
 properties.letterSpacing = { key: 'ltr-spc', lengthOnly: true }
 
-properties.transform = { key: 'tfrm', cacheType: 'array' }
-properties.transformOrgin = { key: 'tfrm-orgn', cacheType: 'array' }
+properties.transform = { key: 'tfrm', complexValue: true }
+properties.transformOrigin = { key: 'tfrm-orgn', complexValue: true }
 
 Object.keys(properties).forEach(key => {
   properties[key].name = decamelize(key)

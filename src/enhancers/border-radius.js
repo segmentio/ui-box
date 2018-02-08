@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   borderBottomLeftRadius: PropTypes.oneOfType([
@@ -24,23 +23,22 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  borderBottomLeftRadius,
-  borderBottomRightRadius,
-  borderRadius,
-  borderTopLeftRadius,
-  borderTopRightRadius
-}) => {
-  return cx(
-    borderBottomLeftRadius !== undefined &&
-      insertSingleProperty('borderBottomLeftRadius', borderBottomLeftRadius),
-    borderBottomRightRadius !== undefined &&
-      insertSingleProperty('borderBottomRightRadius', borderBottomRightRadius),
-    borderRadius !== undefined &&
-      insertSingleProperty('borderRadius', borderRadius),
-    borderTopLeftRadius !== undefined &&
-      insertSingleProperty('borderTopLeftRadius', borderTopLeftRadius),
-    borderTopRightRadius !== undefined &&
-      insertSingleProperty('borderTopRightRadius', borderTopRightRadius)
-  )
+export const propAliases = {
+  borderRadius: [
+    'borderBottomLeftRadius',
+    'borderBottomRightRadius',
+    'borderTopLeftRadius',
+    'borderTopRightRadius'
+  ]
+}
+
+export const propEnhancers = {
+  borderBottomLeftRadius: borderBottomLeftRadius =>
+    getCss('borderBottomLeftRadius', borderBottomLeftRadius),
+  borderBottomRightRadius: borderBottomRightRadius =>
+    getCss('borderBottomRightRadius', borderBottomRightRadius),
+  borderTopLeftRadius: borderTopLeftRadius =>
+    getCss('borderTopLeftRadius', borderTopLeftRadius),
+  borderTopRightRadius: borderTopRightRadius =>
+    getCss('borderTopRightRadius', borderTopRightRadius)
 }

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   border: PropTypes.string,
@@ -27,65 +26,52 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  border,
-  borderBottom,
-  borderBottomColor,
-  borderBottomStyle,
-  borderBottomWidth,
-  borderColor,
-  borderLeft,
-  borderLeftColor,
-  borderLeftStyle,
-  borderLeftWidth,
-  borderRight,
-  borderRightColor,
-  borderRightStyle,
-  borderRightWidth,
-  borderStyle,
-  borderTop,
-  borderTopColor,
-  borderTopStyle,
-  borderTopWidth,
-  borderWidth
-}) => {
-  return cx(
-    border !== undefined && insertSingleProperty('border', border),
-    borderBottom !== undefined &&
-      insertSingleProperty('borderBottom', borderBottom),
-    borderBottomColor !== undefined &&
-      insertSingleProperty('borderBottomColor', borderBottomColor),
-    borderBottomStyle !== undefined &&
-      insertSingleProperty('borderBottomStyle', borderBottomStyle),
-    borderBottomWidth !== undefined &&
-      insertSingleProperty('borderBottomWidth', borderBottomWidth),
-    borderColor !== undefined &&
-      insertSingleProperty('borderColor', borderColor),
-    borderLeft !== undefined && insertSingleProperty('borderLeft', borderLeft),
-    borderLeftColor !== undefined &&
-      insertSingleProperty('borderLeftColor', borderLeftColor),
-    borderLeftStyle !== undefined &&
-      insertSingleProperty('borderLeftStyle', borderLeftStyle),
-    borderLeftWidth !== undefined &&
-      insertSingleProperty('borderLeftWidth', borderLeftWidth),
-    borderRight !== undefined &&
-      insertSingleProperty('borderRight', borderRight),
-    borderRightColor !== undefined &&
-      insertSingleProperty('borderRightColor', borderRightColor),
-    borderRightStyle !== undefined &&
-      insertSingleProperty('borderRightStyle', borderRightStyle),
-    borderRightWidth !== undefined &&
-      insertSingleProperty('borderRightWidth', borderRightWidth),
-    borderStyle !== undefined &&
-      insertSingleProperty('borderStyle', borderStyle),
-    borderTop !== undefined && insertSingleProperty('borderTop', borderTop),
-    borderTopColor !== undefined &&
-      insertSingleProperty('borderTopColor', borderTopColor),
-    borderTopStyle !== undefined &&
-      insertSingleProperty('borderTopStyle', borderTopStyle),
-    borderTopWidth !== undefined &&
-      insertSingleProperty('borderTopWidth', borderTopWidth),
-    borderWidth !== undefined &&
-      insertSingleProperty('borderWidth', borderWidth)
-  )
+export const propAliases = {
+  border: ['borderBottom', 'borderLeft', 'borderRight', 'borderTop'],
+  borderColor: [
+    'borderBottomColor',
+    'borderLeftColor',
+    'borderRightColor',
+    'borderTopColor'
+  ],
+  borderStyle: [
+    'borderBottomStyle',
+    'borderLeftStyle',
+    'borderRightStyle',
+    'borderTopStyle'
+  ],
+  borderWidth: [
+    'borderBottomWidth',
+    'borderLeftWidth',
+    'borderRightWidth',
+    'borderTopWidth'
+  ]
+}
+
+export const propEnhancers = {
+  borderBottom: borderBottom => getCss('borderBottom', borderBottom),
+  borderBottomColor: borderBottomColor =>
+    getCss('borderBottomColor', borderBottomColor),
+  borderBottomStyle: borderBottomStyle =>
+    getCss('borderBottomStyle', borderBottomStyle),
+  borderBottomWidth: borderBottomWidth =>
+    getCss('borderBottomWidth', borderBottomWidth),
+  borderLeft: borderLeft => getCss('borderLeft', borderLeft),
+  borderLeftColor: borderLeftColor =>
+    getCss('borderLeftColor', borderLeftColor),
+  borderLeftStyle: borderLeftStyle =>
+    getCss('borderLeftStyle', borderLeftStyle),
+  borderLeftWidth: borderLeftWidth =>
+    getCss('borderLeftWidth', borderLeftWidth),
+  borderRight: borderRight => getCss('borderRight', borderRight),
+  borderRightColor: borderRightColor =>
+    getCss('borderRightColor', borderRightColor),
+  borderRightStyle: borderRightStyle =>
+    getCss('borderRightStyle', borderRightStyle),
+  borderRightWidth: borderRightWidth =>
+    getCss('borderRightWidth', borderRightWidth),
+  borderTop: borderTop => getCss('borderTop', borderTop),
+  borderTopColor: borderTopColor => getCss('borderTopColor', borderTopColor),
+  borderTopStyle: borderTopStyle => getCss('borderTopStyle', borderTopStyle),
+  borderTopWidth: borderTopWidth => getCss('borderTopWidth', borderTopWidth)
 }

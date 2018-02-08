@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty, insertFirstValidProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -21,32 +20,22 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  margin,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  marginTop,
-  marginX,
-  marginY,
-  padding,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-  paddingTop,
-  paddingX,
-  paddingY
-}) => {
-  return cx(
-    margin !== undefined && insertSingleProperty('margin', margin),
-    padding !== undefined && insertSingleProperty('padding', padding),
-    insertFirstValidProperty('marginBottom', marginBottom, marginY),
-    insertFirstValidProperty('marginLeft', marginLeft, marginX),
-    insertFirstValidProperty('marginRight', marginRight, marginX),
-    insertFirstValidProperty('marginTop', marginTop, marginY),
-    insertFirstValidProperty('paddingBottom', paddingBottom, paddingY),
-    insertFirstValidProperty('paddingLeft', paddingLeft, paddingX),
-    insertFirstValidProperty('paddingRight', paddingRight, paddingX),
-    insertFirstValidProperty('paddingTop', paddingTop, paddingY)
-  )
+export const propAliases = {
+  margin: ['marginBottom', 'marginLeft', 'marginRight', 'marginTop'],
+  marginX: ['marginLeft', 'marginRight'],
+  marginY: ['marginBottom', 'marginTop'],
+  padding: ['paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop'],
+  paddingX: ['paddingLeft', 'paddingRight'],
+  paddingY: ['paddingBottom', 'paddingTop']
+}
+
+export const propEnhancers = {
+  marginBottom: marginBottom => getCss('marginBottom', marginBottom),
+  marginLeft: marginLeft => getCss('marginLeft', marginLeft),
+  marginRight: marginRight => getCss('marginRight', marginRight),
+  marginTop: marginTop => getCss('marginTop', marginTop),
+  paddingBottom: paddingBottom => getCss('paddingBottom', paddingBottom),
+  paddingLeft: paddingLeft => getCss('paddingLeft', paddingLeft),
+  paddingRight: paddingRight => getCss('paddingRight', paddingRight),
+  paddingTop: paddingTop => getCss('paddingTop', paddingTop)
 }

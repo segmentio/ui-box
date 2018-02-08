@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   alignContent: PropTypes.string,
@@ -19,36 +18,19 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  alignContent,
-  alignItems,
-  alignSelf,
-  flex,
-  flexBasis,
-  flexDirection,
-  flexGrow,
-  flexShrink,
-  flexWrap,
-  justifyContent,
-  justifySelf,
-  order
-}) => {
-  return cx(
-    alignContent !== undefined &&
-      insertSingleProperty('alignContent', alignContent),
-    alignItems !== undefined && insertSingleProperty('alignItems', alignItems),
-    alignSelf !== undefined && insertSingleProperty('alignSelf', alignSelf),
-    flex !== undefined && insertSingleProperty('flex', flex),
-    flexBasis !== undefined && insertSingleProperty('flexBasis', flexBasis),
-    flexDirection !== undefined &&
-      insertSingleProperty('flexDirection', flexDirection),
-    flexGrow !== undefined && insertSingleProperty('flexGrow', flexGrow),
-    flexShrink !== undefined && insertSingleProperty('flexShrink', flexShrink),
-    flexWrap !== undefined && insertSingleProperty('flexWrap', flexWrap),
-    justifyContent !== undefined &&
-      insertSingleProperty('justifyContent', justifyContent),
-    justifySelf !== undefined &&
-      insertSingleProperty('justifySelf', justifySelf),
-    order !== undefined && insertSingleProperty('order', order)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  alignContent: alignContent => getCss('alignContent', alignContent),
+  alignItems: alignItems => getCss('alignItems', alignItems),
+  alignSelf: alignSelf => getCss('alignSelf', alignSelf),
+  flex: flex => getCss('flex', flex),
+  flexBasis: flexBasis => getCss('flexBasis', flexBasis),
+  flexDirection: flexDirection => getCss('flexDirection', flexDirection),
+  flexGrow: flexGrow => getCss('flexGrow', flexGrow),
+  flexShrink: flexShrink => getCss('flexShrink', flexShrink),
+  flexWrap: flexWrap => getCss('flexWrap', flexWrap),
+  justifyContent: justifyContent => getCss('justifyContent', justifyContent),
+  justifySelf: justifySelf => getCss('justifySelf', justifySelf),
+  order: order => getCss('order', order)
 }

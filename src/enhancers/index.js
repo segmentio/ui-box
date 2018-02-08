@@ -80,3 +80,37 @@ export const propNames = [
   ...text.propNames,
   ...transform.propNames
 ]
+
+export const propAliases = {
+  ...background.propAliases,
+  ...borderRadius.propAliases,
+  ...borders.propAliases,
+  ...boxShadow.propAliases,
+  ...dimensions.propAliases,
+  ...flex.propAliases,
+  ...interaction.propAliases,
+  ...layout.propAliases,
+  ...opacity.propAliases,
+  ...overflow.propAliases,
+  ...position.propAliases,
+  ...spacing.propAliases,
+  ...text.propAliases,
+  ...transform.propAliases
+}
+
+export const propEnhancers = {
+  ...background.propEnhancers,
+  ...borderRadius.propEnhancers,
+  ...borders.propEnhancers,
+  ...boxShadow.propEnhancers,
+  ...dimensions.propEnhancers,
+  ...flex.propEnhancers,
+  ...interaction.propEnhancers,
+  ...layout.propEnhancers,
+  ...opacity.propEnhancers,
+  ...overflow.propEnhancers,
+  ...position.propEnhancers,
+  ...spacing.propEnhancers,
+  ...text.propEnhancers,
+  ...transform.propEnhancers
+}

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { css } from 'glamor'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   boxSizing: PropTypes.string,
@@ -22,20 +21,15 @@ const cssClearfix = {
   }
 }
 
-export const parseProps = ({
-  boxSizing,
-  clear,
-  clearfix,
-  display,
-  float,
-  zIndex
-}) => {
-  return cx(
-    boxSizing !== undefined && insertSingleProperty('boxSizing', boxSizing),
-    clear !== undefined && insertSingleProperty('clear', clear),
-    clearfix && css(cssClearfix).toString(),
-    display !== undefined && insertSingleProperty('display', display),
-    float !== undefined && insertSingleProperty('float', float),
-    zIndex !== undefined && insertSingleProperty('zIndex', zIndex)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  boxSizing: boxSizing => getCss('boxSizing', boxSizing),
+  clear: clear => getCss('clear', clear),
+  clearfix: () => ({
+    className: css(cssClearfix).toString()
+  }),
+  display: display => getCss('display', display),
+  float: float => getCss('float', float),
+  zIndex: zIndex => getCss('zIndex', zIndex)
 }

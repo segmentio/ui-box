@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -20,12 +19,12 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ bottom, left, position, right, top }) => {
-  return cx(
-    bottom !== undefined && insertSingleProperty('bottom', bottom),
-    left !== undefined && insertSingleProperty('left', left),
-    position !== undefined && insertSingleProperty('position', position),
-    right !== undefined && insertSingleProperty('right', right),
-    top !== undefined && insertSingleProperty('top', top)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  bottom: bottom => getCss('bottom', bottom),
+  left: left => getCss('left', left),
+  position: position => getCss('position', position),
+  right: right => getCss('right', right),
+  top: top => getCss('top', top)
 }

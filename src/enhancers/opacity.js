@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -8,6 +7,8 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ opacity }) => {
-  return cx(opacity !== undefined && insertSingleProperty('opacity', opacity))
+export const propAliases = {}
+
+export const propEnhancers = {
+  opacity: opacity => getCss('opacity', opacity)
 }

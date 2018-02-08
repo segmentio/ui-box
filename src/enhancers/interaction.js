@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   cursor: PropTypes.string,
@@ -11,17 +10,11 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({
-  cursor,
-  pointerEvents,
-  userSelect,
-  visibility
-}) => {
-  return cx(
-    cursor !== undefined && insertSingleProperty('cursor', cursor),
-    pointerEvents !== undefined &&
-      insertSingleProperty('pointerEvents', pointerEvents),
-    userSelect !== undefined && insertSingleProperty('userSelect', userSelect),
-    visibility !== undefined && insertSingleProperty('visibility', visibility)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  cursor: cursor => getCss('cursor', cursor),
+  pointerEvents: pointerEvents => getCss('pointerEvents', pointerEvents),
+  userSelect: userSelect => getCss('userSelect', userSelect),
+  visibility: visibility => getCss('visibility', visibility)
 }

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   overflow: PropTypes.string,
@@ -10,10 +9,11 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ overflow, overflowX, overflowY }) => {
-  return cx(
-    overflow !== undefined && insertSingleProperty('overflow', overflow),
-    overflowX !== undefined && insertSingleProperty('overflowX', overflowX),
-    overflowY !== undefined && insertSingleProperty('overflowY', overflowY)
-  )
+export const propAliases = {
+  overflow: ['overflowX', 'overflowY']
+}
+
+export const propEnhancers = {
+  overflowX: overflowX => getCss('overflowX', overflowX),
+  overflowY: overflowY => getCss('overflowY', overflowY)
 }

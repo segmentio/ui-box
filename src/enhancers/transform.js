@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import { insertSingleProperty } from '../css'
+import getCss from '../css/get-css'
 
 export const propTypes = {
   transform: PropTypes.string,
@@ -9,10 +8,9 @@ export const propTypes = {
 
 export const propNames = Object.keys(propTypes)
 
-export const parseProps = ({ transform, transformOrigin }) => {
-  return cx(
-    transform !== undefined && insertSingleProperty('transform', transform),
-    transformOrigin !== undefined &&
-      insertSingleProperty('transform', transformOrigin)
-  )
+export const propAliases = {}
+
+export const propEnhancers = {
+  transform: transform => getCss('transform', transform),
+  transformOrigin: transformOrigin => getCss('transformOrigin', transformOrigin)
 }

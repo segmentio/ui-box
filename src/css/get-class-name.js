@@ -1,3 +1,4 @@
+import hash from '../utils/hash'
 import getSafeValue from './get-safe-value'
 
 // This is only used for hash based caching
@@ -7,7 +8,8 @@ export default function getClassName(propertyInfo, value) {
     key,
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
     lengthOnly = false, // Value is only a length type. e.g: 10px, 10em, 10%, 10.5px
-    numberOnly = false // Value is only a number type. e.g: 10, 0.5
+    numberOnly = false, // Value is only a number type. e.g: 10, 0.5
+    complexValue = false // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
   let valueKey
 
@@ -23,6 +25,8 @@ export default function getClassName(propertyInfo, value) {
     // If the value is safe do nothing
   } else if (safeValue) {
     valueKey = value
+  } else if (complexValue) {
+    valueKey = hash(value)
   } else {
     valueKey = getSafeValue(value)
   }
