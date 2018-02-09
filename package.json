@@ -37,7 +37,7 @@
   "devDependencies": {
     "@storybook/react": "^3.2.12",
     "@storybook/storybook-deployer": "^2.2.0",
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.1",
@@ -46,7 +46,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-prettier": "^2.7.0",
-    "eslint-config-xo-react": "^0.15.0",
+    "eslint-config-xo-react": "^0.16.0",
     "eslint-plugin-react": "^7.4.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
@@ -58,7 +58,7 @@
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.2.0",
     "sinon": "^4.1.6",
-    "size-limit": "^0.13.2",
+    "size-limit": "^0.14.0",
     "xo": "^0.18.2"
   },
   "xo": {
