@@ -1,7 +1,7 @@
 import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
-import Box from '../src'
+import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
 import { propNames } from '../src/enhancers'
