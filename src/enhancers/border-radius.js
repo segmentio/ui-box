@@ -21,8 +21,6 @@ export const propTypes = {
   ])
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {
   borderRadius: [
     'borderBottomLeftRadius',

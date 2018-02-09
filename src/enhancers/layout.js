@@ -11,8 +11,6 @@ export const propTypes = {
   zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propNames = Object.keys(propTypes)
-
 const cssClearfix = {
   '&:before, &:after': {
     display: 'table',

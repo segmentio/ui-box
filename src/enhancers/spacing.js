@@ -18,8 +18,6 @@ export const propTypes = {
   paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {
   margin: ['marginBottom', 'marginLeft', 'marginRight', 'marginTop'],
   marginX: ['marginLeft', 'marginRight'],

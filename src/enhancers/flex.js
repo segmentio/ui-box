@@ -16,8 +16,6 @@ export const propTypes = {
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {}
 
 export const propEnhancers = {

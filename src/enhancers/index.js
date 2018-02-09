@@ -47,22 +47,7 @@ export const propTypes = {
   ...transform.propTypes
 }
 
-export const propNames = [
-  ...background.propNames,
-  ...borderRadius.propNames,
-  ...borders.propNames,
-  ...boxShadow.propNames,
-  ...dimensions.propNames,
-  ...flex.propNames,
-  ...interaction.propNames,
-  ...layout.propNames,
-  ...opacity.propNames,
-  ...overflow.propNames,
-  ...position.propNames,
-  ...spacing.propNames,
-  ...text.propNames,
-  ...transform.propNames
-]
+export const propNames = Object.keys(propTypes)
 
 export const propAliases = {
   ...background.propAliases,

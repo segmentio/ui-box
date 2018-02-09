@@ -24,8 +24,6 @@ export const propTypes = {
   borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {
   border: ['borderBottom', 'borderLeft', 'borderRight', 'borderTop'],
   borderColor: [

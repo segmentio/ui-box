@@ -21,8 +21,6 @@ export const propTypes = {
   wordWrap: PropTypes.string
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {}
 
 export const propEnhancers = {

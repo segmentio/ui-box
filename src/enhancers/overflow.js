@@ -7,8 +7,6 @@ export const propTypes = {
   overflowY: PropTypes.string
 }
 
-export const propNames = Object.keys(propTypes)
-
 export const propAliases = {
   overflow: ['overflowX', 'overflowY']
 }
