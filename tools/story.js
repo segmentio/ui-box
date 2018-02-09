@@ -116,6 +116,13 @@ storiesOf('Box', module)
       <Box fontSize="72px">72px</Box>
     </Box>
   ))
+  .add('list', () => (
+    <Box is="ol" listStyleType="lower-greek">
+      <Box is="li">I՚m</Box>
+      <Box is="li">a</Box>
+      <Box is="li">list</Box>
+    </Box>
+  ))
   .add('utils', () => (
     <Box>
       <Box cursor="pointer">Center</Box>

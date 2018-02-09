@@ -6,6 +6,7 @@ import * as dimensions from './dimensions'
 import * as flex from './flex'
 import * as interaction from './interaction'
 import * as layout from './layout'
+import * as list from './list'
 import * as opacity from './opacity'
 import * as overflow from './overflow'
 import * as position from './position'
@@ -22,6 +23,7 @@ export {
   flex,
   interaction,
   layout,
+  list,
   opacity,
   overflow,
   position,
@@ -39,6 +41,7 @@ export const propTypes = {
   ...flex.propTypes,
   ...interaction.propTypes,
   ...layout.propTypes,
+  ...list.propTypes,
   ...opacity.propTypes,
   ...overflow.propTypes,
   ...position.propTypes,
@@ -58,6 +61,7 @@ export const propAliases = {
   ...flex.propAliases,
   ...interaction.propAliases,
   ...layout.propAliases,
+  ...list.propAliases,
   ...opacity.propAliases,
   ...overflow.propAliases,
   ...position.propAliases,
@@ -75,6 +79,7 @@ export const propEnhancers = {
   ...flex.propEnhancers,
   ...interaction.propEnhancers,
   ...layout.propEnhancers,
+  ...list.propEnhancers,
   ...opacity.propEnhancers,
   ...overflow.propEnhancers,
   ...position.propEnhancers,

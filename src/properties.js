@@ -164,6 +164,11 @@ properties.letterSpacing = { key: 'ltr-spc', lengthOnly: true }
 properties.transform = { key: 'tfrm', complexValue: true }
 properties.transformOrigin = { key: 'tfrm-orgn', complexValue: true }
 
+properties.listStyle = { key: 'ls', complexValue: true }
+properties.listStyleType = { key: 'ls-typ' }
+properties.listStyleImage = { key: 'ls-img', complexValue: true }
+properties.listStylePosition = { key: 'ls-pos', safeValue: true }
+
 Object.keys(properties).forEach(key => {
   properties[key].name = decamelize(key)
 })
