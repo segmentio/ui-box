@@ -1,8 +1,8 @@
 import test from 'ava'
-import cache from '../src/cache'
+import * as cache from '../src/cache'
 
 test.afterEach(() => {
-  cache.empty()
+  cache.clear()
 })
 
 test('caches a className', t => {
@@ -16,21 +16,21 @@ test('validates the value', t => {
   }, /invalid cache value/)
 })
 
-test('exports the cache', t => {
+test('returns the cache entries', t => {
   cache.set('minHeight', '10px', 'min-h-10px')
-  t.deepEqual(cache.export(), [['minHeight10px', 'min-h-10px']])
+  t.deepEqual(cache.entries(), [['minHeight10px', 'min-h-10px']])
 })
 
 test('hydrates the cache', t => {
   const fixture = [['height10px', 'h-10px']]
   cache.hydrate(fixture)
-  t.deepEqual(cache.export(), fixture)
+  t.deepEqual(cache.entries(), fixture)
 })
 
 test('existing keys are maintained when hydrating', t => {
   cache.set('minWidth', '10px', 'min-w-10px')
   cache.hydrate([['height10px', 'h-10px']])
-  t.deepEqual(cache.export(), [
+  t.deepEqual(cache.entries(), [
     ['minWidth10px', 'min-w-10px'],
     ['height10px', 'h-10px']
   ])

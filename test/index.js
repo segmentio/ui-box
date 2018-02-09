@@ -2,19 +2,19 @@ import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
 import Box from '../src'
-import { getStyles, clearStyles } from '../src/styles'
+import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
 import { propNames } from '../src/enhancers'
 
 test.afterEach(() => {
-  clearStyles()
+  styles.clear()
 })
 
 test.serial('all properties', t => {
   const component = allPropertiesComponent()
   const tree = render.create(component).toJSON()
   t.snapshot(tree, 'DOM')
-  t.snapshot(getStyles(), 'CSS')
+  t.snapshot(styles.getAll(), 'CSS')
 })
 
 test.serial('all properties set to inherit', t => {
@@ -26,7 +26,7 @@ test.serial('all properties set to inherit', t => {
   const component = <Box {...properties} />
   const tree = render.create(component).toJSON()
   t.snapshot(tree, 'DOM')
-  t.snapshot(getStyles(), 'CSS')
+  t.snapshot(styles.getAll(), 'CSS')
 })
 
 test.serial('all properties set to initial', t => {
@@ -38,5 +38,5 @@ test.serial('all properties set to initial', t => {
   const component = <Box {...properties} />
   const tree = render.create(component).toJSON()
   t.snapshot(tree, 'DOM')
-  t.snapshot(getStyles(), 'CSS')
+  t.snapshot(styles.getAll(), 'CSS')
 })

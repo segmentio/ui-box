@@ -3,16 +3,16 @@ import StyleSheet from './utils/style-sheet'
 const styleSheet = new StyleSheet()
 styleSheet.inject()
 
-export function addStyles(styles) {
+export function add(styles) {
   styleSheet.insert(styles)
 }
 
-export function getStyles() {
+export function getAll() {
   return styleSheet
     .rules()
     .reduce((combineRules, rule) => combineRules + rule.cssText, '')
 }
 
-export function clearStyles() {
+export function clear() {
   styleSheet.flush()
 }
