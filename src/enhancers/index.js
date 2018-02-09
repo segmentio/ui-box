@@ -30,23 +30,6 @@ export {
   transform
 }
 
-export const allEnhancers = [
-  background,
-  borderRadius,
-  borders,
-  boxShadow,
-  dimensions,
-  flex,
-  interaction,
-  layout,
-  opacity,
-  overflow,
-  position,
-  spacing,
-  text,
-  transform
-]
-
 export const propTypes = {
   ...background.propTypes,
   ...borderRadius.propTypes,
