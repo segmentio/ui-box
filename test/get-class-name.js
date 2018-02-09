@@ -33,7 +33,7 @@ test('hashes complex values', t => {
     { key: 'bg', complexValue: true },
     'url(https://s-media-cache-ak0.pinimg.com/736x/07/c3/45/07c345d0eca11d0bc97c894751ba1b46.jpg)'
   )
-  t.is(result, 'bg_3902214139')
+  t.is(result, 'bg_181xl07')
 })
 
 test('removes all unsafe values by default', t => {

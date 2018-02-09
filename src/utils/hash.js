@@ -1,7 +1,11 @@
 /* eslint-disable unicorn/number-literal-case */
-// Murmurhash2 via https://gist.github.com/raycmorgan/588423
+// murmurhash2 via https://gist.github.com/raycmorgan/588423
 
-export default function hash(str, seed) {
+export default function hash(str) {
+  return murmurhash2(str, str.length).toString(36)
+}
+
+function murmurhash2(str, seed) {
   const m = 0x5bd1e995
   const r = 24
   let h = seed ^ str.length
