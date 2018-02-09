@@ -11,7 +11,7 @@ test('splits props', t => {
     matchedProps: {
       background: 'red'
     },
-    restProps: {
+    remainingProps: {
       color: 'blue'
     }
   })

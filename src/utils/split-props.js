@@ -3,7 +3,7 @@
  */
 export default function splitProps(props, keys) {
   const matchedProps = {}
-  const restProps = {}
+  const remainingProps = {}
   const propKeys = Object.keys(props)
 
   for (let i = 0; i < propKeys.length; i++) {
@@ -13,9 +13,9 @@ export default function splitProps(props, keys) {
     if (keys.includes(propKey)) {
       matchedProps[propKey] = propValue
     } else {
-      restProps[propKey] = propValue
+      remainingProps[propKey] = propValue
     }
   }
 
-  return { matchedProps, restProps }
+  return { matchedProps, remainingProps }
 }

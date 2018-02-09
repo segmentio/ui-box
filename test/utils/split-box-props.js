@@ -10,7 +10,7 @@ test('splits box props', t => {
     matchedProps: {
       background: 'red'
     },
-    restProps: {
+    remainingProps: {
       disabled: true
     }
   })
