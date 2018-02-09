@@ -15,13 +15,14 @@ export default class Box extends React.PureComponent {
       PropTypes.string,
       PropTypes.element,
       PropTypes.func
-    ])
+    ]),
+    boxSizing: propTypes.boxSizing
   }
   static defaultProps = {
     css: null,
     innerRef: null,
     is: 'div',
-    boxSizing: 'border-box' // eslint-disable-line react/default-props-match-prop-types
+    boxSizing: 'border-box'
   }
 
   render() {
