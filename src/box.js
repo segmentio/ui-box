@@ -11,11 +11,7 @@ export default class Box extends React.PureComponent {
     ...propTypes,
     css: PropTypes.object,
     innerRef: PropTypes.func,
-    is: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-      PropTypes.func
-    ]),
+    is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     boxSizing: propTypes.boxSizing
   }
   static defaultProps = {

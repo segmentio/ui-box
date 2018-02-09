@@ -40,9 +40,17 @@ test.serial('all properties set to initial', t => {
   t.snapshot(styles.getAll(), 'CSS')
 })
 
-test('is prop changes the element type', t => {
+test('is prop allows changing the dom element type', t => {
   const component = shallow(<Box is="h1" />)
   t.true(component.is('h1'))
+})
+
+test('is prop allows changing the component type', t => {
+  function TestComponent(props) {
+    return <h1 {...props} />
+  }
+  const component = shallow(<Box is={TestComponent} />)
+  t.true(component.is(TestComponent))
 })
 
 test('css prop renders a glamor class', t => {
