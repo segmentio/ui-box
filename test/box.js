@@ -25,8 +25,7 @@ test.serial('all properties set to inherit', t => {
   }
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
-  const tree = render.create(component).toJSON()
-  t.snapshot(tree, 'DOM')
+  shallow(component)
   t.snapshot(styles.getAll(), 'CSS')
 })
 
@@ -37,8 +36,7 @@ test.serial('all properties set to initial', t => {
   }
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
-  const tree = render.create(component).toJSON()
-  t.snapshot(tree, 'DOM')
+  shallow(component)
   t.snapshot(styles.getAll(), 'CSS')
 })
 
