@@ -1,12 +1,8 @@
 import cx from 'classnames'
 import { propEnhancers } from './enhancers'
 import expandAliases from './expand-aliases'
-import StyleSheet from './utils/style-sheet'
+import { addStyles } from './styles'
 import cache from './cache'
-
-// Create and inject the stylesheet
-export const styleSheet = new StyleSheet()
-styleSheet.inject()
 
 // This is optimized for performance. It gets called a lot of times
 export default function enhanceProps(rawProps) {
@@ -34,7 +30,7 @@ export default function enhanceProps(rawProps) {
     const newCss = enhancer(propValue)
     // Glamor props (clearfix) don't have css
     if (newCss.css) {
-      styleSheet.insert(newCss.css)
+      addStyles(newCss.css)
     }
     cache.set(propName, propValue, newCss.className)
     className = cx(className, newCss.className)
