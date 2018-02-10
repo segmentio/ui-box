@@ -1,7 +1,7 @@
 import test from 'ava'
 import * as cache from '../src/cache'
 
-test.afterEach(() => {
+test.afterEach.always(() => {
   cache.clear()
 })
 

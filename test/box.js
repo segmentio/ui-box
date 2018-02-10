@@ -7,7 +7,7 @@ import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
 import { propNames } from '../src/enhancers'
 
-test.afterEach(() => {
+test.afterEach.always(() => {
   styles.clear()
 })
 

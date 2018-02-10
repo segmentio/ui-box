@@ -7,7 +7,7 @@ import * as cache from './cache'
 // This is optimized for performance. It gets called a lot of times
 export default function enhanceProps(rawProps) {
   const propsMap = expandAliases(rawProps)
-  const parsedProps = {}
+  const enhancedProps = {}
   let className = rawProps.className || ''
 
   for (const [propName, propValue] of propsMap) {
@@ -24,7 +24,7 @@ export default function enhanceProps(rawProps) {
       continue
     } else if (!enhancer) {
       // Native prop. e.g: disabled, value, type
-      parsedProps[propName] = propValue
+      enhancedProps[propName] = propValue
       continue
     }
 
@@ -37,5 +37,5 @@ export default function enhanceProps(rawProps) {
     className = cx(className, newCss.className)
   }
 
-  return [className, parsedProps]
+  return [className, enhancedProps]
 }
