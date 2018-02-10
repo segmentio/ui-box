@@ -15,4 +15,5 @@ export function getAll() {
 
 export function clear() {
   styleSheet.flush()
+  styleSheet.inject()
 }
