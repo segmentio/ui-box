@@ -4,6 +4,7 @@ import { css as gcss } from 'glamor'
 import cx from 'classnames'
 import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
+import { flush } from './styles'
 
 export default class Box extends React.PureComponent {
   static displayName = 'Box'
@@ -39,5 +40,13 @@ export default class Box extends React.PureComponent {
     }
 
     return React.createElement(is, finalProps, children)
+  }
+
+  componentDidMount() {
+    flush()
+  }
+
+  componentDidUpdate() {
+    flush()
   }
 }
