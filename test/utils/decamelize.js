@@ -1,7 +1,7 @@
 import test from 'ava'
 import decamelize from '../../src/utils/decamelize'
 
-test('basic', t => {
+test('decamelizes', t => {
   t.is(decamelize('userSelect'), 'user-select')
 })
 
