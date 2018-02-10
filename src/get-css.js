@@ -27,10 +27,10 @@ export default function getCss(property, value) {
     .map(rule => `${rule.property}: ${rule.value};`)
     .join('\n  ')
 
-  const css = `
+  const styles = `
 .${className} {
   ${rulesString}
 }`
 
-  return { className, css }
+  return { className, styles }
 }

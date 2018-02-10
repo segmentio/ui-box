@@ -30,8 +30,8 @@ export default function enhanceProps(rawProps) {
 
     const newCss = enhancer(propValue)
     // Glamor props (clearfix) don't have css
-    if (newCss.css) {
-      styles.add(newCss.css)
+    if (newCss.styles) {
+      styles.add(newCss.styles)
     }
     cache.set(propName, propValue, newCss.className)
     className = cx(className, newCss.className)
