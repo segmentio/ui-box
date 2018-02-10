@@ -2,11 +2,11 @@ import React from 'react'
 import Box from '../src'
 
 // Built as a regular function instead of a component to reduce impact on the benchmark
-export default function(includeGlamorProps = true) {
+export default function() {
   return (
     <Box
       contentEditable // Test prop pass through
-      clearfix={includeGlamorProps ? true : undefined}
+      clearfix
       backgroundColor="red"
       backgroundImage="url(https://s-media-cache-ak0.pinimg.com/736x/07/c3/45/07c345d0eca11d0bc97c894751ba1b46.jpg)"
       backgroundSize="cover"
