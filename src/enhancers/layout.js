@@ -16,9 +16,9 @@ export const propEnhancers = {
   boxSizing: boxSizing => getCss('boxSizing', boxSizing),
   clear: clear => getCss('clear', clear),
   clearfix: () => ({
-    className: 'clearfix',
+    className: 'uibox_clearfix',
     styles: `
-.clearfix:before, .clearfix:after {
+.uibox_clearfix:before, .uibox_clearfix:after {
   display: table;
   clear: both;
   content: "";
