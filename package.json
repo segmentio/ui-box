@@ -82,7 +82,7 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "17 KB"
+      "limit": "19 KB"
     }
   ],
   "ava": {
