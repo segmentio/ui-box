@@ -1,12 +1,12 @@
 import test from 'ava'
 import React from 'react'
 import render from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import {shallow} from 'enzyme'
 import sinon from 'sinon'
 import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
-import { propNames } from '../src/enhancers'
+import {propNames} from '../src/enhancers'
 
 test.afterEach.always(() => {
   styles.clear()
@@ -55,17 +55,17 @@ test('is prop allows changing the component type', t => {
 })
 
 test('css prop renders a glamor class', t => {
-  const component = shallow(<Box css={{ height: '10px' }} />)
+  const component = shallow(<Box css={{height: '10px'}} />)
   t.true(component.hasClass('css-882mhe'))
 })
 
 test('innerRef prop gets passed the ref', t => {
-  const node = { domNode: true }
+  const node = {domNode: true}
   const innerRef = sinon.spy()
   render.create(<Box innerRef={innerRef} />, {
     createNodeMock() {
       return node
-    }
+    },
   })
   t.true(innerRef.calledOnce)
   t.is(innerRef.args[0][0], node)
@@ -89,7 +89,7 @@ test('flushes styles on update', t => {
   width: 20px;
 }`
   )
-  component.setProps({ height: '20px' })
+  component.setProps({height: '20px'})
   t.is(
     styles.getStyleSheet(),
     `
@@ -108,6 +108,6 @@ test('maintains the original className', t => {
 })
 
 test('maintains the original className when the css prop is used', t => {
-  const component = shallow(<Box className="derp" css={{ margin: '10px' }} />)
+  const component = shallow(<Box className="derp" css={{margin: '10px'}} />)
   t.true(component.hasClass('derp'))
 })

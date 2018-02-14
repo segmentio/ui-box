@@ -4,21 +4,21 @@ import getCss from '../get-css'
 export const propTypes = {
   borderBottomLeftRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   borderBottomRightRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderTopLeftRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   borderTopRightRadius: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
-  ])
+    PropTypes.number,
+  ]),
 }
 
 export const propAliases = {
@@ -26,8 +26,8 @@ export const propAliases = {
     'borderBottomLeftRadius',
     'borderBottomRightRadius',
     'borderTopLeftRadius',
-    'borderTopRightRadius'
-  ]
+    'borderTopRightRadius',
+  ],
 }
 
 export const propEnhancers = {
@@ -38,5 +38,5 @@ export const propEnhancers = {
   borderTopLeftRadius: borderTopLeftRadius =>
     getCss('borderTopLeftRadius', borderTopLeftRadius),
   borderTopRightRadius: borderTopRightRadius =>
-    getCss('borderTopRightRadius', borderTopRightRadius)
+    getCss('borderTopRightRadius', borderTopRightRadius),
 }

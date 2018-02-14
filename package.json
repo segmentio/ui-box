@@ -1,17 +1,20 @@
 {
   "name": "ui-box",
   "version": "1.0.0-3",
-  "description":
-    "React Component that works as a UI Primitive for design systems.",
+  "description": "React Component that works as a UI Primitive for design systems.",
   "contributors": [
     "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
     "Roland Warmerdam (https://roland.codes)"
   ],
-  "keywords": ["react"],
+  "keywords": [
+    "react"
+  ],
   "repository": "segmentio/ui-box",
   "license": "MIT",
   "main": "lib/index.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "sideEffects": false,
   "scripts": {
     "test": "xo && nyc ava",
@@ -39,19 +42,17 @@
     "@storybook/storybook-deployer": "^2.2.0",
     "ava": "^0.25.0",
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint-config-prettier": "^2.7.0",
     "eslint-config-xo-react": "^0.16.0",
     "eslint-plugin-react": "^7.4.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "nyc": "^11.4.1",
-    "prettier": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-benchmark": "^1.0.4",
@@ -59,25 +60,24 @@
     "react-test-renderer": "^16.2.0",
     "sinon": "^4.1.6",
     "size-limit": "^0.14.0",
-    "xo": "^0.18.2"
+    "xo": "^0.20.1"
   },
   "xo": {
     "parser": "babel-eslint",
-    "extends": ["xo-react", "prettier", "prettier/react"],
-    "envs": ["node", "browser"],
-    "rules": {
-      "indent": ["off"],
-      "react/jsx-indent-props": ["off"],
-      "react/jsx-indent": ["off"]
-    }
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+    "extends": "xo-react",
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "prettier": true,
+    "space": true,
+    "semicolon": false
   },
   "lint-staged": {
-    "*.js": ["xo --fix", "prettier --write", "git add"],
-    "*.{json,md}": ["prettier --write", "git add"]
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ]
   },
   "size-limit": [
     {
@@ -86,7 +86,10 @@
     }
   ],
   "ava": {
-    "require": ["babel-register", "./tools/enzyme-config"],
+    "require": [
+      "babel-register",
+      "./tools/enzyme-config"
+    ],
     "babel": "inherit"
   }
 }

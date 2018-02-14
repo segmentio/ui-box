@@ -15,7 +15,7 @@ export const propTypes = {
   paddingRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {
@@ -24,7 +24,7 @@ export const propAliases = {
   marginY: ['marginBottom', 'marginTop'],
   padding: ['paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop'],
   paddingX: ['paddingLeft', 'paddingRight'],
-  paddingY: ['paddingBottom', 'paddingTop']
+  paddingY: ['paddingBottom', 'paddingTop'],
 }
 
 export const propEnhancers = {
@@ -35,5 +35,5 @@ export const propEnhancers = {
   paddingBottom: paddingBottom => getCss('paddingBottom', paddingBottom),
   paddingLeft: paddingLeft => getCss('paddingLeft', paddingLeft),
   paddingRight: paddingRight => getCss('paddingRight', paddingRight),
-  paddingTop: paddingTop => getCss('paddingTop', paddingTop)
+  paddingTop: paddingTop => getCss('paddingTop', paddingTop),
 }

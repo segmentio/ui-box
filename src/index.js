@@ -21,11 +21,11 @@ export {
   propTypes,
   propNames,
   propAliases,
-  propEnhancers
+  propEnhancers,
 } from './enhancers'
 export splitProps from './utils/split-props'
 export splitBoxProps from './utils/split-box-props'
-export { css } from 'glamor'
+export {css} from 'glamor'
 export default Box
 
 export function hydrate(entries) {
@@ -35,7 +35,7 @@ export function hydrate(entries) {
 export function extractStyles() {
   return {
     cache: cache.entries(),
-    styles: styles.getAll()
+    styles: styles.getAll(),
   }
 }
 

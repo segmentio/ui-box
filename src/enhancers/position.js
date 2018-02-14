@@ -11,10 +11,10 @@ export const propTypes = {
     'static',
     'sticky',
     'inherit',
-    'initial'
+    'initial',
   ]),
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {}
@@ -24,5 +24,5 @@ export const propEnhancers = {
   left: left => getCss('left', left),
   position: position => getCss('position', position),
   right: right => getCss('right', right),
-  top: top => getCss('top', top)
+  top: top => getCss('top', top),
 }

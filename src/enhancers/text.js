@@ -18,7 +18,7 @@ export const propTypes = {
   textTransform: PropTypes.string,
   whiteSpace: PropTypes.string,
   wordBreak: PropTypes.string,
-  wordWrap: PropTypes.string
+  wordWrap: PropTypes.string,
 }
 
 export const propAliases = {}
@@ -40,5 +40,5 @@ export const propEnhancers = {
   textTransform: textTransform => getCss('textTransform', textTransform),
   whiteSpace: whiteSpace => getCss('whiteSpace', whiteSpace),
   wordBreak: wordBreak => getCss('wordBreak', wordBreak),
-  wordWrap: wordWrap => getCss('wordWrap', wordWrap)
+  wordWrap: wordWrap => getCss('wordWrap', wordWrap),
 }

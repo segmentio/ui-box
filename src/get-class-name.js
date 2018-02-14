@@ -9,7 +9,7 @@ export default function getClassName(propertyInfo, value) {
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
     lengthOnly = false, // Value is only a length type. e.g: 10px, 10em, 10%, 10.5px
     numberOnly = false, // Value is only a number type. e.g: 10, 0.5
-    complexValue = false // Complex values that are best hashed. e.g: background-image
+    complexValue = false, // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
   let valueKey
 

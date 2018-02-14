@@ -1,12 +1,5 @@
 import test from 'ava'
-import {
-  add,
-  getAll,
-  clear,
-  flush,
-  getBatch,
-  getStyleSheet
-} from '../src/styles'
+import {add, getAll, clear, flush, getBatch, getStyleSheet} from '../src/styles'
 
 test.afterEach.always(() => {
   clear()

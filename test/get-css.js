@@ -8,7 +8,7 @@ test('supports basic prop + value', t => {
     styles: `
 .uibox_min-w_10px {
   min-width: 10px;
-}`
+}`,
   })
 })
 
@@ -19,7 +19,7 @@ test('supports number value', t => {
     styles: `
 .uibox_min-w_10px {
   min-width: 10px;
-}`
+}`,
   })
 })
 
@@ -33,7 +33,7 @@ test('adds prefixes', t => {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}`
+}`,
   })
 })
 

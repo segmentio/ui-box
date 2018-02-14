@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import getCss from '../get-css'
 
 export const propTypes = {
-  boxShadow: PropTypes.string
+  boxShadow: PropTypes.string,
 }
 
 export const propAliases = {}
 
 export const propEnhancers = {
-  boxShadow: boxShadow => getCss('boxShadow', boxShadow)
+  boxShadow: boxShadow => getCss('boxShadow', boxShadow),
 }

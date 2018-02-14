@@ -20,7 +20,7 @@ export default function getCss(property, value) {
   if (propertyInfo.isPrefixed) {
     rules = prefixer(property, valueString)
   } else {
-    rules = [{ property: propertyInfo.name, value: valueString }]
+    rules = [{property: propertyInfo.name, value: valueString}]
   }
 
   const rulesString = rules
@@ -32,5 +32,5 @@ export default function getCss(property, value) {
   ${rulesString}
 }`
 
-  return { className, styles }
+  return {className, styles}
 }

@@ -4,7 +4,7 @@ import decamelize from './utils/decamelize'
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 
 export default function prefixer(property, value) {
-  const rules = prefixAll({ [property]: value })
+  const rules = prefixAll({[property]: value})
   const rulesArray = []
   const propertyNames = Object.keys(rules)
 
@@ -21,10 +21,10 @@ export default function prefixer(property, value) {
     // Handle prefixed values
     if (Array.isArray(values)) {
       for (let i = 0; i < values.length; i++) {
-        rulesArray.push({ property: prop, value: values[i] })
+        rulesArray.push({property: prop, value: values[i]})
       }
     } else {
-      rulesArray.push({ property: prop, value: values })
+      rulesArray.push({property: prop, value: values})
     }
   }
 

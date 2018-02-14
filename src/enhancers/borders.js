@@ -21,7 +21,7 @@ export const propTypes = {
   borderTopColor: PropTypes.string,
   borderTopStyle: PropTypes.string,
   borderTopWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {
@@ -30,20 +30,20 @@ export const propAliases = {
     'borderBottomColor',
     'borderLeftColor',
     'borderRightColor',
-    'borderTopColor'
+    'borderTopColor',
   ],
   borderStyle: [
     'borderBottomStyle',
     'borderLeftStyle',
     'borderRightStyle',
-    'borderTopStyle'
+    'borderTopStyle',
   ],
   borderWidth: [
     'borderBottomWidth',
     'borderLeftWidth',
     'borderRightWidth',
-    'borderTopWidth'
-  ]
+    'borderTopWidth',
+  ],
 }
 
 export const propEnhancers = {
@@ -71,5 +71,5 @@ export const propEnhancers = {
   borderTop: borderTop => getCss('borderTop', borderTop),
   borderTopColor: borderTopColor => getCss('borderTopColor', borderTopColor),
   borderTopStyle: borderTopStyle => getCss('borderTopStyle', borderTopStyle),
-  borderTopWidth: borderTopWidth => getCss('borderTopWidth', borderTopWidth)
+  borderTopWidth: borderTopWidth => getCss('borderTopWidth', borderTopWidth),
 }

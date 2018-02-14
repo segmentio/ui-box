@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+import {storiesOf} from '@storybook/react'
 import Box from '../src'
 import allPropertiesComponent from './all-properties-component'
 
@@ -136,9 +136,7 @@ storiesOf('Box', module)
   ))
   .add('css', () => (
     <Box>
-      <Box
-        css={{ backgroundColor: 'red', ':hover': { backgroundColor: 'red' } }}
-      >
+      <Box css={{backgroundColor: 'red', ':hover': {backgroundColor: 'red'}}}>
         css
       </Box>
     </Box>

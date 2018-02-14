@@ -10,7 +10,7 @@ export const propTypes = {
   backgroundOrigin: PropTypes.string,
   backgroundPosition: PropTypes.string,
   backgroundRepeat: PropTypes.string,
-  backgroundSize: PropTypes.string
+  backgroundSize: PropTypes.string,
 }
 
 export const propAliases = {}
@@ -30,5 +30,5 @@ export const propEnhancers = {
     getCss('backgroundPosition', backgroundPosition),
   backgroundRepeat: backgroundRepeat =>
     getCss('backgroundRepeat', backgroundRepeat),
-  backgroundSize: backgroundSize => getCss('backgroundSize', backgroundSize)
+  backgroundSize: backgroundSize => getCss('backgroundSize', backgroundSize),
 }

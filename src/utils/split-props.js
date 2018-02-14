@@ -17,5 +17,5 @@ export default function splitProps(props, keys) {
     }
   }
 
-  return { matchedProps, remainingProps }
+  return {matchedProps, remainingProps}
 }

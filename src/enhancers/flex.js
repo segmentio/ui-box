@@ -13,7 +13,7 @@ export const propTypes = {
   flexWrap: PropTypes.string,
   justifyContent: PropTypes.string,
   justifySelf: PropTypes.string,
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {}
@@ -30,5 +30,5 @@ export const propEnhancers = {
   flexWrap: flexWrap => getCss('flexWrap', flexWrap),
   justifyContent: justifyContent => getCss('justifyContent', justifyContent),
   justifySelf: justifySelf => getCss('justifySelf', justifySelf),
-  order: order => getCss('order', order)
+  order: order => getCss('order', order),
 }

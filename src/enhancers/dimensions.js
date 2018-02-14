@@ -7,7 +7,7 @@ export const propTypes = {
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {}
@@ -18,5 +18,5 @@ export const propEnhancers = {
   maxWidth: maxWidth => getCss('maxWidth', maxWidth),
   minHeight: minHeight => getCss('minHeight', minHeight),
   minWidth: minWidth => getCss('minWidth', minWidth),
-  width: width => getCss('width', width)
+  width: width => getCss('width', width),
 }

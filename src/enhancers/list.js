@@ -5,7 +5,7 @@ export const propTypes = {
   listStyle: PropTypes.string,
   listStyleType: PropTypes.string,
   listStyleImage: PropTypes.string,
-  listStylePosition: PropTypes.string
+  listStylePosition: PropTypes.string,
 }
 
 export const propAliases = {}
@@ -15,5 +15,5 @@ export const propEnhancers = {
   listStyleType: listStyleType => getCss('listStyleType', listStyleType),
   listStyleImage: listStyleImage => getCss('listStyleImage', listStyleImage),
   listStylePosition: listStylePosition =>
-    getCss('listStylePosition', listStylePosition)
+    getCss('listStylePosition', listStylePosition),
 }

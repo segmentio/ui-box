@@ -29,7 +29,7 @@ export {
   position,
   spacing,
   text,
-  transform
+  transform,
 }
 
 export const propTypes = {
@@ -47,7 +47,7 @@ export const propTypes = {
   ...position.propTypes,
   ...spacing.propTypes,
   ...text.propTypes,
-  ...transform.propTypes
+  ...transform.propTypes,
 }
 
 export const propNames = Object.keys(propTypes)
@@ -67,7 +67,7 @@ export const propAliases = {
   ...position.propAliases,
   ...spacing.propAliases,
   ...text.propAliases,
-  ...transform.propAliases
+  ...transform.propAliases,
 }
 
 export const propEnhancers = {
@@ -85,5 +85,5 @@ export const propEnhancers = {
   ...position.propEnhancers,
   ...spacing.propEnhancers,
   ...text.propEnhancers,
-  ...transform.propEnhancers
+  ...transform.propEnhancers,
 }

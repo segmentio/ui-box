@@ -7,7 +7,7 @@ export const propTypes = {
   clearfix: PropTypes.bool,
   display: PropTypes.string,
   float: PropTypes.string,
-  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases = {}
@@ -22,9 +22,9 @@ export const propEnhancers = {
   display: table;
   clear: both;
   content: "";
-}`
+}`,
   }),
   display: display => getCss('display', display),
   float: float => getCss('float', float),
-  zIndex: zIndex => getCss('zIndex', zIndex)
+  zIndex: zIndex => getCss('zIndex', zIndex),
 }
