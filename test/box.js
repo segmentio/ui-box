@@ -101,3 +101,13 @@ test('flushes styles on update', t => {
 }`
   )
 })
+
+test('maintains the original className', t => {
+  const component = shallow(<Box className="derp" margin="10px" />)
+  t.true(component.hasClass('derp'))
+})
+
+test('maintains the original className when the css prop is used', t => {
+  const component = shallow(<Box className="derp" css={{ margin: '10px' }} />)
+  t.true(component.hasClass('derp'))
+})
