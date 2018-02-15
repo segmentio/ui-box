@@ -1,6 +1,4 @@
 <div align="center">
-	<br>
-	<br>
 	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="ui-box">
 	<br>
 	<br>
