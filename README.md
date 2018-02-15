@@ -1,6 +1,14 @@
-# ui-box [![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
+<div align="center">
+	<br>
+	<br>
+	<img src="https://github.com/segmentio/ui-box/blob/master/logo.svg?raw=true" alt="ui-box">
+	<br>
+	<br>
+</div>
 
 > React Component that works as a UI Primitive for design systems.
+
+[![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
 
 ```
 yarn add ui-box
