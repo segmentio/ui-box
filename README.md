@@ -1,8 +1,10 @@
 <div align="center">
-	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="ui-box: Blazing Fast React UI Primitive">
+	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="UI-BOX: Blazing Fast React UI Primitive">
 	<br>
 	<br>
-  [![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
+  <a href="https://circleci.com/gh/segmentio/ui-box/tree/master">
+    <img src="https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg" alt="Build Status">
+  </a>
   <br>
 	<br>
   <br>
