@@ -1,7 +1,7 @@
 <div align="center">
 	<br>
 	<br>
-	<img src="https://github.com/segmentio/ui-box/blob/master/logo.svg?raw=true" alt="ui-box">
+	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="ui-box">
 	<br>
 	<br>
 </div>
