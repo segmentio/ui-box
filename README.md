@@ -1,4 +1,6 @@
 <div align="center">
+  <br>
+  <br>
 	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="UI-BOX: Blazing Fast React UI Primitive">
 	<br>
 	<br>
