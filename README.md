@@ -1,12 +1,13 @@
 <div align="center">
-	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="ui-box">
+	<img src="https://rawgit.com/segmentio/ui-box/master/logo.svg" alt="ui-box: Blazing Fast React UI Primitive">
 	<br>
+	<br>
+  [![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
+  <br>
+	<br>
+  <br>
 	<br>
 </div>
-
-> React Component that works as a UI Primitive for design systems.
-
-[![Build Status](https://circleci.com/gh/segmentio/ui-box/tree/master.svg?style=svg)](https://circleci.com/gh/segmentio/ui-box/tree/master)
 
 ```
 yarn add ui-box
