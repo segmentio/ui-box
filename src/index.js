@@ -1,6 +1,10 @@
-import Box from './box'
 import * as cache from './cache'
 import * as styles from './styles'
+
+export default from './box'
+export splitProps from './utils/split-props'
+export splitBoxProps from './utils/split-box-props'
+export {css} from 'glamor'
 
 export {
   background,
@@ -23,10 +27,6 @@ export {
   propAliases,
   propEnhancers,
 } from './enhancers'
-export splitProps from './utils/split-props'
-export splitBoxProps from './utils/split-box-props'
-export {css} from 'glamor'
-export default Box
 
 export function hydrate(entries) {
   cache.hydrate(entries)
