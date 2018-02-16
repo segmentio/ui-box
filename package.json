@@ -1,7 +1,7 @@
 {
   "name": "ui-box",
   "version": "1.0.0-3",
-  "description": "React Component that works as a UI Primitive for design systems.",
+  "description": "Blazing Fast React UI Primitive",
   "contributors": [
     "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
     "Roland Warmerdam (https://roland.codes)"
