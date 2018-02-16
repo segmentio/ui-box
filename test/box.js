@@ -80,28 +80,6 @@ test('renders children', t => {
   t.true(component.contains(<h1>Hi</h1>))
 })
 
-test('flushes styles on update', t => {
-  const component = shallow(<Box width="20px" />)
-  t.is(
-    styles.getStyleSheet(),
-    `
-.uibox_w_20px {
-  width: 20px;
-}`
-  )
-  component.setProps({height: '20px'})
-  t.is(
-    styles.getStyleSheet(),
-    `
-.uibox_w_20px {
-  width: 20px;
-}
-.uibox_h_20px {
-  height: 20px;
-}`
-  )
-})
-
 test('maintains the original className', t => {
   const component = shallow(<Box className="derp" margin="10px" />)
   t.true(component.hasClass('derp'))

@@ -73,17 +73,9 @@ Object.assign(StyleSheet.prototype, {
     this.isSpeedy = Boolean(bool)
   },
   _insert(rule) {
-    // This weirdness for perf, and chrome's weird bug
-    // https://stackoverflow.com/questions/20007992/chrome-suddenly-stopped-accepting-insertrule
-    try {
-      const sheet = this.getSheet()
-      sheet.insertRule(rule, sheet.cssRules.length)
-    } catch (err) {
-      if (isDev) {
-        // Might need beter dx for this
-        console.warn('StyleSheet inserted an illegal rule', rule)
-      }
-    }
+    // This weirdness for perf
+    const sheet = this.getSheet()
+    sheet.insertRule(rule, sheet.cssRules.length)
   },
   insert(rule) {
     if (isBrowser) {
