@@ -26,7 +26,7 @@ npm install --save ui-box
 
 ## Usage
 
-```js
+```jsx
 import Box from 'ui-box'
 
 function Button(props) {
