@@ -14,7 +14,7 @@
 	<br>
 </div>
 
-ui-box is a low level CSS-in-JS solution that focuses on being simple, fast and extensible. All CSS properties are set using simple React props, which allows you to easily create reusable components that can be enhanced with additional CSS properties. This is very useful for adding things like margins to components, which would normally require adding non-reusable wrapper elements/classes.
+📦 ui-box is a low level CSS-in-JS solution that focuses on being simple, fast and extensible. All CSS properties are set using simple React props, which allows you to easily create reusable components that can be enhanced with additional CSS properties. This is very useful for adding things like margins to components, which would normally require adding non-reusable wrapper elements/classes.
 
 ## Install
 
@@ -264,6 +264,45 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 * `spacing`
 * `text`
 * `transform`
+
+### Server side rendering
+
+To render the styles on the server side just use [`ReactDOMServer.renderToString()`](https://reactjs.org/docs/react-dom-server.html#rendertostring) as usual and then call the [`extractStyles()`](#extractstyles) method retrieve the rendered styles and cache. The styles can then be output to a `<style>` tag or an external stylesheet. The cache data should be passed to the [`hydrate()`](#hydratecache) method on the client side before you call [`ReactDOM.hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate).
+
+For example:
+```js
+'use strict'
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const {default: Box, extractStyles} = require('.')
+
+const element = React.createElement(Box, {margin: '10px', color: 'red'}, 'hi')
+
+const html = ReactDOMServer.renderToString(element)
+const {styles, cache} = extractStyles()
+
+const page = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page</title>
+    <style>
+      ${styles}
+    </style>
+  </head>
+  <body>
+    <main id="root">
+      ${html}
+    </main>
+    <script type="application/json" id="ui-box-cache">
+      ${JSON.stringify(cache)}
+    </script>
+  </body>
+</html>
+`
+console.log(page)
+```
 
 ## Development
 

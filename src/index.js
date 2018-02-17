@@ -47,10 +47,12 @@ export function hydrate(entries) {
 }
 
 export function extractStyles() {
-  return {
+  const output = {
     cache: cache.entries(),
     styles: styles.getAll(),
   }
+  clearStyles()
+  return output
 }
 
 export function clearStyles() {

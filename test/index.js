@@ -31,9 +31,21 @@ test.serial('extractStyles method returns css and cache', t => {
   })
 })
 
-test.serial('clearStyles clears the cache and styles', t => {
+test.serial('extractStyles clears the cache and styles', t => {
   shallow(<Box height="12px" />)
-  clearStyles()
+  t.deepEqual(extractStyles(), {
+    styles: `
+.📦h_12px {
+  height: 12px;
+}
+.📦box-szg_border-box {
+  box-sizing: border-box;
+}`,
+    cache: [
+      ['height12px', '📦h_12px'],
+      ['boxSizingborder-box', '📦box-szg_border-box'],
+    ],
+  })
   shallow(<Box height="13px" />)
   t.deepEqual(extractStyles(), {
     styles: `
@@ -45,6 +57,25 @@ test.serial('clearStyles clears the cache and styles', t => {
 }`,
     cache: [
       ['height13px', '📦h_13px'],
+      ['boxSizingborder-box', '📦box-szg_border-box'],
+    ],
+  })
+})
+
+test.serial('clearStyles clears the cache and styles', t => {
+  shallow(<Box height="14px" />)
+  clearStyles()
+  shallow(<Box height="15px" />)
+  t.deepEqual(extractStyles(), {
+    styles: `
+.📦h_15px {
+  height: 15px;
+}
+.📦box-szg_border-box {
+  box-sizing: border-box;
+}`,
+    cache: [
+      ['height15px', '📦h_15px'],
       ['boxSizingborder-box', '📦box-szg_border-box'],
     ],
   })
