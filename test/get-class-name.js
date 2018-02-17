@@ -13,16 +13,6 @@ test('supports unset', t => {
   t.is(getClassName({key: 'w'}, 'unset'), '📦w_unset')
 })
 
-test('lengthOnly only transforms dot and percentage', t => {
-  const result = getClassName({key: 'w', lengthOnly: true}, '[50.5%')
-  t.is(result, '📦w_[50-5prcnt')
-})
-
-test('numberOnly only transforms dot', t => {
-  const result = getClassName({key: 'w', numberOnly: true}, '50.5%')
-  t.is(result, '📦w_50-5%')
-})
-
 test('safeValue does not transform value', t => {
   const result = getClassName({key: 'w', safeValue: true}, '50.5%')
   t.is(result, '📦w_50.5%')

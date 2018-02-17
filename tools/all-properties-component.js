@@ -15,7 +15,7 @@ export default function() {
       backgroundRepeat="no-repeat"
       backgroundClip="padding-box"
       backgroundBlendMode="multiply"
-      width={100}
+      width="calc(25% - 10px)"
       height={100}
       minWidth={100}
       minHeight={100}
