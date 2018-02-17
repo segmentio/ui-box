@@ -2,15 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {css as gcss} from 'glamor'
 import cx from 'classnames'
-import once from 'lodash.once'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 
-const cssWarning = once(() =>
-  console.warn(
-    'ui-box deprecation: the `css` prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the `className` prop.'
-  )
-)
+let cssWarned = false
 
 export default class Box extends React.PureComponent {
   static displayName = 'Box'
@@ -37,7 +32,12 @@ export default class Box extends React.PureComponent {
 
     if (css) {
       if (process.env.NODE_ENV !== 'production') {
-        cssWarning()
+        if (!cssWarned) {
+          cssWarned = true
+          console.warn(
+            'ui-box deprecation: the `css` prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the `className` prop.'
+          )
+        }
       }
       finalProps.className = cx(className, gcss(css).toString())
     } else {
