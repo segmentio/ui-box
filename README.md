@@ -80,12 +80,6 @@ Type: `string`
 
 The className prop you know and love. Internally it gets enhanced with additional class names for the CSS properties you specify.
 
-##### css (deprecated)
-
-Type: `object`
-
-Utility property for adding styles using [glamor's object syntax](https://github.com/threepointone/glamor/blob/master/docs/api.md#cssrules). Avoid using this when possible and avoid passing it dynamic objects (i.e: don't define the object in the render method) because it can be expensive.
-
 ##### CSS properties
 
 All of these CSS properties are support. You can pass either a string or a number (which gets converted to a `px` value). The shorthand properties with repeated values only accept a single value, e.g. `margin="10px"` works but `margin="10px 20px"` does not. You can use the x/y props (e.g. `marginX`/`marginY`) to achieve the same thing.
@@ -270,10 +264,6 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 * `spacing`
 * `text`
 * `transform`
-
-#### css (deprecated)
-
-The glamor `css` method.
 
 ## Development
 
