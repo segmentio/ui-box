@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {spacesOutsideParentheses} from '../utils/regex'
 
 export const propTypes = {
   border: PropTypes.string,
@@ -44,6 +45,26 @@ export const propAliases = {
     'borderRightWidth',
     'borderTopWidth',
   ],
+}
+
+export const propValidators = {}
+
+if (process.env.NODE_ENV !== 'production') {
+  propValidators.borderColor = value => {
+    if (spacesOutsideParentheses.test(value)) {
+      return `multiple values (“${value}”) aren՚t supported with “borderColor”. Use “borderBottomColor”, “borderLeftColor” “borderRightColor” and “borderTopColor” instead.`
+    }
+  }
+  propValidators.borderStyle = value => {
+    if (spacesOutsideParentheses.test(value)) {
+      return `multiple values (“${value}”) aren՚t supported with “borderStyle”. Use “borderBottomStyle”, “borderLeftStyle” “borderRightStyle” and “borderTopStyle” instead.`
+    }
+  }
+  propValidators.borderWidth = value => {
+    if (spacesOutsideParentheses.test(value)) {
+      return `multiple values (“${value}”) aren՚t supported with “borderWidth”. Use “borderBottomWidth”, “borderLeftWidth” “borderRightWidth” and “borderTopWidth” instead.`
+    }
+  }
 }
 
 export const propEnhancers = {

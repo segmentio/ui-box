@@ -10,6 +10,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   cursor: cursor => getCss('cursor', cursor),
   pointerEvents: pointerEvents => getCss('pointerEvents', pointerEvents),

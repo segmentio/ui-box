@@ -10,6 +10,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   listStyle: listStyle => getCss('listStyle', listStyle),
   listStyleType: listStyleType => getCss('listStyleType', listStyleType),

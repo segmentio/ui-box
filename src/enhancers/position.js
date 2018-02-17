@@ -19,6 +19,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   bottom: bottom => getCss('bottom', bottom),
   left: left => getCss('left', left),

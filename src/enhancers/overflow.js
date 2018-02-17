@@ -11,6 +11,8 @@ export const propAliases = {
   overflow: ['overflowX', 'overflowY'],
 }
 
+export const propValidators = {}
+
 export const propEnhancers = {
   overflowX: overflowX => getCss('overflowX', overflowX),
   overflowY: overflowY => getCss('overflowY', overflowY),

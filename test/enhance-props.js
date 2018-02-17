@@ -10,13 +10,13 @@ test.afterEach.always(() => {
 
 test.serial('enhances a prop', t => {
   const [className, enhancedProps] = enhanceProps({width: 10})
-  t.is(className, 'uibox_w_10px')
+  t.is(className, '📦w_10px')
   t.deepEqual(enhancedProps, {})
 })
 
 test.serial('expands aliases', t => {
   const [className, enhancedProps] = enhanceProps({margin: 11})
-  t.is(className, 'uibox_mt_11px uibox_mr_11px uibox_ml_11px uibox_mb_11px')
+  t.is(className, '📦mt_11px 📦mr_11px 📦ml_11px 📦mb_11px')
   t.deepEqual(enhancedProps, {})
 })
 
@@ -25,7 +25,7 @@ test.serial('injects styles', t => {
   t.is(
     styles.getAll(),
     `
-.uibox_w_12px {
+.📦w_12px {
   width: 12px;
 }`
   )
@@ -37,11 +37,11 @@ test.serial('uses the cache', t => {
   t.is(
     styles.getAll(),
     `
-.uibox_w_13px {
+.📦w_13px {
   width: 13px;
 }`
   )
-  t.is(cache.get('width', 13), 'uibox_w_13px')
+  t.is(cache.get('width', 13), '📦w_13px')
 })
 
 test.serial('strips falsey enhancer props', t => {

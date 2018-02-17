@@ -8,6 +8,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   transform: transform => getCss('transform', transform),
   transformOrigin: transformOrigin =>

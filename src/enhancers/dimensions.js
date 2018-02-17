@@ -12,6 +12,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   height: height => getCss('height', height),
   maxHeight: maxHeight => getCss('maxHeight', maxHeight),

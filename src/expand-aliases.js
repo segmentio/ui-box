@@ -1,4 +1,4 @@
-import {propAliases} from './enhancers'
+import {propAliases, propValidators} from './enhancers'
 
 export default function expandAliases(props) {
   const propNames = Object.keys(props)
@@ -9,6 +9,16 @@ export default function expandAliases(props) {
     const propName = propNames[i]
     const propValue = props[propName]
     const aliases = propAliases[propName] || [propName]
+
+    if (process.env.NODE_ENV !== 'production') {
+      const validator = propValidators[propName]
+      if (validator) {
+        const result = validator(propValue)
+        if (result) {
+          throw new Error(`📦 ui-box: ${result}`)
+        }
+      }
+    }
 
     // Expand aliases
     for (let i = 0; i < aliases.length; i++) {

@@ -31,5 +31,5 @@ export default function getClassName(propertyInfo, value) {
     valueKey = getSafeValue(value)
   }
 
-  return `uibox_${key}_${valueKey}`
+  return `📦${key}_${valueKey}`
 }

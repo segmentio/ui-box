@@ -13,7 +13,7 @@ export function css(...args) {
     if (!cssWarned) {
       cssWarned = true
       console.warn(
-        'ui-box deprecation: the `css` export will be removed in the next major version in favour of importing glamor directly.'
+        `ui-box deprecation: the “css” export will be removed in the next major version in favour of importing glamor directly.`
       )
     }
   }

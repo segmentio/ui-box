@@ -7,6 +7,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   opacity: opacity => getCss('opacity', opacity),
 }

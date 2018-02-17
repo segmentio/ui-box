@@ -15,6 +15,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   background: background => getCss('background', background),
   backgroundBlendMode: backgroundBlendMode =>

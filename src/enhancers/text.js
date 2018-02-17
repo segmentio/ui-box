@@ -23,6 +23,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   color: color => getCss('color', color),
   font: font => getCss('font', font),

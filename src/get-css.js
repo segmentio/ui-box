@@ -9,7 +9,7 @@ export default function getCss(property, value) {
 
   if (process.env.NODE_ENV !== 'production') {
     if (!propertyInfo) {
-      throw new Error(`ui-box: property “${property}” not supported`)
+      throw new Error(`📦 ui-box: property “${property}” not supported`)
     }
   }
 

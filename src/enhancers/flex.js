@@ -18,6 +18,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   alignContent: alignContent => getCss('alignContent', alignContent),
   alignItems: alignItems => getCss('alignItems', alignItems),

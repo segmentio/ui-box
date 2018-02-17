@@ -12,13 +12,15 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   boxSizing: boxSizing => getCss('boxSizing', boxSizing),
   clear: clear => getCss('clear', clear),
   clearfix: () => ({
-    className: 'uibox_clearfix',
+    className: '📦clearfix',
     styles: `
-.uibox_clearfix:before, .uibox_clearfix:after {
+.📦clearfix:before, .📦clearfix:after {
   display: table;
   clear: both;
   content: "";

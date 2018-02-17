@@ -70,6 +70,24 @@ export const propAliases = {
   ...transform.propAliases,
 }
 
+export const propValidators = {
+  ...background.propValidators,
+  ...borderRadius.propValidators,
+  ...borders.propValidators,
+  ...boxShadow.propValidators,
+  ...dimensions.propValidators,
+  ...flex.propValidators,
+  ...interaction.propValidators,
+  ...layout.propValidators,
+  ...list.propValidators,
+  ...opacity.propValidators,
+  ...overflow.propValidators,
+  ...position.propValidators,
+  ...spacing.propValidators,
+  ...text.propValidators,
+  ...transform.propValidators,
+}
+
 export const propEnhancers = {
   ...background.propEnhancers,
   ...borderRadius.propEnhancers,

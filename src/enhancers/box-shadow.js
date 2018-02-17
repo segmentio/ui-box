@@ -7,6 +7,8 @@ export const propTypes = {
 
 export const propAliases = {}
 
+export const propValidators = {}
+
 export const propEnhancers = {
   boxShadow: boxShadow => getCss('boxShadow', boxShadow),
 }
