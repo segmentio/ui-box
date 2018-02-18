@@ -16,7 +16,7 @@ test.serial('enhances a prop', t => {
 
 test.serial('expands aliases', t => {
   const [className, enhancedProps] = enhanceProps({margin: 11})
-  t.is(className, '📦mt_11px 📦mr_11px 📦ml_11px 📦mb_11px')
+  t.is(className, '📦mb_11px 📦ml_11px 📦mr_11px 📦mt_11px')
   t.deepEqual(enhancedProps, {})
 })
 

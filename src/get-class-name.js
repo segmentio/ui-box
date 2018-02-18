@@ -1,8 +1,9 @@
 import hash from './utils/hash'
 import getSafeValue from './get-safe-value'
 
-// This is only used for hash based caching
-// Array/index based caching doesn't reach this code
+/**
+ * Generates the class name.
+ */
 export default function getClassName(propertyInfo, value) {
   const {
     className,

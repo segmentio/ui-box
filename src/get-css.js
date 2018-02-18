@@ -2,6 +2,9 @@ import prefixer from './prefixer'
 import valueToString from './value-to-string'
 import getClassName from './get-class-name'
 
+/**
+ * Generates the class name and styles.
+ */
 export default function getCss(propertyInfo, value) {
   let rules
 
@@ -9,6 +12,7 @@ export default function getCss(propertyInfo, value) {
 
   const className = getClassName(propertyInfo, valueString)
 
+  // Avoid running the prefixer when possible because it's slow
   if (propertyInfo.isPrefixed) {
     rules = prefixer(propertyInfo.jsName, valueString)
   } else {

@@ -8,6 +8,7 @@ export function add(styles) {
 }
 
 export function getAll() {
+  // Convert rules array to a string
   return styleSheet
     .rules()
     .reduce((combinedRules, rule) => combinedRules + rule.cssText, '')

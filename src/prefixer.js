@@ -3,6 +3,9 @@ import decamelize from './utils/decamelize'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 
+/**
+ * Adds vendor prefixes to properties and values.
+ */
 export default function prefixer(property, value) {
   const rules = prefixAll({[property]: value})
   const rulesArray = []

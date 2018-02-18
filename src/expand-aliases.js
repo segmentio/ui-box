@@ -1,15 +1,22 @@
 import {propAliases, propValidators} from './enhancers'
 
+/**
+ * Expands aliases like `margin` to `marginTop`, `marginBottom`, `marginLeft` and `marginRight`.
+ *
+ * This prevents edge cases where longhand properties can't override shorthand
+ * properties due to the style insertion order.
+ */
 export default function expandAliases(props) {
   const propNames = Object.keys(props)
+  // Use a Map because it's faster for setting values and looping over than an Object
   const newProps = new Map()
 
-  // Loop in reverse order so that the last props override the previous props
-  for (let i = propNames.length - 1; i >= 0; i--) {
+  for (let i = 0; i < propNames.length; i++) {
     const propName = propNames[i]
     const propValue = props[propName]
     const aliases = propAliases[propName] || [propName]
 
+    // Check that the alias has a valid value in development
     if (process.env.NODE_ENV !== 'production') {
       const validator = propValidators[propName]
       if (validator) {
@@ -22,15 +29,9 @@ export default function expandAliases(props) {
 
     // Expand aliases
     for (let i = 0; i < aliases.length; i++) {
-      const enhancerName = aliases[i]
-      // Don't return duplicate props
-      if (!newProps.has(enhancerName)) {
-        newProps.set(enhancerName, propValue)
-      }
+      newProps.set(aliases[i], propValue)
     }
   }
 
-  // Return props in the order they defined so that the css gets injected in a
-  // predictable order
-  return Array.from(newProps).reverse()
+  return newProps
 }

@@ -27,11 +27,14 @@ export default class Box extends React.PureComponent {
 
   render() {
     const {is, css, innerRef, children, ...props} = this.props
+    // Convert the CSS props to class names (and inject the styles)
     const [className, parsedProps] = enhanceProps(props)
-    const finalProps = parsedProps
 
+    // Add glamor class
     if (css) {
+      // Warn that it's deprecated in the development
       if (process.env.NODE_ENV !== 'production') {
+        // Don't spam the warning
         if (!cssWarned) {
           cssWarned = true
           console.warn(
@@ -39,17 +42,17 @@ export default class Box extends React.PureComponent {
           )
         }
       }
-      finalProps.className = cx(className, gcss(css).toString())
+      parsedProps.className = cx(className, gcss(css).toString())
     } else {
-      finalProps.className = className
+      parsedProps.className = className
     }
 
     if (innerRef) {
-      finalProps.ref = node => {
+      parsedProps.ref = node => {
         innerRef(node)
       }
     }
 
-    return React.createElement(is, finalProps, children)
+    return React.createElement(is, parsedProps, children)
   }
 }
