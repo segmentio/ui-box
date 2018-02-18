@@ -14,9 +14,41 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const display = {
+  className: 'dspl',
+  cssName: 'display',
+  jsName: 'display',
+  safeValue: true,
+  isPrefixed: true,
+}
+const float = {
+  className: 'flt',
+  cssName: 'float',
+  jsName: 'float',
+  safeValue: true,
+}
+const clear = {
+  className: 'clr',
+  cssName: 'clear',
+  jsName: 'clear',
+  safeValue: true,
+}
+const zIndex = {
+  className: 'z-idx',
+  cssName: 'z-index',
+  jsName: 'zIndex',
+  safeValue: true,
+}
+const boxSizing = {
+  className: 'box-szg',
+  cssName: 'box-sizing',
+  jsName: 'boxSizing',
+  safeValue: true,
+}
+
 export const propEnhancers = {
-  boxSizing: boxSizing => getCss('boxSizing', boxSizing),
-  clear: clear => getCss('clear', clear),
+  boxSizing: value => getCss(boxSizing, value),
+  clear: value => getCss(clear, value),
   clearfix: () => ({
     className: '📦clearfix',
     styles: `
@@ -26,7 +58,7 @@ export const propEnhancers = {
   content: "";
 }`,
   }),
-  display: display => getCss('display', display),
-  float: float => getCss('float', float),
-  zIndex: zIndex => getCss('zIndex', zIndex),
+  display: value => getCss(display, value),
+  float: value => getCss(float, value),
+  zIndex: value => getCss(zIndex, value),
 }

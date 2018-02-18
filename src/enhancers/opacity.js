@@ -9,6 +9,13 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const opacity = {
+  className: 'opct',
+  cssName: 'opacity',
+  jsName: 'opacity',
+  defaultUnit: '',
+}
+
 export const propEnhancers = {
-  opacity: opacity => getCss('opacity', opacity),
+  opacity: value => getCss(opacity, value),
 }

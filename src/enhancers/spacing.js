@@ -63,13 +63,54 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+const marginTop = {
+  className: 'mt',
+  cssName: 'margin-top',
+  jsName: 'marginTop',
+}
+const marginRight = {
+  className: 'mr',
+  cssName: 'margin-right',
+  jsName: 'marginRight',
+}
+const marginBottom = {
+  className: 'mb',
+  cssName: 'margin-bottom',
+  jsName: 'marginBottom',
+}
+const marginLeft = {
+  className: 'ml',
+  cssName: 'margin-left',
+  jsName: 'marginLeft',
+}
+const paddingTop = {
+  className: 'pt',
+  cssName: 'padding-top',
+  jsName: 'paddingTop',
+}
+const paddingRight = {
+  className: 'pr',
+  cssName: 'padding-right',
+  jsName: 'paddingRight',
+}
+const paddingBottom = {
+  className: 'pb',
+  cssName: 'padding-bottom',
+  jsName: 'paddingBottom',
+}
+const paddingLeft = {
+  className: 'pl',
+  cssName: 'padding-left',
+  jsName: 'paddingLeft',
+}
+
 export const propEnhancers = {
-  marginBottom: marginBottom => getCss('marginBottom', marginBottom),
-  marginLeft: marginLeft => getCss('marginLeft', marginLeft),
-  marginRight: marginRight => getCss('marginRight', marginRight),
-  marginTop: marginTop => getCss('marginTop', marginTop),
-  paddingBottom: paddingBottom => getCss('paddingBottom', paddingBottom),
-  paddingLeft: paddingLeft => getCss('paddingLeft', paddingLeft),
-  paddingRight: paddingRight => getCss('paddingRight', paddingRight),
-  paddingTop: paddingTop => getCss('paddingTop', paddingTop),
+  marginBottom: value => getCss(marginBottom, value),
+  marginLeft: value => getCss(marginLeft, value),
+  marginRight: value => getCss(marginRight, value),
+  marginTop: value => getCss(marginTop, value),
+  paddingBottom: value => getCss(paddingBottom, value),
+  paddingLeft: value => getCss(paddingLeft, value),
+  paddingRight: value => getCss(paddingRight, value),
+  paddingTop: value => getCss(paddingTop, value),
 }

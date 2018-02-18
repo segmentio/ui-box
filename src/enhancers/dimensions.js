@@ -14,11 +14,42 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const width = {
+  className: 'w',
+  cssName: 'width',
+  jsName: 'width',
+}
+const height = {
+  className: 'h',
+  cssName: 'height',
+  jsName: 'height',
+}
+const minWidth = {
+  className: 'min-w',
+  cssName: 'min-width',
+  jsName: 'minWidth',
+}
+const minHeight = {
+  className: 'min-h',
+  cssName: 'min-height',
+  jsName: 'minHeight',
+}
+const maxWidth = {
+  className: 'max-w',
+  cssName: 'max-width',
+  jsName: 'maxWidth',
+}
+const maxHeight = {
+  className: 'max-h',
+  cssName: 'max-height',
+  jsName: 'maxHeight',
+}
+
 export const propEnhancers = {
-  height: height => getCss('height', height),
-  maxHeight: maxHeight => getCss('maxHeight', maxHeight),
-  maxWidth: maxWidth => getCss('maxWidth', maxWidth),
-  minHeight: minHeight => getCss('minHeight', minHeight),
-  minWidth: minWidth => getCss('minWidth', minWidth),
-  width: width => getCss('width', width),
+  height: value => getCss(height, value),
+  maxHeight: value => getCss(maxHeight, value),
+  maxWidth: value => getCss(maxWidth, value),
+  minHeight: value => getCss(minHeight, value),
+  minWidth: value => getCss(minWidth, value),
+  width: value => getCss(width, value),
 }

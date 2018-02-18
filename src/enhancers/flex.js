@@ -20,17 +20,97 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const flex = {
+  className: 'flx',
+  cssName: 'flex',
+  jsName: 'flex',
+  isPrefixed: true,
+  defaultUnit: '',
+}
+const alignItems = {
+  className: 'algn-itms',
+  cssName: 'align-items',
+  jsName: 'alignItems',
+  isPrefixed: true,
+}
+const alignSelf = {
+  className: 'algn-slf',
+  cssName: 'align-self',
+  jsName: 'alignSelf',
+  isPrefixed: true,
+}
+const alignContent = {
+  className: 'algn-cnt',
+  cssName: 'align-content',
+  jsName: 'alignContent',
+  isPrefixed: true,
+}
+const justifyContent = {
+  className: 'just-cnt',
+  cssName: 'justify-content',
+  jsName: 'justifyContent',
+  isPrefixed: true,
+}
+const justifySelf = {
+  className: 'just-self',
+  cssName: 'justify-self',
+  jsName: 'justifySelf',
+  isPrefixed: true,
+}
+const flexDirection = {
+  className: 'flx-drct',
+  cssName: 'flex-direction',
+  jsName: 'flexDirection',
+  isPrefixed: true,
+  safeValue: true,
+}
+const flexWrap = {
+  className: 'flx-wrap',
+  cssName: 'flex-wrap',
+  jsName: 'flexWrap',
+  isPrefixed: true,
+  safeValue: true,
+}
+const flexGrow = {
+  className: 'flx-grow',
+  cssName: 'flex-grow',
+  jsName: 'flexGrow',
+  isPrefixed: true,
+  defaultUnit: '',
+}
+const flexShrink = {
+  className: 'flx-srnk',
+  cssName: 'flex-shrink',
+  jsName: 'flexShrink',
+  isPrefixed: true,
+  defaultUnit: '',
+}
+const flexBasis = {
+  className: 'flx-basis',
+  cssName: 'flex-basis',
+  jsName: 'flexBasis',
+  isPrefixed: true,
+}
+const order = {
+  className: 'order',
+  cssName: 'order',
+  jsName: 'order',
+  isPrefixed: true,
+  defaultUnit: '',
+  safeValue: true,
+}
+
 export const propEnhancers = {
-  alignContent: alignContent => getCss('alignContent', alignContent),
-  alignItems: alignItems => getCss('alignItems', alignItems),
-  alignSelf: alignSelf => getCss('alignSelf', alignSelf),
-  flex: flex => getCss('flex', flex),
-  flexBasis: flexBasis => getCss('flexBasis', flexBasis),
-  flexDirection: flexDirection => getCss('flexDirection', flexDirection),
-  flexGrow: flexGrow => getCss('flexGrow', flexGrow),
-  flexShrink: flexShrink => getCss('flexShrink', flexShrink),
-  flexWrap: flexWrap => getCss('flexWrap', flexWrap),
-  justifyContent: justifyContent => getCss('justifyContent', justifyContent),
-  justifySelf: justifySelf => getCss('justifySelf', justifySelf),
-  order: order => getCss('order', order),
+  alignContent: value => getCss(alignContent, value),
+  alignItems: value => getCss(alignItems, value),
+  alignSelf: value => getCss(alignSelf, value),
+  flex: value => getCss(flex, value),
+  flexBasis: value => getCss(flexBasis, value),
+  flexDirection: value => getCss(flexDirection, value),
+  flexGrow: value => getCss(flexGrow, value),
+  flexShrink: value => getCss(flexShrink, value),
+  flexWrap: value => getCss(flexWrap, value),
+  justifyContent: value => getCss(justifyContent, value),
+  justifySelf: value => getCss(justifySelf, value),
+  order: value => getCss(order, value),
 }

@@ -9,6 +9,13 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const boxShadow = {
+  className: 'bs',
+  cssName: 'box-shadow',
+  jsName: 'boxShadow',
+  complexValue: true,
+}
+
 export const propEnhancers = {
-  boxShadow: boxShadow => getCss('boxShadow', boxShadow),
+  boxShadow: value => getCss(boxShadow, value),
 }

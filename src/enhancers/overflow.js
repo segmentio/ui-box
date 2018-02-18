@@ -13,7 +13,20 @@ export const propAliases = {
 
 export const propValidators = {}
 
+const overflowY = {
+  className: 'ovflw-y',
+  cssName: 'overflow-y',
+  jsName: 'overflowY',
+  safeValue: true,
+}
+const overflowX = {
+  className: 'ovflw-x',
+  cssName: 'overflow-x',
+  jsName: 'overflowX',
+  safeValue: true,
+}
+
 export const propEnhancers = {
-  overflowX: overflowX => getCss('overflowX', overflowX),
-  overflowY: overflowY => getCss('overflowY', overflowY),
+  overflowX: value => getCss(overflowX, value),
+  overflowY: value => getCss(overflowY, value),
 }

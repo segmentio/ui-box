@@ -1,26 +1,18 @@
 import prefixer from './prefixer'
-import properties from './properties'
 import valueToString from './value-to-string'
 import getClassName from './get-class-name'
 
-export default function getCss(property, value) {
-  const propertyInfo = properties[property]
+export default function getCss(propertyInfo, value) {
   let rules
-
-  if (process.env.NODE_ENV !== 'production') {
-    if (!propertyInfo) {
-      throw new Error(`📦 ui-box: property “${property}” not supported`)
-    }
-  }
 
   const valueString = valueToString(value, propertyInfo.defaultUnit)
 
   const className = getClassName(propertyInfo, valueString)
 
   if (propertyInfo.isPrefixed) {
-    rules = prefixer(property, valueString)
+    rules = prefixer(propertyInfo.jsName, valueString)
   } else {
-    rules = [{property: propertyInfo.name, value: valueString}]
+    rules = [{property: propertyInfo.cssName, value: valueString}]
   }
 
   const rulesString = rules

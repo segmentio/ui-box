@@ -2,7 +2,12 @@ import test from 'ava'
 import getCss from '../src/get-css'
 
 test('supports basic prop + value', t => {
-  const result = getCss('minWidth', '10px')
+  const propInfo = {
+    className: 'min-w',
+    cssName: 'min-width',
+    jsName: 'minWidth',
+  }
+  const result = getCss(propInfo, '10px')
   t.deepEqual(result, {
     className: '📦min-w_10px',
     styles: `
@@ -13,7 +18,12 @@ test('supports basic prop + value', t => {
 })
 
 test('supports number value', t => {
-  const result = getCss('minWidth', 10)
+  const propInfo = {
+    className: 'min-w',
+    cssName: 'min-width',
+    jsName: 'minWidth',
+  }
+  const result = getCss(propInfo, 10)
   t.deepEqual(result, {
     className: '📦min-w_10px',
     styles: `
@@ -24,7 +34,14 @@ test('supports number value', t => {
 })
 
 test('adds prefixes', t => {
-  const result = getCss('userSelect', 'none')
+  const propInfo = {
+    className: 'usr-slct',
+    cssName: 'user-select',
+    jsName: 'userSelect',
+    safeValue: true,
+    isPrefixed: true,
+  }
+  const result = getCss(propInfo, 'none')
   t.deepEqual(result, {
     className: '📦usr-slct_none',
     styles: `
@@ -35,10 +52,4 @@ test('adds prefixes', t => {
   user-select: none;
 }`,
   })
-})
-
-test('throws an error for unsupported properties', t => {
-  t.throws(() => {
-    getCss('derp', '10px')
-  }, /not supported/)
 })

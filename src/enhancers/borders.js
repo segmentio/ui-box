@@ -67,30 +67,106 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+const borderLeft = {
+  className: 'b-lft',
+  cssName: 'border-left',
+  jsName: 'borderLeft',
+}
+const borderLeftColor = {
+  className: 'b-lft-clr',
+  cssName: 'border-left-color',
+  jsName: 'borderLeftColor',
+}
+const borderLeftStyle = {
+  className: 'b-lft-stl',
+  cssName: 'border-left-style',
+  jsName: 'borderLeftStyle',
+  safeValue: true,
+}
+const borderLeftWidth = {
+  className: 'b-lft-wdt',
+  cssName: 'border-left-width',
+  jsName: 'borderLeftWidth',
+}
+const borderRight = {
+  className: 'b-rgt',
+  cssName: 'border-right',
+  jsName: 'borderRight',
+}
+const borderRightColor = {
+  className: 'b-rgt-clr',
+  cssName: 'border-right-color',
+  jsName: 'borderRightColor',
+}
+const borderRightStyle = {
+  className: 'b-rgt-stl',
+  cssName: 'border-right-style',
+  jsName: 'borderRightStyle',
+  safeValue: true,
+}
+const borderRightWidth = {
+  className: 'b-rgt-wdt',
+  cssName: 'border-right-width',
+  jsName: 'borderRightWidth',
+}
+const borderTop = {
+  className: 'b-top',
+  cssName: 'border-top',
+  jsName: 'borderTop',
+}
+const borderTopColor = {
+  className: 'b-top-clr',
+  cssName: 'border-top-color',
+  jsName: 'borderTopColor',
+}
+const borderTopStyle = {
+  className: 'b-top-stl',
+  cssName: 'border-top-style',
+  jsName: 'borderTopStyle',
+  safeValue: true,
+}
+const borderTopWidth = {
+  className: 'b-top-wdt',
+  cssName: 'border-top-width',
+  jsName: 'borderTopWidth',
+}
+const borderBottom = {
+  className: 'b-btm',
+  cssName: 'border-bottom',
+  jsName: 'borderBottom',
+}
+const borderBottomColor = {
+  className: 'b-btm-clr',
+  cssName: 'border-bottom-color',
+  jsName: 'borderBottomColor',
+}
+const borderBottomStyle = {
+  className: 'b-btm-stl',
+  cssName: 'border-bottom-style',
+  jsName: 'borderBottomStyle',
+  safeValue: true,
+}
+const borderBottomWidth = {
+  className: 'b-btm-wdt',
+  cssName: 'border-bottom-width',
+  jsName: 'borderBottomWidth',
+}
+
 export const propEnhancers = {
-  borderBottom: borderBottom => getCss('borderBottom', borderBottom),
-  borderBottomColor: borderBottomColor =>
-    getCss('borderBottomColor', borderBottomColor),
-  borderBottomStyle: borderBottomStyle =>
-    getCss('borderBottomStyle', borderBottomStyle),
-  borderBottomWidth: borderBottomWidth =>
-    getCss('borderBottomWidth', borderBottomWidth),
-  borderLeft: borderLeft => getCss('borderLeft', borderLeft),
-  borderLeftColor: borderLeftColor =>
-    getCss('borderLeftColor', borderLeftColor),
-  borderLeftStyle: borderLeftStyle =>
-    getCss('borderLeftStyle', borderLeftStyle),
-  borderLeftWidth: borderLeftWidth =>
-    getCss('borderLeftWidth', borderLeftWidth),
-  borderRight: borderRight => getCss('borderRight', borderRight),
-  borderRightColor: borderRightColor =>
-    getCss('borderRightColor', borderRightColor),
-  borderRightStyle: borderRightStyle =>
-    getCss('borderRightStyle', borderRightStyle),
-  borderRightWidth: borderRightWidth =>
-    getCss('borderRightWidth', borderRightWidth),
-  borderTop: borderTop => getCss('borderTop', borderTop),
-  borderTopColor: borderTopColor => getCss('borderTopColor', borderTopColor),
-  borderTopStyle: borderTopStyle => getCss('borderTopStyle', borderTopStyle),
-  borderTopWidth: borderTopWidth => getCss('borderTopWidth', borderTopWidth),
+  borderBottom: value => getCss(borderBottom, value),
+  borderBottomColor: value => getCss(borderBottomColor, value),
+  borderBottomStyle: value => getCss(borderBottomStyle, value),
+  borderBottomWidth: value => getCss(borderBottomWidth, value),
+  borderLeft: value => getCss(borderLeft, value),
+  borderLeftColor: value => getCss(borderLeftColor, value),
+  borderLeftStyle: value => getCss(borderLeftStyle, value),
+  borderLeftWidth: value => getCss(borderLeftWidth, value),
+  borderRight: value => getCss(borderRight, value),
+  borderRightColor: value => getCss(borderRightColor, value),
+  borderRightStyle: value => getCss(borderRightStyle, value),
+  borderRightWidth: value => getCss(borderRightWidth, value),
+  borderTop: value => getCss(borderTop, value),
+  borderTopColor: value => getCss(borderTopColor, value),
+  borderTopStyle: value => getCss(borderTopStyle, value),
+  borderTopWidth: value => getCss(borderTopWidth, value),
 }

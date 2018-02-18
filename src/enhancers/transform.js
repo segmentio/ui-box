@@ -10,8 +10,20 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const transform = {
+  className: 'tfrm',
+  cssName: 'transform',
+  jsName: 'transform',
+  complexValue: true,
+}
+const transformOrigin = {
+  className: 'tfrm-orgn',
+  cssName: 'transform-origin',
+  jsName: 'transformOrigin',
+  complexValue: true,
+}
+
 export const propEnhancers = {
-  transform: transform => getCss('transform', transform),
-  transformOrigin: transformOrigin =>
-    getCss('transformOrigin', transformOrigin),
+  transform: value => getCss(transform, value),
+  transformOrigin: value => getCss(transformOrigin, value),
 }

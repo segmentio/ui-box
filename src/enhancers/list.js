@@ -12,10 +12,33 @@ export const propAliases = {}
 
 export const propValidators = {}
 
+const listStyle = {
+  className: 'ls',
+  cssName: 'list-style',
+  jsName: 'listStyle',
+  complexValue: true,
+}
+const listStyleType = {
+  className: 'ls-typ',
+  cssName: 'list-style-type',
+  jsName: 'listStyleType',
+}
+const listStyleImage = {
+  className: 'ls-img',
+  cssName: 'list-style-image',
+  jsName: 'listStyleImage',
+  complexValue: true,
+}
+const listStylePosition = {
+  className: 'ls-pos',
+  cssName: 'list-style-position',
+  jsName: 'listStylePosition',
+  safeValue: true,
+}
+
 export const propEnhancers = {
-  listStyle: listStyle => getCss('listStyle', listStyle),
-  listStyleType: listStyleType => getCss('listStyleType', listStyleType),
-  listStyleImage: listStyleImage => getCss('listStyleImage', listStyleImage),
-  listStylePosition: listStylePosition =>
-    getCss('listStylePosition', listStylePosition),
+  listStyle: value => getCss(listStyle, value),
+  listStyleType: value => getCss(listStyleType, value),
+  listStyleImage: value => getCss(listStyleImage, value),
+  listStylePosition: value => getCss(listStylePosition, value),
 }

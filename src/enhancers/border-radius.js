@@ -41,13 +41,30 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+const borderTopLeftRadius = {
+  className: 'btlr',
+  cssName: 'border-top-left-radius',
+  jsName: 'borderTopLeftRadius',
+}
+const borderTopRightRadius = {
+  className: 'btrr',
+  cssName: 'border-top-right-radius',
+  jsName: 'borderTopRightRadius',
+}
+const borderBottomLeftRadius = {
+  className: 'bblr',
+  cssName: 'border-bottom-left-radius',
+  jsName: 'borderBottomLeftRadius',
+}
+const borderBottomRightRadius = {
+  className: 'bbrr',
+  cssName: 'border-bottom-right-radius',
+  jsName: 'borderBottomRightRadius',
+}
+
 export const propEnhancers = {
-  borderBottomLeftRadius: borderBottomLeftRadius =>
-    getCss('borderBottomLeftRadius', borderBottomLeftRadius),
-  borderBottomRightRadius: borderBottomRightRadius =>
-    getCss('borderBottomRightRadius', borderBottomRightRadius),
-  borderTopLeftRadius: borderTopLeftRadius =>
-    getCss('borderTopLeftRadius', borderTopLeftRadius),
-  borderTopRightRadius: borderTopRightRadius =>
-    getCss('borderTopRightRadius', borderTopRightRadius),
+  borderBottomLeftRadius: value => getCss(borderBottomLeftRadius, value),
+  borderBottomRightRadius: value => getCss(borderBottomRightRadius, value),
+  borderTopLeftRadius: value => getCss(borderTopLeftRadius, value),
+  borderTopRightRadius: value => getCss(borderTopRightRadius, value),
 }

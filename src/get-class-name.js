@@ -5,7 +5,7 @@ import getSafeValue from './get-safe-value'
 // Array/index based caching doesn't reach this code
 export default function getClassName(propertyInfo, value) {
   const {
-    key,
+    className,
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
     complexValue = false, // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
@@ -25,5 +25,5 @@ export default function getClassName(propertyInfo, value) {
     valueKey = getSafeValue(value)
   }
 
-  return `📦${key}_${valueKey}`
+  return `📦${className}_${valueKey}`
 }
