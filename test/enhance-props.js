@@ -50,6 +50,12 @@ test.serial('strips falsey enhancer props', t => {
   t.deepEqual(enhancedProps, {})
 })
 
+test.serial('does not strip enhancer props with 0 values', t => {
+  const [className, enhancedProps] = enhanceProps({width: 0})
+  t.is(className, '📦w_0px')
+  t.deepEqual(enhancedProps, {})
+})
+
 test.serial('passes through non-enhancer props', t => {
   const [className, enhancedProps] = enhanceProps({disabled: true})
   t.is(className, '')
