@@ -38,6 +38,7 @@ const zIndex = {
   cssName: 'z-index',
   jsName: 'zIndex',
   safeValue: true,
+  defaultUnit: '',
 }
 const boxSizing = {
   className: 'box-szg',

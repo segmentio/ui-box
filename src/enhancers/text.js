@@ -92,6 +92,7 @@ const fontWeight = {
   cssName: 'font-weight',
   jsName: 'fontWeight',
   safeValue: true,
+  defaultUnit: '',
 }
 const lineHeight = {
   className: 'ln-ht',
