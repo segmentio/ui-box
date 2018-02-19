@@ -27,6 +27,14 @@ test('hashes complex values', t => {
 })
 
 test('removes all unsafe values by default', t => {
-  const result = getClassName({className: 'w'}, '50.5% calc(50.5% + 20px)')
-  t.is(result, '📦w_50-5prcnt-calc50-5prcnt--20px')
+  const result = getClassName({className: 'w'}, '50.5%')
+  t.is(result, '📦w_50-5prcnt')
+})
+
+test('always hashes values that contain a calc()', t => {
+  const result = getClassName(
+    {className: 'w', safeValue: true},
+    'calc(50% + 20px)'
+  )
+  t.is(result, '📦w_1vuvdht')
 })

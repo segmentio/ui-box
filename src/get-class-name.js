@@ -12,16 +12,15 @@ export default function getClassName(propertyInfo, value) {
   } = propertyInfo
   let valueKey
 
-  // Shortcut the global keywords and safe values
-  if (
-    safeValue ||
-    value === 'inherit' ||
-    value === 'initial' ||
-    value === 'unset'
-  ) {
+  // Shortcut the global keywords
+  if (value === 'inherit' || value === 'initial' || value === 'unset') {
     valueKey = value
-  } else if (complexValue) {
+    // Always hash values that contain a calc() because the operators get
+    // stripped which can result in class name collisions
+  } else if (complexValue || value.includes('calc(')) {
     valueKey = hash(value)
+  } else if (safeValue) {
+    valueKey = value
   } else {
     valueKey = getSafeValue(value)
   }
