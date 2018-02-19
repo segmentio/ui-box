@@ -9,7 +9,7 @@ export const propTypes = {
   fontStyle: PropTypes.string,
   fontVariant: PropTypes.string,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  letterSpacing: PropTypes.string,
+  letterSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   textAlign: PropTypes.string,
   textDecoration: PropTypes.string,

@@ -4,15 +4,7 @@ import getCss from '../get-css'
 export const propTypes = {
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  position: PropTypes.oneOf([
-    'relative',
-    'absolute',
-    'fixed',
-    'static',
-    'sticky',
-    'inherit',
-    'initial',
-  ]),
+  position: PropTypes.string,
   right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
