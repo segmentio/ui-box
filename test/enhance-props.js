@@ -67,3 +67,9 @@ test.serial('passes through falsey non-enhancer props', t => {
   t.is(className, '')
   t.deepEqual(enhancedProps, {disabled: false})
 })
+
+test.serial('handles invalid values', t => {
+  const [className, enhancedProps] = enhanceProps({minWidth: true})
+  t.is(className, '')
+  t.deepEqual(enhancedProps, {})
+})

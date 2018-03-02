@@ -53,3 +53,13 @@ test('adds prefixes', t => {
 }`,
   })
 })
+
+test('handles invalid values', t => {
+  const propInfo = {
+    className: 'min-w',
+    cssName: 'min-width',
+    jsName: 'minWidth',
+  }
+  const result = getCss(propInfo, true)
+  t.deepEqual(result, null)
+})

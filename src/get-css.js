@@ -8,6 +8,19 @@ import getClassName from './get-class-name'
 export default function getCss(propertyInfo, value) {
   let rules
 
+  // Protect against unexpected values
+  const valueType = typeof value
+  if (valueType !== 'string' && valueType !== 'number') {
+    if (process.env.NODE_ENV !== 'production') {
+      const name = propertyInfo.jsName
+      const encodedValue = JSON.stringify(value)
+      console.error(
+        `📦 ui-box: property “${name}” was passed invalid value “${encodedValue}”. Only numbers and strings are supported.`
+      )
+    }
+    return null
+  }
+
   const valueString = valueToString(value, propertyInfo.defaultUnit)
 
   const className = getClassName(propertyInfo, valueString)

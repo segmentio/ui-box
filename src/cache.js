@@ -6,10 +6,11 @@ export function get(property, value) {
 
 export function set(property, value, className) {
   if (process.env.NODE_ENV !== 'production') {
+    const valueType = typeof value
     if (
-      typeof value !== 'boolean' &&
-      typeof value !== 'number' &&
-      typeof value !== 'string'
+      valueType !== 'boolean' &&
+      valueType !== 'number' &&
+      valueType !== 'string'
     ) {
       const encodedValue = JSON.stringify(value)
       throw new TypeError(

@@ -38,7 +38,7 @@ export default class Box extends React.PureComponent {
         if (!cssWarned) {
           cssWarned = true
           console.warn(
-            `ui-box deprecation: the “css” prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the “className” prop.`
+            `📦 ui-box deprecation: the “css” prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the “className” prop.`
           )
         }
       }

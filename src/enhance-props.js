@@ -34,9 +34,12 @@ export default function enhanceProps(rawProps) {
     }
 
     const newCss = enhancer(propValue)
-    styles.add(newCss.styles)
-    cache.set(propName, propValue, newCss.className)
-    className = cx(className, newCss.className)
+    // Allow enhancers to return null for invalid values
+    if (newCss) {
+      styles.add(newCss.styles)
+      cache.set(propName, propValue, newCss.className)
+      className = cx(className, newCss.className)
+    }
   }
 
   return [className, enhancedProps]
