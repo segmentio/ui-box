@@ -1,6 +1,11 @@
 import test from 'ava'
 import getCss from '../src/get-css'
 
+const originalNodeEnv = process.env.NODE_ENV
+test.afterEach.always(() => {
+  process.env.NODE_ENV = originalNodeEnv
+})
+
 test('supports basic prop + value', t => {
   const propInfo = {
     className: 'min-w',
@@ -42,16 +47,16 @@ test('adds prefixes', t => {
     isPrefixed: true,
   }
   const result = getCss(propInfo, 'none')
-  t.deepEqual(result, {
-    className: '📦usr-slct_none',
-    styles: `
+  t.deepEqual(
+    result.styles,
+    `
 .📦usr-slct_none {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}`,
-  })
+}`
+  )
 })
 
 test('handles invalid values', t => {
@@ -62,4 +67,20 @@ test('handles invalid values', t => {
   }
   const result = getCss(propInfo, true)
   t.deepEqual(result, null)
+})
+
+test.serial('returns minified css in production', t => {
+  process.env.NODE_ENV = 'production'
+  const propInfo = {
+    className: 'usr-slct',
+    cssName: 'user-select',
+    jsName: 'userSelect',
+    safeValue: true,
+    isPrefixed: true,
+  }
+  const result = getCss(propInfo, 'none')
+  t.deepEqual(
+    result.styles,
+    '.📦usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
+  )
 })

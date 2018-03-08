@@ -32,14 +32,21 @@ export default function getCss(propertyInfo, value) {
     rules = [{property: propertyInfo.cssName, value: valueString}]
   }
 
-  const rulesString = rules
-    .map(rule => `${rule.property}: ${rule.value};`)
-    .join('\n  ')
-
-  const styles = `
+  let styles
+  if (process.env.NODE_ENV === 'production') {
+    const rulesString = rules
+      .map(rule => `${rule.property}:${rule.value}`)
+      .join(';')
+    styles = `.${className}{${rulesString}}`
+  } else {
+    const rulesString = rules
+      .map(rule => `  ${rule.property}: ${rule.value};`)
+      .join('\n')
+    styles = `
 .${className} {
-  ${rulesString}
+${rulesString}
 }`
+  }
 
   return {className, styles}
 }

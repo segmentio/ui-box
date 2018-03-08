@@ -4,7 +4,9 @@ import {shallow} from 'enzyme'
 import * as cache from '../src/cache'
 import Box, {hydrate, extractStyles, clearStyles} from '../src'
 
+const originalNodeEnv = process.env.NODE_ENV
 test.afterEach.always(() => {
+  process.env.NODE_ENV = originalNodeEnv
   clearStyles()
 })
 
@@ -79,4 +81,13 @@ test.serial('clearStyles clears the cache and styles', t => {
       ['boxSizingborder-box', '📦box-szg_border-box'],
     ],
   })
+})
+
+test.serial('returns minified css in production', t => {
+  process.env.NODE_ENV = 'production'
+  shallow(<Box height="11px" />)
+  t.deepEqual(
+    extractStyles().styles,
+    `.📦h_11px{height:11px}.📦box-szg_border-box{box-sizing:border-box}`
+  )
 })
