@@ -131,6 +131,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `flex`
 * `flexBasis`
 * `flexDirection`
+* `flexFlow`
 * `flexGrow`
 * `flexShrink`
 * `flexWrap`

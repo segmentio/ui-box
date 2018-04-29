@@ -58,6 +58,7 @@ export default function benchmark() {
       flexShrink={1}
       flexBasis="10px"
       order={1}
+      flexFlow="column wrap"
       cursor="pointer"
       userSelect="none"
       visibility="visible"
