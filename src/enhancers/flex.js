@@ -11,6 +11,7 @@ export const propTypes = {
   flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexWrap: PropTypes.string,
+  flexFlow: PropTypes.string,
   justifyContent: PropTypes.string,
   justifySelf: PropTypes.string,
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -99,6 +100,13 @@ const order = {
   defaultUnit: '',
   safeValue: true,
 }
+const flexFlow = {
+  className: 'flx-flow',
+  cssName: 'flex-flow',
+  jsName: 'flexFlow',
+  isPrefixed: true,
+  defaultUnit: '',
+}
 
 export const propEnhancers = {
   alignContent: value => getCss(alignContent, value),
@@ -113,4 +121,5 @@ export const propEnhancers = {
   justifyContent: value => getCss(justifyContent, value),
   justifySelf: value => getCss(justifySelf, value),
   order: value => getCss(order, value),
+  flexFlow: value => getCss(flexFlow, value),
 }
