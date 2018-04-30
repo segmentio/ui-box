@@ -108,6 +108,11 @@ export default function benchmark() {
       top={10}
       transform="skew(10deg)"
       transformOrigin="50% 50%"
+      transition="background 1s ease-in 2s"
+      transitionDelay="2s"
+      transitionDuration="1s"
+      transitionProperty="background"
+      transitionTimingFunction="ease-in"
       userSelect="none"
       visibility="visible"
       whiteSpace="no-wrap"

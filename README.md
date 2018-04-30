@@ -186,6 +186,11 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `top`
 * `transform`
 * `transformOrigin`
+* `transition`
+* `transitionDelay`
+* `transitionDuration`
+* `transitionProperty`
+* `transitionTimingFunction`
 * `userSelect`
 * `visibility`
 * `whiteSpace`
@@ -265,6 +270,7 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 * `spacing`
 * `text`
 * `transform`
+* `transition`
 
 ### Server side rendering
 

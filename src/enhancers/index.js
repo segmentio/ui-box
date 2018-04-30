@@ -13,6 +13,7 @@ import * as position from './position'
 import * as spacing from './spacing'
 import * as text from './text'
 import * as transform from './transform'
+import * as transition from './transition'
 
 export {
   background,
@@ -30,6 +31,7 @@ export {
   spacing,
   text,
   transform,
+  transition,
 }
 
 export const propTypes = {
@@ -48,6 +50,7 @@ export const propTypes = {
   ...spacing.propTypes,
   ...text.propTypes,
   ...transform.propTypes,
+  ...transition.propTypes,
 }
 
 export const propNames = Object.keys(propTypes)
@@ -68,6 +71,7 @@ export const propAliases = {
   ...spacing.propAliases,
   ...text.propAliases,
   ...transform.propAliases,
+  ...transition.propAliases,
 }
 
 export const propValidators = {
@@ -86,6 +90,7 @@ export const propValidators = {
   ...spacing.propValidators,
   ...text.propValidators,
   ...transform.propValidators,
+  ...transition.propValidators,
 }
 
 export const propEnhancers = {
@@ -104,4 +109,5 @@ export const propEnhancers = {
   ...spacing.propEnhancers,
   ...text.propEnhancers,
   ...transform.propEnhancers,
+  ...transition.propEnhancers,
 }
