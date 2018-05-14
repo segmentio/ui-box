@@ -29,6 +29,7 @@
     "coverage": "nyc report --reporter=html"
   },
   "dependencies": {
+    "@emotion/hash": "^0.6.3",
     "classnames": "^2.2.0",
     "glamor": "^2.20.0",
     "inline-style-prefixer": "^4.0.0",

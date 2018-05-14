@@ -1,4 +1,4 @@
-import hash from './utils/hash'
+import hash from '@emotion/hash'
 import getSafeValue from './get-safe-value'
 
 /**
