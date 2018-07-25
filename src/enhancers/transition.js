@@ -6,7 +6,7 @@ export const propTypes = {
   transitionDelay: PropTypes.string,
   transitionDuration: PropTypes.string,
   transitionProperty: PropTypes.string,
-  transitionTimingFunction: PropTypes.string,
+  transitionTimingFunction: PropTypes.string
 }
 
 export const propAliases = {}
@@ -17,31 +17,31 @@ const transition = {
   className: 'tstn',
   cssName: 'transition',
   jsName: 'transition',
-  complexValue: true,
+  complexValue: true
 }
 const transitionDelay = {
   className: 'tstn-dly',
   cssName: 'transition-delay',
   jsName: 'transitionDelay',
-  complexValue: true,
+  complexValue: true
 }
 const transitionDuration = {
   className: 'tstn-drn',
   cssName: 'transition-duration',
   jsName: 'transitionDuration',
-  complexValue: true,
+  complexValue: true
 }
 const transitionProperty = {
   className: 'tstn-pty',
   cssName: 'transition-property',
   jsName: 'transitionProperty',
-  complexValue: true,
+  complexValue: true
 }
 const transitionTimingFunction = {
   className: 'tstn-tf',
   cssName: 'transition-timing-function',
   jsName: 'transitionTimingFunction',
-  complexValue: true,
+  complexValue: true
 }
 
 export const propEnhancers = {
@@ -49,5 +49,5 @@ export const propEnhancers = {
   transitionDelay: value => getCss(transitionDelay, value),
   transitionDuration: value => getCss(transitionDuration, value),
   transitionProperty: value => getCss(transitionProperty, value),
-  transitionTimingFunction: value => getCss(transitionTimingFunction, value),
+  transitionTimingFunction: value => getCss(transitionTimingFunction, value)
 }

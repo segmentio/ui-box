@@ -14,7 +14,7 @@ export const propTypes = {
   flexFlow: PropTypes.string,
   justifyContent: PropTypes.string,
   justifySelf: PropTypes.string,
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {}
@@ -26,71 +26,71 @@ const flex = {
   cssName: 'flex',
   jsName: 'flex',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const alignItems = {
   className: 'algn-itms',
   cssName: 'align-items',
   jsName: 'alignItems',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const alignSelf = {
   className: 'algn-slf',
   cssName: 'align-self',
   jsName: 'alignSelf',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const alignContent = {
   className: 'algn-cnt',
   cssName: 'align-content',
   jsName: 'alignContent',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const justifyContent = {
   className: 'just-cnt',
   cssName: 'justify-content',
   jsName: 'justifyContent',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const justifySelf = {
   className: 'just-self',
   cssName: 'justify-self',
   jsName: 'justifySelf',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const flexDirection = {
   className: 'flx-drct',
   cssName: 'flex-direction',
   jsName: 'flexDirection',
   isPrefixed: true,
-  safeValue: true,
+  safeValue: true
 }
 const flexWrap = {
   className: 'flx-wrap',
   cssName: 'flex-wrap',
   jsName: 'flexWrap',
   isPrefixed: true,
-  safeValue: true,
+  safeValue: true
 }
 const flexGrow = {
   className: 'flx-grow',
   cssName: 'flex-grow',
   jsName: 'flexGrow',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const flexShrink = {
   className: 'flx-srnk',
   cssName: 'flex-shrink',
   jsName: 'flexShrink',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const flexBasis = {
   className: 'flx-basis',
   cssName: 'flex-basis',
   jsName: 'flexBasis',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const order = {
   className: 'order',
@@ -98,14 +98,14 @@ const order = {
   jsName: 'order',
   isPrefixed: true,
   defaultUnit: '',
-  safeValue: true,
+  safeValue: true
 }
 const flexFlow = {
   className: 'flx-flow',
   cssName: 'flex-flow',
   jsName: 'flexFlow',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 
 export const propEnhancers = {
@@ -121,5 +121,5 @@ export const propEnhancers = {
   justifyContent: value => getCss(justifyContent, value),
   justifySelf: value => getCss(justifySelf, value),
   order: value => getCss(order, value),
-  flexFlow: value => getCss(flexFlow, value),
+  flexFlow: value => getCss(flexFlow, value)
 }

@@ -32,7 +32,7 @@ function makeStyleTag() {
 
 export default function StyleSheet({
   speedy = !isDev && !isTest,
-  maxLength = 65000,
+  maxLength = 65000
 } = {}) {
   this.isSpeedy = speedy // The big drawback here is that the css won't be editable in devtools
   this.sheet = undefined
@@ -59,7 +59,7 @@ Object.assign(StyleSheet.prototype, {
           // Enough 'spec compliance' to be able to extract the rules later
           // in other words, just the cssText field
           this.sheet.cssRules.push({cssText: rule})
-        },
+        }
       }
     }
     this.injected = true
@@ -118,8 +118,8 @@ Object.assign(StyleSheet.prototype, {
     }
     const arr = []
     this.tags.forEach(tag =>
-      arr.splice(arr.length, 0, ...Array.from(sheetForTag(tag).cssRules))
+      arr.splice(arr.length, 0, ...[...sheetForTag(tag).cssRules])
     )
     return arr
-  },
+  }
 })

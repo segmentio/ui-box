@@ -10,7 +10,7 @@ test('supports basic prop + value', t => {
   const propInfo = {
     className: 'min-w',
     cssName: 'min-width',
-    jsName: 'minWidth',
+    jsName: 'minWidth'
   }
   const result = getCss(propInfo, '10px')
   t.deepEqual(result, {
@@ -18,7 +18,7 @@ test('supports basic prop + value', t => {
     styles: `
 .📦min-w_10px {
   min-width: 10px;
-}`,
+}`
   })
 })
 
@@ -26,7 +26,7 @@ test('supports number value', t => {
   const propInfo = {
     className: 'min-w',
     cssName: 'min-width',
-    jsName: 'minWidth',
+    jsName: 'minWidth'
   }
   const result = getCss(propInfo, 10)
   t.deepEqual(result, {
@@ -34,7 +34,7 @@ test('supports number value', t => {
     styles: `
 .📦min-w_10px {
   min-width: 10px;
-}`,
+}`
   })
 })
 
@@ -44,7 +44,7 @@ test('adds prefixes', t => {
     cssName: 'user-select',
     jsName: 'userSelect',
     safeValue: true,
-    isPrefixed: true,
+    isPrefixed: true
   }
   const result = getCss(propInfo, 'none')
   t.deepEqual(
@@ -63,7 +63,7 @@ test('handles invalid values', t => {
   const propInfo = {
     className: 'min-w',
     cssName: 'min-width',
-    jsName: 'minWidth',
+    jsName: 'minWidth'
   }
   const result = getCss(propInfo, true)
   t.deepEqual(result, null)
@@ -76,7 +76,7 @@ test.serial('returns minified css in production', t => {
     cssName: 'user-select',
     jsName: 'userSelect',
     safeValue: true,
-    isPrefixed: true,
+    isPrefixed: true
   }
   const result = getCss(propInfo, 'none')
   t.deepEqual(

@@ -16,7 +16,7 @@ export const propTypes = {
   paddingRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingX: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingY: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {
@@ -25,7 +25,7 @@ export const propAliases = {
   marginY: ['marginBottom', 'marginTop'],
   padding: ['paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop'],
   paddingX: ['paddingLeft', 'paddingRight'],
-  paddingY: ['paddingBottom', 'paddingTop'],
+  paddingY: ['paddingBottom', 'paddingTop']
 }
 
 export const propValidators = {}
@@ -66,42 +66,42 @@ if (process.env.NODE_ENV !== 'production') {
 const marginTop = {
   className: 'mt',
   cssName: 'margin-top',
-  jsName: 'marginTop',
+  jsName: 'marginTop'
 }
 const marginRight = {
   className: 'mr',
   cssName: 'margin-right',
-  jsName: 'marginRight',
+  jsName: 'marginRight'
 }
 const marginBottom = {
   className: 'mb',
   cssName: 'margin-bottom',
-  jsName: 'marginBottom',
+  jsName: 'marginBottom'
 }
 const marginLeft = {
   className: 'ml',
   cssName: 'margin-left',
-  jsName: 'marginLeft',
+  jsName: 'marginLeft'
 }
 const paddingTop = {
   className: 'pt',
   cssName: 'padding-top',
-  jsName: 'paddingTop',
+  jsName: 'paddingTop'
 }
 const paddingRight = {
   className: 'pr',
   cssName: 'padding-right',
-  jsName: 'paddingRight',
+  jsName: 'paddingRight'
 }
 const paddingBottom = {
   className: 'pb',
   cssName: 'padding-bottom',
-  jsName: 'paddingBottom',
+  jsName: 'paddingBottom'
 }
 const paddingLeft = {
   className: 'pl',
   cssName: 'padding-left',
-  jsName: 'paddingLeft',
+  jsName: 'paddingLeft'
 }
 
 export const propEnhancers = {
@@ -112,5 +112,5 @@ export const propEnhancers = {
   paddingBottom: value => getCss(paddingBottom, value),
   paddingLeft: value => getCss(paddingLeft, value),
   paddingRight: value => getCss(paddingRight, value),
-  paddingTop: value => getCss(paddingTop, value),
+  paddingTop: value => getCss(paddingTop, value)
 }

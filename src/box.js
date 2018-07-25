@@ -15,14 +15,14 @@ export default class Box extends React.PureComponent {
     css: PropTypes.object,
     innerRef: PropTypes.func,
     is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    boxSizing: propTypes.boxSizing,
+    boxSizing: propTypes.boxSizing
   }
 
   static defaultProps = {
     css: null,
     innerRef: null,
     is: 'div',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box'
   }
 
   render() {

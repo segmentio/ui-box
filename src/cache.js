@@ -23,7 +23,7 @@ export function set(property, value, className) {
 }
 
 export function entries() {
-  return Array.from(cache)
+  return [...cache]
 }
 
 export function hydrate(newEntries) {

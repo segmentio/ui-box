@@ -10,7 +10,7 @@ export const propTypes = {
   backgroundOrigin: PropTypes.string,
   backgroundPosition: PropTypes.string,
   backgroundRepeat: PropTypes.string,
-  backgroundSize: PropTypes.string,
+  backgroundSize: PropTypes.string
 }
 
 export const propAliases = {}
@@ -22,49 +22,49 @@ const background = {
   cssName: 'background',
   jsName: 'background',
   isPrefixed: true,
-  complexValue: true,
+  complexValue: true
 }
 const backgroundColor = {
   className: 'bg-clr',
   cssName: 'background-color',
-  jsName: 'backgroundColor',
+  jsName: 'backgroundColor'
 }
 const backgroundImage = {
   className: 'bg-img',
   cssName: 'background-image',
   jsName: 'backgroundImage',
   isPrefixed: true,
-  complexValue: true,
+  complexValue: true
 }
 const backgroundPosition = {
   className: 'bg-pos',
   cssName: 'background-position',
-  jsName: 'backgroundPosition',
+  jsName: 'backgroundPosition'
 }
 const backgroundSize = {
   className: 'bg-siz',
   cssName: 'background-size',
-  jsName: 'backgroundSize',
+  jsName: 'backgroundSize'
 }
 const backgroundOrigin = {
   className: 'bg-orgn',
   cssName: 'background-origin',
-  jsName: 'backgroundOrigin',
+  jsName: 'backgroundOrigin'
 }
 const backgroundRepeat = {
   className: 'bg-rpt',
   cssName: 'background-repeat',
-  jsName: 'backgroundRepeat',
+  jsName: 'backgroundRepeat'
 }
 const backgroundClip = {
   className: 'bg-clp',
   cssName: 'background-clip',
-  jsName: 'backgroundClip',
+  jsName: 'backgroundClip'
 }
 const backgroundBlendMode = {
   className: 'bg-blnd-md',
   cssName: 'background-blend-mode',
-  jsName: 'backgroundBlendMode',
+  jsName: 'backgroundBlendMode'
 }
 
 export const propEnhancers = {
@@ -76,5 +76,5 @@ export const propEnhancers = {
   backgroundOrigin: value => getCss(backgroundOrigin, value),
   backgroundPosition: value => getCss(backgroundPosition, value),
   backgroundRepeat: value => getCss(backgroundRepeat, value),
-  backgroundSize: value => getCss(backgroundSize, value),
+  backgroundSize: value => getCss(backgroundSize, value)
 }

@@ -7,7 +7,7 @@ export const propTypes = {
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {}
@@ -17,32 +17,32 @@ export const propValidators = {}
 const width = {
   className: 'w',
   cssName: 'width',
-  jsName: 'width',
+  jsName: 'width'
 }
 const height = {
   className: 'h',
   cssName: 'height',
-  jsName: 'height',
+  jsName: 'height'
 }
 const minWidth = {
   className: 'min-w',
   cssName: 'min-width',
-  jsName: 'minWidth',
+  jsName: 'minWidth'
 }
 const minHeight = {
   className: 'min-h',
   cssName: 'min-height',
-  jsName: 'minHeight',
+  jsName: 'minHeight'
 }
 const maxWidth = {
   className: 'max-w',
   cssName: 'max-width',
-  jsName: 'maxWidth',
+  jsName: 'maxWidth'
 }
 const maxHeight = {
   className: 'max-h',
   cssName: 'max-height',
-  jsName: 'maxHeight',
+  jsName: 'maxHeight'
 }
 
 export const propEnhancers = {
@@ -51,5 +51,5 @@ export const propEnhancers = {
   maxWidth: value => getCss(maxWidth, value),
   minHeight: value => getCss(minHeight, value),
   minWidth: value => getCss(minWidth, value),
-  width: value => getCss(width, value),
+  width: value => getCss(width, value)
 }

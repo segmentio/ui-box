@@ -7,7 +7,7 @@ export const propTypes = {
   clearfix: PropTypes.bool,
   display: PropTypes.string,
   float: PropTypes.string,
-  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {}
@@ -19,32 +19,32 @@ const display = {
   cssName: 'display',
   jsName: 'display',
   safeValue: true,
-  isPrefixed: true,
+  isPrefixed: true
 }
 const float = {
   className: 'flt',
   cssName: 'float',
   jsName: 'float',
-  safeValue: true,
+  safeValue: true
 }
 const clear = {
   className: 'clr',
   cssName: 'clear',
   jsName: 'clear',
-  safeValue: true,
+  safeValue: true
 }
 const zIndex = {
   className: 'z-idx',
   cssName: 'z-index',
   jsName: 'zIndex',
   safeValue: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const boxSizing = {
   className: 'box-szg',
   cssName: 'box-sizing',
   jsName: 'boxSizing',
-  safeValue: true,
+  safeValue: true
 }
 
 export const propEnhancers = {
@@ -57,9 +57,9 @@ export const propEnhancers = {
   display: table;
   clear: both;
   content: "";
-}`,
+}`
   }),
   display: value => getCss(display, value),
   float: value => getCss(float, value),
-  zIndex: value => getCss(zIndex, value),
+  zIndex: value => getCss(zIndex, value)
 }

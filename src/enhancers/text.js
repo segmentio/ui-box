@@ -18,7 +18,7 @@ export const propTypes = {
   textTransform: PropTypes.string,
   whiteSpace: PropTypes.string,
   wordBreak: PropTypes.string,
-  wordWrap: PropTypes.string,
+  wordWrap: PropTypes.string
 }
 
 export const propAliases = {}
@@ -29,99 +29,99 @@ const textAlign = {
   className: 'txt-algn',
   safeValue: true,
   cssName: 'text-align',
-  jsName: 'textAlign',
+  jsName: 'textAlign'
 }
 const textDecoration = {
   className: 'txt-deco',
   cssName: 'text-decoration',
-  jsName: 'textDecoration',
+  jsName: 'textDecoration'
 }
 const textTransform = {
   className: 'txt-trns',
   cssName: 'text-transform',
   jsName: 'textTransform',
-  safeValue: true,
+  safeValue: true
 }
 const textShadow = {
   className: 'txt-shdw',
   cssName: 'text-shadow',
   jsName: 'textShadow',
-  complexValue: true,
+  complexValue: true
 }
 const textOverflow = {
   className: 'txt-ovrf',
   cssName: 'text-overflow',
   jsName: 'textOverflow',
-  safeValue: true,
+  safeValue: true
 }
 const color = {
   className: 'color',
   cssName: 'color',
-  jsName: 'color',
+  jsName: 'color'
 }
 const font = {
   className: 'fnt',
   cssName: 'font',
   jsName: 'font',
-  complexValue: true,
+  complexValue: true
 }
 const fontFamily = {
   className: 'fnt-fam',
   cssName: 'font-family',
   jsName: 'fontFamily',
-  complexValue: true,
+  complexValue: true
 }
 const fontSize = {
   className: 'fnt-sze',
   cssName: 'font-size',
-  jsName: 'fontSize',
+  jsName: 'fontSize'
 }
 const fontStyle = {
   className: 'fnt-stl',
   cssName: 'font-style',
   jsName: 'fontStyle',
-  safeValue: true,
+  safeValue: true
 }
 const fontVariant = {
   className: 'f-vari',
   cssName: 'font-variant',
-  jsName: 'fontVariant',
+  jsName: 'fontVariant'
 }
 const fontWeight = {
   className: 'f-wght',
   cssName: 'font-weight',
   jsName: 'fontWeight',
   safeValue: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const lineHeight = {
   className: 'ln-ht',
   cssName: 'line-height',
   jsName: 'lineHeight',
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const wordBreak = {
   className: 'wrd-brk',
   cssName: 'word-break',
   jsName: 'wordBreak',
-  safeValue: true,
+  safeValue: true
 }
 const wordWrap = {
   className: 'wrd-wrp',
   cssName: 'word-wrap',
   jsName: 'wordWrap',
-  safeValue: true,
+  safeValue: true
 }
 const whiteSpace = {
   className: 'wht-spc',
   cssName: 'white-space',
   jsName: 'whiteSpace',
-  safeValue: true,
+  safeValue: true
 }
 const letterSpacing = {
   className: 'ltr-spc',
   cssName: 'letter-spacing',
-  jsName: 'letterSpacing',
+  jsName: 'letterSpacing'
 }
 
 export const propEnhancers = {
@@ -141,5 +141,5 @@ export const propEnhancers = {
   textTransform: value => getCss(textTransform, value),
   whiteSpace: value => getCss(whiteSpace, value),
   wordBreak: value => getCss(wordBreak, value),
-  wordWrap: value => getCss(wordWrap, value),
+  wordWrap: value => getCss(wordWrap, value)
 }

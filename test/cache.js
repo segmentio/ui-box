@@ -32,6 +32,6 @@ test('existing keys are maintained when hydrating', t => {
   cache.hydrate([['height10px', 'h-10px']])
   t.deepEqual(cache.entries(), [
     ['minWidth10px', 'min-w-10px'],
-    ['height10px', 'h-10px'],
+    ['height10px', 'h-10px']
   ])
 })

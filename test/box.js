@@ -65,7 +65,7 @@ test('innerRef prop gets passed the ref', t => {
   render.create(<Box innerRef={innerRef} />, {
     createNodeMock() {
       return node
-    },
+    }
   })
   t.true(innerRef.calledOnce)
   t.is(innerRef.args[0][0], node)

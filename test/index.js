@@ -28,8 +28,8 @@ test.serial('extractStyles method returns css and cache', t => {
 }`,
     cache: [
       ['height11px', '📦h_11px'],
-      ['boxSizingborder-box', '📦box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', '📦box-szg_border-box']
+    ]
   })
 })
 
@@ -45,8 +45,8 @@ test.serial('extractStyles clears the cache and styles', t => {
 }`,
     cache: [
       ['height12px', '📦h_12px'],
-      ['boxSizingborder-box', '📦box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', '📦box-szg_border-box']
+    ]
   })
   shallow(<Box height="13px" />)
   t.deepEqual(extractStyles(), {
@@ -59,8 +59,8 @@ test.serial('extractStyles clears the cache and styles', t => {
 }`,
     cache: [
       ['height13px', '📦h_13px'],
-      ['boxSizingborder-box', '📦box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', '📦box-szg_border-box']
+    ]
   })
 })
 
@@ -78,8 +78,8 @@ test.serial('clearStyles clears the cache and styles', t => {
 }`,
     cache: [
       ['height15px', '📦h_15px'],
-      ['boxSizingborder-box', '📦box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', '📦box-szg_border-box']
+    ]
   })
 })
 

@@ -3,7 +3,7 @@ import getCss from '../get-css'
 
 export const propTypes = {
   transform: PropTypes.string,
-  transformOrigin: PropTypes.string,
+  transformOrigin: PropTypes.string
 }
 
 export const propAliases = {}
@@ -14,16 +14,16 @@ const transform = {
   className: 'tfrm',
   cssName: 'transform',
   jsName: 'transform',
-  complexValue: true,
+  complexValue: true
 }
 const transformOrigin = {
   className: 'tfrm-orgn',
   cssName: 'transform-origin',
   jsName: 'transformOrigin',
-  complexValue: true,
+  complexValue: true
 }
 
 export const propEnhancers = {
   transform: value => getCss(transform, value),
-  transformOrigin: value => getCss(transformOrigin, value),
+  transformOrigin: value => getCss(transformOrigin, value)
 }
