@@ -67,6 +67,7 @@ export default function() {
       fontWeight="bold"
       height={100}
       justifyContent="center"
+      justifyItems="center"
       justifySelf="center"
       left={10}
       letterSpacing="0.4em"
@@ -98,6 +99,9 @@ export default function() {
       paddingTop={10}
       paddingX={10}
       paddingY={10}
+      placeContent="center center"
+      placeItems="center center"
+      placeSelf="center center"
       pointerEvents="auto"
       position="relative"
       right={10}

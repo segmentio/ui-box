@@ -8,13 +8,17 @@ export const propTypes = {
   flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexDirection: PropTypes.string,
+  flexFlow: PropTypes.string,
   flexGrow: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   flexWrap: PropTypes.string,
-  flexFlow: PropTypes.string,
   justifyContent: PropTypes.string,
+  justifyItems: PropTypes.string,
   justifySelf: PropTypes.string,
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  placeContent: PropTypes.string,
+  placeItems: PropTypes.string,
+  placeSelf: PropTypes.string
 }
 
 export const propAliases = {}
@@ -50,6 +54,12 @@ const justifyContent = {
   className: 'just-cnt',
   cssName: 'justify-content',
   jsName: 'justifyContent',
+  isPrefixed: true
+}
+const justifyItems = {
+  className: 'just-items',
+  cssName: 'justify-items',
+  jsName: 'justifyItems',
   isPrefixed: true
 }
 const justifySelf = {
@@ -107,6 +117,24 @@ const flexFlow = {
   isPrefixed: true,
   defaultUnit: ''
 }
+const placeContent = {
+  className: 'plc-cnt',
+  cssName: 'place-content',
+  jsName: 'placeContent',
+  isPrefixed: true
+}
+const placeItems = {
+  className: 'plc-items',
+  cssName: 'place-items',
+  jsName: 'placeItems',
+  isPrefixed: true
+}
+const placeSelf = {
+  className: 'plc-self',
+  cssName: 'place-self',
+  jsName: 'placeSelf',
+  isPrefixed: true
+}
 
 export const propEnhancers = {
   alignContent: value => getCss(alignContent, value),
@@ -115,11 +143,15 @@ export const propEnhancers = {
   flex: value => getCss(flex, value),
   flexBasis: value => getCss(flexBasis, value),
   flexDirection: value => getCss(flexDirection, value),
+  flexFlow: value => getCss(flexFlow, value),
   flexGrow: value => getCss(flexGrow, value),
   flexShrink: value => getCss(flexShrink, value),
   flexWrap: value => getCss(flexWrap, value),
   justifyContent: value => getCss(justifyContent, value),
+  justifyItems: value => getCss(justifyItems, value),
   justifySelf: value => getCss(justifySelf, value),
   order: value => getCss(order, value),
-  flexFlow: value => getCss(flexFlow, value)
+  placeContent: value => getCss(placeContent, value),
+  placeItems: value => getCss(placeItems, value),
+  placeSelf: value => getCss(placeSelf, value)
 }

@@ -144,6 +144,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `fontWeight`
 * `height`
 * `justifyContent`
+* `justifyItems`
 * `justifySelf`
 * `left`
 * `letterSpacing`
@@ -175,6 +176,9 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `paddingTop`
 * `paddingX` - Sets `paddingLeft` and `paddingRight` to the same value.
 * `paddingY` - Sets `paddingTop` and `paddingBottom` to the same value.
+* `placeContent`
+* `placeItems`
+* `placeSelf`
 * `pointerEvents`
 * `position`
 * `right`
