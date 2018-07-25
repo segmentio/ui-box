@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.6.5",
-    "classnames": "^2.2.6",
     "glamor": "^2.20.0",
     "inline-style-prefixer": "^4.0.2",
     "prop-types": "^15.6.0"

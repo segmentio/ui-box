@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import {propEnhancers} from './enhancers'
 import expandAliases from './expand-aliases'
 import * as styles from './styles'
@@ -15,7 +14,7 @@ export default function enhanceProps(rawProps) {
   for (const [propName, propValue] of propsMap) {
     const cachedClassName = cache.get(propName, propValue)
     if (cachedClassName) {
-      className = cx(className, cachedClassName)
+      className = `${className} ${cachedClassName}`
       continue
     }
 
@@ -38,9 +37,11 @@ export default function enhanceProps(rawProps) {
     if (newCss) {
       styles.add(newCss.styles)
       cache.set(propName, propValue, newCss.className)
-      className = cx(className, newCss.className)
+      className = `${className} ${newCss.className}`
     }
   }
+
+  className = className.trim()
 
   return [className, enhancedProps]
 }
