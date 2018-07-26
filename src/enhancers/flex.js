@@ -120,20 +120,17 @@ const flexFlow = {
 const placeContent = {
   className: 'plc-cnt',
   cssName: 'place-content',
-  jsName: 'placeContent',
-  isPrefixed: true
+  jsName: 'placeContent'
 }
 const placeItems = {
   className: 'plc-items',
   cssName: 'place-items',
-  jsName: 'placeItems',
-  isPrefixed: true
+  jsName: 'placeItems'
 }
 const placeSelf = {
   className: 'plc-self',
   cssName: 'place-self',
-  jsName: 'placeSelf',
-  isPrefixed: true
+  jsName: 'placeSelf'
 }
 
 export const propEnhancers = {
