@@ -6,7 +6,7 @@ import enhanceProps from './enhance-props'
 
 let cssWarned = false
 
-export default class Box extends React.PureComponent {
+export default class Box extends React.Component {
   static displayName = 'Box'
 
   static propTypes = {
