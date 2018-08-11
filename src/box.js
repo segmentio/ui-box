@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {css as gcss} from 'glamor'
-import cx from 'classnames'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 
@@ -42,7 +41,7 @@ export default class Box extends React.PureComponent {
           )
         }
       }
-      parsedProps.className = cx(className, gcss(css).toString())
+      parsedProps.className = `${className} ${gcss(css).toString()}`
     } else {
       parsedProps.className = className
     }
