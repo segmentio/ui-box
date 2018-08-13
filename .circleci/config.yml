@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.10
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+
+      - yarn run build
+      - yarn run test
+      - yarn run size
+
+  storybook:
+    docker:
+      - image: circleci/node:8.10
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+
+      - yarn run storybook-to-ghpages
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - storybook:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
