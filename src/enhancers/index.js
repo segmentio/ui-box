@@ -4,6 +4,7 @@ import * as borders from './borders'
 import * as boxShadow from './box-shadow'
 import * as dimensions from './dimensions'
 import * as flex from './flex'
+import * as grid from './grid'
 import * as interaction from './interaction'
 import * as layout from './layout'
 import * as list from './list'
@@ -22,6 +23,7 @@ export {
   boxShadow,
   dimensions,
   flex,
+  grid,
   interaction,
   layout,
   list,
@@ -41,6 +43,7 @@ export const propTypes = {
   ...boxShadow.propTypes,
   ...dimensions.propTypes,
   ...flex.propTypes,
+  ...grid.propTypes,
   ...interaction.propTypes,
   ...layout.propTypes,
   ...list.propTypes,
@@ -62,6 +65,7 @@ export const propAliases = {
   ...boxShadow.propAliases,
   ...dimensions.propAliases,
   ...flex.propAliases,
+  ...grid.propAliases,
   ...interaction.propAliases,
   ...layout.propAliases,
   ...list.propAliases,
@@ -81,6 +85,7 @@ export const propValidators = {
   ...boxShadow.propValidators,
   ...dimensions.propValidators,
   ...flex.propValidators,
+  ...grid.propValidators,
   ...interaction.propValidators,
   ...layout.propValidators,
   ...list.propValidators,
@@ -100,6 +105,7 @@ export const propEnhancers = {
   ...boxShadow.propEnhancers,
   ...dimensions.propEnhancers,
   ...flex.propEnhancers,
+  ...grid.propEnhancers,
   ...interaction.propEnhancers,
   ...layout.propEnhancers,
   ...list.propEnhancers,

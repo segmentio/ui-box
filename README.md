@@ -126,6 +126,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `boxSizing` - Set to `border-box` by default.
 * `clear`
 * `color`
+* `columnGap`
 * `cursor`
 * `display`
 * `flex`
@@ -142,6 +143,25 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `fontStyle`
 * `fontVariant`
 * `fontWeight`
+* `gap`
+* `grid`
+* `gridArea`
+* `gridAutoColumns`
+* `gridAutoFlow`
+* `gridAutoRows`
+* `gridColumn`
+* `gridColumnEnd`
+* `gridColumnGap`
+* `gridColumnStart`
+* `gridGap`
+* `gridRow`
+* `gridRowEnd`
+* `gridRowGap`
+* `gridRowStart`
+* `gridTemplate`
+* `gridTemplateAreas`
+* `gridTemplateColumns`
+* `gridTemplateRows`
 * `height`
 * `justifyContent`
 * `justifyItems`
@@ -182,6 +202,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `pointerEvents`
 * `position`
 * `right`
+* `rowGap`
 * `textAlign`
 * `textDecoration`
 * `textOverflow`

@@ -49,6 +49,7 @@ export default function() {
       clear="both"
       clearfix
       color="blue"
+      columnGap={3}
       cursor="pointer"
       display="flex"
       flex={1}
@@ -65,6 +66,25 @@ export default function() {
       fontStyle="italic"
       fontVariant="small-caps"
       fontWeight="bold"
+      gap={3}
+      grid="200px / auto-flow"
+      gridArea="2 / 1 / 2 / 4"
+      gridAutoColumns="minmax(10px, auto)"
+      gridAutoFlow="row dense"
+      gridAutoRows="minmax(10px, auto)"
+      gridColumn="1 / 3"
+      gridColumnEnd="span 3"
+      gridColumnGap={3}
+      gridColumnStart="span 3"
+      gridGap={3}
+      gridRow="1 / 3"
+      gridRowEnd="span 3"
+      gridRowGap={3}
+      gridRowStart="span 3"
+      gridTemplate="100px 1fr / 50px 1fr"
+      gridTemplateAreas={'"a b"'}
+      gridTemplateColumns="100px 1fr"
+      gridTemplateRows="100px 1fr"
       height={100}
       justifyContent="center"
       justifyItems="center"
@@ -105,6 +125,7 @@ export default function() {
       pointerEvents="auto"
       position="relative"
       right={10}
+      rowGap={3}
       textAlign="right"
       textDecoration="underline dotted"
       textOverflow="ellipsis"
@@ -120,7 +141,7 @@ export default function() {
       transitionTimingFunction="ease-in"
       userSelect="none"
       visibility="visible"
-      whiteSpace="no-wrap"
+      whiteSpace="nowrap"
       width="calc(25% - 10px)"
       wordBreak="normal"
       wordWrap="break-word"
