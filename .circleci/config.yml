@@ -14,9 +14,9 @@ jobs:
           paths:
             - ./node_modules
 
-      - yarn run build
-      - yarn run test
-      - yarn run size
+      - run: yarn run build
+      - run: yarn run test
+      - run: yarn run size
 
   storybook:
     docker:
@@ -26,7 +26,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
 
-      - yarn run storybook-to-ghpages
+      - run: yarn run storybook-to-ghpages
 
 workflows:
   version: 2
