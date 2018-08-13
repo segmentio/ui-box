@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:8.10
     steps:
@@ -30,12 +30,12 @@ jobs:
 
 workflows:
   version: 2
-  build:
+  default:
     jobs:
-      - build
+      - test
       - storybook:
           requires:
-            - build
+            - test
           filters:
             branches:
               only:
