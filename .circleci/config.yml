@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:8.10
+      - image: circleci/node:8.11
     steps:
       - checkout
 
@@ -18,25 +18,8 @@ jobs:
       - run: yarn run test
       - run: yarn run size
 
-  storybook:
-    docker:
-      - image: circleci/node:8.10
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-
-      - run: yarn run storybook-to-ghpages
-
 workflows:
   version: 2
   default:
     jobs:
       - test
-      - storybook:
-          requires:
-            - test
-          filters:
-            branches:
-              only:
-                - master

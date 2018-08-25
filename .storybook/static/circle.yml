@@ -1,5 +1,0 @@
-# Stops CircleCI from running on the gh-pages branch when the docs deploy
-general:
-  branches:
-    ignore:
-      - gh-pages
