@@ -18,10 +18,10 @@
   "sideEffects": false,
   "scripts": {
     "test": "xo && nyc ava",
-    "prepublishOnly": "yarn run build",
+    "prepublishOnly": "rm -rf lib && yarn run build",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009",
-    "build": "babel --out-dir lib --ignore *.test.js src",
+    "build": "babel --out-dir lib src --source-maps inline",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
     "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js && echo glamor/jsxstyle && react-benchmark tools/benchmarks/glamor-jsxstyle.js",
@@ -38,14 +38,16 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@storybook/react": "^3.4.10",
     "@storybook/storybook-deployer": "^2.2.0",
-    "ava": "^0.25.0",
-    "babel-cli": "^6.18.0",
+    "ava": "^1.0.0-beta.8",
     "babel-eslint": "^9.0.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint-config-xo-react": "^0.17.0",
@@ -102,9 +104,8 @@
   ],
   "ava": {
     "require": [
-      "babel-register",
-      "./tools/enzyme-config"
-    ],
-    "babel": "inherit"
+      "@babel/register",
+      "./test/_setup"
+    ]
   }
 }

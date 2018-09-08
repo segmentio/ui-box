@@ -1,4 +1,9 @@
 {
-  "presets": ["env", "stage-0", "react"],
-  "sourceMaps": "inline"
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
