@@ -31,7 +31,7 @@
   "dependencies": {
     "@emotion/hash": "^0.6.5",
     "glamor": "^2.20.0",
-    "inline-style-prefixer": "^4.0.2",
+    "inline-style-prefixer": "^5.0.1",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
@@ -42,7 +42,7 @@
     "@storybook/storybook-deployer": "^2.2.0",
     "ava": "^0.25.0",
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^9.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -52,14 +52,14 @@
     "eslint-plugin-react": "^7.10.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
-    "nyc": "^12.0.2",
+    "nyc": "^13.0.1",
     "react": "^16.4.2",
     "react-benchmark": "^1.1.0",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
     "sinon": "^6.1.5",
-    "size-limit": "^0.19.2",
-    "xo": "^0.22.0"
+    "size-limit": "^0.20.0",
+    "xo": "^0.23.0"
   },
   "xo": {
     "parser": "babel-eslint",
@@ -70,7 +70,23 @@
     ],
     "prettier": true,
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "rules": {
+      "react/jsx-sort-props": [
+        "error",
+        {
+          "callbacksLast": false,
+          "shorthandFirst": false,
+          "noSortAlphabetically": true,
+          "reservedFirst": true
+        }
+      ]
+    },
+    "settings": {
+      "react": {
+        "version": "16.5.0"
+      }
+    }
   },
   "lint-staged": {
     "*.js": [
