@@ -2,38 +2,51 @@
 // Project: ui-box
 // Definitions by: Netto Farah <https://github.com/nettofarah>
 
-import { Component, ComponentClass, ReactNode } from "react"
-import * as CSS from "csstype"
+declare module "ui-box" {
+  import { Component, ComponentClass, ReactNode } from "react"
+  import * as CSS from "csstype"
 
-/** Placeholder type for UI box props */
-type UIBoxProp = string | number | boolean | null | undefined
+  /** Placeholder type for UI box props */
+  type UIBoxProp = string | number | boolean | null | undefined
 
-/** A prop defining which */
-type UIBoxIsProp = string | ReactNode
+  /** A prop defining which */
+  type UIBoxIsProp = string | ReactNode
 
-type CSSProps = CSS.StandardProperties
+  type CSSProps = CSS.StandardProperties
 
-export interface BoxProps {
-  /* Callback that gets passed a ref to inner DOM node (or component if the is prop is set to a React component type). */
-  innerRef?: () => {}
+  export interface BoxProps {
+    /* Callback that gets passed a ref to inner DOM node (or component if the is prop is set to a React component type). */
+    innerRef?(node: ReactNode): any
 
-  /** Lets you change the underlying element type. You can pass either a string to change the DOM element type, or a React component type to inherit another component. The component just needs to accept a className prop to work. A good example is inheriting the react-router Link component */
-  is?: UIBoxIsProp
+    /** Lets you change the underlying element type. You can pass either a string to change the DOM element type, or a React component type to inherit another component. The component just needs to accept a className prop to work. A good example is inheriting the react-router Link component */
+    is?: UIBoxIsProp
+    /** The className prop you know and love. Internally it gets enhanced with additional class names for the CSS properties you specify. */
+    className?: string
 
-  /** The className prop you know and love. Internally it gets enhanced with additional class names for the CSS properties you specify. */
-  className?: string
+    /** Set to border - box by default. */
+    boxSizing?: UIBoxProp
 
-  boxSizing?: UIBoxProp
-  marginX?: UIBoxProp
-  marginY?: UIBoxProp
-  paddingX?: UIBoxProp
-  paddingY?: UIBoxProp
+    /** Sets marginLeft and marginRight to the same value */
+    marginX?: UIBoxProp
 
-  /** Utility property for easily adding clearfix styles to the element. */
-  clearfix?: boolean
+    /** Sets marginTop and marginBottom to the same value */
+    marginY?: UIBoxProp
+
+    /** Sets paddingLeft and paddingRight to the same value */
+    paddingX?: UIBoxProp
+
+    /** Sets paddingTop and paddingBottom to the same value */
+    paddingY?: UIBoxProp
+
+    /** Utility property for easily adding clearfix styles to the element. */
+    clearfix?: boolean
+
+    // accept any other arbitrary prop
+    [key: string]: any
+  }
+
+  export type Box = Component<BoxProps | CSSProps>
+  export const Box: ComponentClass<BoxProps | CSSProps>
+  export default Box
 }
-
-export type Box = Component<BoxProps | CSSProps>
-export const Box: ComponentClass<BoxProps | CSSProps>
-export default Box
-
+  
