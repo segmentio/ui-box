@@ -48,6 +48,7 @@
     "@storybook/storybook-deployer": "^2.2.0",
     "ava": "^1.0.0-beta.8",
     "babel-eslint": "^9.0.0",
+    "csstype": "^2.5.8",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint-config-xo-react": "^0.17.0",
@@ -88,7 +89,10 @@
       "react": {
         "version": "16.5.0"
       }
-    }
+    },
+    "ignores": [
+      "index.d.ts"
+    ]
   },
   "lint-staged": {
     "*.js": [
