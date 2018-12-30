@@ -1,3 +1,6 @@
 {
-  "extends": "tslint-xo/space"
+  "extends": "tslint-xo/space",
+  "rules": {
+    "semicolon": false
+  }
 }
