@@ -1,22 +1,23 @@
 import * as PropTypes from 'prop-types'
 
-interface PropTypesMapping {
+export type PropEncharValueType = string | number
+export interface PropTypesMapping {
   [key: string]: PropTypes.Validator<any>
 }
 
-interface PropAliases {
+export interface PropAliases {
   [key: string]: string[]
 }
 
-interface PropValidators {
+export interface PropValidators {
   [key: string]: (value: any) => string | undefined
 }
 
-interface PropEnchancers {
+export interface PropEnchancers {
   [key: string]: (value: any) => null | EnhancedProp
 }
 
-interface EnhancedProp {
+export interface EnhancedProp {
   className: string
   styles: string
 }

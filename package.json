@@ -32,9 +32,9 @@
     "coverage": "nyc report --reporter=html"
   },
   "dependencies": {
-    "@emotion/hash": "^0.6.5",
     "glamor": "^2.20.0",
     "inline-style-prefixer": "^5.0.1",
+    "murmurhash-js": "^1.0.0",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
@@ -49,12 +49,15 @@
     "@babel/register": "^7.0.0",
     "@storybook/react": "^4.1.4",
     "@storybook/storybook-deployer": "^2.2.0",
+    "@types/inline-style-prefixer": "^5.0.0",
+    "@types/murmurhash-js": "^1.0.3",
     "@types/prop-types": "^15.5.8",
     "@types/react": "^16.7.18",
     "ava": "^1.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
+    "csstype": "^2.6.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint-config-xo-react": "^0.17.0",
@@ -64,12 +67,14 @@
     "nyc": "^13.0.1",
     "react": "^16.4.2",
     "react-benchmark": "^1.1.0",
+    "react-docgen-typescript-loader": "^3.0.0",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
     "sinon": "^6.1.5",
     "size-limit": "^0.20.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.12.0",
+    "tslint-react": "^3.6.0",
     "tslint-xo": "^0.11.0",
     "typescript": "^3.2.2",
     "xo": "^0.23.0"
@@ -82,7 +87,8 @@
       "browser"
     ],
     "ignores": [
-      "**/*.ts"
+      "**/*.ts",
+      "**/*.tsx"
     ],
     "prettier": true,
     "space": true,

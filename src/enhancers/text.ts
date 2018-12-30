@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   color: PropTypes.string,
@@ -22,7 +23,6 @@ export const propTypes = {
 }
 
 export const propAliases = {}
-
 export const propValidators = {}
 
 const textAlign = {
@@ -124,7 +124,6 @@ const letterSpacing = {
   jsName: 'letterSpacing'
 }
 
-type ValueType = string | number
 export const propEnhancers = {
   color: (value: ValueType) => getCss(color, value),
   font: (value: ValueType) => getCss(font, value),

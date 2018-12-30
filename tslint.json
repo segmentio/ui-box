@@ -1,6 +1,21 @@
 {
-  "extends": "tslint-xo/space",
+  "extends": ["tslint-xo/space", "tslint-react"],
   "rules": {
-    "semicolon": false
+    "semicolon": false,
+    "prefer-method-signature": false,
+    "jsx-boolean-value": false,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    // This rule is here for now because of https://github.com/palantir/tslint-react/issues/120
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "prefer-for-of": false
   }
 }
