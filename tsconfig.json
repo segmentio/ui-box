@@ -19,7 +19,8 @@
     "inlineSourceMap": true
   },
   "files": [
-    "src/index.js"
+    "src/index.js",
+    "tools/story.js"
   ],
   "exclude": [
     "node_modules",
