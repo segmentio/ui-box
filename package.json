@@ -15,7 +15,7 @@
   "license": "MIT",
   "main": "lib/src/index.js",
   "files": [
-    "lib"
+    "lib/src"
   ],
   "sideEffects": false,
   "scripts": {
