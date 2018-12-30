@@ -21,7 +21,7 @@
     "prepublishOnly": "rm -rf lib && yarn run build",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009",
-    "build": "babel --out-dir lib src --source-maps inline",
+    "build": "tsc",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
     "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js && echo glamor/jsxstyle && react-benchmark tools/benchmarks/glamor-jsxstyle.js",
@@ -61,6 +61,7 @@
     "react-test-renderer": "^16.4.2",
     "sinon": "^6.1.5",
     "size-limit": "^0.20.0",
+    "typescript": "^3.2.2",
     "xo": "^0.23.0"
   },
   "xo": {
