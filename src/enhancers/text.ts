@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
 
 export const propTypes = {
@@ -124,22 +124,23 @@ const letterSpacing = {
   jsName: 'letterSpacing'
 }
 
+type ValueType = string | number
 export const propEnhancers = {
-  color: value => getCss(color, value),
-  font: value => getCss(font, value),
-  fontFamily: value => getCss(fontFamily, value),
-  fontSize: value => getCss(fontSize, value),
-  fontStyle: value => getCss(fontStyle, value),
-  fontVariant: value => getCss(fontVariant, value),
-  fontWeight: value => getCss(fontWeight, value),
-  letterSpacing: value => getCss(letterSpacing, value),
-  lineHeight: value => getCss(lineHeight, value),
-  textAlign: value => getCss(textAlign, value),
-  textDecoration: value => getCss(textDecoration, value),
-  textOverflow: value => getCss(textOverflow, value),
-  textShadow: value => getCss(textShadow, value),
-  textTransform: value => getCss(textTransform, value),
-  whiteSpace: value => getCss(whiteSpace, value),
-  wordBreak: value => getCss(wordBreak, value),
-  wordWrap: value => getCss(wordWrap, value)
+  color: (value: ValueType) => getCss(color, value),
+  font: (value: ValueType) => getCss(font, value),
+  fontFamily: (value: ValueType) => getCss(fontFamily, value),
+  fontSize: (value: ValueType) => getCss(fontSize, value),
+  fontStyle: (value: ValueType) => getCss(fontStyle, value),
+  fontVariant: (value: ValueType) => getCss(fontVariant, value),
+  fontWeight: (value: ValueType) => getCss(fontWeight, value),
+  letterSpacing: (value: ValueType) => getCss(letterSpacing, value),
+  lineHeight: (value: ValueType) => getCss(lineHeight, value),
+  textAlign: (value: ValueType) => getCss(textAlign, value),
+  textDecoration: (value: ValueType) => getCss(textDecoration, value),
+  textOverflow: (value: ValueType) => getCss(textOverflow, value),
+  textShadow: (value: ValueType) => getCss(textShadow, value),
+  textTransform: (value: ValueType) => getCss(textTransform, value),
+  whiteSpace: (value: ValueType) => getCss(whiteSpace, value),
+  wordBreak: (value: ValueType) => getCss(wordBreak, value),
+  wordWrap: (value: ValueType) => getCss(wordWrap, value)
 }

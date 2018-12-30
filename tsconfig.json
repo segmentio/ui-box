@@ -10,13 +10,13 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDirs": ["src", "tools"],
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "checkJs": false,
-    "inlineSourceMap": true
+    "sourceMap": true
   },
   "files": [
     "src/index.js",
