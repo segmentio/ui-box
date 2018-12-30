@@ -48,7 +48,7 @@
     "@storybook/storybook-deployer": "^2.2.0",
     "@types/prop-types": "^15.5.8",
     "@types/react": "^16.7.18",
-    "ava": "^1.0.0-beta.8",
+    "ava": "^1.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
@@ -66,6 +66,7 @@
     "react-test-renderer": "^16.4.2",
     "sinon": "^6.1.5",
     "size-limit": "^0.20.0",
+    "ts-node": "^7.0.1",
     "typescript": "^3.2.2",
     "xo": "^0.23.0"
   },
@@ -111,7 +112,12 @@
   "ava": {
     "require": [
       "@babel/register",
+      "ts-node/register",
       "./test/_setup"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
     ]
   }
 }
