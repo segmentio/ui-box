@@ -13,7 +13,7 @@
   ],
   "repository": "segmentio/ui-box",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "files": [
     "lib"
   ],
@@ -107,7 +107,7 @@
   },
   "size-limit": [
     {
-      "path": "lib/index.js",
+      "path": "lib/src/index.js",
       "limit": "19 KB"
     }
   ],
