@@ -1,8 +1,8 @@
 import test from 'ava'
-import React from 'react'
-import render from 'react-test-renderer'
+import * as React from 'react'
+import * as render from 'react-test-renderer'
 import {shallow} from 'enzyme'
-import sinon from 'sinon'
+import * as sinon from 'sinon'
 import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
@@ -20,7 +20,7 @@ test.serial('all properties', t => {
 })
 
 test.serial('all properties set to inherit', t => {
-  const properties = {}
+  const properties: any = {}
   for (const name of propNames) {
     properties[name] = 'inherit'
   }
@@ -31,7 +31,7 @@ test.serial('all properties set to inherit', t => {
 })
 
 test.serial('all properties set to initial', t => {
-  const properties = {}
+  const properties: any = {}
   for (const name of propNames) {
     properties[name] = 'initial'
   }

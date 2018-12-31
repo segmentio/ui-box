@@ -23,7 +23,7 @@ test('hashes complex values', t => {
     {className: 'bg', complexValue: true},
     'url(https://s-media-cache-ak0.pinimg.com/736x/07/c3/45/07c345d0eca11d0bc97c894751ba1b46.jpg)'
   )
-  t.is(result, '📦bg_181xl07')
+  t.is(result, '📦bg_3674412468')
 })
 
 test('removes all unsafe values by default', t => {
@@ -36,5 +36,5 @@ test('always hashes values that contain a calc()', t => {
     {className: 'w', safeValue: true},
     'calc(50% + 20px)'
   )
-  t.is(result, '📦w_1vuvdht')
+  t.is(result, '📦w_3795318275')
 })

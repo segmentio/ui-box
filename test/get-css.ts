@@ -48,7 +48,7 @@ test('adds prefixes', t => {
   }
   const result = getCss(propInfo, 'none')
   t.deepEqual(
-    result.styles,
+    result!.styles,
     `
 .📦usr-slct_none {
   -webkit-user-select: none;
@@ -57,16 +57,6 @@ test('adds prefixes', t => {
   user-select: none;
 }`
   )
-})
-
-test('handles invalid values', t => {
-  const propInfo = {
-    className: 'min-w',
-    cssName: 'min-width',
-    jsName: 'minWidth'
-  }
-  const result = getCss(propInfo, true)
-  t.deepEqual(result, null)
 })
 
 test.serial('returns minified css in production', t => {
@@ -80,7 +70,7 @@ test.serial('returns minified css in production', t => {
   }
   const result = getCss(propInfo, 'none')
   t.deepEqual(
-    result.styles,
+    result!.styles,
     '.📦usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
   )
 })

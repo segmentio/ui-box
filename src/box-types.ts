@@ -2,7 +2,7 @@ import {ReactNode, Component} from 'react'
 import * as CSS from 'csstype'
 
 type UIBoxProp = string | number | boolean | null | undefined
-export type CSSProps = CSS.StandardProperties<number | string>
+export type CSSProps = CSS.StandardProperties<number | string | boolean>
 
 interface BoxPropsBase extends CSSProps {
   is?: string | React.ComponentClass | React.FunctionComponent

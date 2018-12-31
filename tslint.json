@@ -16,6 +16,8 @@
       "check-format",
       "allow-pascal-case"
     ],
-    "prefer-for-of": false
+    "prefer-for-of": false,
+    "early-exit": false,
+    "no-non-null-assertion": false
   }
 }

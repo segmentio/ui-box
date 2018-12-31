@@ -49,10 +49,13 @@
     "@babel/register": "^7.0.0",
     "@storybook/react": "^4.1.4",
     "@storybook/storybook-deployer": "^2.2.0",
+    "@types/enzyme": "^3.1.15",
     "@types/inline-style-prefixer": "^5.0.0",
     "@types/murmurhash-js": "^1.0.3",
     "@types/prop-types": "^15.5.8",
     "@types/react": "^16.7.18",
+    "@types/react-test-renderer": "^16.0.3",
+    "@types/sinon": "^7.0.3",
     "ava": "^1.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
@@ -124,13 +127,13 @@
   ],
   "ava": {
     "require": [
-      "@babel/register",
       "ts-node/register",
       "./test/_setup"
     ],
     "compileEnhancements": false,
     "extensions": [
-      "ts"
+      "ts",
+      "tsx"
     ]
   }
 }

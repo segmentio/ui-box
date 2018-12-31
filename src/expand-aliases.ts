@@ -11,10 +11,9 @@ export default function expandAliases(props: object) {
   // Use a Map because it's faster for setting values and looping over than an Object
   const newProps = new Map()
 
-  for (let i = 0; i < propNames.length; i++) {
-    const propName = propNames[i]
+  propNames.forEach(propName => {
     const propValue = props[propName]
-    const aliases = propAliases[propName] || [propName]
+    const aliases: string[] = propAliases[propName] || [propName]
 
     // Check that the alias has a valid value in development
     if (process.env.NODE_ENV !== 'production') {
@@ -28,10 +27,10 @@ export default function expandAliases(props: object) {
     }
 
     // Expand aliases
-    for (let i = 0; i < aliases.length; i++) {
-      newProps.set(aliases[i], propValue)
-    }
-  }
+    aliases.forEach(alias => {
+      newProps.set(alias, propValue)
+    })
+  })
 
   return newProps
 }

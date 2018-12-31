@@ -26,9 +26,9 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
 
   // Avoid running the prefixer when possible because it's slow
   if (propertyInfo.isPrefixed) {
-    rules = prefixer(propertyInfo.jsName, valueString)
+    rules = prefixer(propertyInfo.jsName || '', valueString)
   } else {
-    rules = [{property: propertyInfo.cssName, value: valueString}]
+    rules = [{property: propertyInfo.cssName || '', value: valueString}]
   }
 
   let styles: string

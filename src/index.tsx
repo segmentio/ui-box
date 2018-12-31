@@ -26,7 +26,7 @@ export {
   propNames,
   propAliases,
   propEnhancers
-} from './enhancers'
+} from './enhancers/index'
 
 export function hydrate(entries) {
   cache.hydrate(entries)

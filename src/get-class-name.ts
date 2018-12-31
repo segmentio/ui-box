@@ -5,8 +5,8 @@ export interface PropertyInfo {
   className?: string
   safeValue?: boolean
   complexValue?: boolean
-  jsName: string
-  cssName: string
+  jsName?: string
+  cssName?: string
   defaultUnit?: string
   isPrefixed?: boolean
 }
