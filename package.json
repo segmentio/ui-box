@@ -24,7 +24,7 @@
     "prepublishOnly": "rm -rf lib && yarn run build",
     "precommit": "lint-staged",
     "dev": "start-storybook -p 9009 -c .storybook",
-    "build": "tsc",
+    "build": "tsc --declaration",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
     "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js && echo glamor/jsxstyle && react-benchmark tools/benchmarks/glamor-jsxstyle.js",

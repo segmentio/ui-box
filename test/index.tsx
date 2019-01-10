@@ -1,5 +1,5 @@
 import test from 'ava'
-import React from 'react'
+import * as React from 'react'
 import {shallow} from 'enzyme'
 import * as cache from '../src/cache'
 import Box, {hydrate, extractStyles, clearStyles} from '../src'
@@ -11,7 +11,7 @@ test.afterEach.always(() => {
 })
 
 test.serial('hydrate method hydrates the cache', t => {
-  const fixture = [['height10px', '📦h_10px']]
+  const fixture: [string, cache.CacheValue][] = [['height10px', '📦h_10px']]
   hydrate(fixture)
   t.deepEqual(cache.entries(), fixture)
 })
