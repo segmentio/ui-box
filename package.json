@@ -59,7 +59,7 @@
     "react-benchmark": "^2.1.0",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
-    "sinon": "^6.1.5",
+    "sinon": "^7.2.7",
     "size-limit": "^0.20.0",
     "xo": "^0.23.0"
   },
