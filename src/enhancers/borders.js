@@ -55,11 +55,13 @@ if (process.env.NODE_ENV !== 'production') {
       return `multiple values (“${value}”) aren՚t supported with “borderColor”. Use “borderBottomColor”, “borderLeftColor” “borderRightColor” and “borderTopColor” instead.`
     }
   }
+
   propValidators.borderStyle = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderStyle”. Use “borderBottomStyle”, “borderLeftStyle” “borderRightStyle” and “borderTopStyle” instead.`
     }
   }
+
   propValidators.borderWidth = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderWidth”. Use “borderBottomWidth”, “borderLeftWidth” “borderRightWidth” and “borderTopWidth” instead.`

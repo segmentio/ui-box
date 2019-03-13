@@ -36,26 +36,31 @@ if (process.env.NODE_ENV !== 'production') {
       return `multiple values (“${value}”) aren՚t supported with “margin”. Use “marginX”, “marginY” “marginBottom”, “marginLeft”, “marginRight” and “marginTop” instead.`
     }
   }
+
   propValidators.marginX = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginX”. Use “marginLeft” and “marginRight” instead.`
     }
   }
+
   propValidators.marginY = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginY”. Use “marginBottom” and “marginTop” instead.`
     }
   }
+
   propValidators.padding = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “padding”. Use “paddingX”, “paddingY” “paddingBottom”, “paddingLeft”, “paddingRight” and “paddingTop” instead.`
     }
   }
+
   propValidators.paddingX = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingX”. Use “paddingLeft” and “paddingRight” instead.`
     }
   }
+
   propValidators.paddingY = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingY”. Use “paddingBottom” and “paddingTop” instead.`

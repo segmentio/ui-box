@@ -41,6 +41,7 @@ export default class Box extends React.Component {
           )
         }
       }
+
       parsedProps.className = `${className} ${gcss(css).toString()}`
     } else {
       parsedProps.className = className

@@ -18,6 +18,7 @@ export default function getCss(propertyInfo, value) {
         `📦 ui-box: property “${name}” was passed invalid value “${encodedValue}”. Only numbers and strings are supported.`
       )
     }
+
     return null
   }
 

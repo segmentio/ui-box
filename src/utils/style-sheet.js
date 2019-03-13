@@ -25,8 +25,8 @@ function makeStyleTag() {
   const tag = document.createElement('style')
   tag.type = 'text/css'
   tag.setAttribute('data-ui-box', '')
-  tag.appendChild(document.createTextNode(''))
-  ;(document.head || document.getElementsByTagName('head')[0]).appendChild(tag)
+  tag.append(document.createTextNode(''))
+  ;(document.head || document.querySelector('head')).append(tag)
   return tag
 }
 
@@ -49,6 +49,7 @@ Object.assign(StyleSheet.prototype, {
     if (this.injected) {
       throw new Error('StyleSheet has already been injected.')
     }
+
     if (isBrowser) {
       this.tags[0] = makeStyleTag()
     } else {
@@ -62,6 +63,7 @@ Object.assign(StyleSheet.prototype, {
         }
       }
     }
+
     this.injected = true
   },
   speedy(bool) {
@@ -70,6 +72,7 @@ Object.assign(StyleSheet.prototype, {
         `StyleSheet cannot change speedy mode after inserting any rule to sheet. Either call speedy(${bool}) earlier in your app, or call flush() before speedy(${bool})`
       )
     }
+
     this.isSpeedy = Boolean(bool)
   },
   _insert(rule) {
@@ -83,7 +86,7 @@ Object.assign(StyleSheet.prototype, {
       if (this.isSpeedy && this.getSheet().insertRule) {
         this._insert(rule)
       } else {
-        last(this.tags).appendChild(document.createTextNode(rule))
+        last(this.tags).append(document.createTextNode(rule))
       }
     } else {
       // Server side is pretty simple
@@ -94,6 +97,7 @@ Object.assign(StyleSheet.prototype, {
     if (isBrowser && this.ctr % this.maxLength === 0) {
       this.tags.push(makeStyleTag())
     }
+
     return this.ctr - 1
   },
   delete(index) {
@@ -110,12 +114,14 @@ Object.assign(StyleSheet.prototype, {
       // Simpler on server
       this.sheet.cssRules = []
     }
+
     this.injected = false
   },
   rules() {
     if (!isBrowser) {
       return this.sheet.cssRules
     }
+
     const arr = []
     this.tags.forEach(tag =>
       arr.splice(arr.length, 0, ...[...sheetForTag(tag).cssRules])
