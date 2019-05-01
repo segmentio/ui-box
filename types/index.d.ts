@@ -69,7 +69,10 @@ export type BoxProps<T> = ComponentPropsWithoutRef<T> &
     innerRef?(ref: RefType<T>): void
   }
 
-export default class Box<T = 'div'> extends Component<BoxProps<T>> {}
+export default class Box<T = 'div'> extends Component<BoxProps<T>> {
+  static propTypes: object
+  static defaultProps: object
+}
 
 export interface SplitProps<P, K extends keyof P> {
   matchedProps: Pick<P, K>
