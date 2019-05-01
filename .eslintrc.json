@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["xo", "xo/browser", "xo-react", "prettier", "prettier/react"],
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": false,
+        "shorthandFirst": false,
+        "noSortAlphabetically": true,
+        "reservedFirst": true
+      }
+    ]
+  }
+}

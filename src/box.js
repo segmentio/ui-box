@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {css as gcss} from 'glamor'
-import {propTypes} from './enhancers'
+import { css as gcss } from 'glamor'
+import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
 
 let cssWarned = false
@@ -25,7 +25,7 @@ export default class Box extends React.Component {
   }
 
   render() {
-    const {is, css, innerRef, children, ...props} = this.props
+    const { is, css, innerRef, children, ...props } = this.props
     // Convert the CSS props to class names (and inject the styles)
     const [className, parsedProps] = enhanceProps(props)
 

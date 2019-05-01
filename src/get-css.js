@@ -30,7 +30,7 @@ export default function getCss(propertyInfo, value) {
   if (propertyInfo.isPrefixed) {
     rules = prefixer(propertyInfo.jsName, valueString)
   } else {
-    rules = [{property: propertyInfo.cssName, value: valueString}]
+    rules = [{ property: propertyInfo.cssName, value: valueString }]
   }
 
   let styles
@@ -49,5 +49,5 @@ ${rulesString}
 }`
   }
 
-  return {className, styles}
+  return { className, styles }
 }

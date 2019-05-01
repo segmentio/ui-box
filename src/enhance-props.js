@@ -1,4 +1,4 @@
-import {propEnhancers} from './enhancers'
+import { propEnhancers } from './enhancers'
 import expandAliases from './expand-aliases'
 import * as styles from './styles'
 import * as cache from './cache'

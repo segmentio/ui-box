@@ -1,4 +1,4 @@
-import {prefix} from 'inline-style-prefixer'
+import { prefix } from 'inline-style-prefixer'
 import decamelize from './utils/decamelize'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
@@ -7,7 +7,7 @@ const prefixRegex = /^(Webkit|ms|Moz|O)/
  * Adds vendor prefixes to properties and values.
  */
 export default function prefixer(property, value) {
-  const rules = prefix({[property]: value})
+  const rules = prefix({ [property]: value })
   const rulesArray = []
   const propertyNames = Object.keys(rules)
 
@@ -24,10 +24,10 @@ export default function prefixer(property, value) {
     // Handle prefixed values
     if (Array.isArray(values)) {
       for (let i = 0; i < values.length; i++) {
-        rulesArray.push({property: prop, value: values[i]})
+        rulesArray.push({ property: prop, value: values[i] })
       }
     } else {
-      rulesArray.push({property: prop, value: values})
+      rulesArray.push({ property: prop, value: values })
     }
   }
 

@@ -1,4 +1,4 @@
-import {propAliases, propValidators} from './enhancers'
+import { propAliases, propValidators } from './enhancers'
 
 /**
  * Expands aliases like `margin` to `marginTop`, `marginBottom`, `marginLeft` and `marginRight`.

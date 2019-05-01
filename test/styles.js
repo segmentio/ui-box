@@ -1,5 +1,5 @@
 import test from 'ava'
-import {add, getAll, clear} from '../src/styles'
+import { add, getAll, clear } from '../src/styles'
 
 test.afterEach.always(() => {
   clear()

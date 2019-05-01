@@ -1,4 +1,4 @@
-import {propNames} from '../enhancers'
+import { propNames } from '../enhancers'
 import splitProps from './split-props'
 
 /**

@@ -1,8 +1,8 @@
 import test from 'ava'
 import React from 'react'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 import * as cache from '../src/cache'
-import Box, {hydrate, extractStyles, clearStyles} from '../src'
+import Box, { hydrate, extractStyles, clearStyles } from '../src'
 
 const originalNodeEnv = process.env.NODE_ENV
 test.afterEach.always(() => {

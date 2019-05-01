@@ -59,7 +59,7 @@ Object.assign(StyleSheet.prototype, {
         insertRule: rule => {
           // Enough 'spec compliance' to be able to extract the rules later
           // in other words, just the cssText field
-          this.sheet.cssRules.push({cssText: rule})
+          this.sheet.cssRules.push({ cssText: rule })
         }
       }
     }

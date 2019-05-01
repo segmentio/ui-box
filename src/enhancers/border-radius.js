@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {spacesOutsideParentheses} from '../utils/regex'
+import { spacesOutsideParentheses } from '../utils/regex'
 
 export const propTypes = {
   borderBottomLeftRadius: PropTypes.oneOfType([

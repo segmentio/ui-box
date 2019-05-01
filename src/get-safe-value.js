@@ -1,4 +1,4 @@
-import {unsafeClassNameCharacters} from './utils/regex'
+import { unsafeClassNameCharacters } from './utils/regex'
 
 const dashRegex = /[ .]/g
 const percentRegex = /%/g

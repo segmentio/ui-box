@@ -1,5 +1,5 @@
 import React from 'react'
-import {View} from 'glamor/jsxstyle'
+import { View } from 'glamor/jsxstyle'
 
 export default function benchmark() {
   return (
