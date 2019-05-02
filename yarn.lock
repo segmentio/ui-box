@@ -1701,10 +1701,10 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA==
 
-"@types/react@^16.8.8":
-  version "16.8.8"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.8.tgz#4b60a469fd2469f7aa6eaa0f8cfbc51f6d76e662"
-  integrity sha512-xwEvyet96u7WnB96kqY0yY7qxx/pEpU51QeACkKFtrgjjXITQn0oO1iwPEraXVgh10ZFPix7gs1R4OJXF7P5sg==
+"@types/react@^16.8.15":
+  version "16.8.15"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.15.tgz#a76515fed5aa3e996603056f54427fec5f2a5122"
+  integrity sha512-dMhzw1rWK+wwJWvPp5Pk12ksSrm/z/C/+lOQbMZ7YfDQYnJ02bc0wtg4EJD9qrFhuxFrf/ywNgwTboucobJqQg==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -3964,10 +3964,15 @@ csso@^3.5.1:
   dependencies:
     css-tree "1.0.0-alpha.29"
 
-csstype@^2.2.0, csstype@^2.5.7, csstype@^2.6.3:
+csstype@^2.2.0, csstype@^2.5.7:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.3.tgz#b701e5968245bf9b08d54ac83d00b624e622a9fa"
   integrity sha512-rINUZXOkcBmoHWEyu7JdHu5JMzkGRoMX4ov9830WNgxf5UYxcBUO0QTKAqeJ5EZfSdlrcJYkC8WwfVW7JYi4yg==
+
+csstype@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.4.tgz#d585a6062096e324e7187f80e04f92bd0f00e37f"
+  integrity sha512-lAJUJP3M6HxFXbqtGRc0iZrdyeN+WzOWeY0q/VnFzI+kqVrYIzC7bWlKqCW7oCIdzoPkvfp82EVvrTlQ8zsWQg==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -4329,22 +4334,22 @@ download-file-sync@^1.0.4:
   resolved "https://registry.yarnpkg.com/download-file-sync/-/download-file-sync-1.0.4.tgz#d3e3c543f836f41039455b9034c72e355b036019"
   integrity sha1-0+PFQ/g29BA5RVuQNMcuNVsDYBk=
 
-dts-critic@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dts-critic/-/dts-critic-1.0.4.tgz#75aa92e59602a36a8fda113964fce24f80241591"
-  integrity sha512-pBIkn1L8fFtYnoftv6e6KYO9zieDQU0AbbdKZWEp/M3VFvDyythNfcAUv+QRncboQQxmo3bDGBoVkZbSXdzBBA==
+dts-critic@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/dts-critic/-/dts-critic-1.0.7.tgz#85a2fee21ede19ff128840de1da387e81276e71b"
+  integrity sha512-u3QW0HVfaU2q0+JN9pPzQHD4gOvTkXLErHF2stfInmTSWcWmGywHmN8zdRaGZuCi7Fmsza7h/TqN2/Vwpq4EZg==
   dependencies:
     definitelytyped-header-parser "^1.0.1"
     download-file-sync "^1.0.4"
     yargs "^12.0.5"
 
-dtslint@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/dtslint/-/dtslint-0.6.0.tgz#d0d5721fda57bcd39a8254ac33d5dbab34585bb2"
-  integrity sha512-VxXI9OyEJvKhyXvJj7elCI6BE9j0cwQizSgGoolWPQQwNdNxYCH998a68vBv3hioiKaTKG/yIaRdygJYwltgMg==
+dtslint@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/dtslint/-/dtslint-0.7.1.tgz#cae550cc367cfa318c2d05d2ae5ce7df6d7dfcc0"
+  integrity sha512-r7Q4ebVbzl1Teoe+/SIZ8bPGRCqeBfnhezlVLa0O8fJe3OBdWrt+R6FFMysxmooZrbpHYdtutTQs1S2RQGr/xg==
   dependencies:
     definitelytyped-header-parser "^1.0.1"
-    dts-critic "^1.0.4"
+    dts-critic "^1.0.7"
     fs-extra "^6.0.1"
     request "^2.88.0"
     strip-json-comments "^2.0.1"
