@@ -11,7 +11,7 @@ unhappy paths.
 import * as React from 'react'
 import Box, { extractStyles, BoxProps, splitProps, splitBoxProps } from 'ui-box'
 
-type Without<T, K> = Pick<T, Exclude<keyof T, K>>
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
 interface TestFunctionComponentProps {
   functionProp: string
@@ -45,7 +45,7 @@ interface ComposedBoxProps {
   }
 }
 // This tests that the ui-box props can be overriden
-type BoxPropsOverride<T> = Without<BoxProps<T>, 'display'>
+type BoxPropsOverride<T> = Omit<BoxProps<T>, 'display'>
 class ComposedBox<T = 'input'> extends React.Component<
   BoxPropsOverride<T> & ComposedBoxProps
 > {
@@ -108,6 +108,17 @@ export default class TestComp extends React.Component {
             node
             // $ExpectType string
             node.value
+          }}
+        />
+        {/* Tests that a composed component can use `is` */}
+        <ComposedBox<typeof TestClassComponent>
+          is={TestClassComponent}
+          display={{ value: 'test' }}
+          classProp="test"
+          classPropCallback={value => value}
+          innerRef={ref => {
+            // $ExpectType TestClassComponent
+            ref
           }}
         />
         {/* Tests passing a functional component to `is` */}

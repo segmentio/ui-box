@@ -1,4 +1,4 @@
-// TypeScript Version: 3.2
+// TypeScript Version: 3.4
 
 import { Component, ReactType, JSXElementConstructor } from 'react'
 import { EnhancerProps } from './enhancers'
@@ -6,11 +6,15 @@ import { DomNodes } from './dom-nodes'
 
 export { EnhancerProps }
 
+interface ObjectMap {
+  [key: string]: any
+}
+
 interface Enhancer {
-  propTypes: object
-  // propAliases: object
-  // propValidators: object
-  // propEnhancers: object
+  propTypes: ObjectMap
+  // propAliases: ObjectMap
+  // propValidators: ObjectMap
+  // propEnhancers: ObjectMap
 }
 
 export const background: Enhancer
@@ -28,10 +32,12 @@ export const position: Enhancer
 export const spacing: Enhancer
 export const text: Enhancer
 export const transform: Enhancer
-export const propTypes: object
+export const propTypes: ObjectMap
 export const propNames: string[]
-// export const propAliases: object
-// export const propEnhancers: object
+// export const propAliases: ObjectMap
+// export const propEnhancers: ObjectMap
+
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
 // Custom ComponentPropsWithoutRef implementation that doesn't require extending `ReactType`,
 // which allows `this.props` to be typed correctly inside classes
@@ -51,7 +57,7 @@ export type RefType<T> = T extends keyof DomNodes
   ? T['prototype'] // Convert component class type back to a class instance
   : never // Functional components can't have refs
 
-export type BoxProps<T> = ComponentPropsWithoutRef<T> &
+export type BoxProps<T = 'div'> = Omit<ComponentPropsWithoutRef<T>, 'is'> &
   EnhancerProps & {
     /**
      * Lets you change the underlying element type. You can pass either a
@@ -70,8 +76,8 @@ export type BoxProps<T> = ComponentPropsWithoutRef<T> &
   }
 
 export default class Box<T = 'div'> extends Component<BoxProps<T>> {
-  static propTypes: object
-  static defaultProps: object
+  static propTypes: ObjectMap
+  static defaultProps: ObjectMap
 }
 
 export interface SplitProps<P, K extends keyof P> {
