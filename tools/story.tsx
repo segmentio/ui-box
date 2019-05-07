@@ -151,13 +151,6 @@ storiesOf('Box', module)
       <Box innerRef={logRef}>innerRef</Box>
     </Box>
   ))
-  .add('css', () => (
-    <Box>
-      <Box css={{backgroundColor: 'red', ':hover': {backgroundColor: 'red'}}}>
-        css
-      </Box>
-    </Box>
-  ))
   .add('props pass through', () => (
     <Box>
       <Box is="input" type="file" />

@@ -5,7 +5,6 @@ export {default} from './box'
 export {default as splitProps} from './utils/split-props'
 export {default as splitBoxProps} from './utils/split-box-props'
 
-export {css} from 'glamor'
 export {
   background,
   borderRadius,

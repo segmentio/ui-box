@@ -47,30 +47,35 @@ if (process.env.NODE_ENV !== 'production') {
     }
     return
   }
+
   propValidators.marginX = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginX”. Use “marginLeft” and “marginRight” instead.`
     }
     return
   }
+
   propValidators.marginY = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginY”. Use “marginBottom” and “marginTop” instead.`
     }
     return
   }
+
   propValidators.padding = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “padding”. Use “paddingX”, “paddingY” “paddingBottom”, “paddingLeft”, “paddingRight” and “paddingTop” instead.`
     }
     return
   }
+
   propValidators.paddingX = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingX”. Use “paddingLeft” and “paddingRight” instead.`
     }
     return
   }
+
   propValidators.paddingY = value => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingY”. Use “paddingBottom” and “paddingTop” instead.`

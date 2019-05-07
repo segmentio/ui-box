@@ -34,8 +34,8 @@ function makeStyleTag() {
   const tag = document.createElement('style')
   tag.type = 'text/css'
   tag.setAttribute('data-ui-box', '')
-  tag.appendChild(document.createTextNode(''))
-  ; (document.head || document.getElementsByTagName('head')[0]).appendChild(tag)
+  tag.append(document.createTextNode(''))
+  ;(document.head || document.querySelector('head')).append(tag)
   return tag
 }
 
@@ -68,6 +68,7 @@ export default class CustomStyleSheet {
     if (this.injected) {
       throw new Error('StyleSheet has already been injected.')
     }
+
     if (isBrowser) {
       this.tags[0] = makeStyleTag()
     } else {
@@ -82,6 +83,7 @@ export default class CustomStyleSheet {
         }
       }
     }
+
     this.injected = true
   }
 
@@ -91,6 +93,7 @@ export default class CustomStyleSheet {
         `StyleSheet cannot change speedy mode after inserting any rule to sheet. Either call speedy(${bool}) earlier in your app, or call flush() before speedy(${bool})`
       )
     }
+
     this.isSpeedy = Boolean(bool)
   }
 
@@ -108,7 +111,7 @@ export default class CustomStyleSheet {
       if (this.isSpeedy && this.getSheet().insertRule) {
         this._insert(rule)
       } else {
-        last(this.tags).appendChild(document.createTextNode(rule))
+        last(this.tags).append(document.createTextNode(rule))
       }
     } else {
       // Server side is pretty simple
@@ -119,6 +122,7 @@ export default class CustomStyleSheet {
     if (isBrowser && this.ctr % this.maxLength === 0) {
       this.tags.push(makeStyleTag())
     }
+
     return this.ctr - 1
   }
 
@@ -132,6 +136,7 @@ export default class CustomStyleSheet {
       // Simpler on server
       this.sheet.cssRules = []
     }
+
     this.injected = false
   }
 
@@ -139,11 +144,11 @@ export default class CustomStyleSheet {
     if (!isBrowser) {
       return this.sheet.cssRules
     }
-    const arr: any[] = []
-    this.tags.forEach(tag => {
-      const rule = (sheetForTag(tag) as any).cssRule
-      return arr.splice(arr.length, 0, ...[...rule])
-    })
+
+    const arr = []
+    this.tags.forEach(tag =>
+      arr.splice(arr.length, 0, ...[...sheetForTag(tag).cssRules])
+    )
     return arr
   }
 }

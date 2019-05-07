@@ -24,6 +24,7 @@ test.serial('all properties set to inherit', t => {
   for (const name of propNames) {
     properties[name] = 'inherit'
   }
+
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
   shallow(component)
@@ -35,6 +36,7 @@ test.serial('all properties set to initial', t => {
   for (const name of propNames) {
     properties[name] = 'initial'
   }
+
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
   shallow(component)
@@ -50,13 +52,9 @@ test('is prop allows changing the component type', t => {
   function TestComponent(props) {
     return <h1 {...props} />
   }
+
   const component = shallow(<Box is={TestComponent} />)
   t.true(component.is(TestComponent))
-})
-
-test('css prop renders a glamor class', t => {
-  const component = shallow(<Box css={{height: '10px'}} />)
-  t.true(component.hasClass('css-882mhe'))
 })
 
 test('innerRef prop gets passed the ref', t => {
