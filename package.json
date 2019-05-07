@@ -6,16 +6,18 @@
     "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
     "Roland Warmerdam (https://roland.codes)",
     "Meichen Zhou (https://github.com/jfmaggie)",
-    "Netto Farah (https://twitter.com/nettofarah)"
+    "Netto Farah (https://twitter.com/nettofarah)",
+    "Matt Shwery (https://github.com/mshwery)"
   ],
   "keywords": [
     "react"
   ],
   "repository": "segmentio/ui-box",
   "license": "MIT",
-  "main": "lib/src/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib/src"
+    "dist"
   ],
   "sideEffects": false,
   "scripts": {
@@ -23,16 +25,15 @@
     "tslint": "tslint -c tslint.json 'src/**/*.ts'",
     "prepublishOnly": "rm -rf lib && yarn run build",
     "precommit": "lint-staged",
-    "dev": "start-storybook -p 9009 -c .storybook",
-    "build": "tsc --declaration",
+    "dev": "start-storybook -p 9009",
+    "build": "tsc",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np --no-publish",
-    "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js && echo glamor/jsxstyle && react-benchmark tools/benchmarks/glamor-jsxstyle.js",
+    "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js",
     "size": "size-limit",
     "coverage": "nyc report --reporter=html"
   },
   "dependencies": {
-    "glamor": "^2.20.0",
     "inline-style-prefixer": "^5.0.1",
     "murmurhash-js": "^1.0.0",
     "prop-types": "^15.6.0"
@@ -46,16 +47,17 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "@storybook/react": "^4.1.4",
     "@storybook/storybook-deployer": "^2.2.0",
     "@types/enzyme": "^3.1.15",
     "@types/inline-style-prefixer": "^5.0.0",
     "@types/murmurhash-js": "^1.0.3",
     "@types/prop-types": "^15.5.8",
-    "@types/react": "^16.7.18",
+    "@types/react": "^16.8.16",
+    "@types/react-dom": "^16.8.4",
     "@types/react-test-renderer": "^16.0.3",
     "@types/sinon": "^7.0.3",
+    "@types/storybook__react": "^4.0.1",
     "ava": "^1.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
@@ -65,6 +67,7 @@
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint-config-xo-react": "^0.17.0",
     "eslint-plugin-react": "^7.10.0",
+    "esm": "^3.2.22",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
     "nyc": "^13.0.1",
