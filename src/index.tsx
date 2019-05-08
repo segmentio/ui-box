@@ -4,6 +4,7 @@ import * as styles from './styles'
 export { default } from './box'
 export { splitProps } from './utils/split-props'
 export { splitBoxProps } from './utils/split-box-props'
+export { BoxProps } from './types/box-types'
 
 export {
   background,
@@ -25,7 +26,7 @@ export {
   propNames,
   propAliases,
   propEnhancers
-} from './enhancers/index'
+} from './enhancers'
 
 export const hydrate = cache.hydrate
 
