@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "lib": [
-      "es6",
+      "es2015",
       "es2016",
       "es2017",
       "es2018",
       "dom"
     ],
+    "downlevelIteration": true,
     "declaration": true,
     "inlineSourceMap": true,
     "rootDir": "./src",
