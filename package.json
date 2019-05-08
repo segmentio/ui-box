@@ -161,7 +161,7 @@
   "ava": {
     "require": [
       "esm",
-      "ts-node/register",
+      "ts-node/register/transpile-only",
       "./test/_setup"
     ],
     "compileEnhancements": false,

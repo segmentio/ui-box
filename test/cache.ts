@@ -23,7 +23,7 @@ test.serial('returns the cache entries', t => {
 })
 
 test.serial('hydrates the cache', t => {
-  const fixture: [string, cache.CacheValue][] = [
+  const fixture: [string, string][] = [
     ['height10px', 'h-10px']
   ]
   cache.hydrate(fixture)
