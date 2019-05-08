@@ -1,17 +1,17 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   listStyle: PropTypes.string,
   listStyleType: PropTypes.string,
   listStyleImage: PropTypes.string,
   listStylePosition: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const listStyle = {
   className: 'ls',
@@ -37,9 +37,9 @@ const listStylePosition = {
   safeValue: true
 }
 
-export const propEnhancers = {
-  listStyle: (value: ValueType) => getCss(listStyle, value),
-  listStyleType: (value: ValueType) => getCss(listStyleType, value),
-  listStyleImage: (value: ValueType) => getCss(listStyleImage, value),
-  listStylePosition: (value: ValueType) => getCss(listStylePosition, value)
+export const propEnhancers: PropEnhancers = {
+  listStyle: (value: PropEnhancerValueType) => getCss(listStyle, value),
+  listStyleType: (value: PropEnhancerValueType) => getCss(listStyleType, value),
+  listStyleImage: (value: PropEnhancerValueType) => getCss(listStyleImage, value),
+  listStylePosition: (value: PropEnhancerValueType) => getCss(listStylePosition, value)
 }

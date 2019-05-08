@@ -1,9 +1,9 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
 import {spacesOutsideParentheses} from '../utils/regex'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   borderBottomLeftRadius: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
@@ -32,10 +32,7 @@ export const propAliases = {
   ]
 }
 
-interface Validators {
-  borderRadius?: (value: string) => string | undefined
-}
-export const propValidators: Validators = {}
+export const propValidators: PropValidators = {}
 
 if (process.env.NODE_ENV !== 'production') {
   propValidators.borderRadius = (value: string) => {
@@ -68,9 +65,9 @@ const borderBottomRightRadius = {
   jsName: 'borderBottomRightRadius'
 }
 
-export const propEnhancers = {
-  borderBottomLeftRadius: (value: ValueType) => getCss(borderBottomLeftRadius, value),
-  borderBottomRightRadius: (value: ValueType) => getCss(borderBottomRightRadius, value),
-  borderTopLeftRadius: (value: ValueType) => getCss(borderTopLeftRadius, value),
-  borderTopRightRadius: (value: ValueType) => getCss(borderTopRightRadius, value)
+export const propEnhancers: PropEnhancers = {
+  borderBottomLeftRadius: (value: PropEnhancerValueType) => getCss(borderBottomLeftRadius, value),
+  borderBottomRightRadius: (value: PropEnhancerValueType) => getCss(borderBottomRightRadius, value),
+  borderTopLeftRadius: (value: PropEnhancerValueType) => getCss(borderTopLeftRadius, value),
+  borderTopRightRadius: (value: PropEnhancerValueType) => getCss(borderTopRightRadius, value)
 }

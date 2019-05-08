@@ -1,5 +1,5 @@
 import test from 'ava'
-import * as React from 'react'
+import React from 'react'
 import * as render from 'react-test-renderer'
 import {shallow} from 'enzyme'
 import * as sinon from 'sinon'
@@ -80,10 +80,5 @@ test('renders children', t => {
 
 test('maintains the original className', t => {
   const component = shallow(<Box className="derp" margin="10px" />)
-  t.true(component.hasClass('derp'))
-})
-
-test('maintains the original className when the css prop is used', t => {
-  const component = shallow(<Box className="derp" css={{margin: '10px'}} />)
   t.true(component.hasClass('derp'))
 })

@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   position: PropTypes.string,
@@ -10,8 +10,8 @@ export const propTypes = {
   top: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propAliases = {}
-export const propValidators = {}
+export const propAliases: PropAliases = {}
+export const propValidators: PropValidators = {}
 
 const position = {
   className: 'pst',
@@ -41,10 +41,10 @@ const left = {
   jsName: 'left'
 }
 
-export const propEnhancers = {
-  bottom: (value: ValueType) => getCss(bottom, value),
-  left: (value: ValueType) => getCss(left, value),
-  position: (value: ValueType) => getCss(position, value),
-  right: (value: ValueType) => getCss(right, value),
-  top: (value: ValueType) => getCss(top, value)
+export const propEnhancers: PropEnhancers = {
+  bottom: (value: PropEnhancerValueType) => getCss(bottom, value),
+  left: (value: PropEnhancerValueType) => getCss(left, value),
+  position: (value: PropEnhancerValueType) => getCss(position, value),
+  right: (value: PropEnhancerValueType) => getCss(right, value),
+  top: (value: PropEnhancerValueType) => getCss(top, value)
 }

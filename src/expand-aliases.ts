@@ -9,7 +9,7 @@ import {propAliases, propValidators} from './enhancers/index'
 export default function expandAliases(props: object) {
   const propNames = Object.keys(props)
   // Use a Map because it's faster for setting values and looping over than an Object
-  const newProps = new Map()
+  const newProps = new Map<string, string | number | boolean>()
 
   propNames.forEach(propName => {
     const propValue = props[propName]

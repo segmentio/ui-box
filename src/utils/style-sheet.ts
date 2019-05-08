@@ -1,27 +1,20 @@
 // This file is based off glamor's StyleSheet
 // Https://github.com/threepointone/glamor/blob/v2.20.40/src/sheet.js
 const isBrowser = typeof window !== 'undefined'
-const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV
-const isTest = process.env.NODE_ENV === 'test'
 
-function last(arr: any) {
+function last<T>(arr: T[]) {
   return arr[arr.length - 1]
 }
 
-interface Tag extends Node {
-  cssRules: string
-  sheet: StyleSheet
-}
-
-function sheetForTag(tag: Tag): StyleSheet | undefined {
+function sheetForTag(tag: HTMLStyleElement): CSSStyleSheet | undefined {
   if (tag.sheet) {
-    return tag.sheet
+    return tag.sheet as CSSStyleSheet
   }
 
   // This weirdness brought to you by firefox
   for (let i = 0; i < document.styleSheets.length; i += 1) {
     if (document.styleSheets[i].ownerNode === tag) {
-      return document.styleSheets[i]
+      return document.styleSheets[i]  as CSSStyleSheet
     }
   }
 
@@ -37,29 +30,43 @@ function makeStyleTag() {
   return tag
 }
 
+type Writeable<T> = {
+  -readonly [P in keyof T]: T[P]
+}
 
-const isSpeedy = !isDev && !isTest
+interface SSCSSRule {
+  cssText: string
+}
 
-interface StyleSheetInput { speedy?: boolean, maxLength?: number }
+interface ServerSideStyleSheet {
+  cssRules: SSCSSRule[],
+  insertRule(rule: string): any
+}
+
+interface Options {
+  speedy?: boolean
+  maxLength?: number
+}
+
 export default class CustomStyleSheet {
   private isSpeedy: boolean
-  private sheet?: any
-  private tags: any[]
+  private sheet?: Writeable<CSSStyleSheet> | ServerSideStyleSheet | null
+  private tags: HTMLStyleElement[] = []
   private maxLength: number
-  private ctr: number
-  private injected: boolean
+  private ctr: number = 0
+  private injected: boolean = false
 
-  constructor({speedy, maxLength = 65000}: StyleSheetInput) {
-    this.isSpeedy = speedy || isSpeedy // The big drawback here is that the css won't be editable in devtools
-    this.sheet = undefined
-    this.tags = []
-    this.maxLength = maxLength
-    this.ctr = 0
-    this.injected = false
+  constructor(options: Options = {}) {
+    // The big drawback here is that the css won't be editable in devtools
+    this.isSpeedy = options.speedy === undefined
+      ? process.env.NODE_ENV === 'production'
+      : options.speedy
+
+    this.maxLength = options.maxLength || 65000
   }
 
-  public getSheet() {
-    return sheetForTag(last(this.tags)) as any
+  getSheet() {
+    return sheetForTag(last(this.tags))
   }
 
   inject() {
@@ -72,12 +79,11 @@ export default class CustomStyleSheet {
     } else {
       // Server side 'polyfill'. just enough behavior to be useful.
       this.sheet = {
-        cssRules: [],
+        cssRules: [] as SSCSSRule[],
         insertRule: (rule: string) => {
-          /* Enough 'spec compliance' to be able to extract the rules later
-           in other words, just the cssText field
-          */
-          this.sheet.cssRules.push({ cssText: rule })
+          // Enough 'spec compliance' to be able to extract the rules later
+          // in other words, just the cssText field
+          (this.sheet!.cssRules as SSCSSRule[]).push({ cssText: rule })
         }
       }
     }
@@ -95,23 +101,22 @@ export default class CustomStyleSheet {
     this.isSpeedy = Boolean(bool)
   }
 
-  _insert(rule: string) {
+  _insert(sheet: CSSStyleSheet, rule: string) {
     // This weirdness for perf
-    const sheet = this.getSheet() as any
-    if (sheet) {
-      sheet.insertRule(rule, sheet.cssRules.length)
-    }
+    sheet.insertRule(rule, sheet.cssRules.length)
   }
 
   insert(rule: string) {
     if (isBrowser) {
+      const sheet = this.getSheet()
+
       // This is the ultrafast version, works across browsers
-      if (this.isSpeedy && this.getSheet().insertRule) {
-        this._insert(rule)
+      if (this.isSpeedy && sheet && sheet.insertRule) {
+        this._insert(sheet, rule)
       } else {
         last(this.tags).append(document.createTextNode(rule))
       }
-    } else {
+    } else if (this.sheet) {
       // Server side is pretty simple
       this.sheet.insertRule(rule, this.sheet.cssRules.length)
     }
@@ -126,13 +131,13 @@ export default class CustomStyleSheet {
 
   flush() {
     if (isBrowser) {
-      this.tags.forEach(tag => tag.parentNode.removeChild(tag))
+      this.tags.forEach(tag => tag.parentNode!.removeChild(tag))
       this.tags = []
       this.sheet = null
       this.ctr = 0
-    } else {
+    } else if (this.sheet) {
       // Simpler on server
-      this.sheet.cssRules = []
+      this.sheet.cssRules = [] as SSCSSRule[]
     }
 
     this.injected = false
@@ -140,13 +145,18 @@ export default class CustomStyleSheet {
 
   rules() {
     if (!isBrowser) {
-      return this.sheet.cssRules
+      return (this.sheet ? this.sheet.cssRules : []) as CSSRule[]
     }
 
-    const arr = []
-    this.tags.forEach(tag =>
-      arr.splice(arr.length, 0, ...[...sheetForTag(tag).cssRules])
-    )
+    const arr: CSSRule[] = []
+    this.tags.forEach(tag => {
+      const sheet = sheetForTag(tag)
+      if (sheet) {
+        const rules = Array.from(sheet.cssRules)
+        arr.splice(arr.length, 0, ...[...rules])
+      }
+    })
+
     return arr
   }
 }

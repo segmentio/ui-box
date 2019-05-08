@@ -1,17 +1,17 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   cursor: PropTypes.string,
   pointerEvents: PropTypes.string,
   userSelect: PropTypes.string,
   visibility: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const cursor = {
   className: 'crsr',
@@ -38,9 +38,9 @@ const pointerEvents = {
   safeValue: true
 }
 
-export const propEnhancers = {
-  cursor: (value: ValueType) => getCss(cursor, value),
-  pointerEvents: (value: ValueType) => getCss(pointerEvents, value),
-  userSelect: (value: ValueType) => getCss(userSelect, value),
-  visibility: (value: ValueType) => getCss(visibility, value)
+export const propEnhancers: PropEnhancers = {
+  cursor: (value: PropEnhancerValueType) => getCss(cursor, value),
+  pointerEvents: (value: PropEnhancerValueType) => getCss(pointerEvents, value),
+  userSelect: (value: PropEnhancerValueType) => getCss(userSelect, value),
+  visibility: (value: PropEnhancerValueType) => getCss(visibility, value)
 }

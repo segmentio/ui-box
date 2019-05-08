@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   boxSizing: PropTypes.string,
   clear: PropTypes.string,
   clearfix: PropTypes.bool,
@@ -11,8 +11,8 @@ export const propTypes = {
   zIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propAliases = {}
-export const propValidators = {}
+export const propAliases: PropAliases = {}
+export const propValidators: PropValidators = {}
 
 const display = {
   className: 'dspl',
@@ -47,9 +47,9 @@ const boxSizing = {
   safeValue: true
 }
 
-export const propEnhancers = {
-  boxSizing: (value: ValueType) => getCss(boxSizing, value),
-  clear: (value: ValueType) => getCss(clear, value),
+export const propEnhancers: PropEnhancers = {
+  boxSizing: (value: PropEnhancerValueType) => getCss(boxSizing, value),
+  clear: (value: PropEnhancerValueType) => getCss(clear, value),
   clearfix: () => ({
     className: '📦clearfix',
     styles: `
@@ -59,7 +59,7 @@ export const propEnhancers = {
   content: "";
 }`
   }),
-  display: (value: ValueType) => getCss(display, value),
-  float: (value: ValueType) => getCss(float, value),
-  zIndex: (value: ValueType) => getCss(zIndex, value)
+  display: (value: PropEnhancerValueType) => getCss(display, value),
+  float: (value: PropEnhancerValueType) => getCss(float, value),
+  zIndex: (value: PropEnhancerValueType) => getCss(zIndex, value)
 }

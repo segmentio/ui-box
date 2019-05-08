@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   transition: PropTypes.string,
   transitionDelay: PropTypes.string,
   transitionDuration: PropTypes.string,
@@ -10,9 +10,9 @@ export const propTypes = {
   transitionTimingFunction: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const transition = {
   className: 'tstn',
@@ -45,10 +45,10 @@ const transitionTimingFunction = {
   complexValue: true
 }
 
-export const propEnhancers = {
-  transition: (value: ValueType) => getCss(transition, value),
-  transitionDelay: (value: ValueType) => getCss(transitionDelay, value),
-  transitionDuration: (value: ValueType) => getCss(transitionDuration, value),
-  transitionProperty: (value: ValueType) => getCss(transitionProperty, value),
-  transitionTimingFunction: (value: ValueType) => getCss(transitionTimingFunction, value)
+export const propEnhancers: PropEnhancers = {
+  transition: (value: PropEnhancerValueType) => getCss(transition, value),
+  transitionDelay: (value: PropEnhancerValueType) => getCss(transitionDelay, value),
+  transitionDuration: (value: PropEnhancerValueType) => getCss(transitionDuration, value),
+  transitionProperty: (value: PropEnhancerValueType) => getCss(transitionProperty, value),
+  transitionTimingFunction: (value: PropEnhancerValueType) => getCss(transitionTimingFunction, value)
 }

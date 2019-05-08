@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   color: PropTypes.string,
   font: PropTypes.string,
   fontFamily: PropTypes.string,
@@ -22,8 +22,8 @@ export const propTypes = {
   wordWrap: PropTypes.string
 }
 
-export const propAliases = {}
-export const propValidators = {}
+export const propAliases: PropAliases = {}
+export const propValidators: PropValidators = {}
 
 const textAlign = {
   className: 'txt-algn',
@@ -124,22 +124,22 @@ const letterSpacing = {
   jsName: 'letterSpacing'
 }
 
-export const propEnhancers = {
-  color: (value: ValueType) => getCss(color, value),
-  font: (value: ValueType) => getCss(font, value),
-  fontFamily: (value: ValueType) => getCss(fontFamily, value),
-  fontSize: (value: ValueType) => getCss(fontSize, value),
-  fontStyle: (value: ValueType) => getCss(fontStyle, value),
-  fontVariant: (value: ValueType) => getCss(fontVariant, value),
-  fontWeight: (value: ValueType) => getCss(fontWeight, value),
-  letterSpacing: (value: ValueType) => getCss(letterSpacing, value),
-  lineHeight: (value: ValueType) => getCss(lineHeight, value),
-  textAlign: (value: ValueType) => getCss(textAlign, value),
-  textDecoration: (value: ValueType) => getCss(textDecoration, value),
-  textOverflow: (value: ValueType) => getCss(textOverflow, value),
-  textShadow: (value: ValueType) => getCss(textShadow, value),
-  textTransform: (value: ValueType) => getCss(textTransform, value),
-  whiteSpace: (value: ValueType) => getCss(whiteSpace, value),
-  wordBreak: (value: ValueType) => getCss(wordBreak, value),
-  wordWrap: (value: ValueType) => getCss(wordWrap, value)
+export const propEnhancers: PropEnhancers = {
+  color: (value: PropEnhancerValueType) => getCss(color, value),
+  font: (value: PropEnhancerValueType) => getCss(font, value),
+  fontFamily: (value: PropEnhancerValueType) => getCss(fontFamily, value),
+  fontSize: (value: PropEnhancerValueType) => getCss(fontSize, value),
+  fontStyle: (value: PropEnhancerValueType) => getCss(fontStyle, value),
+  fontVariant: (value: PropEnhancerValueType) => getCss(fontVariant, value),
+  fontWeight: (value: PropEnhancerValueType) => getCss(fontWeight, value),
+  letterSpacing: (value: PropEnhancerValueType) => getCss(letterSpacing, value),
+  lineHeight: (value: PropEnhancerValueType) => getCss(lineHeight, value),
+  textAlign: (value: PropEnhancerValueType) => getCss(textAlign, value),
+  textDecoration: (value: PropEnhancerValueType) => getCss(textDecoration, value),
+  textOverflow: (value: PropEnhancerValueType) => getCss(textOverflow, value),
+  textShadow: (value: PropEnhancerValueType) => getCss(textShadow, value),
+  textTransform: (value: PropEnhancerValueType) => getCss(textTransform, value),
+  whiteSpace: (value: PropEnhancerValueType) => getCss(whiteSpace, value),
+  wordBreak: (value: PropEnhancerValueType) => getCss(wordBreak, value),
+  wordWrap: (value: PropEnhancerValueType) => getCss(wordWrap, value)
 }

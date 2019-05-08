@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropValidators, PropTypesMapping, PropEnhancerValueType, PropAliases, PropEnhancers } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   background: PropTypes.string,
   backgroundBlendMode: PropTypes.string,
   backgroundClip: PropTypes.string,
@@ -14,9 +14,9 @@ export const propTypes = {
   backgroundSize: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const background = {
   className: 'bg',
@@ -68,14 +68,14 @@ const backgroundBlendMode = {
   jsName: 'backgroundBlendMode'
 }
 
-export const propEnhancers = {
-  background: (value: ValueType) => getCss(background, value),
-  backgroundBlendMode: (value: ValueType) => getCss(backgroundBlendMode, value),
-  backgroundClip: (value: ValueType) => getCss(backgroundClip, value),
-  backgroundColor: (value: ValueType) => getCss(backgroundColor, value),
-  backgroundImage: (value: ValueType) => getCss(backgroundImage, value),
-  backgroundOrigin: (value: ValueType) => getCss(backgroundOrigin, value),
-  backgroundPosition: (value: ValueType) => getCss(backgroundPosition, value),
-  backgroundRepeat: (value: ValueType) => getCss(backgroundRepeat, value),
-  backgroundSize: (value: ValueType) => getCss(backgroundSize, value)
+export const propEnhancers: PropEnhancers = {
+  background: (value: PropEnhancerValueType) => getCss(background, value),
+  backgroundBlendMode: (value: PropEnhancerValueType) => getCss(backgroundBlendMode, value),
+  backgroundClip: (value: PropEnhancerValueType) => getCss(backgroundClip, value),
+  backgroundColor: (value: PropEnhancerValueType) => getCss(backgroundColor, value),
+  backgroundImage: (value: PropEnhancerValueType) => getCss(backgroundImage, value),
+  backgroundOrigin: (value: PropEnhancerValueType) => getCss(backgroundOrigin, value),
+  backgroundPosition: (value: PropEnhancerValueType) => getCss(backgroundPosition, value),
+  backgroundRepeat: (value: PropEnhancerValueType) => getCss(backgroundRepeat, value),
+  backgroundSize: (value: PropEnhancerValueType) => getCss(backgroundSize, value)
 }

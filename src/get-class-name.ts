@@ -19,7 +19,7 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
     complexValue = false // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
-  let valueKey: string | number
+  let valueKey: string
 
   // Shortcut the global keywords
   if (value === 'inherit' || value === 'initial' || value === 'unset') {

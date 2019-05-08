@@ -1,15 +1,15 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   transform: PropTypes.string,
   transformOrigin: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const transform = {
   className: 'tfrm',
@@ -24,7 +24,7 @@ const transformOrigin = {
   complexValue: true
 }
 
-export const propEnhancers = {
-  transform: (value: ValueType) => getCss(transform, value),
-  transformOrigin: (value: ValueType) => getCss(transformOrigin, value)
+export const propEnhancers: PropEnhancers = {
+  transform: (value: PropEnhancerValueType) => getCss(transform, value),
+  transformOrigin: (value: PropEnhancerValueType) => getCss(transformOrigin, value)
 }

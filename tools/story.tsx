@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Box from '../src'
 import {storiesOf} from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'

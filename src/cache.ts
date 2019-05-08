@@ -1,11 +1,11 @@
-export type CacheValue = string | number | boolean | object
-let cache = new Map<string, CacheValue>()
+export type CacheValue = string | number | boolean
+let cache = new Map<string, string>()
 
 export function get(property: string, value: CacheValue) {
   return cache.get(property + value)
 }
 
-export function set(property: string, value: CacheValue, className: string) {
+export function set(property: string, value: CacheValue | object, className: string) {
   if (process.env.NODE_ENV !== 'production') {
     const valueType = typeof value
     if (
@@ -27,9 +27,9 @@ export function entries() {
   return [...cache]
 }
 
-type CacheEntry = [string, CacheValue]
+type CacheEntry = [string, string]
 export function hydrate(newEntries: CacheEntry[]) {
-  cache = new Map<string, CacheValue>([...cache, ...newEntries])
+  cache = new Map<string, string>([...cache, ...newEntries])
 }
 
 export function clear() {

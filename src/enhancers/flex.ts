@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   alignContent: PropTypes.string,
   alignItems: PropTypes.string,
   alignSelf: PropTypes.string,
@@ -22,8 +22,8 @@ export const propTypes = {
   placeSelf: PropTypes.string
 }
 
-export const propAliases = {}
-export const propValidators = {}
+export const propAliases: PropAliases = {}
+export const propValidators: PropValidators = {}
 
 const flex = {
   className: 'flx',
@@ -133,22 +133,22 @@ const placeSelf = {
   jsName: 'placeSelf'
 }
 
-export const propEnhancers = {
-  alignContent: (value: ValueType) => getCss(alignContent, value),
-  alignItems: (value: ValueType) => getCss(alignItems, value),
-  alignSelf: (value: ValueType) => getCss(alignSelf, value),
-  flex: (value: ValueType) => getCss(flex, value),
-  flexBasis: (value: ValueType) => getCss(flexBasis, value),
-  flexDirection: (value: ValueType) => getCss(flexDirection, value),
-  flexFlow: (value: ValueType) => getCss(flexFlow, value),
-  flexGrow: (value: ValueType) => getCss(flexGrow, value),
-  flexShrink: (value: ValueType) => getCss(flexShrink, value),
-  flexWrap: (value: ValueType) => getCss(flexWrap, value),
-  justifyContent: (value: ValueType) => getCss(justifyContent, value),
-  justifyItems: (value: ValueType) => getCss(justifyItems, value),
-  justifySelf: (value: ValueType) => getCss(justifySelf, value),
-  order: (value: ValueType) => getCss(order, value),
-  placeContent: (value: ValueType) => getCss(placeContent, value),
-  placeItems: (value: ValueType) => getCss(placeItems, value),
-  placeSelf: (value: ValueType) => getCss(placeSelf, value)
+export const propEnhancers: PropEnhancers = {
+  alignContent: (value: PropEnhancerValueType) => getCss(alignContent, value),
+  alignItems: (value: PropEnhancerValueType) => getCss(alignItems, value),
+  alignSelf: (value: PropEnhancerValueType) => getCss(alignSelf, value),
+  flex: (value: PropEnhancerValueType) => getCss(flex, value),
+  flexBasis: (value: PropEnhancerValueType) => getCss(flexBasis, value),
+  flexDirection: (value: PropEnhancerValueType) => getCss(flexDirection, value),
+  flexFlow: (value: PropEnhancerValueType) => getCss(flexFlow, value),
+  flexGrow: (value: PropEnhancerValueType) => getCss(flexGrow, value),
+  flexShrink: (value: PropEnhancerValueType) => getCss(flexShrink, value),
+  flexWrap: (value: PropEnhancerValueType) => getCss(flexWrap, value),
+  justifyContent: (value: PropEnhancerValueType) => getCss(justifyContent, value),
+  justifyItems: (value: PropEnhancerValueType) => getCss(justifyItems, value),
+  justifySelf: (value: PropEnhancerValueType) => getCss(justifySelf, value),
+  order: (value: PropEnhancerValueType) => getCss(order, value),
+  placeContent: (value: PropEnhancerValueType) => getCss(placeContent, value),
+  placeItems: (value: PropEnhancerValueType) => getCss(placeItems, value),
+  placeSelf: (value: PropEnhancerValueType) => getCss(placeSelf, value)
 }

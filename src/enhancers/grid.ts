@@ -1,8 +1,8 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   columnGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   gap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   grid: PropTypes.string,
@@ -26,9 +26,9 @@ export const propTypes = {
   rowGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const columnGap = {
   className: 'col-gap',
@@ -152,26 +152,26 @@ const rowGap = {
   jsName: 'rowGap'
 }
 
-export const propEnhancers = {
-  columnGap: (value: ValueType) => getCss(columnGap, value),
-  gap: (value: ValueType) => getCss(gap, value),
-  grid: (value: ValueType) => getCss(grid, value),
-  gridArea: (value: ValueType) => getCss(gridArea, value),
-  gridAutoColumns: (value: ValueType) => getCss(gridAutoColumns, value),
-  gridAutoFlow: (value: ValueType) => getCss(gridAutoFlow, value),
-  gridAutoRows: (value: ValueType) => getCss(gridAutoRows, value),
-  gridColumn: (value: ValueType) => getCss(gridColumn, value),
-  gridColumnEnd: (value: ValueType) => getCss(gridColumnEnd, value),
-  gridColumnGap: (value: ValueType) => getCss(gridColumnGap, value),
-  gridColumnStart: (value: ValueType) => getCss(gridColumnStart, value),
-  gridGap: (value: ValueType) => getCss(gridGap, value),
-  gridRow: (value: ValueType) => getCss(gridRow, value),
-  gridRowEnd: (value: ValueType) => getCss(gridRowEnd, value),
-  gridRowGap: (value: ValueType) => getCss(gridRowGap, value),
-  gridRowStart: (value: ValueType) => getCss(gridRowStart, value),
-  gridTemplate: (value: ValueType) => getCss(gridTemplate, value),
-  gridTemplateAreas: (value: ValueType) => getCss(gridTemplateAreas, value),
-  gridTemplateColumns: (value: ValueType) => getCss(gridTemplateColumns, value),
-  gridTemplateRows: (value: ValueType) => getCss(gridTemplateRows, value),
-  rowGap: (value: ValueType) => getCss(rowGap, value)
+export const propEnhancers: PropEnhancers = {
+  columnGap: (value: PropEnhancerValueType) => getCss(columnGap, value),
+  gap: (value: PropEnhancerValueType) => getCss(gap, value),
+  grid: (value: PropEnhancerValueType) => getCss(grid, value),
+  gridArea: (value: PropEnhancerValueType) => getCss(gridArea, value),
+  gridAutoColumns: (value: PropEnhancerValueType) => getCss(gridAutoColumns, value),
+  gridAutoFlow: (value: PropEnhancerValueType) => getCss(gridAutoFlow, value),
+  gridAutoRows: (value: PropEnhancerValueType) => getCss(gridAutoRows, value),
+  gridColumn: (value: PropEnhancerValueType) => getCss(gridColumn, value),
+  gridColumnEnd: (value: PropEnhancerValueType) => getCss(gridColumnEnd, value),
+  gridColumnGap: (value: PropEnhancerValueType) => getCss(gridColumnGap, value),
+  gridColumnStart: (value: PropEnhancerValueType) => getCss(gridColumnStart, value),
+  gridGap: (value: PropEnhancerValueType) => getCss(gridGap, value),
+  gridRow: (value: PropEnhancerValueType) => getCss(gridRow, value),
+  gridRowEnd: (value: PropEnhancerValueType) => getCss(gridRowEnd, value),
+  gridRowGap: (value: PropEnhancerValueType) => getCss(gridRowGap, value),
+  gridRowStart: (value: PropEnhancerValueType) => getCss(gridRowStart, value),
+  gridTemplate: (value: PropEnhancerValueType) => getCss(gridTemplate, value),
+  gridTemplateAreas: (value: PropEnhancerValueType) => getCss(gridTemplateAreas, value),
+  gridTemplateColumns: (value: PropEnhancerValueType) => getCss(gridTemplateColumns, value),
+  gridTemplateRows: (value: PropEnhancerValueType) => getCss(gridTemplateRows, value),
+  rowGap: (value: PropEnhancerValueType) => getCss(rowGap, value)
 }

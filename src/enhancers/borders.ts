@@ -1,9 +1,9 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
 import {spacesOutsideParentheses} from '../utils/regex'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   border: PropTypes.string,
   borderBottom: PropTypes.string,
   borderBottomColor: PropTypes.string,
@@ -48,13 +48,7 @@ export const propAliases = {
   ]
 }
 
-interface Validators {
-  borderColor?: (value: string) => string | undefined
-  borderStyle?: (value: string) => string | undefined
-  borderWidth?: (value: string) => string | undefined
-}
-
-export const propValidators: Validators = { }
+export const propValidators: PropValidators = { }
 
 if (process.env.NODE_ENV !== 'production') {
   propValidators.borderColor = (value: string) => {
@@ -165,21 +159,21 @@ const borderBottomWidth = {
   jsName: 'borderBottomWidth'
 }
 
-export const propEnhancers = {
-  borderBottom: (value: ValueType) => getCss(borderBottom, value),
-  borderBottomColor: (value: ValueType) => getCss(borderBottomColor, value),
-  borderBottomStyle: (value: ValueType) => getCss(borderBottomStyle, value),
-  borderBottomWidth: (value: ValueType) => getCss(borderBottomWidth, value),
-  borderLeft: (value: ValueType) => getCss(borderLeft, value),
-  borderLeftColor: (value: ValueType) => getCss(borderLeftColor, value),
-  borderLeftStyle: (value: ValueType) => getCss(borderLeftStyle, value),
-  borderLeftWidth: (value: ValueType) => getCss(borderLeftWidth, value),
-  borderRight: (value: ValueType) => getCss(borderRight, value),
-  borderRightColor: (value: ValueType) => getCss(borderRightColor, value),
-  borderRightStyle: (value: ValueType) => getCss(borderRightStyle, value),
-  borderRightWidth: (value: ValueType) => getCss(borderRightWidth, value),
-  borderTop: (value: ValueType) => getCss(borderTop, value),
-  borderTopColor: (value: ValueType) => getCss(borderTopColor, value),
-  borderTopStyle: (value: ValueType) => getCss(borderTopStyle, value),
-  borderTopWidth: (value: ValueType) => getCss(borderTopWidth, value)
+export const propEnhancers: PropEnhancers = {
+  borderBottom: (value: PropEnhancerValueType) => getCss(borderBottom, value),
+  borderBottomColor: (value: PropEnhancerValueType) => getCss(borderBottomColor, value),
+  borderBottomStyle: (value: PropEnhancerValueType) => getCss(borderBottomStyle, value),
+  borderBottomWidth: (value: PropEnhancerValueType) => getCss(borderBottomWidth, value),
+  borderLeft: (value: PropEnhancerValueType) => getCss(borderLeft, value),
+  borderLeftColor: (value: PropEnhancerValueType) => getCss(borderLeftColor, value),
+  borderLeftStyle: (value: PropEnhancerValueType) => getCss(borderLeftStyle, value),
+  borderLeftWidth: (value: PropEnhancerValueType) => getCss(borderLeftWidth, value),
+  borderRight: (value: PropEnhancerValueType) => getCss(borderRight, value),
+  borderRightColor: (value: PropEnhancerValueType) => getCss(borderRightColor, value),
+  borderRightStyle: (value: PropEnhancerValueType) => getCss(borderRightStyle, value),
+  borderRightWidth: (value: PropEnhancerValueType) => getCss(borderRightWidth, value),
+  borderTop: (value: PropEnhancerValueType) => getCss(borderTop, value),
+  borderTopColor: (value: PropEnhancerValueType) => getCss(borderTopColor, value),
+  borderTopStyle: (value: PropEnhancerValueType) => getCss(borderTopStyle, value),
+  borderTopWidth: (value: PropEnhancerValueType) => getCss(borderTopWidth, value)
 }

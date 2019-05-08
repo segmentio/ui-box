@@ -31,9 +31,7 @@ export default function enhanceProps(rawProps: Partial<BoxProps>): EnhancedProps
       (propValue === null || propValue === undefined || propValue === false)
     ) {
       continue
-    }
-
-    if (!enhancer) {
+    } else if (!enhancer) {
       // Pass through native props. e.g: disabled, value, type
       enhancedProps[propName] = propValue
       continue

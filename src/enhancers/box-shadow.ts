@@ -1,14 +1,14 @@
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {PropEncharValueType as ValueType} from './types'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
-export const propTypes = {
+export const propTypes: PropTypesMapping = {
   boxShadow: PropTypes.string
 }
 
-export const propAliases = {}
+export const propAliases: PropAliases = {}
 
-export const propValidators = {}
+export const propValidators: PropValidators = {}
 
 const boxShadow = {
   className: 'bs',
@@ -17,6 +17,6 @@ const boxShadow = {
   complexValue: true
 }
 
-export const propEnhancers = {
-  boxShadow: (value: ValueType) => getCss(boxShadow, value)
+export const propEnhancers: PropEnhancers = {
+  boxShadow: (value: PropEnhancerValueType) => getCss(boxShadow, value)
 }
