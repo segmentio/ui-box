@@ -12,6 +12,7 @@
     ],
     "declaration": true,
     "sourceMap": true,
+    "inlineSourceMap": true,
     "rootDir": "./",
     "jsx": "react",
     "moduleResolution": "node",
