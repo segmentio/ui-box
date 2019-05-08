@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "es6",
-    "module": "esnext",
+    "module": "commonjs",
     "lib": [
       "es6",
       "es2016",
@@ -11,9 +11,8 @@
       "dom"
     ],
     "declaration": true,
-    "sourceMap": true,
     "inlineSourceMap": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     "jsx": "react",
     "moduleResolution": "node",
     "strict": true,
