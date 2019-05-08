@@ -12,7 +12,7 @@ test.serial('caches a className', t => {
 
 test.serial('validates the value', t => {
   t.throws(() => {
-    cache.set('width', {herpa: 'derp'}, 'w-10px')
+    cache.set('width', { herpa: 'derp' }, 'w-10px')
   }, /invalid cache value/)
 })
 
@@ -23,9 +23,7 @@ test.serial('returns the cache entries', t => {
 })
 
 test.serial('hydrates the cache', t => {
-  const fixture: [string, string][] = [
-    ['height10px', 'h-10px']
-  ]
+  const fixture: [string, string][] = [['height10px', 'h-10px']]
   cache.hydrate(fixture)
   t.deepEqual(cache.entries(), fixture)
 })
@@ -33,8 +31,5 @@ test.serial('hydrates the cache', t => {
 test.serial('existing keys are maintained when hydrating', t => {
   cache.set('minWidth', '10px', 'min-w-10px')
   cache.hydrate([['height10px', 'h-10px']])
-  t.deepEqual(cache.entries(), [
-    ['minWidth10px', 'min-w-10px'],
-    ['height10px', 'h-10px']
-  ])
+  t.deepEqual(cache.entries(), [['minWidth10px', 'min-w-10px'], ['height10px', 'h-10px']])
 })

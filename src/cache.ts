@@ -1,4 +1,4 @@
-import {BoxPropValue} from './types/enhancers'
+import { BoxPropValue } from './types/enhancers'
 
 type CacheValue = BoxPropValue
 let cache = new Map<string, string>()
@@ -10,11 +10,7 @@ export function get(property: string, value: CacheValue) {
 export function set(property: string, value: CacheValue | object, className: string) {
   if (process.env.NODE_ENV !== 'production') {
     const valueType = typeof value
-    if (
-      valueType !== 'boolean' &&
-      valueType !== 'number' &&
-      valueType !== 'string'
-    ) {
+    if (valueType !== 'boolean' && valueType !== 'number' && valueType !== 'string') {
       const encodedValue = JSON.stringify(value)
       throw new TypeError(
         `📦 ui-box: invalid cache value “${encodedValue}”. Only booleans, numbers and strings are supported.`

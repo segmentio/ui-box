@@ -1,5 +1,5 @@
-import {propNames} from '../enhancers/index'
-import {splitProps} from './split-props'
+import { propNames } from '../enhancers/index'
+import { splitProps } from './split-props'
 import { EnhancerProps } from '../types/enhancers'
 
 interface SplitBoxProps<P extends EnhancerProps> {

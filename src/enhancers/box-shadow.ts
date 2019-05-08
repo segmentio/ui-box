@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
+import {
+  PropEnhancerValueType,
+  PropValidators,
+  PropEnhancers,
+  PropTypesMapping,
+  PropAliases
+} from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   boxShadow: PropTypes.string

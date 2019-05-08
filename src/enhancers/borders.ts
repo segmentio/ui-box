@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {spacesOutsideParentheses} from '../utils/regex'
-import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping } from '../types/enhancers'
+import { spacesOutsideParentheses } from '../utils/regex'
+import {
+  PropEnhancerValueType,
+  PropValidators,
+  PropEnhancers,
+  PropTypesMapping
+} from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   border: PropTypes.string,
@@ -28,27 +33,12 @@ export const propTypes: PropTypesMapping = {
 
 export const propAliases = {
   border: ['borderBottom', 'borderLeft', 'borderRight', 'borderTop'],
-  borderColor: [
-    'borderBottomColor',
-    'borderLeftColor',
-    'borderRightColor',
-    'borderTopColor'
-  ],
-  borderStyle: [
-    'borderBottomStyle',
-    'borderLeftStyle',
-    'borderRightStyle',
-    'borderTopStyle'
-  ],
-  borderWidth: [
-    'borderBottomWidth',
-    'borderLeftWidth',
-    'borderRightWidth',
-    'borderTopWidth'
-  ]
+  borderColor: ['borderBottomColor', 'borderLeftColor', 'borderRightColor', 'borderTopColor'],
+  borderStyle: ['borderBottomStyle', 'borderLeftStyle', 'borderRightStyle', 'borderTopStyle'],
+  borderWidth: ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth']
 }
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 if (process.env.NODE_ENV !== 'production') {
   propValidators.borderColor = value => {

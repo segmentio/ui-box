@@ -4,13 +4,7 @@ import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 
 const RedBox = (redBoxProps: any) => (
-  <Box
-    background="red"
-    width="100px"
-    height="100px"
-    margin="20px"
-    {...redBoxProps}
-  />
+  <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
 )
 
 const logRef = (ref: any) => console.log(ref)
@@ -122,12 +116,7 @@ storiesOf('Box', module)
   ))
   .add('spacing', () => (
     <Box>
-      <Box
-        backgroundColor="red"
-        width="100px"
-        height="100px"
-        marginTop="100px"
-      />
+      <Box backgroundColor="red" width="100px" height="100px" marginTop="100px" />
     </Box>
   ))
   .add('text', () => (

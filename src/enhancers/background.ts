@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import { PropValidators, PropTypesMapping, PropEnhancerValueType, PropAliases, PropEnhancers } from '../types/enhancers'
+import {
+  PropValidators,
+  PropTypesMapping,
+  PropEnhancerValueType,
+  PropAliases,
+  PropEnhancers
+} from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   background: PropTypes.string,

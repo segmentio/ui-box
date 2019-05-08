@@ -4,12 +4,7 @@ import { BoxProps } from './types/box-types'
 import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
 
-export const Box: React.FC<BoxProps> = ({
-  is = 'div',
-  innerRef,
-  children,
-  ...props
-}) => {
+export const Box: React.FC<BoxProps> = ({ is = 'div', innerRef, children, ...props }) => {
   // Convert the CSS props to class names (and inject the styles)
   const { className, enhancedProps: parsedProps } = enhanceProps(props)
 
@@ -29,13 +24,8 @@ Box.displayName = 'Box'
 Box.propTypes = {
   ...propTypes,
   innerRef: PropTypes.func,
-  is: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func
-  ]) as PropTypes.Validator<
-    | keyof JSX.IntrinsicElements
-    | React.ComponentClass<any, any>
-    | React.FunctionComponent<any>
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]) as PropTypes.Validator<
+    keyof JSX.IntrinsicElements | React.ComponentClass<any, any> | React.FunctionComponent<any>
   >,
   boxSizing: propTypes.boxSizing
 }
