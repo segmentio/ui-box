@@ -1,4 +1,4 @@
-import * as hash from 'murmurhash-js'
+import hash from '@emotion/hash'
 import getSafeValue from './get-safe-value'
 
 export interface PropertyInfo {
