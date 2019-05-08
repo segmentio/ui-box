@@ -1,4 +1,6 @@
-export type CacheValue = string | number | boolean
+import {BoxPropValue} from './types/enhancers'
+
+type CacheValue = BoxPropValue
 let cache = new Map<string, string>()
 
 export function get(property: string, value: CacheValue) {
@@ -27,7 +29,7 @@ export function entries() {
   return [...cache]
 }
 
-type CacheEntry = [string, string]
+type CacheEntry = [/** key */ string, /** value */ string]
 export function hydrate(newEntries: CacheEntry[]) {
   cache = new Map<string, string>([...cache, ...newEntries])
 }

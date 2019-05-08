@@ -27,9 +27,7 @@ export {
   propEnhancers
 } from './enhancers/index'
 
-export function hydrate(entries) {
-  cache.hydrate(entries)
-}
+export const hydrate = cache.hydrate
 
 export function extractStyles() {
   const output = {

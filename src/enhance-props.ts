@@ -2,18 +2,19 @@ import {propEnhancers} from './enhancers'
 import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
-import {BoxProps} from './box-types'
+import {BoxProps} from './types/box-types'
+import {EnhancerProps} from './types/enhancers'
 
 interface EnhancedPropsResult {
   className: string
-  enhancedProps: Partial<BoxProps>
+  enhancedProps: BoxProps
 }
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
-export default function enhanceProps(rawProps: Partial<BoxProps>): EnhancedPropsResult {
+export default function enhanceProps(rawProps: EnhancerProps & React.ComponentPropsWithoutRef<any>): EnhancedPropsResult {
   const propsMap = expandAliases(rawProps)
-  const enhancedProps = {}
+  const enhancedProps: BoxProps = {}
   let className = rawProps.className || ''
 
   for (const [propName, propValue] of propsMap) {
