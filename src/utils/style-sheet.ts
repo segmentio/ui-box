@@ -1,5 +1,3 @@
-/* tslint:disable */
-
 // This file is based off glamor's StyleSheet
 // Https://github.com/threepointone/glamor/blob/v2.20.40/src/sheet.js
 const isBrowser = typeof window !== 'undefined'
