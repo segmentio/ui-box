@@ -23,7 +23,7 @@ export default function prefixer(property: string, value: string): Rule[] {
       ? `-${propertyName}`
       : propertyName
     const prop = decamelize(prefixedProp)
-    const values = rules[propertyName] as string | string[]
+    const values = rules[propertyName]
 
     // Handle prefixed values
     if (Array.isArray(values)) {

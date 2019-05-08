@@ -15,7 +15,7 @@ export type BoxProps = EnhancerProps & {
    * Callback that gets passed a ref to inner DOM node (or component if the
    * `is` prop is set to a React component type).
    */
-  innerRef?(ref: ReactNode): any
+  innerRef?(ref: ReactNode): void
 
   /** We need this for now to pass arbitrary props to the `is` Component until we can get a proper generic written */
   [key: string]: any

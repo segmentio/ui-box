@@ -6,7 +6,7 @@ interface Dictionary<T> {
 
 export interface SplitProps<P, K extends keyof P> {
   matchedProps: Pick<P, K>
-  remainingProps: Omit<P, K> // Omit<P, K>
+  remainingProps: Omit<P, K>
 }
 
 /**
