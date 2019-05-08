@@ -12,7 +12,7 @@ export interface SplitProps<P, K extends keyof P> {
 /**
  * Utility to split props based on an array of keys
  */
-export default function splitProps<P extends Dictionary<any>, K extends keyof P>(props: P, keys: K[]): SplitProps<P, K> {
+export function splitProps<P extends Dictionary<any>, K extends keyof P>(props: P, keys: K[]): SplitProps<P, K> {
   const matchedProps = {} as Pick<P, K>
   const remainingProps = {} as P
   const propKeys= Object.keys(props) as K[]

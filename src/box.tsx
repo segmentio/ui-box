@@ -1,38 +1,39 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {BoxProps} from './types/box-types'
-import {propTypes} from './enhancers'
-import enhanceProps from './enhance-props'
+import React from "react";
+import PropTypes from "prop-types";
+import { BoxProps } from "./types/box-types";
+import { propTypes } from "./enhancers";
+import enhanceProps from "./enhance-props";
 
-export default class Box extends React.Component<BoxProps, {}> {
-  static displayName = 'Box'
+export const Box: React.FC<BoxProps> = ({ is = "div", innerRef, children, ...props }) => {
+  // Convert the CSS props to class names (and inject the styles)
+  const { className, enhancedProps: parsedProps } = enhanceProps(props);
 
-  static propTypes = {
-    ...propTypes,
-    innerRef: PropTypes.func,
-    is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    boxSizing: propTypes.boxSizing
+  parsedProps.className = className;
+
+  if (innerRef) {
+    parsedProps.ref = (node: React.ReactNode) => {
+      innerRef(node);
+    };
   }
 
-  static defaultProps = {
-    innerRef: null,
-    is: 'div',
-    boxSizing: 'border-box'
-  }
+  return React.createElement(is, parsedProps, children);
+};
 
-  render() {
-    const {is = 'div', innerRef, children, ...props} = this.props
-    // Convert the CSS props to class names (and inject the styles)
-    const {className, enhancedProps: parsedProps} = enhanceProps(props)
+Box.displayName = "Box";
 
-    parsedProps.className = className
+Box.propTypes = {
+  ...propTypes,
+  innerRef: PropTypes.func,
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func]) as PropTypes.Validator<
+    keyof JSX.IntrinsicElements | React.ComponentClass<any, any> | React.FunctionComponent<any>
+  >,
+  boxSizing: propTypes.boxSizing
+};
 
-    if (innerRef) {
-      parsedProps.ref = (node: React.ReactNode) => {
-        innerRef(node)
-      }
-    }
+Box.defaultProps = {
+  innerRef: undefined,
+  is: "div",
+  boxSizing: "border-box"
+};
 
-    return React.createElement(is, parsedProps, children)
-  }
-}
+export default Box;
