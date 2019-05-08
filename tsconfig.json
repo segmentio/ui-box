@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "lib": [
       "es2015",
@@ -10,7 +10,6 @@
       "es2018",
       "dom"
     ],
-    "downlevelIteration": true,
     "declaration": true,
     "sourceMap": false,
     "inlineSourceMap": true,

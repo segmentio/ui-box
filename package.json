@@ -151,7 +151,9 @@
     {
       "webpack": false,
       "path": "dist/index.js",
-      "limit": "19 KB"
+      "limit": "19 KB",
+      "running": false,
+      "gzip": false
     }
   ],
   "ava": {
