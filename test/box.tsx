@@ -1,12 +1,12 @@
 import test from 'ava'
 import React from 'react'
 import * as render from 'react-test-renderer'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 import * as sinon from 'sinon'
 import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
-import {propNames} from '../src/enhancers'
+import { propNames } from '../src/enhancers'
 
 test.afterEach.always(() => {
   styles.clear()
@@ -58,7 +58,7 @@ test('is prop allows changing the component type', t => {
 })
 
 test('innerRef prop gets passed the ref', t => {
-  const node = {domNode: true}
+  const node = { domNode: true }
   const innerRef = sinon.spy()
   render.create(<Box innerRef={innerRef} />, {
     createNodeMock() {

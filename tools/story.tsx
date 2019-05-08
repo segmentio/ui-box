@@ -1,15 +1,23 @@
 import React from 'react'
 import Box from '../src'
-import {storiesOf} from '@storybook/react'
+import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 
 const RedBox = redBoxProps => (
-  <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
+  <Box
+    background="red"
+    width="100px"
+    height="100px"
+    margin="20px"
+    {...redBoxProps}
+  />
 )
 
 const logRef = ref => console.log(ref)
 
-interface CustomProps { children: React.ReactNode }
+interface CustomProps {
+  children: React.ReactNode
+}
 const CustomComp: React.FunctionComponent<CustomProps> = props => {
   return (
     <div>

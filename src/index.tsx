@@ -1,9 +1,9 @@
-import * as cache from "./cache";
-import * as styles from "./styles";
+import * as cache from './cache'
+import * as styles from './styles'
 
-export { default } from "./box";
-export { splitProps } from "./utils/split-props";
-export { splitBoxProps } from "./utils/split-box-props";
+export { default } from './box'
+export { splitProps } from './utils/split-props'
+export { splitBoxProps } from './utils/split-box-props'
 
 export {
   background,
@@ -25,20 +25,20 @@ export {
   propNames,
   propAliases,
   propEnhancers
-} from "./enhancers/index";
+} from './enhancers/index'
 
-export const hydrate = cache.hydrate;
+export const hydrate = cache.hydrate
 
 export function extractStyles() {
   const output = {
     cache: cache.entries(),
     styles: styles.getAll()
-  };
-  clearStyles();
-  return output;
+  }
+  clearStyles()
+  return output
 }
 
 export function clearStyles() {
-  cache.clear();
-  styles.clear();
+  cache.clear()
+  styles.clear()
 }
