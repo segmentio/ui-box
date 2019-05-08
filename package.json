@@ -151,7 +151,7 @@
     {
       "webpack": false,
       "path": "dist/index.js",
-      "limit": "19 KB",
+      "limit": "5 KB",
       "running": false,
       "gzip": false
     }
