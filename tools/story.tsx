@@ -10,7 +10,7 @@ const RedBox = redBoxProps => (
 const logRef = ref => console.log(ref)
 
 interface CustomProps { children: React.ReactNode }
-const CustomComp: React.SFC<CustomProps> = props => {
+const CustomComp: React.FunctionComponent<CustomProps> = props => {
   return (
     <div>
       <Box is="h1">custom component</Box>

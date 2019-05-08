@@ -12,8 +12,12 @@
     ],
     "downlevelIteration": true,
     "declaration": true,
+    "sourceMap": false,
     "inlineSourceMap": true,
-    "rootDir": "./src",
+    "rootDirs": [
+      "./src",
+      "./tools"
+    ],
     "jsx": "react",
     "moduleResolution": "node",
     "strict": true,

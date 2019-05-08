@@ -5,7 +5,7 @@ type UIBoxProp = string | number | boolean | null | undefined
 export type CSSProps = CSS.StandardProperties<number | string | boolean>
 
 interface BoxPropsBase extends CSSProps {
-  is?: string | React.ComponentClass | React.FunctionComponent
+  is?: string | React.ComponentClass<any, any> | React.FunctionComponent<any>
 
   className?: string
 
