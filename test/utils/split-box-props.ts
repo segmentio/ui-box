@@ -1,5 +1,5 @@
 import test from 'ava'
-import splitBoxProps from '../../src/utils/split-box-props'
+import {splitBoxProps} from '../../src/utils/split-box-props'
 
 test('splits box props', t => {
   const props = {
