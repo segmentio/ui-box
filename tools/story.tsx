@@ -3,7 +3,7 @@ import Box from '../src'
 import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 
-const RedBox = redBoxProps => (
+const RedBox = (redBoxProps: any) => (
   <Box
     background="red"
     width="100px"
@@ -13,7 +13,7 @@ const RedBox = redBoxProps => (
   />
 )
 
-const logRef = ref => console.log(ref)
+const logRef = (ref: any) => console.log(ref)
 
 interface CustomProps {
   children: React.ReactNode
