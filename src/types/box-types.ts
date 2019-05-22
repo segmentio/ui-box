@@ -5,7 +5,7 @@ import { EnhancerProps } from './enhancers'
  * @template T Object
  * @template K Union of T keys
  */
-export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+export type Without<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
 /**
  * "is" prop
@@ -19,7 +19,7 @@ export type Is<P = any> = React.ElementType<P>
  * @template T React component or string element
  */
 export type BoxProps<T extends Is> = &
-  Omit<React.ComponentProps<T>, "is"> &
+  Without<React.ComponentProps<T>, "is"> &
   EnhancerProps & {
     /**
      * Replaces the underlying element
