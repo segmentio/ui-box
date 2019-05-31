@@ -45,11 +45,6 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
   }
 
 export interface BoxComponent<T extends Is> {
-  // This is the desired type (inspired by reakit)
-  // <TT extends Is = T>(props: BoxProps<TT>): JSX.Element
-  // Unfortunately, TypeScript doesn't like it. It works for string elements
-  // and functional components without generics, but it breaks on generics.
-  // The following two types are a workaround.
   <TT extends Is = T>(props: BoxProps<TT>): React.ReactElement | null
   propTypes?: any
   defaultProps?: any
