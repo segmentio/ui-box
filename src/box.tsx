@@ -22,15 +22,15 @@ function createComponent<T extends Is>({ is: defaultIs }: Options<T>) {
     return React.createElement(is, parsedProps, children)
   }
 
-  ;(Component as any).displayName = 'Box'
+  Component.displayName = 'Box'
 
-  ;(Component as any).propTypes = {
+  Component.propTypes = {
     ...propTypes,
     innerRef: PropTypes.func,
     is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
   }
 
-  ;(Component as any).defaultProps = {
+  Component.defaultProps = {
     innerRef: null,
     is: 'div',
     boxSizing: 'border-box'

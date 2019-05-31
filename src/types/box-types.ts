@@ -3,9 +3,9 @@ import { EnhancerProps } from './enhancers'
 
 /**
  * @template T Object
- * @template K Union of T keys
+ * @template K Union of keys (not necessarily present in T)
  */
-export type Without<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
 
 /**
  * "is" prop
@@ -14,13 +14,24 @@ export type Without<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 export type Is<P = any> = React.ElementType<P>
 
 /**
+ * Remove box props from object `T` if they're present
+ * @template T Object
+ */
+export type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
+
+/**
+ * Grab components passed to the `is` prop and return their props
+ * @template T Component type
+ */
+export type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentProps<T>>
+
+/**
  * Generic component props with "is" prop
  * @template P Additional props
  * @template T React component or string element
  */
-export type BoxProps<T extends Is> = &
-  Without<React.ComponentProps<T>, "is"> &
-  EnhancerProps & {
+export type BoxProps<T extends Is> = InheritedProps<T> &
+    EnhancerProps & {
     /**
      * Replaces the underlying element
      */
@@ -39,6 +50,8 @@ export interface BoxComponent<T extends Is> {
   // Unfortunately, TypeScript doesn't like it. It works for string elements
   // and functional components without generics, but it breaks on generics.
   // The following two types are a workaround.
-  <TT extends Is>(props: BoxProps<TT> & { is?: TT }): React.ReactElement | null
-  (props: BoxProps<T>): React.ReactElement | null
+  <TT extends Is = T>(props: BoxProps<TT>): React.ReactElement | null
+  propTypes?: any
+  defaultProps?: any
+  displayName?: string
 }
