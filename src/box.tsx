@@ -1,44 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Is, BoxProps, BoxComponent} from './types/box-types'
+import {BoxComponent} from './types/box-types'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 
-type Options<T extends Is> = {
-  is: T
+const Box: BoxComponent = ({ is = 'div', innerRef, children, ...props }) => {
+  // Convert the CSS props to class names (and inject the styles)
+  const {className, enhancedProps: parsedProps} = enhanceProps(props)
+
+  parsedProps.className = className
+
+  if (innerRef) {
+    parsedProps.ref = innerRef
+  }
+
+  return React.createElement(is, parsedProps, children)
 }
 
-function createComponent<T extends Is>({ is: defaultIs }: Options<T>) {
-  const Component: BoxComponent<T> = ({ is = defaultIs, innerRef, children, ...props }: BoxProps<T>) => {
-    // Convert the CSS props to class names (and inject the styles)
-    const {className, enhancedProps: parsedProps} = enhanceProps(props)
+Box.displayName = 'Box'
 
-    parsedProps.className = className
-
-    if (innerRef) {
-      parsedProps.ref = innerRef
-    }
-
-    return React.createElement(is, parsedProps, children)
-  }
-
-  Component.displayName = 'Box'
-
-  Component.propTypes = {
-    ...propTypes,
-    innerRef: PropTypes.func,
-    is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-  }
-
-  Component.defaultProps = {
-    innerRef: null,
-    is: 'div',
-    boxSizing: 'border-box'
-  }
-
-  return Component
+Box.propTypes = {
+  ...propTypes,
+  innerRef: PropTypes.func,
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 }
 
-const Box = createComponent({ is: 'div' })
+Box.defaultProps = {
+  innerRef: null,
+  is: 'div',
+  boxSizing: 'border-box'
+}
 
 export default Box

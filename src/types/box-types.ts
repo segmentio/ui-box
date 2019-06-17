@@ -17,13 +17,13 @@ export type Is<P = any> = React.ElementType<P>
  * Remove box props from object `T` if they're present
  * @template T Object
  */
-export type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
+type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
 
 /**
  * Grab components passed to the `is` prop and return their props
  * @template T Component type
  */
-export type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentProps<T>>
+type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentProps<T>>
 
 /**
  * Generic component props with "is" prop
@@ -44,9 +44,9 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
     innerRef?: React.Ref<T>
   }
 
-export interface BoxComponent<T extends Is> {
-  <TT extends Is = T>(props: BoxProps<TT>): React.ReactElement | null
-  propTypes?: any
-  defaultProps?: any
-  displayName?: string
+export interface BoxComponent {
+  <T extends Is>(props: BoxProps<T>): React.ReactElement | null
+  propTypes?: React.FunctionComponent['propTypes']
+  defaultProps?: React.FunctionComponent['defaultProps']
+  displayName?: React.FunctionComponent['displayName']
 }
