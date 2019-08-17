@@ -141,10 +141,10 @@ type CssProps = Pick<
 type BoxCssProps<CP> = {
   // Enhance the CSS props with the ui-box supported values.
   // `string` isn't added because it'll ruin props with string literal types (e.g textAlign)
-  [P in keyof CP]: CP[P] | number | boolean | null | undefined
+  [P in keyof CP]: CP[P] | number | false | null | undefined
 }
 
-export type BoxPropValue = string | number | boolean | null | undefined
+export type BoxPropValue = string | number | false | null | undefined
 
 export type EnhancerProps = BoxCssProps<CssProps> & {
   /**
