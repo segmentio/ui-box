@@ -41,7 +41,9 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
      * Callback that gets passed a ref to inner DOM node (or component if the
      * `is` prop is set to a React component type).
      */
-    innerRef?: React.Ref<T>
+    innerRef?:
+      | ((instance: any) => void)
+      | React.RefObject<HTMLElement | SVGElement | React.Component>
   }
 
 export interface BoxComponent {
