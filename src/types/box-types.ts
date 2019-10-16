@@ -1,5 +1,8 @@
 import React from 'react'
 import { EnhancerProps } from './enhancers'
+import { DomNodes } from './dom-nodes'
+
+export { EnhancerProps }
 
 /**
  * @template T Object
@@ -14,6 +17,15 @@ export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
 export type Is<P = any> = React.ElementType<P>
 
 /**
+ * Custom Ref to handle `is` prop
+ */
+export type RefType<T> = T extends keyof DomNodes
+  ? DomNodes[T] // Get the DOM node type
+  : T extends typeof React.Component
+  ? T['prototype'] // Convert component class type back to a class instance
+  : never // Functional components can't have refs
+
+/**
  * Remove box props from object `T` if they're present
  * @template T Object
  */
@@ -23,7 +35,7 @@ type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
  * Grab components passed to the `is` prop and return their props
  * @template T Component type
  */
-type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentProps<T>>
+type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentPropsWithoutRef<T>>
 
 /**
  * Generic component props with "is" prop
@@ -41,12 +53,14 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
      * Callback that gets passed a ref to inner DOM node (or component if the
      * `is` prop is set to a React component type).
      */
-    innerRef?: React.Ref<T>
+    innerRef?:
+      | ((ref: RefType<T>) => void)
+      | React.RefObject<RefType<T>>
   }
 
-export interface BoxComponent {
-  <T extends Is>(props: BoxProps<T>): React.ReactElement | null
-  propTypes?: React.FunctionComponent['propTypes']
-  defaultProps?: React.FunctionComponent['defaultProps']
-  displayName?: React.FunctionComponent['displayName']
-}
+  export interface BoxComponent {
+    <T extends Is>(props: BoxProps<T>): React.ReactElement | null
+    propTypes?: React.FunctionComponent['propTypes']
+    defaultProps?: React.FunctionComponent['defaultProps']
+    displayName?: React.FunctionComponent['displayName']
+  }
