@@ -14,9 +14,9 @@ test('supports basic prop + value', t => {
   }
   const result = getCss(propInfo, '10px')
   t.deepEqual(result, {
-    className: '📦min-w_10px',
+    className: 'ub-min-w_10px',
     styles: `
-.📦min-w_10px {
+.ub-min-w_10px {
   min-width: 10px;
 }`
   })
@@ -30,9 +30,9 @@ test('supports number value', t => {
   }
   const result = getCss(propInfo, 10)
   t.deepEqual(result, {
-    className: '📦min-w_10px',
+    className: 'ub-min-w_10px',
     styles: `
-.📦min-w_10px {
+.ub-min-w_10px {
   min-width: 10px;
 }`
   })
@@ -50,7 +50,7 @@ test('adds prefixes', t => {
   t.deepEqual(
     result.styles,
     `
-.📦usr-slct_none {
+.ub-usr-slct_none {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -71,6 +71,6 @@ test.serial('returns minified css in production', t => {
   const result = getCss(propInfo, 'none')
   t.deepEqual(
     result.styles,
-    '.📦usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
+    '.ub-usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
   )
 })
