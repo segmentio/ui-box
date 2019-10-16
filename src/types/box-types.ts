@@ -58,9 +58,9 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
       | React.RefObject<RefType<T>>
   }
 
-  export interface BoxComponent {
-    <T extends Is>(props: BoxProps<T>): React.ReactElement | null
-    propTypes?: React.FunctionComponent['propTypes']
-    defaultProps?: React.FunctionComponent['defaultProps']
-    displayName?: React.FunctionComponent['displayName']
-  }
+export interface BoxComponent {
+  <T extends Is>(props: BoxProps<T>): React.ReactElement | null
+  propTypes?: React.FunctionComponent['propTypes']
+  defaultProps?: React.FunctionComponent['defaultProps']
+  displayName?: React.FunctionComponent['displayName']
+}
