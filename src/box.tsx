@@ -23,7 +23,7 @@ Box.propTypes = {
   ...propTypes,
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.elementType })
+    PropTypes.shape({ current: PropTypes.element })
   ]),
   is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 }

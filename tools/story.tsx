@@ -2,12 +2,14 @@ import React from 'react'
 import Box from '../src'
 import {storiesOf} from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
+import { BoxProps } from '../src/types/box-types'
 
-const RedBox = redBoxProps => (
+const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
   <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
 )
 
-const logRef = ref => console.log(ref)
+const logRef = (ref: Element | null) => console.log(ref)
+const reactRef = React.createRef<unknown>()
 
 interface CustomProps { children: React.ReactNode }
 const CustomComp: React.FunctionComponent<CustomProps> = props => {
@@ -66,7 +68,7 @@ storiesOf('Box', module)
       <RedBox border="10px solid grey" borderColor="black" />
       <RedBox borderTop="10px solid grey" />
       <RedBox borderTop="10px solid grey" borderTopColor="black" />
-      <RedBox borderTop="5px solid" borderTopStyle="dashed !important" />
+      <RedBox borderTop="5px solid" borderTopStyle="dashed" />
       <RedBox borderBottom="10px solid grey" />
       <RedBox borderLeft="10px solid grey" />
     </Box>
@@ -149,6 +151,11 @@ storiesOf('Box', module)
   .add('innerRef', () => (
     <Box>
       <Box innerRef={logRef}>innerRef</Box>
+    </Box>
+  ))
+  .add('innerRef as React ref', () => (
+    <Box>
+      <Box innerRef={reactRef}>React ref</Box>
     </Box>
   ))
   .add('props pass through', () => (
