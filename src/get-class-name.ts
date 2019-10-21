@@ -35,5 +35,5 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
     valueKey = getSafeValue(value)
   }
 
-  return `📦${className}_${valueKey}`
+  return `ub-${className}_${valueKey}`
 }
