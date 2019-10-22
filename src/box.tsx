@@ -21,7 +21,10 @@ Box.displayName = 'Box'
 
 Box.propTypes = {
   ...propTypes,
-  innerRef: PropTypes.func,
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.element })
+  ]),
   is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 }
 
