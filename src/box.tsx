@@ -25,7 +25,7 @@ Box.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.element })
   ]),
-  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.elementType])
 }
 
 Box.defaultProps = {
