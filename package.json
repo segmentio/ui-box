@@ -26,7 +26,7 @@
     "dev": "start-storybook -p 9009",
     "build": "tsc",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
-    "release": "np --no-publish",
+    "release": "np",
     "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js",
     "size": "size-limit",
     "coverage": "nyc report --reporter=html"
