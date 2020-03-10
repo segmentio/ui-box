@@ -297,6 +297,15 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 * `transform`
 * `transition`
 
+### Classname prefix
+
+By default `ui-box` uses `ub-` as the classname prefix before all ui-box generated classnames. You can alter this by using `setClassNamePrefix('whatever-you-want-')`. Note that the delimiter is included in the prefix... this is to support backwards compatibility with the old classnames (< v3), which you can achieve using something like this:
+
+```js
+import { setClassNamePrefix } from 'ui-box'
+setClassNamePrefix('📦')
+```
+
 ### Server side rendering
 
 To render the styles on the server side just use [`ReactDOMServer.renderToString()`](https://reactjs.org/docs/react-dom-server.html#rendertostring) as usual and then call the [`extractStyles()`](#extractstyles) method retrieve the rendered styles and cache. The styles can then be output to a `<style>` tag or an external stylesheet. The cache data should be passed to the [`hydrate()`](#hydratecache) method on the client side before you call [`ReactDOM.hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate).

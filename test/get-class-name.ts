@@ -1,5 +1,5 @@
 import test from 'ava'
-import getClassName from '../src/get-class-name'
+import getClassName, { setClassNamePrefix, getClassNamePrefix } from '../src/get-class-name'
 
 test('supports inherit', t => {
   t.is(getClassName({className: 'w'}, 'inherit'), 'ub-w_inherit')
@@ -37,4 +37,9 @@ test('always hashes values that contain a calc()', t => {
     'calc(50% + 20px)'
   )
   t.is(result, 'ub-w_1vuvdht')
+})
+
+test('allows custom classname prefixes', t => {
+  setClassNamePrefix('📦')
+  t.is(getClassName({className: 'w'}, 'inherit'), '📦w_inherit')
 })

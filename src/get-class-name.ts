@@ -1,6 +1,16 @@
 import hash from '@emotion/hash'
 import getSafeValue from './get-safe-value'
 
+let PREFIX = 'ub-'
+
+export function getClassNamePrefix(): string {
+  return PREFIX
+}
+
+export function setClassNamePrefix(prefix: string): void {
+  PREFIX = prefix
+}
+
 export interface PropertyInfo {
   className?: string
   safeValue?: boolean
@@ -35,5 +45,5 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
     valueKey = getSafeValue(value)
   }
 
-  return `ub-${className}_${valueKey}`
+  return `${PREFIX}${className}_${valueKey}`
 }

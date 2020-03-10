@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
+import { getClassNamePrefix } from '../get-class-name'
 import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
@@ -51,9 +52,9 @@ export const propEnhancers: PropEnhancers = {
   boxSizing: (value: PropEnhancerValueType) => getCss(boxSizing, value),
   clear: (value: PropEnhancerValueType) => getCss(clear, value),
   clearfix: () => ({
-    className: 'ub-clearfix',
+    className: `${getClassNamePrefix()}clearfix`,
     styles: `
-.ub-clearfix:before, .ub-clearfix:after {
+.${getClassNamePrefix()}clearfix:before, .${getClassNamePrefix()}clearfix:after {
   display: table;
   clear: both;
   content: "";
