@@ -4,8 +4,6 @@ import {storiesOf} from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 import { BoxProps } from '../src/types/box-types'
 
-setUseSafeHref(true)
-
 const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
   <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
 )
@@ -24,23 +22,40 @@ const CustomComp: React.FunctionComponent<CustomProps> = props => {
 }
 
 storiesOf('Box', module)
-  .add(`is=''`, () => (
-    <Box>
-      <Box is="h1">h1</Box>
-      <Box is="h2">h2</Box>
-      <Box is="h3">h3</Box>
-      <Box is="p">p</Box>
-      <Box is="strong">strong</Box>
-      <Box is="input" />
-
+  .add(`is=''`, () => {
+    return (
+      <Box>
+        <Box is="h1">h1</Box>
+        <Box is="h2">h2</Box>
+        <Box is="h3">h3</Box>
+        <Box is="p">p</Box>
+        <Box is="strong">strong</Box>
+        <Box is="input" />
+      </Box>
+    )
+  })
+  .add('safe `href`', () => {
+    setUseSafeHref(true)
+    return (
       <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
         <Box is="h2">Links</Box>
         <Box is="a" href="/something/afile">Internal Link</Box>
         <Box is="a" href="http://www.google.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
       </Box>
-    </Box>
-  ))
+    )
+  })
+  .add('unsafe `href`', () => {
+    setUseSafeHref(false)
+    return (
+      <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
+        <Box is="h2">Links</Box>
+        <Box is="a" href="/something/afile">Internal Link</Box>
+        <Box is="a" href="http://www.google.com">External Link</Box>
+        <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+      </Box>
+    )
+  })
   .add(`custom comp`, () => (
     <Box>
       <Box is={CustomComp}>
