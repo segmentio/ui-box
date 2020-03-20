@@ -306,6 +306,15 @@ import { setClassNamePrefix } from 'ui-box'
 setClassNamePrefix('📦')
 ```
 
+### Safe `href`s
+
+By default `ui-box` does not ensure that safe urls are used when passed to an element. But we built this functionality into protect the end users of the products you are building. You can alter this by using `setUseSafeHref(boolean)`.
+
+```js
+import { setUseSafeHref } from 'ui-box'
+setUseSafeHref(true)
+```
+
 ### Server side rendering
 
 To render the styles on the server side just use [`ReactDOMServer.renderToString()`](https://reactjs.org/docs/react-dom-server.html#rendertostring) as usual and then call the [`extractStyles()`](#extractstyles) method retrieve the rendered styles and cache. The styles can then be output to a `<style>` tag or an external stylesheet. The cache data should be passed to the [`hydrate()`](#hydratecache) method on the client side before you call [`ReactDOM.hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate).
