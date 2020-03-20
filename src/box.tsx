@@ -15,10 +15,22 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, ...props }) => {
     parsedProps.ref = innerRef
   }
 
+  /**
+   * If the user has enabled safe hrefs we want to make sure that the url passed
+   * is safe and that the other attributes that make the link safe are added to the
+   * element
+   */
   if (getUseSafeHref() && is === 'a' && parsedProps.href) {
+    /**
+     * Get url info and update href
+     */
     const urlInfo = getURLInfo(parsedProps.href)
     parsedProps.href = urlInfo.url
 
+    /**
+     * If the url passed is safe, we want to also update the attributes of the element
+     * to be safe
+     */
     if (urlInfo.url) {
       parsedProps.rel = parsedProps.rel ? parsedProps.rel : ''
 
