@@ -17,7 +17,7 @@ export function getURLInfo(url: string): URLInfo {
     /**
      * An array of the safely allowed url protocols
      */
-    const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:']
+    const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'data:']
 
     /**
      * Create an anchor element to parse the protocol and origin of the url provided
