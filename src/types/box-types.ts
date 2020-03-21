@@ -56,7 +56,7 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
     innerRef?: React.Ref<RefType<T>>
 
     /**
-     * 
+     * Allows the high level value of safeHref to be overwritten on an individual component basis
      */
     allowUnsafeHref?: boolean
   }
