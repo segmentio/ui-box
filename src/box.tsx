@@ -5,7 +5,7 @@ import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 import {getURLInfo, getUseSafeHref} from './utils/safeHref'
 
-const Box: BoxComponent = ({ is = 'div', innerRef, children, ...props }) => {
+const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ...props }) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
@@ -20,7 +20,8 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, ...props }) => {
    * is safe and that the other attributes that make the link safe are added to the
    * element
    */
-  if (getUseSafeHref() && is === 'a' && parsedProps.href) {
+  const safeHrefEnabled = !allowUnsafeHref && getUseSafeHref() && is === 'a' && parsedProps.href
+  if (safeHrefEnabled) {
     /**
      * Get url info and update href
      */

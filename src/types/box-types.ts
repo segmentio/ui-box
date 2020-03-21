@@ -54,6 +54,11 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
      * `is` prop is set to a React component type).
      */
     innerRef?: React.Ref<RefType<T>>
+
+    /**
+     * 
+     */
+    allowUnsafeHref?: boolean
   }
 
 export interface BoxComponent {

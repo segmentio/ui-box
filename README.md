@@ -315,6 +315,12 @@ import { setUseSafeHref } from 'ui-box'
 setUseSafeHref(true)
 ```
 
+Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref`
+
+```jsx
+<Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>This is unsafe</Box>
+```
+
 ### Server side rendering
 
 To render the styles on the server side just use [`ReactDOMServer.renderToString()`](https://reactjs.org/docs/react-dom-server.html#rendertostring) as usual and then call the [`extractStyles()`](#extractstyles) method retrieve the rendered styles and cache. The styles can then be output to a `<style>` tag or an external stylesheet. The cache data should be passed to the [`hydrate()`](#hydratecache) method on the client side before you call [`ReactDOM.hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate).
