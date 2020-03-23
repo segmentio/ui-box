@@ -14,11 +14,11 @@ let useSafeHref = false
 let globalOrigin = typeof window !== null ? window.location.origin : false
 
 export function configureSafeHref(configObject: SafeHrefConfigObj) {
-    if (typeof configObject.enabled === 'boolean') {
+    if (typeof configObject.enabled !== 'undefined') {
         useSafeHref = configObject.enabled
     }
 
-    if (typeof configObject.origin === 'string') {
+    if (configObject.origin) {
         globalOrigin = configObject.origin
     }
 }
