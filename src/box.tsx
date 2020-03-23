@@ -17,8 +17,8 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ..
 
   /**
    * If the user has enabled safe hrefs we want to make sure that the url passed
-   * is safe and that the other attributes that make the link safe are added to the
-   * element
+   * uses a safe protocol and that the other attributes that make the link safe are
+   * added to the element
    */
   const safeHrefEnabled = (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
