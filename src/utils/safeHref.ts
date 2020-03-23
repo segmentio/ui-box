@@ -11,7 +11,7 @@ export interface SafeHrefConfigObj {
 const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
 let useSafeHref = false
-let globalOrigin = typeof window !== null ? window.location.origin : false
+let globalOrigin = typeof window !== 'undefined' ? window.location.origin : false
 
 export function configureSafeHref(configObject: SafeHrefConfigObj) {
     if (typeof configObject.enabled !== 'undefined') {
