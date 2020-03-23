@@ -20,20 +20,14 @@ export function getURLInfo(url: string): URLInfo {
     const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'data:']
 
     /**
-     * Create an anchor element to parse the protocol and origin of the url provided
-     */
-    const anchorElement = document.createElement('a')
-    anchorElement.href = url
-
-    /**
-     * Compare window location if not ssr
-     */
-    const sameOrigin = typeof window !== undefined ? anchorElement.origin === window.location.origin : true
-
-    /**
      * Verify passed url is using a safe protocol
      */
-    const isSafeProtocol = safeProtocols.includes(anchorElement.protocol)
+    const PROTOCOL_REGEX = /^[a-z]+:/
+    const protocolResult = url.match(PROTOCOL_REGEX)
+    const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
+    const isSafeProtocol = urlProtocol === 'relative' ? true : safeProtocols.includes(urlProtocol)
+    const sameOrigin = urlProtocol === 'relative'
+
     if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a error in the console, and return the URLInfo object
