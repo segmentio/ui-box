@@ -86,5 +86,3 @@ export function extractAnchorProps(href: string, rel: string) {
         safeRel
     }
 }
-
-export default getURLInfo
