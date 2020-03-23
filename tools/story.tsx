@@ -40,7 +40,7 @@ storiesOf('Box', module)
       <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
         <Box is="h2">Links</Box>
         <Box is="a" href="/something/afile">Internal Link</Box>
-        <Box is="a" href="http://www.google.com">External Link</Box>
+        <Box is="a" href="https://www.google.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
         <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
       </Box>

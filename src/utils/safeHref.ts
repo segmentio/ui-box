@@ -3,6 +3,7 @@ export interface URLInfo {
     sameOrigin: boolean
 }
 
+const PROTOCOL_REGEX = /^[a-z]+:/
 let useSafeHref = false
 
 export function setUseSafeHref(value: boolean) {
@@ -20,9 +21,10 @@ export function getURLInfo(url: string): URLInfo {
     const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'data:']
 
     /**
-     * Verify passed url is using a safe protocol
+     * - Find protocol of URL or set to 'relative'
+     * - Determine if sameOrigin (Protocol is relative)
+     * - Determine if protocol of URL is safe
      */
-    const PROTOCOL_REGEX = /^[a-z]+:/
     const protocolResult = url.match(PROTOCOL_REGEX)
     const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
     const sameOrigin = urlProtocol === 'relative'
