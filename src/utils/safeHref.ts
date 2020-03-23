@@ -30,7 +30,7 @@ export function getURLInfo(url: string): URLInfo {
      * Verify passed url is using a safe protocol
      */
     const isSafeProtocol = safeProtocols.includes(anchorElement.protocol)
-    if (!isSafeProtocol && useSafeHref) {
+    if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a warning in the console, and retunr `undefined` and origin
          */

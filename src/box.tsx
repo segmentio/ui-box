@@ -20,7 +20,7 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ..
    * is safe and that the other attributes that make the link safe are added to the
    * element
    */
-  const safeHrefEnabled = !allowUnsafeHref && getUseSafeHref() && is === 'a' && parsedProps.href
+  const safeHrefEnabled = (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
     const {safeHref, safeRel} = extractAnchorProps(parsedProps.href, parsedProps.rel)
     parsedProps.href = safeHref

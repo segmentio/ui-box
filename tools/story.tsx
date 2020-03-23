@@ -42,6 +42,7 @@ storiesOf('Box', module)
         <Box is="a" href="/something/afile">Internal Link</Box>
         <Box is="a" href="http://www.google.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
       </Box>
     )
   })
@@ -53,6 +54,7 @@ storiesOf('Box', module)
         <Box is="a" href="/something/afile">Internal Link</Box>
         <Box is="a" href="http://www.google.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={false}>Overwride Safe Href</Box>
       </Box>
     )
   })
