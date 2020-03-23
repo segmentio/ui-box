@@ -3,11 +3,24 @@ export interface URLInfo {
     sameOrigin: boolean
 }
 
-const PROTOCOL_REGEX = /^[a-z]+:/
-let useSafeHref = false
+export interface SafeHrefConfigObj {
+    enabled?: boolean
+    origin?: string
+}
 
-export function setUseSafeHref(value: boolean) {
-    useSafeHref = value
+const PROTOCOL_REGEX = /^[a-z]+:/
+const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
+let useSafeHref = false
+let globalOrigin = typeof window !== null ? window.location.origin : false
+
+export function configureSafeHref(configObject: SafeHrefConfigObj) {
+    if (typeof configObject.enabled === 'boolean') {
+        useSafeHref = configObject.enabled
+    }
+
+    if (typeof configObject.origin === 'string') {
+        globalOrigin = configObject.origin
+    }
 }
 
 export function getUseSafeHref(): boolean {
@@ -22,12 +35,17 @@ export function getURLInfo(url: string): URLInfo {
 
     /**
      * - Find protocol of URL or set to 'relative'
-     * - Determine if sameOrigin (Protocol is relative)
+     * - Find origin of URL
+     * - Determine if sameOrigin
      * - Determine if protocol of URL is safe
      */
     const protocolResult = url.match(PROTOCOL_REGEX)
+    const originResult = url.match(ORIGIN_REGEX)
     const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
-    const sameOrigin = urlProtocol === 'relative'
+    let sameOrigin = urlProtocol === 'relative'
+    if (!sameOrigin && globalOrigin) {
+        sameOrigin = globalOrigin === (originResult && originResult[0])
+    }
 
     const isSafeProtocol = sameOrigin ? true : safeProtocols.includes(urlProtocol)
     if (!isSafeProtocol) {
