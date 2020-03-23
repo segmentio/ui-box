@@ -308,7 +308,7 @@ setClassNamePrefix('📦')
 
 ### Safe `href`s
 
-By default `ui-box` does not ensure that safe urls are used when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `setUseSafeHref(boolean)`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
+By default `ui-box` does not ensure that safe urls are used when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `setUseSafeHref(boolean)`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
 
 ```js
 import { setUseSafeHref } from 'ui-box'
