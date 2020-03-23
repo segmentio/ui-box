@@ -306,6 +306,30 @@ import { setClassNamePrefix } from 'ui-box'
 setClassNamePrefix('📦')
 ```
 
+### Safe `href`s
+
+By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
+
+```js
+import { configureSafeHref } from 'ui-box'
+configureSafeHref({
+  enabled: true, 
+})
+```
+```js
+import { configureSafeHref } from 'ui-box'
+configureSafeHref({
+  enabled: true
+  origin: 'https://app.segmentio.com', 
+})
+```
+
+Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref`
+
+```jsx
+<Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>This is unsafe</Box>
+```
+
 ### Server side rendering
 
 To render the styles on the server side just use [`ReactDOMServer.renderToString()`](https://reactjs.org/docs/react-dom-server.html#rendertostring) as usual and then call the [`extractStyles()`](#extractstyles) method retrieve the rendered styles and cache. The styles can then be output to a `<style>` tag or an external stylesheet. The cache data should be passed to the [`hydrate()`](#hydratecache) method on the client side before you call [`ReactDOM.hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate).

@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '../src'
+import {default as Box, configureSafeHref} from '../src'
 import {storiesOf} from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 import { BoxProps } from '../src/types/box-types'
@@ -22,16 +22,48 @@ const CustomComp: React.FunctionComponent<CustomProps> = props => {
 }
 
 storiesOf('Box', module)
-  .add(`is=''`, () => (
-    <Box>
-      <Box is="h1">h1</Box>
-      <Box is="h2">h2</Box>
-      <Box is="h3">h3</Box>
-      <Box is="p">p</Box>
-      <Box is="strong">strong</Box>
-      <Box is="input" />
-    </Box>
-  ))
+  .add(`is=''`, () => {
+    return (
+      <Box>
+        <Box is="h1">h1</Box>
+        <Box is="h2">h2</Box>
+        <Box is="h3">h3</Box>
+        <Box is="p">p</Box>
+        <Box is="strong">strong</Box>
+        <Box is="input" />
+      </Box>
+    )
+  })
+  .add('safe `href`', () => {
+    configureSafeHref({
+      enabled: true
+    })
+    return (
+      <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
+        <Box is="h2">Links</Box>
+        <Box is="a" href="/something/afile">Internal Link</Box>
+        <Box is="a" href="http://localhost:9009/test">Same Origin Link</Box>
+        <Box is="a" href="https://apple.com">External Link</Box>
+        <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
+      </Box>
+    )
+  })
+  .add('unsafe `href`', () => {
+    configureSafeHref({
+      enabled: false
+    })
+    return (
+      <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
+        <Box is="h2">Links</Box>
+        <Box is="a" href="/something/afile">Internal Link</Box>
+        <Box is="a" href="http://localhost:9009/test">Same Origin Link</Box>
+        <Box is="a" href="https://apple.com">External Link</Box>
+        <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={false}>Overwride Safe Href</Box>
+      </Box>
+    )
+  })
   .add(`custom comp`, () => (
     <Box>
       <Box is={CustomComp}>
