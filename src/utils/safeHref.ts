@@ -24,6 +24,10 @@ export function getURLInfo(url: string): URLInfo {
      */
     const anchorElement = document.createElement('a')
     anchorElement.href = url
+
+    /**
+     * Compare window location if not ssr
+     */
     const sameOrigin = typeof window !== undefined ? anchorElement.origin === window.location.origin : true
 
     /**
