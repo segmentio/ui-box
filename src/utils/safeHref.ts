@@ -33,7 +33,7 @@ export function getURLInfo(url: string): URLInfo {
     if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a error in the console, and return `undefined`
-         * for the href and sameOrigin boolean
+         * for the href and the sameOrigin boolean
          */
         console.error(
             '📦 `href` passed to anchor tag is unsafe. Because of this, the `href` on the element was not set. Please review the safe href documentation if you have questions.',
