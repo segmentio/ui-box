@@ -308,11 +308,20 @@ setClassNamePrefix('📦')
 
 ### Safe `href`s
 
-By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `setUseSafeHref(boolean)`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
+By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
 
 ```js
-import { setUseSafeHref } from 'ui-box'
-setUseSafeHref(true)
+import { configureSafeHref } from 'ui-box'
+configureSafeHref({
+  enabled: true, 
+})
+```
+```js
+import { configureSafeHref } from 'ui-box'
+configureSafeHref({
+  enabled: true
+  origin: 'https://app.segmentio.com', 
+})
 ```
 
 Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref`
