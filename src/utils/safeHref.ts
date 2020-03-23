@@ -24,7 +24,7 @@ export function getURLInfo(url: string): URLInfo {
      */
     const anchorElement = document.createElement('a')
     anchorElement.href = url
-    const sameOrigin = anchorElement.origin === window.location.origin
+    const sameOrigin = typeof window !== undefined ? anchorElement.origin === window.location.origin : true
 
     /**
      * Verify passed url is using a safe protocol
