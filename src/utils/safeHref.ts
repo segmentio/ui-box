@@ -53,4 +53,33 @@ export function getURLInfo(url: string): URLInfo {
     }
 }
 
+export function extractAnchorProps(href: string, rel: string) {
+     /**
+     * Get url info and update href
+     */
+    const urlInfo = getURLInfo(href)
+    const safeHref = urlInfo.url
+
+    /**
+     * If the url passed is safe, we want to also update the attributes of the element
+     * to be safe
+     */
+
+    let safeRel = rel ? rel : ''
+    if (urlInfo.url) {
+      if (!safeRel.includes('noopener')) {
+        safeRel += `${safeRel.length > 0 ? ' ' : ''}noopener`
+      }
+
+      if (!safeRel.includes('noreferrer') && !urlInfo.sameOrigin) {
+        safeRel += `${safeRel.length > 0 ? ' ' : ''}noreferrer`
+      }
+    }
+
+    return {
+        safeHref,
+        safeRel
+    }
+}
+
 export default getURLInfo

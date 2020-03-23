@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {BoxComponent} from './types/box-types'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
-import {getURLInfo, getUseSafeHref} from './utils/safeHref'
+import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
 
 const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ...props }) => {
   // Convert the CSS props to class names (and inject the styles)
@@ -22,27 +22,9 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ..
    */
   const safeHrefEnabled = !allowUnsafeHref && getUseSafeHref() && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
-    /**
-     * Get url info and update href
-     */
-    const urlInfo = getURLInfo(parsedProps.href)
-    parsedProps.href = urlInfo.url
-
-    /**
-     * If the url passed is safe, we want to also update the attributes of the element
-     * to be safe
-     */
-    if (urlInfo.url) {
-      parsedProps.rel = parsedProps.rel ? parsedProps.rel : ''
-
-      if (!parsedProps.rel.includes('noopener')) {
-        parsedProps.rel += `${parsedProps.rel.length > 0 ? ' ' : ''}noopener`
-      }
-
-      if (!parsedProps.rel.includes('noreferrer') && !urlInfo.sameOrigin) {
-        parsedProps.rel += `${parsedProps.rel.length > 0 ? ' ' : ''}noreferrer`
-      }
-    }
+    const {safeHref, safeRel} = extractAnchorProps(parsedProps.href, parsedProps.rel)
+    parsedProps.href = safeHref
+    parsedProps.rel = safeRel
   }
 
   return React.createElement(is, parsedProps, children)
