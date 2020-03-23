@@ -25,9 +25,9 @@ export function getURLInfo(url: string): URLInfo {
     const PROTOCOL_REGEX = /^[a-z]+:/
     const protocolResult = url.match(PROTOCOL_REGEX)
     const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
-    const isSafeProtocol = urlProtocol === 'relative' ? true : safeProtocols.includes(urlProtocol)
     const sameOrigin = urlProtocol === 'relative'
 
+    const isSafeProtocol = sameOrigin ? true : safeProtocols.includes(urlProtocol)
     if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a error in the console, and return the URLInfo object
