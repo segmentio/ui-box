@@ -308,7 +308,7 @@ setClassNamePrefix('📦')
 
 ### Safe `href`s
 
-By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
+By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `configureSafeHref({enabled?: boolean, origin?: string, additionalProtocols?: string[]})`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, and `tel:`), that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)), and any additional protocols passed are treated as safe.
 
 ```js
 import { configureSafeHref } from 'ui-box'
@@ -320,14 +320,16 @@ configureSafeHref({
 import { configureSafeHref } from 'ui-box'
 configureSafeHref({
   enabled: true
-  origin: 'https://app.segmentio.com', 
+  origin: 'https://app.segmentio.com',
+  additionalProtocols: ['data:'], 
 })
 ```
 
-Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref`
+Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref` and `allowProtocol`. Setting `allowUnsafeHref` completely bypasses all safeHref functionality (protocol checks, rel checks) whereas `allowProtocol` only bypasses protocol checks.
 
 ```jsx
 <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>This is unsafe</Box>
+<Box is="a" href="data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocol={true}>This is unsafe</Box>
 ```
 
 ### Server side rendering
