@@ -3,13 +3,21 @@ export interface URLInfo {
     sameOrigin: boolean
 }
 
+export interface HrefData {
+    href: string
+    rel: string
+    allowProtocol?: boolean
+}
+
 export interface SafeHrefConfigObj {
     enabled?: boolean
     origin?: string
+    additionalProtocols?: string[]
 }
 
 const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
+const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:']
 let useSafeHref = false
 let globalOrigin = typeof window !== 'undefined' ? window.location.origin : false
 
@@ -21,25 +29,24 @@ export function configureSafeHref(configObject: SafeHrefConfigObj) {
     if (configObject.origin) {
         globalOrigin = configObject.origin
     }
+
+    if (configObject.additionalProtocols && configObject.additionalProtocols.length) {
+        safeProtocols.push(...configObject.additionalProtocols)
+    }
 }
 
 export function getUseSafeHref(): boolean {
     return useSafeHref
 }
 
-export function getURLInfo(url: string): URLInfo {
-    /**
-     * An array of the safely allowed url protocols
-     */
-    const safeProtocols = ['http:', 'https:', 'mailto:', 'tel:', 'data:']
-
+export function getURLInfo(url: string, allowProtocol: boolean): URLInfo {
     /**
      * - Find protocol of URL or set to 'relative'
      * - Find origin of URL
      * - Determine if sameOrigin
      * - Determine if protocol of URL is safe
      */
-    const protocolResult = url.match(PROTOCOL_REGEX)
+    const protocolResult = url.replace(' ', '').match(PROTOCOL_REGEX)
     const originResult = url.match(ORIGIN_REGEX)
     const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
     let sameOrigin = urlProtocol === 'relative'
@@ -47,7 +54,7 @@ export function getURLInfo(url: string): URLInfo {
         sameOrigin = globalOrigin === (originResult && originResult[0])
     }
 
-    const isSafeProtocol = sameOrigin ? true : safeProtocols.includes(urlProtocol)
+    const isSafeProtocol = (allowProtocol || sameOrigin) ? true : safeProtocols.includes(urlProtocol)
     if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a error in the console, and return the URLInfo object
@@ -72,11 +79,14 @@ export function getURLInfo(url: string): URLInfo {
     }
 }
 
-export function extractAnchorProps(href: string, rel: string) {
+export function extractAnchorProps(hrefData: HrefData) {
+    const {href, rel} = hrefData
+    const allowProtocol = hrefData.allowProtocol || false
+
      /**
      * Get url info and update href
      */
-    const urlInfo = getURLInfo(href)
+    const urlInfo = getURLInfo(href, allowProtocol)
     const safeHref = urlInfo.url
 
     /**

@@ -59,6 +59,11 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
      * Allows the high level value of safeHref to be overwritten on an individual component basis
      */
     allowUnsafeHref?: boolean
+
+    /**
+     * Allows an unsafe protocol to be used on an individual component basis
+     */
+    allowProtocol?: boolean
   }
 
 export interface BoxComponent {
