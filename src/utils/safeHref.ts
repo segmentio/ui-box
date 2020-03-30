@@ -17,6 +17,7 @@ export interface SafeHrefConfigObj {
 
 const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
+const WHITE_SPACE_REGEX = /^\s+/
 const safeProtocols:Array<string> = ['http:', 'https:', 'mailto:', 'tel:']
 const customProtocols:Array<string> = []
 let useSafeHref = false
@@ -47,8 +48,9 @@ export function getURLInfo(url: string, allowProtocols: Array<string>): URLInfo 
      * - Determine if sameOrigin
      * - Determine if protocol of URL is safe
      */
-    const protocolResult = url.replace(' ', '').match(PROTOCOL_REGEX)
-    const originResult = url.match(ORIGIN_REGEX)
+    const cleanedUrl = url.replace(WHITE_SPACE_REGEX, '')
+    const protocolResult = cleanedUrl.match(PROTOCOL_REGEX)
+    const originResult = cleanedUrl.match(ORIGIN_REGEX)
     const urlProtocol = protocolResult ? protocolResult[0] : 'relative'
     let sameOrigin = urlProtocol === 'relative'
     if (!sameOrigin && globalOrigin) {
@@ -76,7 +78,7 @@ export function getURLInfo(url: string, allowProtocols: Array<string>): URLInfo 
      * If the url is safe, return the url and origin
      */
     return {
-        url,
+        url: cleanedUrl,
         sameOrigin
     }
 }
