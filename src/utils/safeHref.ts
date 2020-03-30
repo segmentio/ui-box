@@ -41,7 +41,7 @@ export function getUseSafeHref(): boolean {
     return useSafeHref
 }
 
-export function resetCutomProtocols() {
+export function resetCustomProtocols() {
     customProtocols = []
 }
 

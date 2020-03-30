@@ -1,5 +1,5 @@
 import test from 'ava'
-import {extractAnchorProps, configureSafeHref, resetCutomProtocols} from '../../src/utils/safeHref'
+import {extractAnchorProps, configureSafeHref, resetCustomProtocols} from '../../src/utils/safeHref'
 
 test('Allows safe protocols', t => {
     configureSafeHref({
@@ -42,7 +42,7 @@ test('Allows custom protocol', t => {
         rel: ''
     })
 
-    resetCutomProtocols()
+    resetCustomProtocols()
 
     t.assert(safeHref === 'data:text/html,<html><h1>Hi</h1></html>')
 })
