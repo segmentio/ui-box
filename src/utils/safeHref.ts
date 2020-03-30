@@ -6,7 +6,7 @@ export interface URLInfo {
 export interface HrefData {
     href: string
     rel: string
-    allowProtocols?: Array<string>
+    allowProtocols?: string[]
 }
 
 export interface SafeHrefConfigObj {
