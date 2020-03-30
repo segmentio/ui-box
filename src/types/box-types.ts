@@ -61,9 +61,9 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
     allowUnsafeHref?: boolean
 
     /**
-     * Allows an unsafe protocol to be used on an individual component basis
+     * Allows additional protocols to be considered safe
      */
-    allowProtocol?: boolean
+    allowProtocols?: Array<string>
   }
 
 export interface BoxComponent {

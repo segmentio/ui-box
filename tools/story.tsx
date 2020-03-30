@@ -46,7 +46,7 @@ storiesOf('Box', module)
         <Box is="a" href="https://apple.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
         <Box is="a" href=" data:text/html,<html><h1>Hi</h1></html>">Data protocol Link</Box>
-        <Box is="a" href=" data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocol={true}>Allow protocol Link</Box>
+        <Box is="a" href=" data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocols={['data:']}>Allow protocol Link</Box>
         <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
       </Box>
     )

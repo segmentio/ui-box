@@ -5,7 +5,7 @@ import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 import {extractAnchorProps, getUseSafeHref, HrefData} from './utils/safeHref'
 
-const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, allowProtocol, ...props }) => {
+const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, allowProtocols, ...props }) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
@@ -27,8 +27,8 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, al
       rel: parsedProps.rel,
     }
 
-    if (allowProtocol) {
-      hrefData.allowProtocol = allowProtocol
+    if (allowProtocols && allowProtocols.length > 0) {
+      hrefData.allowProtocols = allowProtocols
     }
 
     const {safeHref, safeRel} = extractAnchorProps(hrefData)

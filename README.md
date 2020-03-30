@@ -325,11 +325,11 @@ configureSafeHref({
 })
 ```
 
-Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref` and `allowProtocol`. Setting `allowUnsafeHref` completely bypasses all safeHref functionality (protocol checks, rel checks) whereas `allowProtocol` only bypasses protocol checks.
+Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref` and `allowProtocols`. Setting `allowUnsafeHref` completely bypasses all safeHref functionality (protocol checks, rel checks). Setting `allowProtocols` adds the contents of a string array to the allowed protocols.
 
 ```jsx
 <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>This is unsafe</Box>
-<Box is="a" href="data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocol={true}>This is unsafe</Box>
+<Box is="a" href="data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocols={['data:']}>This is unsafe</Box>
 ```
 
 ### Server side rendering
