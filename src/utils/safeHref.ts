@@ -19,7 +19,7 @@ const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
 const WHITE_SPACE_REGEX = /^\s+/
 const safeProtocols:Array<string> = ['http:', 'https:', 'mailto:', 'tel:']
-const customProtocols:Array<string> = []
+let customProtocols:Array<string> = []
 let useSafeHref = false
 let globalOrigin = typeof window !== 'undefined' ? window.location.origin : false
 
@@ -39,6 +39,10 @@ export function configureSafeHref(configObject: SafeHrefConfigObj) {
 
 export function getUseSafeHref(): boolean {
     return useSafeHref
+}
+
+export function resetCutomProtocols() {
+    customProtocols = []
 }
 
 export function getURLInfo(url: string, allowProtocols: Array<string>): URLInfo {
