@@ -18,7 +18,7 @@ export interface SafeHrefConfigObj {
 const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
 const WHITE_SPACE_REGEX = /^\s+/
-const safeProtocols:Array<string> = ['http:', 'https:', 'mailto:', 'tel:']
+const safeProtocols: string[] = ['http:', 'https:', 'mailto:', 'tel:']
 let customProtocols:Array<string> = []
 let useSafeHref = false
 let globalOrigin = typeof window !== 'undefined' ? window.location.origin : false
