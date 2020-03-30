@@ -36,7 +36,7 @@ storiesOf('Box', module)
   })
   .add('safe `href`', () => {
     configureSafeHref({
-      enabled: true
+      enabled: true,
     })
     return (
       <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
@@ -45,6 +45,8 @@ storiesOf('Box', module)
         <Box is="a" href="http://localhost:9009/test">Same Origin Link</Box>
         <Box is="a" href="https://apple.com">External Link</Box>
         <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
+        <Box is="a" href=" data:text/html,<html><h1>Hi</h1></html>">Data protocol Link</Box>
+        <Box is="a" href=" data:text/html,<html><h1>Hi</h1><script>alert('hi')</script></html>" allowProtocols={['data:']}>Allow protocol Link</Box>
         <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
       </Box>
     )

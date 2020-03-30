@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import {BoxComponent} from './types/box-types'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
-import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
+import {extractAnchorProps, getUseSafeHref, HrefData} from './utils/safeHref'
 
-const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ...props }) => {
+const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, allowProtocols, ...props }) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
@@ -22,7 +22,16 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ..
    */
   const safeHrefEnabled = (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
-    const {safeHref, safeRel} = extractAnchorProps(parsedProps.href, parsedProps.rel)
+    const hrefData:HrefData = {
+      href: parsedProps.href,
+      rel: parsedProps.rel,
+    }
+
+    if (allowProtocols && allowProtocols.length > 0) {
+      hrefData.allowProtocols = allowProtocols
+    }
+
+    const {safeHref, safeRel} = extractAnchorProps(hrefData)
     parsedProps.href = safeHref
     parsedProps.rel = safeRel
   }
