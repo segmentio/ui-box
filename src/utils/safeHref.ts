@@ -68,7 +68,7 @@ export function getURLInfo(url: string, allowProtocols: Array<string>): URLInfo 
          * with the value of url being `undefined` 
          */
         console.error(
-            '📦 `href` passed to anchor tag is unsafe. Because of this, the `href` on the element was not set. Please review the safe href documentation if you have questions.',
+            '📦 ui-box: `href` passed to anchor tag is unsafe. Because of this, the `href` on the element was not set. Please review the safe href documentation if you have questions.',
             'https://www.github.com/segmentio/ui-box'
         )
         return {
