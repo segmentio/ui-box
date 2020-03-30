@@ -76,7 +76,6 @@
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
-    "window": "^4.2.7",
     "xo": "^0.24.0"
   },
   "xo": {
@@ -160,8 +159,7 @@
   "ava": {
     "require": [
       "ts-node/register/transpile-only",
-      "./test/_setup",
-      "./test/_setup-jsdom-window"
+      "./test/_setup"
     ],
     "compileEnhancements": false,
     "extensions": [
