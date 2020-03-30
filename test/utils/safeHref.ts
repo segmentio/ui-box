@@ -16,7 +16,7 @@ test('Allows safe protocols', t => {
 
 test('Rejects unsafe protocols', t => {
     const {safeHref} = extractAnchorProps({
-        href: 'javascript://www.apple.com',
+        href: 'javascript:alert("hi")',
         rel: ''
     })
 
@@ -25,7 +25,7 @@ test('Rejects unsafe protocols', t => {
 
 test('Rejects unsafe protocols with whitespace', t => {
     const {safeHref} = extractAnchorProps({
-        href: '     javascript://www.apple.com',
+        href: '     javascript:alert("hi")',
         rel: ''
     })
 
