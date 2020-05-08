@@ -29,7 +29,7 @@ export type RefType<T> = T extends keyof DomNodes
  * Remove box props from object `T` if they're present
  * @template T Object
  */
-type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
+type WithoutBoxProps<T> = Without<T, "is">
 
 /**
  * Grab components passed to the `is` prop and return their props
@@ -53,7 +53,7 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
      * Callback that gets passed a ref to inner DOM node (or component if the
      * `is` prop is set to a React component type).
      */
-    innerRef?: React.Ref<RefType<T>>
+    ref?: React.Ref<RefType<T>>
 
     /**
      * Allows the high level value of safeHref to be overwritten on an individual component basis

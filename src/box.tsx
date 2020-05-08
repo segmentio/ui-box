@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { forwardRef, memo } from 'react'
 import PropTypes from 'prop-types'
 import {BoxComponent} from './types/box-types'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
 
-const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ...props }) => {
+const Box: BoxComponent = memo(forwardRef(({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
   parsedProps.className = className
 
-  if (innerRef) {
-    parsedProps.ref = innerRef
+  if (ref) {
+    parsedProps.ref = ref
   }
 
   /**
@@ -28,21 +28,16 @@ const Box: BoxComponent = ({ is = 'div', innerRef, children, allowUnsafeHref, ..
   }
 
   return React.createElement(is, parsedProps, children)
-}
+}))
 
 Box.displayName = 'Box'
 
 Box.propTypes = {
   ...propTypes,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.element })
-  ]),
   is: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.elementType])
 }
 
 Box.defaultProps = {
-  innerRef: null,
   is: 'div',
   boxSizing: 'border-box'
 }
