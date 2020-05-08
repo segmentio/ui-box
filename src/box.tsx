@@ -42,4 +42,4 @@ Box.defaultProps = {
   boxSizing: 'border-box'
 }
 
-export default memo(forwardRef(Box))
+export default memo(forwardRef(Box)) as BoxComponent
