@@ -186,6 +186,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `minWidth`
 * `opacity`
 * `order`
+* `outline`
 * `overflow`
 * `overflowX`
 * `overflowY`
@@ -201,6 +202,7 @@ All of these CSS properties are support. You can pass either a string or a numbe
 * `placeSelf`
 * `pointerEvents`
 * `position`
+* `resize`
 * `right`
 * `rowGap`
 * `textAlign`
@@ -313,14 +315,14 @@ By default `ui-box` does not ensure that urls use safe protocols when passed to 
 ```js
 import { configureSafeHref } from 'ui-box'
 configureSafeHref({
-  enabled: true, 
+  enabled: true,
 })
 ```
 ```js
 import { configureSafeHref } from 'ui-box'
 configureSafeHref({
   enabled: true
-  origin: 'https://app.segmentio.com', 
+  origin: 'https://app.segmentio.com',
 })
 ```
 

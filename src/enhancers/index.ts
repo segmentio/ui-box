@@ -9,8 +9,10 @@ import * as interaction from './interaction'
 import * as layout from './layout'
 import * as list from './list'
 import * as opacity from './opacity'
+import * as outline from './outline'
 import * as overflow from './overflow'
 import * as position from './position'
+import * as resize from './resize'
 import * as spacing from './spacing'
 import * as text from './text'
 import * as transform from './transform'
@@ -29,8 +31,10 @@ export {
   layout,
   list,
   opacity,
+  outline,
   overflow,
   position,
+  resize,
   spacing,
   text,
   transform,
@@ -49,8 +53,10 @@ export const propTypes: PropTypesMapping = {
   ...layout.propTypes,
   ...list.propTypes,
   ...opacity.propTypes,
+  ...outline.propTypes,
   ...overflow.propTypes,
   ...position.propTypes,
+  ...resize.propTypes,
   ...spacing.propTypes,
   ...text.propTypes,
   ...transform.propTypes,
@@ -71,8 +77,10 @@ export const propAliases: PropAliases = {
   ...layout.propAliases,
   ...list.propAliases,
   ...opacity.propAliases,
+  ...outline.propAliases,
   ...overflow.propAliases,
   ...position.propAliases,
+  ...resize.propAliases,
   ...spacing.propAliases,
   ...text.propAliases,
   ...transform.propAliases,
@@ -91,8 +99,10 @@ export const propValidators: PropValidators = {
   ...layout.propValidators,
   ...list.propValidators,
   ...opacity.propValidators,
+  ...outline.propValidators,
   ...overflow.propValidators,
   ...position.propValidators,
+  ...resize.propValidators,
   ...spacing.propValidators,
   ...text.propValidators,
   ...transform.propValidators,
@@ -111,8 +121,10 @@ export const propEnhancers: PropEnhancers = {
   ...layout.propEnhancers,
   ...list.propEnhancers,
   ...opacity.propEnhancers,
+  ...outline.propEnhancers,
   ...overflow.propEnhancers,
   ...position.propEnhancers,
+  ...resize.propEnhancers,
   ...spacing.propEnhancers,
   ...text.propEnhancers,
   ...transform.propEnhancers,
