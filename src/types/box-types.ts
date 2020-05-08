@@ -61,8 +61,14 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
     allowUnsafeHref?: boolean
   }
 
-export interface BoxComponent {
+export interface ForwardRefBoxComponent {
   <T extends Is>(props: BoxProps<T>, ref?: React.Ref<RefType<T>>): React.ReactElement | null
+  propTypes?: React.FunctionComponent['propTypes']
+  displayName?: React.FunctionComponent['displayName']
+}
+
+export interface BoxComponent {
+  <T extends Is>(props: BoxProps<T>): React.ReactElement | null
   propTypes?: React.FunctionComponent['propTypes']
   defaultProps?: React.FunctionComponent['defaultProps']
   displayName?: React.FunctionComponent['displayName']
