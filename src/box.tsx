@@ -5,7 +5,7 @@ import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
 import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
 
-const Box: BoxComponent = memo(forwardRef(({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
+const Box: BoxComponent = ({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
@@ -28,7 +28,7 @@ const Box: BoxComponent = memo(forwardRef(({ is = 'div', children, allowUnsafeHr
   }
 
   return React.createElement(is, parsedProps, children)
-}))
+}
 
 Box.displayName = 'Box'
 
@@ -42,4 +42,4 @@ Box.defaultProps = {
   boxSizing: 'border-box'
 }
 
-export default Box
+export default memo(forwardRef(Box))
