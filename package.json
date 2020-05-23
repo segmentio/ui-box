@@ -1,6 +1,6 @@
 {
   "name": "ui-box",
-  "version": "3.3.0",
+  "version": "4.0.0-0",
   "description": "Blazing Fast React UI Primitive",
   "contributors": [
     "Jeroen Ransijn (https://twitter.com/jeroen_ransijn)",
@@ -14,10 +14,10 @@
   ],
   "repository": "segmentio/ui-box",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
   "files": [
-    "dist"
+    "dist/src"
   ],
   "sideEffects": false,
   "scripts": {
@@ -27,7 +27,7 @@
     "build": "tsc",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np",
-    "benchmark": "echo ui-box && react-benchmark tools/benchmarks/box.js",
+    "benchmark": "echo ui-box && react-benchmark dist/tools/benchmarks/box.js",
     "size": "size-limit",
     "coverage": "nyc report --reporter=html"
   },
@@ -150,7 +150,7 @@
   "size-limit": [
     {
       "webpack": false,
-      "path": "dist/index.js",
+      "path": "dist/src/index.js",
       "limit": "5 KB",
       "running": false,
       "gzip": false

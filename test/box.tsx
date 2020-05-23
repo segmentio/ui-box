@@ -57,16 +57,16 @@ test('is prop allows changing the component type', t => {
   t.true(component.is(TestComponent))
 })
 
-test('innerRef prop gets passed the ref', t => {
+test('ref gets forwarded', t => {
   const node = {domNode: true}
-  const innerRef = sinon.spy()
-  render.create(<Box innerRef={innerRef} />, {
+  const ref = sinon.spy()
+  render.create(<Box ref={ref} />, {
     createNodeMock() {
       return node
     }
   })
-  t.true(innerRef.calledOnce)
-  t.is(innerRef.args[0][0], node)
+  t.true(ref.calledOnce)
+  t.is(ref.args[0][0], node)
 })
 
 test('renders children', t => {

@@ -62,12 +62,6 @@ E.g:
 <Box is={Link} to="/login">Login</Box>
 ```
 
-##### innerRef
-
-Type: `function`
-
-Callback that gets passed a ref to inner DOM node (or component if the `is` prop is set to a React component type).
-
 ##### clearfix
 
 Type: `boolean`

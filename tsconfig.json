@@ -27,6 +27,7 @@
     "esModuleInterop": true
   },
   "include": [
-    "src"
+    "src",
+    "tools"
   ]
 }
