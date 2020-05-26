@@ -10,11 +10,11 @@ export interface SafeHrefConfigObj {
 
 const PROTOCOL_REGEX = /^[a-z]+:/
 const ORIGIN_REGEX = /^(?:[a-z]+:?:)?(?:\/\/)?([^\/\?]+)/
-let useSafeHref = false
+let useSafeHref = true
 let globalOrigin = typeof window !== 'undefined' ? window.location.origin : false
 
 export function configureSafeHref(configObject: SafeHrefConfigObj) {
-    if (typeof configObject.enabled !== 'undefined') {
+    if (typeof configObject.enabled === 'boolean') {
         useSafeHref = configObject.enabled
     }
 
@@ -51,7 +51,7 @@ export function getURLInfo(url: string): URLInfo {
     if (!isSafeProtocol) {
         /**
          * If the url is unsafe, put a error in the console, and return the URLInfo object
-         * with the value of url being `undefined` 
+         * with the value of url being `undefined`
          */
         console.error(
             '📦 `href` passed to anchor tag is unsafe. Because of this, the `href` on the element was not set. Please review the safe href documentation if you have questions.',
