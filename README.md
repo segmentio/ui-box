@@ -82,7 +82,7 @@ The className prop you know and love. Internally it gets enhanced with additiona
 
 ##### CSS properties
 
-All of these CSS properties are support. You can pass either a string or a number (which gets converted to a `px` value). The shorthand properties with repeated values only accept a single value, e.g. `margin="10px"` works but `margin="10px 20px"` does not. You can use the x/y props (e.g. `marginX`/`marginY`) to achieve the same thing.
+All of these CSS properties are supported. You can pass either a string or a number (which gets converted to a `px` value). The shorthand properties with repeated values only accept a single value, e.g. `margin="10px"` works but `margin="10px 20px"` does not. You can use the x/y props (e.g. `marginX`/`marginY`) to achieve the same thing.
 
 * `alignContent`
 * `alignItems`
