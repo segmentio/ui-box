@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {
-  PropEnhancerValueType,
-  PropValidators,
-  PropEnhancers,
-  PropTypesMapping,
-  PropAliases
-} from '../types/enhancers'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   color: PropTypes.string,
@@ -141,8 +135,7 @@ export const propEnhancers: PropEnhancers = {
   letterSpacing: (value: PropEnhancerValueType) => getCss(letterSpacing, value),
   lineHeight: (value: PropEnhancerValueType) => getCss(lineHeight, value),
   textAlign: (value: PropEnhancerValueType) => getCss(textAlign, value),
-  textDecoration: (value: PropEnhancerValueType) =>
-    getCss(textDecoration, value),
+  textDecoration: (value: PropEnhancerValueType) => getCss(textDecoration, value),
   textOverflow: (value: PropEnhancerValueType) => getCss(textOverflow, value),
   textShadow: (value: PropEnhancerValueType) => getCss(textShadow, value),
   textTransform: (value: PropEnhancerValueType) => getCss(textTransform, value),

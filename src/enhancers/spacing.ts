@@ -1,13 +1,7 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
 import { spacesOutsideParentheses } from '../utils/regex'
-import {
-  PropEnhancerValueType,
-  PropValidators,
-  PropEnhancers,
-  PropTypesMapping,
-  PropAliases
-} from '../types/enhancers'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

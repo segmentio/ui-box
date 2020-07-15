@@ -19,9 +19,7 @@ export default function prefixer(property: string, value: string): Rule[] {
   for (let i = 0; i < propertyNames.length; i++) {
     const propertyName = propertyNames[i]
     // Add a dash in front of the prefixes
-    const prefixedProp = propertyName.match(prefixRegex)
-      ? `-${propertyName}`
-      : propertyName
+    const prefixedProp = propertyName.match(prefixRegex) ? `-${propertyName}` : propertyName
     const prop = decamelize(prefixedProp)
     const values = rules[propertyName]
 

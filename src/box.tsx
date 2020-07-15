@@ -5,10 +5,7 @@ import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
 import { extractAnchorProps, getUseSafeHref } from './utils/safeHref'
 
-const Box: ForwardRefBoxComponent = (
-  { is = 'div', children, allowUnsafeHref, ...props },
-  ref
-) => {
+const Box: ForwardRefBoxComponent = ({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
   // Convert the CSS props to class names (and inject the styles)
   const { className, enhancedProps: parsedProps } = enhanceProps(props)
 
@@ -24,16 +21,9 @@ const Box: ForwardRefBoxComponent = (
    * added to the element
    */
   const safeHrefEnabled =
-    (typeof allowUnsafeHref === 'boolean'
-      ? !allowUnsafeHref
-      : getUseSafeHref()) &&
-    is === 'a' &&
-    parsedProps.href
+    (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
-    const { safeHref, safeRel } = extractAnchorProps(
-      parsedProps.href,
-      parsedProps.rel
-    )
+    const { safeHref, safeRel } = extractAnchorProps(parsedProps.href, parsedProps.rel)
     parsedProps.href = safeHref
     parsedProps.rel = safeRel
   }
@@ -47,11 +37,7 @@ const BoxWithRef = forwardRef(Box) as BoxComponent
 
 BoxWithRef.propTypes = {
   ...propTypes,
-  is: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.elementType
-  ]),
+  is: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.elementType]),
   allowUnsafeHref: PropTypes.bool
 }
 

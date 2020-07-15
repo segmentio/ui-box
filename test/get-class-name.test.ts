@@ -31,10 +31,7 @@ test('removes all unsafe values by default', () => {
 })
 
 test('always hashes values that contain a calc()', () => {
-  const result = getClassName(
-    { className: 'w', safeValue: true },
-    'calc(50% + 20px)'
-  )
+  const result = getClassName({ className: 'w', safeValue: true }, 'calc(50% + 20px)')
   expect(result).toBe('ub-w_1vuvdht')
 })
 

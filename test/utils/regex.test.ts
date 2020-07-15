@@ -1,7 +1,4 @@
-import {
-  spacesOutsideParentheses,
-  unsafeClassNameCharacters
-} from '../../src/utils/regex'
+import { spacesOutsideParentheses, unsafeClassNameCharacters } from '../../src/utils/regex'
 
 test('spacesOutsideParentheses matches spaces', () => {
   expect(spacesOutsideParentheses.test('10px 20px')).toBe(true)

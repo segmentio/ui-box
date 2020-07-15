@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {
-  PropEnhancerValueType,
-  PropValidators,
-  PropEnhancers,
-  PropTypesMapping,
-  PropAliases
-} from '../types/enhancers'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   transition: PropTypes.string,
@@ -53,12 +47,8 @@ const transitionTimingFunction = {
 
 export const propEnhancers: PropEnhancers = {
   transition: (value: PropEnhancerValueType) => getCss(transition, value),
-  transitionDelay: (value: PropEnhancerValueType) =>
-    getCss(transitionDelay, value),
-  transitionDuration: (value: PropEnhancerValueType) =>
-    getCss(transitionDuration, value),
-  transitionProperty: (value: PropEnhancerValueType) =>
-    getCss(transitionProperty, value),
-  transitionTimingFunction: (value: PropEnhancerValueType) =>
-    getCss(transitionTimingFunction, value)
+  transitionDelay: (value: PropEnhancerValueType) => getCss(transitionDelay, value),
+  transitionDuration: (value: PropEnhancerValueType) => getCss(transitionDuration, value),
+  transitionProperty: (value: PropEnhancerValueType) => getCss(transitionProperty, value),
+  transitionTimingFunction: (value: PropEnhancerValueType) => getCss(transitionTimingFunction, value)
 }

@@ -32,10 +32,7 @@ export default function enhanceProps(
     const enhancer = propEnhancers[propName]
     // Skip false boolean enhancers. e.g: `clearfix={false}`
     // Also allows omitting props via overriding with `null` (i.e: neutralising props)
-    if (
-      enhancer &&
-      (propValue === null || propValue === undefined || propValue === false)
-    ) {
+    if (enhancer && (propValue === null || propValue === undefined || propValue === false)) {
       continue
     } else if (!enhancer) {
       // Pass through native props. e.g: disabled, value, type

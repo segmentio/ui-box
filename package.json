@@ -77,7 +77,7 @@
     "typescript": "^3.9.6"
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 120,
     "semi": false,
     "singleQuote": true,
     "trailingComma": "none"

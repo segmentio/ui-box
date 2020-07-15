@@ -58,10 +58,7 @@ export default class CustomStyleSheet {
 
   constructor(options: Options = {}) {
     // The big drawback here is that the css won't be editable in devtools
-    this.isSpeedy =
-      options.speedy === undefined
-        ? process.env.NODE_ENV === 'production'
-        : options.speedy
+    this.isSpeedy = options.speedy === undefined ? process.env.NODE_ENV === 'production' : options.speedy
 
     this.maxLength = options.maxLength || 65000
   }

@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {
-  PropEnhancerValueType,
-  PropValidators,
-  PropEnhancers,
-  PropTypesMapping,
-  PropAliases
-} from '../types/enhancers'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   alignContent: PropTypes.string,
@@ -150,8 +144,7 @@ export const propEnhancers: PropEnhancers = {
   flexGrow: (value: PropEnhancerValueType) => getCss(flexGrow, value),
   flexShrink: (value: PropEnhancerValueType) => getCss(flexShrink, value),
   flexWrap: (value: PropEnhancerValueType) => getCss(flexWrap, value),
-  justifyContent: (value: PropEnhancerValueType) =>
-    getCss(justifyContent, value),
+  justifyContent: (value: PropEnhancerValueType) => getCss(justifyContent, value),
   justifyItems: (value: PropEnhancerValueType) => getCss(justifyItems, value),
   justifySelf: (value: PropEnhancerValueType) => getCss(justifySelf, value),
   order: (value: PropEnhancerValueType) => getCss(order, value),

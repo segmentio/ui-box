@@ -35,9 +35,7 @@ type WithoutBoxProps<T> = Without<T, 'is'>
  * Grab components passed to the `is` prop and return their props
  * @template T Component type
  */
-type InheritedProps<T extends Is> = WithoutBoxProps<
-  React.ComponentPropsWithoutRef<T>
->
+type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentPropsWithoutRef<T>>
 
 /**
  * Generic component props with "is" prop
@@ -64,10 +62,7 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
   }
 
 export interface ForwardRefBoxComponent {
-  <T extends Is>(
-    props: BoxProps<T>,
-    ref?: React.Ref<RefType<T>>
-  ): React.ReactElement | null
+  <T extends Is>(props: BoxProps<T>, ref?: React.Ref<RefType<T>>): React.ReactElement | null
   displayName?: React.FunctionComponent['displayName']
 }
 

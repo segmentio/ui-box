@@ -1,40 +1,18 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
 import { spacesOutsideParentheses } from '../utils/regex'
-import {
-  PropEnhancerValueType,
-  PropValidators,
-  PropEnhancers,
-  PropTypesMapping
-} from '../types/enhancers'
+import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
-  borderBottomLeftRadius: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  borderBottomRightRadius: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  borderBottomLeftRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  borderBottomRightRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  borderTopLeftRadius: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  borderTopRightRadius: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  borderTopLeftRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  borderTopRightRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {
-  borderRadius: [
-    'borderBottomLeftRadius',
-    'borderBottomRightRadius',
-    'borderTopLeftRadius',
-    'borderTopRightRadius'
-  ]
+  borderRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius', 'borderTopLeftRadius', 'borderTopRightRadius']
 }
 
 export const propValidators: PropValidators = {}
@@ -71,12 +49,8 @@ const borderBottomRightRadius = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  borderBottomLeftRadius: (value: PropEnhancerValueType) =>
-    getCss(borderBottomLeftRadius, value),
-  borderBottomRightRadius: (value: PropEnhancerValueType) =>
-    getCss(borderBottomRightRadius, value),
-  borderTopLeftRadius: (value: PropEnhancerValueType) =>
-    getCss(borderTopLeftRadius, value),
-  borderTopRightRadius: (value: PropEnhancerValueType) =>
-    getCss(borderTopRightRadius, value)
+  borderBottomLeftRadius: (value: PropEnhancerValueType) => getCss(borderBottomLeftRadius, value),
+  borderBottomRightRadius: (value: PropEnhancerValueType) => getCss(borderBottomRightRadius, value),
+  borderTopLeftRadius: (value: PropEnhancerValueType) => getCss(borderTopLeftRadius, value),
+  borderTopRightRadius: (value: PropEnhancerValueType) => getCss(borderTopRightRadius, value)
 }

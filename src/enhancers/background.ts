@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {
-  PropValidators,
-  PropTypesMapping,
-  PropEnhancerValueType,
-  PropAliases,
-  PropEnhancers
-} from '../types/enhancers'
+import { PropValidators, PropTypesMapping, PropEnhancerValueType, PropAliases, PropEnhancers } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   background: PropTypes.string,
@@ -76,20 +70,12 @@ const backgroundBlendMode = {
 
 export const propEnhancers: PropEnhancers = {
   background: (value: PropEnhancerValueType) => getCss(background, value),
-  backgroundBlendMode: (value: PropEnhancerValueType) =>
-    getCss(backgroundBlendMode, value),
-  backgroundClip: (value: PropEnhancerValueType) =>
-    getCss(backgroundClip, value),
-  backgroundColor: (value: PropEnhancerValueType) =>
-    getCss(backgroundColor, value),
-  backgroundImage: (value: PropEnhancerValueType) =>
-    getCss(backgroundImage, value),
-  backgroundOrigin: (value: PropEnhancerValueType) =>
-    getCss(backgroundOrigin, value),
-  backgroundPosition: (value: PropEnhancerValueType) =>
-    getCss(backgroundPosition, value),
-  backgroundRepeat: (value: PropEnhancerValueType) =>
-    getCss(backgroundRepeat, value),
-  backgroundSize: (value: PropEnhancerValueType) =>
-    getCss(backgroundSize, value)
+  backgroundBlendMode: (value: PropEnhancerValueType) => getCss(backgroundBlendMode, value),
+  backgroundClip: (value: PropEnhancerValueType) => getCss(backgroundClip, value),
+  backgroundColor: (value: PropEnhancerValueType) => getCss(backgroundColor, value),
+  backgroundImage: (value: PropEnhancerValueType) => getCss(backgroundImage, value),
+  backgroundOrigin: (value: PropEnhancerValueType) => getCss(backgroundOrigin, value),
+  backgroundPosition: (value: PropEnhancerValueType) => getCss(backgroundPosition, value),
+  backgroundRepeat: (value: PropEnhancerValueType) => getCss(backgroundRepeat, value),
+  backgroundSize: (value: PropEnhancerValueType) => getCss(backgroundSize, value)
 }

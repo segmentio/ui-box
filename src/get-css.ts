@@ -6,10 +6,7 @@ import { EnhancedProp } from './types/enhancers'
 /**
  * Generates the class name and styles.
  */
-export default function getCss(
-  propertyInfo: PropertyInfo,
-  value: string | number
-): EnhancedProp | null {
+export default function getCss(propertyInfo: PropertyInfo, value: string | number): EnhancedProp | null {
   let rules: Rule[]
 
   // Protect against unexpected values
@@ -38,14 +35,10 @@ export default function getCss(
 
   let styles: string
   if (process.env.NODE_ENV === 'production') {
-    const rulesString = rules
-      .map(rule => `${rule.property}:${rule.value}`)
-      .join(';')
+    const rulesString = rules.map(rule => `${rule.property}:${rule.value}`).join(';')
     styles = `.${className}{${rulesString}}`
   } else {
-    const rulesString = rules
-      .map(rule => `  ${rule.property}: ${rule.value};`)
-      .join('\n')
+    const rulesString = rules.map(rule => `  ${rule.property}: ${rule.value};`).join('\n')
     styles = `
 .${className} {
 ${rulesString}

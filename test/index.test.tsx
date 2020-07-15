@@ -89,7 +89,5 @@ test('clearStyles clears the cache and styles', () => {
 test('returns minified css in production', () => {
   process.env.NODE_ENV = 'production'
   shallow(<Box height="11px" />)
-  expect(extractStyles().styles).toEqual(
-    `.ub-h_11px{height:11px}.ub-box-szg_border-box{box-sizing:border-box}`
-  )
+  expect(extractStyles().styles).toEqual(`.ub-h_11px{height:11px}.ub-box-szg_border-box{box-sizing:border-box}`)
 })

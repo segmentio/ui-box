@@ -17,12 +17,7 @@ import * as spacing from './spacing'
 import * as text from './text'
 import * as transform from './transform'
 import * as transition from './transition'
-import {
-  PropValidators,
-  PropEnhancers,
-  PropAliases,
-  PropTypesMapping
-} from '../types/enhancers'
+import { PropValidators, PropEnhancers, PropAliases, PropTypesMapping } from '../types/enhancers'
 
 export {
   background,
