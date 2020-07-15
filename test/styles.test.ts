@@ -1,17 +1,16 @@
-import test from 'ava'
-import {add, getAll, clear} from '../src/styles'
+import { add, getAll, clear } from '../src/styles'
 
-test.afterEach.always(() => {
+test(() => {
   clear()
 })
 
-test.serial('returns a style', t => {
+test('returns a style', () => {
   add(`.test { width: 10px; }`)
-  t.is(getAll(), '.test { width: 10px; }')
+  expect(getAll()).toBe('.test { width: 10px; }')
 })
 
-test.serial('returns multiple styles', t => {
+test('returns multiple styles', () => {
   add('.test { width: 11px; }')
   add('.test2 { height: 20px; }')
-  t.is(getAll(), '.test { width: 11px; }.test2 { height: 20px; }')
+  expect(getAll()).toBe('.test { width: 11px; }.test2 { height: 20px; }')
 })

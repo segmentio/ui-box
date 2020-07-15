@@ -11,7 +11,11 @@ export function getAll() {
   // Convert rules array to a string
   return styleSheet
     .rules()
-    .reduce((combinedRules: string, rule: {cssText: string; }) => combinedRules + rule.cssText, '')
+    .reduce(
+      (combinedRules: string, rule: { cssText: string }) =>
+        combinedRules + rule.cssText,
+      ''
+    )
 }
 
 export function clear() {

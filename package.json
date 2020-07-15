@@ -25,13 +25,15 @@
   },
   "sideEffects": false,
   "scripts": {
-    "test": "xo && nyc ava",
-    "prepublishOnly": "rm -rf dist && yarn run build",
-    "dev": "start-storybook -p 9009",
-    "build": "tsc",
-    "build-storybook": "build-storybook -s .storybook/static -o .out",
-    "release": "np",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "benchmark": "echo ui-box && react-benchmark dist/tools/benchmarks/box.js",
+    "release": "np",
     "size": "size-limit"
   },
   "dependencies": {

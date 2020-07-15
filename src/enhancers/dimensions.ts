@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
+import {
+  PropEnhancerValueType,
+  PropValidators,
+  PropEnhancers,
+  PropTypesMapping,
+  PropAliases,
+} from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -8,7 +14,7 @@ export const propTypes: PropTypesMapping = {
   maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const propAliases: PropAliases = {}
@@ -17,32 +23,32 @@ export const propValidators: PropValidators = {}
 const width = {
   className: 'w',
   cssName: 'width',
-  jsName: 'width'
+  jsName: 'width',
 }
 const height = {
   className: 'h',
   cssName: 'height',
-  jsName: 'height'
+  jsName: 'height',
 }
 const minWidth = {
   className: 'min-w',
   cssName: 'min-width',
-  jsName: 'minWidth'
+  jsName: 'minWidth',
 }
 const minHeight = {
   className: 'min-h',
   cssName: 'min-height',
-  jsName: 'minHeight'
+  jsName: 'minHeight',
 }
 const maxWidth = {
   className: 'max-w',
   cssName: 'max-width',
-  jsName: 'maxWidth'
+  jsName: 'maxWidth',
 }
 const maxHeight = {
   className: 'max-h',
   cssName: 'max-height',
-  jsName: 'maxHeight'
+  jsName: 'maxHeight',
 }
 
 export const propEnhancers: PropEnhancers = {
@@ -51,5 +57,5 @@ export const propEnhancers: PropEnhancers = {
   maxWidth: (value: PropEnhancerValueType) => getCss(maxWidth, value),
   minHeight: (value: PropEnhancerValueType) => getCss(minHeight, value),
   minWidth: (value: PropEnhancerValueType) => getCss(minWidth, value),
-  width: (value: PropEnhancerValueType) => getCss(width, value)
+  width: (value: PropEnhancerValueType) => getCss(width, value),
 }

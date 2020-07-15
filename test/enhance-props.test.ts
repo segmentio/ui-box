@@ -1,75 +1,68 @@
-import test from 'ava'
 import * as cache from '../src/cache'
 import * as styles from '../src/styles'
 import enhanceProps from '../src/enhance-props'
 
-test.afterEach.always(() => {
+test(() => {
   cache.clear()
   styles.clear()
 })
 
-test.serial('enhances a prop', t => {
-  const {className, enhancedProps} = enhanceProps({width: 10})
-  t.is(className, 'ub-w_10px')
-  t.deepEqual(enhancedProps, {})
+test('enhances a prop', () => {
+  const { className, enhancedProps } = enhanceProps({ width: 10 })
+  expect(className).toBe('ub-w_10px')
+  expect(enhancedProps).toEqual({})
 })
 
-test.serial('expands aliases', t => {
-  const {className, enhancedProps} = enhanceProps({margin: 11})
-  t.is(className, 'ub-mb_11px ub-ml_11px ub-mr_11px ub-mt_11px')
-  t.deepEqual(enhancedProps, {})
+test('expands aliases', () => {
+  const { className, enhancedProps } = enhanceProps({ margin: 11 })
+  expect(className).toBe('ub-mb_11px ub-ml_11px ub-mr_11px ub-mt_11px')
+  expect(enhancedProps).toEqual({})
 })
 
-test.serial('injects styles', t => {
-  enhanceProps({width: 12})
-  t.is(
-    styles.getAll(),
-    `
+test('injects styles', () => {
+  enhanceProps({ width: 12 })
+  expect(styles.getAll()).toBe(`
 .ub-w_12px {
-  width: 12px;
-}`
-  )
+width: 12px;
+}`)
 })
 
-test.serial('uses the cache', t => {
-  enhanceProps({width: 13})
-  enhanceProps({width: 13})
-  t.is(
-    styles.getAll(),
-    `
+test('uses the cache', () => {
+  enhanceProps({ width: 13 })
+  enhanceProps({ width: 13 })
+  expect(styles.getAll()).toBe(`
 .ub-w_13px {
-  width: 13px;
-}`
-  )
-  t.is(cache.get('width', 13), 'ub-w_13px')
+width: 13px;
+}`)
+  expect(cache.get('width', 13)).toBe('ub-w_13px')
 })
 
-test.serial('strips falsey enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({width: false})
-  t.is(className, '')
-  t.deepEqual(enhancedProps, {})
+test('strips falsey enhancer props', () => {
+  const { className, enhancedProps } = enhanceProps({ width: false })
+  expect(className).toBe('')
+  expect(enhancedProps).toEqual({})
 })
 
-test.serial('does not strip enhancer props with 0 values', t => {
-  const {className, enhancedProps} = enhanceProps({width: 0})
-  t.is(className, 'ub-w_0px')
-  t.deepEqual(enhancedProps, {})
+test('does not strip enhancer props with 0 values', () => {
+  const { className, enhancedProps } = enhanceProps({ width: 0 })
+  expect(className).toBe('ub-w_0px')
+  expect(enhancedProps).toEqual({})
 })
 
-test.serial('passes through non-enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({disabled: true})
-  t.is(className, '')
-  t.deepEqual(enhancedProps, {disabled: true})
+test('passes through non-enhancer props', () => {
+  const { className, enhancedProps } = enhanceProps({ disabled: true })
+  expect(className).toBe('')
+  expect(enhancedProps).toEqual({ disabled: true })
 })
 
-test.serial('passes through falsey non-enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({disabled: false})
-  t.is(className, '')
-  t.deepEqual(enhancedProps, {disabled: false})
+test('passes through falsey non-enhancer props', () => {
+  const { className, enhancedProps } = enhanceProps({ disabled: false })
+  expect(className).toBe('')
+  expect(enhancedProps).toEqual({ disabled: false })
 })
 
-test.serial('handles invalid values', t => {
-  const {className, enhancedProps} = enhanceProps({minWidth: true})
-  t.is(className, '')
-  t.deepEqual(enhancedProps, {})
+test('handles invalid values', () => {
+  const { className, enhancedProps } = enhanceProps({ minWidth: true })
+  expect(className).toBe('')
+  expect(enhancedProps).toEqual({})
 })

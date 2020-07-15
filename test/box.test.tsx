@@ -1,25 +1,23 @@
-import test from 'ava'
 import React from 'react'
 import * as render from 'react-test-renderer'
-import {shallow} from 'enzyme'
-import * as sinon from 'sinon'
+import { shallow } from 'enzyme'
 import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
-import {propNames} from '../src/enhancers'
+import { propNames } from '../src/enhancers'
 
-test.afterEach.always(() => {
+test(() => {
   styles.clear()
 })
 
-test.serial('all properties', t => {
+test('all properties', () => {
   const component = allPropertiesComponent()
   const tree = render.create(component).toJSON()
-  t.snapshot(tree, 'DOM')
-  t.snapshot(styles.getAll(), 'CSS')
+  expect(tree).toMatchSnapshot()
+  expect(styles.getAll()).toMatchSnapshot()
 })
 
-test.serial('all properties set to inherit', t => {
+test('all properties set to inherit', () => {
   const properties: any = {}
   for (const name of propNames) {
     properties[name] = 'inherit'
@@ -28,10 +26,10 @@ test.serial('all properties set to inherit', t => {
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
   shallow(component)
-  t.snapshot(styles.getAll(), 'CSS')
+  expect(styles.getAll()).toMatchSnapshot()
 })
 
-test.serial('all properties set to initial', t => {
+test('all properties set to initial', () => {
   const properties: any = {}
   for (const name of propNames) {
     properties[name] = 'initial'
@@ -40,45 +38,45 @@ test.serial('all properties set to initial', t => {
   delete properties.clearfix // Non-css property
   const component = <Box {...properties} />
   shallow(component)
-  t.snapshot(styles.getAll(), 'CSS')
+  expect(styles.getAll()).toMatchSnapshot()
 })
 
-test('is prop allows changing the dom element type', t => {
+test('is prop allows changing the dom element type', () => {
   const component = shallow(<Box is="h1" />)
-  t.true(component.is('h1'))
+  expect(component.is('h1')).toBe(true)
 })
 
-test('is prop allows changing the component type', t => {
+test('is prop allows changing the component type', () => {
   function TestComponent(props) {
     return <h1 {...props} />
   }
 
   const component = shallow(<Box is={TestComponent} />)
-  t.true(component.is(TestComponent))
+  expect(component.is(TestComponent)).toBe(true)
 })
 
-test('ref gets forwarded', t => {
-  const node = {domNode: true}
-  const ref = sinon.spy()
+test('ref gets forwarded', () => {
+  const node = { domNode: true }
+  const ref = jest.fn()
   render.create(<Box ref={ref} />, {
     createNodeMock() {
       return node
-    }
+    },
   })
-  t.true(ref.calledOnce)
-  t.is(ref.args[0][0], node)
+  expect(ref.calledOnce).toBe(true)
+  expect(ref.args[0][0]).toBe(node)
 })
 
-test('renders children', t => {
+test('renders children', () => {
   const component = shallow(
     <Box>
       <h1>Hi</h1>
     </Box>
   )
-  t.true(component.contains(<h1>Hi</h1>))
+  expect(component.contains(<h1>Hi</h1>)).toBe(true)
 })
 
-test('maintains the original className', t => {
+test('maintains the original className', () => {
   const component = shallow(<Box className="derp" margin="10px" />)
-  t.true(component.hasClass('derp'))
+  expect(component.hasClass('derp')).toBe(true)
 })

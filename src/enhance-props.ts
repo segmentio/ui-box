@@ -1,9 +1,9 @@
-import {propEnhancers} from './enhancers'
+import { propEnhancers } from './enhancers'
 import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
-import {Without} from './types/box-types'
-import {EnhancerProps} from './types/enhancers'
+import { Without } from './types/box-types'
+import { EnhancerProps } from './types/enhancers'
 
 type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
 
@@ -15,7 +15,9 @@ interface EnhancedPropsResult {
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
-export default function enhanceProps(rawProps: EnhancerProps & React.ComponentPropsWithoutRef<any>): EnhancedPropsResult {
+export default function enhanceProps(
+  rawProps: EnhancerProps & React.ComponentPropsWithoutRef<any>
+): EnhancedPropsResult {
   const propsMap = expandAliases(rawProps)
   const preservedProps: PreservedProps = {}
   let className = rawProps.className || ''
@@ -52,5 +54,5 @@ export default function enhanceProps(rawProps: EnhancerProps & React.ComponentPr
 
   className = className.trim()
 
-  return {className, enhancedProps: preservedProps}
+  return { className, enhancedProps: preservedProps }
 }

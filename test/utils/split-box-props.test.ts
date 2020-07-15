@@ -1,17 +1,16 @@
-import test from 'ava'
 import splitBoxProps from '../../src/utils/split-box-props'
 
-test('splits box props', t => {
+test('splits box props', () => {
   const props = {
     background: 'red',
-    disabled: true
+    disabled: true,
   }
-  t.deepEqual(splitBoxProps(props), {
+  expect(splitBoxProps(props)).toEqual({
     matchedProps: {
-      background: 'red'
+      background: 'red',
     },
     remainingProps: {
-      disabled: true
-    }
+      disabled: true,
+    },
   })
 })

@@ -1,10 +1,9 @@
-import test from 'ava'
 import decamelize from '../../src/utils/decamelize'
 
-test('decamelizes', t => {
-  t.is(decamelize('userSelect'), 'user-select')
+test('decamelizes', () => {
+  expect(decamelize('userSelect')).toBe('user-select')
 })
 
-test('handles starting capital', t => {
-  t.is(decamelize('WebkitUserSelect'), 'webkit-user-select')
+test('handles starting capital', () => {
+  expect(decamelize('WebkitUserSelect')).toBe('webkit-user-select')
 })

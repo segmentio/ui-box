@@ -1,4 +1,4 @@
-import {BoxPropValue} from './types/enhancers'
+import { BoxPropValue } from './types/enhancers'
 
 type CacheValue = BoxPropValue
 let cache = new Map<string, string>()
@@ -7,7 +7,11 @@ export function get(property: string, value: CacheValue) {
   return cache.get(property + value)
 }
 
-export function set(property: string, value: CacheValue | object, className: string) {
+export function set(
+  property: string,
+  value: CacheValue | object,
+  className: string
+) {
   if (process.env.NODE_ENV !== 'production') {
     const valueType = typeof value
     if (

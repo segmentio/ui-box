@@ -17,7 +17,12 @@ import * as spacing from './spacing'
 import * as text from './text'
 import * as transform from './transform'
 import * as transition from './transition'
-import { PropValidators, PropEnhancers, PropAliases, PropTypesMapping } from '../types/enhancers'
+import {
+  PropValidators,
+  PropEnhancers,
+  PropAliases,
+  PropTypesMapping,
+} from '../types/enhancers'
 
 export {
   background,
@@ -38,7 +43,7 @@ export {
   spacing,
   text,
   transform,
-  transition
+  transition,
 }
 
 export const propTypes: PropTypesMapping = {
@@ -60,7 +65,7 @@ export const propTypes: PropTypesMapping = {
   ...spacing.propTypes,
   ...text.propTypes,
   ...transform.propTypes,
-  ...transition.propTypes
+  ...transition.propTypes,
 }
 
 export const propNames = Object.keys(propTypes)
@@ -84,7 +89,7 @@ export const propAliases: PropAliases = {
   ...spacing.propAliases,
   ...text.propAliases,
   ...transform.propAliases,
-  ...transition.propAliases
+  ...transition.propAliases,
 }
 
 export const propValidators: PropValidators = {
@@ -106,7 +111,7 @@ export const propValidators: PropValidators = {
   ...spacing.propValidators,
   ...text.propValidators,
   ...transform.propValidators,
-  ...transition.propValidators
+  ...transition.propValidators,
 }
 
 export const propEnhancers: PropEnhancers = {
@@ -128,5 +133,5 @@ export const propEnhancers: PropEnhancers = {
   ...spacing.propEnhancers,
   ...text.propEnhancers,
   ...transform.propEnhancers,
-  ...transition.propEnhancers
+  ...transition.propEnhancers,
 }

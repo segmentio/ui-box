@@ -1,48 +1,47 @@
-import test from 'ava'
 import prefixer from '../src/prefixer'
 
-test('prefixes properties', t => {
-  t.deepEqual(prefixer('userSelect', 'none'), [
+test('prefixes properties', () => {
+  expect(prefixer('userSelect', 'none')).toEqual([
     {
       property: '-webkit-user-select',
-      value: 'none'
+      value: 'none',
     },
     {
       property: '-moz-user-select',
-      value: 'none'
+      value: 'none',
     },
     {
       property: '-ms-user-select',
-      value: 'none'
+      value: 'none',
     },
     {
       property: 'user-select',
-      value: 'none'
-    }
+      value: 'none',
+    },
   ])
 })
 
-test('prefixes values', t => {
-  t.deepEqual(prefixer('display', 'flex'), [
+test('prefixes values', () => {
+  expect(prefixer('display', 'flex')).toEqual([
     {
       property: 'display',
-      value: '-webkit-box'
+      value: '-webkit-box',
     },
     {
       property: 'display',
-      value: '-moz-box'
+      value: '-moz-box',
     },
     {
       property: 'display',
-      value: '-ms-flexbox'
+      value: '-ms-flexbox',
     },
     {
       property: 'display',
-      value: '-webkit-flex'
+      value: '-webkit-flex',
     },
     {
       property: 'display',
-      value: 'flex'
-    }
+      value: 'flex',
+    },
   ])
 })

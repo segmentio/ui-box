@@ -1,4 +1,4 @@
-import {propAliases, propValidators} from './enhancers/index'
+import { propAliases, propValidators } from './enhancers/index'
 import { BoxPropValue } from './types/enhancers'
 
 /**

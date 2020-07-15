@@ -1,18 +1,17 @@
-import test from 'ava'
 import splitProps from '../../src/utils/split-props'
 
-test('splits props', t => {
+test('splits props', () => {
   const props = {
     background: 'red',
-    color: 'blue'
+    color: 'blue',
   }
   const keys = ['background']
-  t.deepEqual(splitProps(props, keys), {
+  expect(splitProps(props, keys)).toEqual({
     matchedProps: {
-      background: 'red'
+      background: 'red',
     },
     remainingProps: {
-      color: 'blue'
-    }
+      color: 'blue',
+    },
   })
 })

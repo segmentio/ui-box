@@ -29,13 +29,15 @@ export type RefType<T> = T extends keyof DomNodes
  * Remove box props from object `T` if they're present
  * @template T Object
  */
-type WithoutBoxProps<T> = Without<T, "is">
+type WithoutBoxProps<T> = Without<T, 'is'>
 
 /**
  * Grab components passed to the `is` prop and return their props
  * @template T Component type
  */
-type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentPropsWithoutRef<T>>
+type InheritedProps<T extends Is> = WithoutBoxProps<
+  React.ComponentPropsWithoutRef<T>
+>
 
 /**
  * Generic component props with "is" prop
@@ -43,7 +45,7 @@ type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentPropsWithoutR
  * @template T React component or string element
  */
 export type BoxProps<T extends Is> = InheritedProps<T> &
-    EnhancerProps & {
+  EnhancerProps & {
     /**
      * Replaces the underlying element
      */
@@ -62,7 +64,10 @@ export type BoxProps<T extends Is> = InheritedProps<T> &
   }
 
 export interface ForwardRefBoxComponent {
-  <T extends Is>(props: BoxProps<T>, ref?: React.Ref<RefType<T>>): React.ReactElement | null
+  <T extends Is>(
+    props: BoxProps<T>,
+    ref?: React.Ref<RefType<T>>
+  ): React.ReactElement | null
   propTypes?: React.FunctionComponent['propTypes']
   displayName?: React.FunctionComponent['displayName']
 }
