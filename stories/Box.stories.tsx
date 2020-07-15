@@ -1,7 +1,7 @@
 import React from 'react'
 import {default as Box, configureSafeHref} from '../src'
 import {storiesOf} from '@storybook/react'
-import allPropertiesComponent from './all-properties-component'
+import allPropertiesComponent from '../tools/all-properties-component'
 import { BoxProps } from '../src/types/box-types'
 
 const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (

@@ -1,33 +1,24 @@
 {
+  "include": ["src", "types"],
   "compilerOptions": {
-    "outDir": "dist",
-    "target": "es6",
-    "module": "commonjs",
-    "lib": [
-      "es2015",
-      "es2016",
-      "es2017",
-      "es2018",
-      "dom"
-    ],
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
     "declaration": true,
     "sourceMap": false,
-    "inlineSourceMap": true,
-    "rootDirs": [
-      "./src",
-      "./tools"
-    ],
-    "jsx": "react",
-    "moduleResolution": "node",
+    "rootDir": "./src",
     "strict": true,
-    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@": ["./"],
+      "*": ["src/*", "node_modules/*"]
+    },
+    "jsx": "react",
     "esModuleInterop": true
   },
-  "include": [
-    "src",
-    "tools"
-  ]
 }

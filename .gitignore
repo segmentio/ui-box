@@ -1,7 +1,5 @@
-node_modules
-/dist/
-/.out/
-.DS_Store
 *.log
-/.nyc_output/
-/coverage/
+.DS_Store
+node_modules
+.cache
+dist
