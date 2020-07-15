@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@size-limit/preset-big-lib": "^4.5.4",
     "@storybook/react": "^5.3.19",
     "@storybook/storybook-deployer": "^2.8.6",
     "@types/enzyme": "^3.10.5",
@@ -149,9 +150,8 @@
   },
   "size-limit": [
     {
-      "webpack": false,
       "path": "dist/src/index.js",
-      "limit": "5 KB",
+      "limit": "50 KB",
       "running": false,
       "gzip": false
     }
