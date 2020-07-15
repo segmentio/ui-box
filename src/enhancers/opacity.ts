@@ -5,11 +5,11 @@ import {
   PropValidators,
   PropEnhancers,
   PropTypesMapping,
-  PropAliases,
+  PropAliases
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
-  opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases: PropAliases = {}
@@ -20,9 +20,9 @@ const opacity = {
   className: 'opct',
   cssName: 'opacity',
   jsName: 'opacity',
-  defaultUnit: '',
+  defaultUnit: ''
 }
 
 export const propEnhancers: PropEnhancers = {
-  opacity: (value: PropEnhancerValueType) => getCss(opacity, value),
+  opacity: (value: PropEnhancerValueType) => getCss(opacity, value)
 }

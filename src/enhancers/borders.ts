@@ -5,7 +5,7 @@ import {
   PropEnhancerValueType,
   PropValidators,
   PropEnhancers,
-  PropTypesMapping,
+  PropTypesMapping
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
@@ -28,7 +28,7 @@ export const propTypes: PropTypesMapping = {
   borderTopColor: PropTypes.string,
   borderTopStyle: PropTypes.string,
   borderTopWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propAliases = {
@@ -37,20 +37,20 @@ export const propAliases = {
     'borderBottomColor',
     'borderLeftColor',
     'borderRightColor',
-    'borderTopColor',
+    'borderTopColor'
   ],
   borderStyle: [
     'borderBottomStyle',
     'borderLeftStyle',
     'borderRightStyle',
-    'borderTopStyle',
+    'borderTopStyle'
   ],
   borderWidth: [
     'borderBottomWidth',
     'borderLeftWidth',
     'borderRightWidth',
-    'borderTopWidth',
-  ],
+    'borderTopWidth'
+  ]
 }
 
 export const propValidators: PropValidators = {}
@@ -82,86 +82,86 @@ if (process.env.NODE_ENV !== 'production') {
 const borderLeft = {
   className: 'b-lft',
   cssName: 'border-left',
-  jsName: 'borderLeft',
+  jsName: 'borderLeft'
 }
 const borderLeftColor = {
   className: 'b-lft-clr',
   cssName: 'border-left-color',
-  jsName: 'borderLeftColor',
+  jsName: 'borderLeftColor'
 }
 const borderLeftStyle = {
   className: 'b-lft-stl',
   cssName: 'border-left-style',
   jsName: 'borderLeftStyle',
-  safeValue: true,
+  safeValue: true
 }
 const borderLeftWidth = {
   className: 'b-lft-wdt',
   cssName: 'border-left-width',
-  jsName: 'borderLeftWidth',
+  jsName: 'borderLeftWidth'
 }
 const borderRight = {
   className: 'b-rgt',
   cssName: 'border-right',
-  jsName: 'borderRight',
+  jsName: 'borderRight'
 }
 const borderRightColor = {
   className: 'b-rgt-clr',
   cssName: 'border-right-color',
-  jsName: 'borderRightColor',
+  jsName: 'borderRightColor'
 }
 const borderRightStyle = {
   className: 'b-rgt-stl',
   cssName: 'border-right-style',
   jsName: 'borderRightStyle',
-  safeValue: true,
+  safeValue: true
 }
 const borderRightWidth = {
   className: 'b-rgt-wdt',
   cssName: 'border-right-width',
-  jsName: 'borderRightWidth',
+  jsName: 'borderRightWidth'
 }
 const borderTop = {
   className: 'b-top',
   cssName: 'border-top',
-  jsName: 'borderTop',
+  jsName: 'borderTop'
 }
 const borderTopColor = {
   className: 'b-top-clr',
   cssName: 'border-top-color',
-  jsName: 'borderTopColor',
+  jsName: 'borderTopColor'
 }
 const borderTopStyle = {
   className: 'b-top-stl',
   cssName: 'border-top-style',
   jsName: 'borderTopStyle',
-  safeValue: true,
+  safeValue: true
 }
 const borderTopWidth = {
   className: 'b-top-wdt',
   cssName: 'border-top-width',
-  jsName: 'borderTopWidth',
+  jsName: 'borderTopWidth'
 }
 const borderBottom = {
   className: 'b-btm',
   cssName: 'border-bottom',
-  jsName: 'borderBottom',
+  jsName: 'borderBottom'
 }
 const borderBottomColor = {
   className: 'b-btm-clr',
   cssName: 'border-bottom-color',
-  jsName: 'borderBottomColor',
+  jsName: 'borderBottomColor'
 }
 const borderBottomStyle = {
   className: 'b-btm-stl',
   cssName: 'border-bottom-style',
   jsName: 'borderBottomStyle',
-  safeValue: true,
+  safeValue: true
 }
 const borderBottomWidth = {
   className: 'b-btm-wdt',
   cssName: 'border-bottom-width',
-  jsName: 'borderBottomWidth',
+  jsName: 'borderBottomWidth'
 }
 
 export const propEnhancers: PropEnhancers = {
@@ -192,5 +192,5 @@ export const propEnhancers: PropEnhancers = {
   borderTopStyle: (value: PropEnhancerValueType) =>
     getCss(borderTopStyle, value),
   borderTopWidth: (value: PropEnhancerValueType) =>
-    getCss(borderTopWidth, value),
+    getCss(borderTopWidth, value)
 }

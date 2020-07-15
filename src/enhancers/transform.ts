@@ -5,12 +5,12 @@ import {
   PropValidators,
   PropEnhancers,
   PropTypesMapping,
-  PropAliases,
+  PropAliases
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
   transform: PropTypes.string,
-  transformOrigin: PropTypes.string,
+  transformOrigin: PropTypes.string
 }
 
 export const propAliases: PropAliases = {}
@@ -21,17 +21,17 @@ const transform = {
   className: 'tfrm',
   cssName: 'transform',
   jsName: 'transform',
-  complexValue: true,
+  complexValue: true
 }
 const transformOrigin = {
   className: 'tfrm-orgn',
   cssName: 'transform-origin',
   jsName: 'transformOrigin',
-  complexValue: true,
+  complexValue: true
 }
 
 export const propEnhancers: PropEnhancers = {
   transform: (value: PropEnhancerValueType) => getCss(transform, value),
   transformOrigin: (value: PropEnhancerValueType) =>
-    getCss(transformOrigin, value),
+    getCss(transformOrigin, value)
 }

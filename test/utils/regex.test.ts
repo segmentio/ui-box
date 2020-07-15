@@ -1,6 +1,6 @@
 import {
   spacesOutsideParentheses,
-  unsafeClassNameCharacters,
+  unsafeClassNameCharacters
 } from '../../src/utils/regex'
 
 test('spacesOutsideParentheses matches spaces', () => {

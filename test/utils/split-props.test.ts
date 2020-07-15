@@ -3,14 +3,14 @@ import splitProps from '../../src/utils/split-props'
 test('splits props', () => {
   const props = {
     background: 'red',
-    color: 'blue',
+    color: 'blue'
   }
   expect(splitProps(props, ['background'])).toEqual({
     matchedProps: {
-      background: 'red',
+      background: 'red'
     },
     remainingProps: {
-      color: 'blue',
-    },
+      color: 'blue'
+    }
   })
 })

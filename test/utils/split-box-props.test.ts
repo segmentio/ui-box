@@ -3,14 +3,14 @@ import splitBoxProps from '../../src/utils/split-box-props'
 test('splits box props', () => {
   const props = {
     background: 'red',
-    disabled: true,
+    disabled: true
   }
   expect(splitBoxProps(props)).toEqual({
     matchedProps: {
-      background: 'red',
+      background: 'red'
     },
     remainingProps: {
-      disabled: true,
-    },
+      disabled: true
+    }
   })
 })

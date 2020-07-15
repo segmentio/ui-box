@@ -4,11 +4,11 @@ import {
   PropEnhancerValueType,
   PropValidators,
   PropEnhancers,
-  PropTypesMapping,
+  PropTypesMapping
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
-  outline: PropTypes.string,
+  outline: PropTypes.string
 }
 
 export const propAliases = {}
@@ -19,9 +19,9 @@ const outline = {
   className: 'otln',
   cssName: 'outline',
   jsName: 'outline',
-  complexValue: true,
+  complexValue: true
 }
 
 export const propEnhancers: PropEnhancers = {
-  outline: (value: PropEnhancerValueType) => getCss(outline, value),
+  outline: (value: PropEnhancerValueType) => getCss(outline, value)
 }

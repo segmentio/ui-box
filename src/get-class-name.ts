@@ -30,7 +30,7 @@ export default function getClassName(
   const {
     className,
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
-    complexValue = false, // Complex values that are best hashed. e.g: background-image
+    complexValue = false // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
   let valueKey: string
 

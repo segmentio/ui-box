@@ -31,8 +31,8 @@ test('extractStyles method returns css and cache', () => {
 }`,
     cache: [
       ['height11px', 'ub-h_11px'],
-      ['boxSizingborder-box', 'ub-box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', 'ub-box-szg_border-box']
+    ]
   })
 })
 
@@ -48,8 +48,8 @@ test('extractStyles clears the cache and styles', () => {
 }`,
     cache: [
       ['height12px', 'ub-h_12px'],
-      ['boxSizingborder-box', 'ub-box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', 'ub-box-szg_border-box']
+    ]
   })
   shallow(<Box height="13px" />)
   expect(extractStyles()).toEqual({
@@ -62,8 +62,8 @@ test('extractStyles clears the cache and styles', () => {
 }`,
     cache: [
       ['height13px', 'ub-h_13px'],
-      ['boxSizingborder-box', 'ub-box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', 'ub-box-szg_border-box']
+    ]
   })
 })
 
@@ -81,8 +81,8 @@ test('clearStyles clears the cache and styles', () => {
 }`,
     cache: [
       ['height15px', 'ub-h_15px'],
-      ['boxSizingborder-box', 'ub-box-szg_border-box'],
-    ],
+      ['boxSizingborder-box', 'ub-box-szg_border-box']
+    ]
   })
 })
 

@@ -9,7 +9,7 @@ test('supports basic prop + value', () => {
   const propInfo = {
     className: 'min-w',
     cssName: 'min-width',
-    jsName: 'minWidth',
+    jsName: 'minWidth'
   }
   const result = getCss(propInfo, '10px')
   expect(result).toEqual({
@@ -17,7 +17,7 @@ test('supports basic prop + value', () => {
     styles: `
 .ub-min-w_10px {
   min-width: 10px;
-}`,
+}`
   })
 })
 
@@ -25,7 +25,7 @@ test('supports number value', () => {
   const propInfo = {
     className: 'min-w',
     cssName: 'min-width',
-    jsName: 'minWidth',
+    jsName: 'minWidth'
   }
   const result = getCss(propInfo, 10)
   expect(result).toEqual({
@@ -33,7 +33,7 @@ test('supports number value', () => {
     styles: `
 .ub-min-w_10px {
   min-width: 10px;
-}`,
+}`
   })
 })
 
@@ -43,7 +43,7 @@ test('adds prefixes', () => {
     cssName: 'user-select',
     jsName: 'userSelect',
     safeValue: true,
-    isPrefixed: true,
+    isPrefixed: true
   }
   const result = getCss(propInfo, 'none')
   expect(result!.styles).toEqual(`
@@ -62,7 +62,7 @@ test('returns minified css in production', () => {
     cssName: 'user-select',
     jsName: 'userSelect',
     safeValue: true,
-    isPrefixed: true,
+    isPrefixed: true
   }
   const result = getCss(propInfo, 'none')
   expect(result!.styles).toEqual(

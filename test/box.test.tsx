@@ -66,7 +66,7 @@ test('ref gets forwarded', () => {
   render.create(<Box ref={ref} />, {
     createNodeMock() {
       return node
-    },
+    }
   })
   expect(ref).toHaveBeenCalled()
   expect(ref).toHaveBeenCalledWith(node)

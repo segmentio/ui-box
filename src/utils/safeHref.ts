@@ -60,7 +60,7 @@ export function getURLInfo(url: string): URLInfo {
     )
     return {
       url: undefined,
-      sameOrigin,
+      sameOrigin
     }
   }
 
@@ -69,7 +69,7 @@ export function getURLInfo(url: string): URLInfo {
    */
   return {
     url,
-    sameOrigin,
+    sameOrigin
   }
 }
 
@@ -98,6 +98,6 @@ export function extractAnchorProps(href: string, rel: string) {
 
   return {
     safeHref,
-    safeRel,
+    safeRel
   }
 }

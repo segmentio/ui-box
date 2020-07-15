@@ -85,7 +85,7 @@ export default class CustomStyleSheet {
           // Enough 'spec compliance' to be able to extract the rules later
           // in other words, just the cssText field
           ;(this.sheet!.cssRules as SSCSSRule[]).push({ cssText: rule })
-        },
+        }
       }
     }
 

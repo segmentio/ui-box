@@ -5,7 +5,7 @@ import {
   PropValidators,
   PropEnhancers,
   PropTypesMapping,
-  PropAliases,
+  PropAliases
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
@@ -25,7 +25,7 @@ export const propTypes: PropTypesMapping = {
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeContent: PropTypes.string,
   placeItems: PropTypes.string,
-  placeSelf: PropTypes.string,
+  placeSelf: PropTypes.string
 }
 
 export const propAliases: PropAliases = {}
@@ -36,77 +36,77 @@ const flex = {
   cssName: 'flex',
   jsName: 'flex',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const alignItems = {
   className: 'algn-itms',
   cssName: 'align-items',
   jsName: 'alignItems',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const alignSelf = {
   className: 'algn-slf',
   cssName: 'align-self',
   jsName: 'alignSelf',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const alignContent = {
   className: 'algn-cnt',
   cssName: 'align-content',
   jsName: 'alignContent',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const justifyContent = {
   className: 'just-cnt',
   cssName: 'justify-content',
   jsName: 'justifyContent',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const justifyItems = {
   className: 'just-items',
   cssName: 'justify-items',
   jsName: 'justifyItems',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const justifySelf = {
   className: 'just-self',
   cssName: 'justify-self',
   jsName: 'justifySelf',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const flexDirection = {
   className: 'flx-drct',
   cssName: 'flex-direction',
   jsName: 'flexDirection',
   isPrefixed: true,
-  safeValue: true,
+  safeValue: true
 }
 const flexWrap = {
   className: 'flx-wrap',
   cssName: 'flex-wrap',
   jsName: 'flexWrap',
   isPrefixed: true,
-  safeValue: true,
+  safeValue: true
 }
 const flexGrow = {
   className: 'flx-grow',
   cssName: 'flex-grow',
   jsName: 'flexGrow',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const flexShrink = {
   className: 'flx-srnk',
   cssName: 'flex-shrink',
   jsName: 'flexShrink',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const flexBasis = {
   className: 'flx-basis',
   cssName: 'flex-basis',
   jsName: 'flexBasis',
-  isPrefixed: true,
+  isPrefixed: true
 }
 const order = {
   className: 'order',
@@ -114,29 +114,29 @@ const order = {
   jsName: 'order',
   isPrefixed: true,
   defaultUnit: '',
-  safeValue: true,
+  safeValue: true
 }
 const flexFlow = {
   className: 'flx-flow',
   cssName: 'flex-flow',
   jsName: 'flexFlow',
   isPrefixed: true,
-  defaultUnit: '',
+  defaultUnit: ''
 }
 const placeContent = {
   className: 'plc-cnt',
   cssName: 'place-content',
-  jsName: 'placeContent',
+  jsName: 'placeContent'
 }
 const placeItems = {
   className: 'plc-items',
   cssName: 'place-items',
-  jsName: 'placeItems',
+  jsName: 'placeItems'
 }
 const placeSelf = {
   className: 'plc-self',
   cssName: 'place-self',
-  jsName: 'placeSelf',
+  jsName: 'placeSelf'
 }
 
 export const propEnhancers: PropEnhancers = {
@@ -157,5 +157,5 @@ export const propEnhancers: PropEnhancers = {
   order: (value: PropEnhancerValueType) => getCss(order, value),
   placeContent: (value: PropEnhancerValueType) => getCss(placeContent, value),
   placeItems: (value: PropEnhancerValueType) => getCss(placeItems, value),
-  placeSelf: (value: PropEnhancerValueType) => getCss(placeSelf, value),
+  placeSelf: (value: PropEnhancerValueType) => getCss(placeSelf, value)
 }

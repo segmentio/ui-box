@@ -31,6 +31,6 @@ test('existing keys are maintained when hydrating', () => {
   cache.hydrate([['height10px', 'h-10px']])
   expect(cache.entries()).toEqual([
     ['minWidth10px', 'min-w-10px'],
-    ['height10px', 'h-10px'],
+    ['height10px', 'h-10px']
   ])
 })

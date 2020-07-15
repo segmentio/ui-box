@@ -50,14 +50,14 @@ BoxWithRef.propTypes = {
   is: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
-    PropTypes.elementType,
+    PropTypes.elementType
   ]),
-  allowUnsafeHref: PropTypes.bool,
+  allowUnsafeHref: PropTypes.bool
 }
 
 BoxWithRef.defaultProps = {
   is: 'div',
-  boxSizing: 'border-box',
+  boxSizing: 'border-box'
 }
 
 export default BoxWithRef

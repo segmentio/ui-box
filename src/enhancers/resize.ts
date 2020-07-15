@@ -4,11 +4,11 @@ import {
   PropEnhancerValueType,
   PropValidators,
   PropEnhancers,
-  PropTypesMapping,
+  PropTypesMapping
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
-  resize: PropTypes.string,
+  resize: PropTypes.string
 }
 
 export const propAliases = {}
@@ -18,9 +18,9 @@ export const propValidators: PropValidators = {}
 const resize = {
   className: 'rsz',
   cssName: 'resize',
-  jsName: 'resize',
+  jsName: 'resize'
 }
 
 export const propEnhancers: PropEnhancers = {
-  resize: (value: PropEnhancerValueType) => getCss(resize, value),
+  resize: (value: PropEnhancerValueType) => getCss(resize, value)
 }

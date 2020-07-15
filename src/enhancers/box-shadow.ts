@@ -5,11 +5,11 @@ import {
   PropValidators,
   PropEnhancers,
   PropTypesMapping,
-  PropAliases,
+  PropAliases
 } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
-  boxShadow: PropTypes.string,
+  boxShadow: PropTypes.string
 }
 
 export const propAliases: PropAliases = {}
@@ -20,9 +20,9 @@ const boxShadow = {
   className: 'bs',
   cssName: 'box-shadow',
   jsName: 'boxShadow',
-  complexValue: true,
+  complexValue: true
 }
 
 export const propEnhancers: PropEnhancers = {
-  boxShadow: (value: PropEnhancerValueType) => getCss(boxShadow, value),
+  boxShadow: (value: PropEnhancerValueType) => getCss(boxShadow, value)
 }
