@@ -1,10 +1,13 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import * as cache from '../src/cache'
 import Box, { hydrate, extractStyles, clearStyles } from '../src'
 
+configure({ adapter: new Adapter() })
+
 const originalNodeEnv = process.env.NODE_ENV
-test(() => {
+beforeEach(() => {
   process.env.NODE_ENV = originalNodeEnv
   clearStyles()
 })
@@ -17,6 +20,7 @@ test('hydrate method hydrates the cache', () => {
 
 test('extractStyles method returns css and cache', () => {
   shallow(<Box height="11px" />)
+  console.warn(process.env.NODE_ENV)
   expect(extractStyles()).toEqual({
     styles: `
 .ub-h_11px {

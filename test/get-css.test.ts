@@ -1,7 +1,7 @@
 import getCss from '../src/get-css'
 
 const originalNodeEnv = process.env.NODE_ENV
-test(() => {
+beforeEach(() => {
   process.env.NODE_ENV = originalNodeEnv
 })
 
@@ -46,12 +46,12 @@ test('adds prefixes', () => {
     isPrefixed: true,
   }
   const result = getCss(propInfo, 'none')
-  expect(result.styles).toEqual(`
+  expect(result!.styles).toEqual(`
 .ub-usr-slct_none {
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }`)
 })
 
@@ -65,7 +65,7 @@ test('returns minified css in production', () => {
     isPrefixed: true,
   }
   const result = getCss(propInfo, 'none')
-  expect(result.styles).toEqual(
+  expect(result!.styles).toEqual(
     '.ub-usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
   )
 })

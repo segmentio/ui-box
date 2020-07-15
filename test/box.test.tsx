@@ -1,17 +1,22 @@
 import React from 'react'
 import * as render from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import Box from '../src/box'
 import * as styles from '../src/styles'
-import allPropertiesComponent from '../tools/all-properties-component'
+import allProps from '../tools/all-properties'
 import { propNames } from '../src/enhancers'
 
-test(() => {
+configure({ adapter: new Adapter() })
+
+beforeEach(() => {
   styles.clear()
 })
 
 test('all properties', () => {
-  const component = allPropertiesComponent()
+  // @ts-ignore
+  const component = () => <Box {...allProps} />
+  // @ts-ignore
   const tree = render.create(component).toJSON()
   expect(tree).toMatchSnapshot()
   expect(styles.getAll()).toMatchSnapshot()
@@ -47,7 +52,7 @@ test('is prop allows changing the dom element type', () => {
 })
 
 test('is prop allows changing the component type', () => {
-  function TestComponent(props) {
+  function TestComponent(props: any) {
     return <h1 {...props} />
   }
 
@@ -63,8 +68,8 @@ test('ref gets forwarded', () => {
       return node
     },
   })
-  expect(ref.calledOnce).toBe(true)
-  expect(ref.args[0][0]).toBe(node)
+  expect(ref).toHaveBeenCalled()
+  expect(ref).toHaveBeenCalledWith(node)
 })
 
 test('renders children', () => {

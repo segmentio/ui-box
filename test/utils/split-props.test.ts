@@ -5,8 +5,7 @@ test('splits props', () => {
     background: 'red',
     color: 'blue',
   }
-  const keys = ['background']
-  expect(splitProps(props, keys)).toEqual({
+  expect(splitProps(props, ['background'])).toEqual({
     matchedProps: {
       background: 'red',
     },

@@ -1,6 +1,6 @@
 import * as cache from '../src/cache'
 
-test(() => {
+beforeEach(() => {
   cache.clear()
 })
 
@@ -17,7 +17,6 @@ test('validates the value', () => {
 
 test('returns the cache entries', () => {
   cache.set('minHeight', '10px', 'min-h-10px')
-  t.log(cache.entries())
   expect(cache.entries()).toEqual([['minHeight10px', 'min-h-10px']])
 })
 

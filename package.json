@@ -27,7 +27,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test --passWithNoTests --runInBand",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@babel/preset-react": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-info": "^5.3.19",
@@ -53,6 +54,7 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/inline-style-prefixer": "^5.0.0",
     "@types/prop-types": "^15.7.1",
     "@types/react": "^16.8.16",

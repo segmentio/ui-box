@@ -2,7 +2,7 @@ import * as cache from '../src/cache'
 import * as styles from '../src/styles'
 import enhanceProps from '../src/enhance-props'
 
-test(() => {
+beforeEach(() => {
   cache.clear()
   styles.clear()
 })
@@ -21,19 +21,13 @@ test('expands aliases', () => {
 
 test('injects styles', () => {
   enhanceProps({ width: 12 })
-  expect(styles.getAll()).toBe(`
-.ub-w_12px {
-width: 12px;
-}`)
+  expect(styles.getAll()).toBe(`.ub-w_12px {width: 12px;}`)
 })
 
 test('uses the cache', () => {
   enhanceProps({ width: 13 })
   enhanceProps({ width: 13 })
-  expect(styles.getAll()).toBe(`
-.ub-w_13px {
-width: 13px;
-}`)
+  expect(styles.getAll()).toBe(`.ub-w_13px {width: 13px;}`)
   expect(cache.get('width', 13)).toBe('ub-w_13px')
 })
 
@@ -62,6 +56,7 @@ test('passes through falsey non-enhancer props', () => {
 })
 
 test('handles invalid values', () => {
+  // @ts-expect-error
   const { className, enhancedProps } = enhanceProps({ minWidth: true })
   expect(className).toBe('')
   expect(enhancedProps).toEqual({})

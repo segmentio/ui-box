@@ -68,7 +68,6 @@ export interface ForwardRefBoxComponent {
     props: BoxProps<T>,
     ref?: React.Ref<RefType<T>>
   ): React.ReactElement | null
-  propTypes?: React.FunctionComponent['propTypes']
   displayName?: React.FunctionComponent['displayName']
 }
 
