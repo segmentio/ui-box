@@ -1,7 +1,4 @@
-import getClassName, {
-  setClassNamePrefix,
-  getClassNamePrefix,
-} from '../src/get-class-name'
+import getClassName, { setClassNamePrefix } from '../src/get-class-name'
 
 test('supports inherit', () => {
   expect(getClassName({ className: 'w' }, 'inherit')).toBe('ub-w_inherit')
