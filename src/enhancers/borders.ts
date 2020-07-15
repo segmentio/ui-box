@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {spacesOutsideParentheses} from '../utils/regex'
+import { spacesOutsideParentheses } from '../utils/regex'
 import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
@@ -28,44 +28,29 @@ export const propTypes: PropTypesMapping = {
 
 export const propAliases = {
   border: ['borderBottom', 'borderLeft', 'borderRight', 'borderTop'],
-  borderColor: [
-    'borderBottomColor',
-    'borderLeftColor',
-    'borderRightColor',
-    'borderTopColor'
-  ],
-  borderStyle: [
-    'borderBottomStyle',
-    'borderLeftStyle',
-    'borderRightStyle',
-    'borderTopStyle'
-  ],
-  borderWidth: [
-    'borderBottomWidth',
-    'borderLeftWidth',
-    'borderRightWidth',
-    'borderTopWidth'
-  ]
+  borderColor: ['borderBottomColor', 'borderLeftColor', 'borderRightColor', 'borderTopColor'],
+  borderStyle: ['borderBottomStyle', 'borderLeftStyle', 'borderRightStyle', 'borderTopStyle'],
+  borderWidth: ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth']
 }
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 if (process.env.NODE_ENV !== 'production') {
-  propValidators.borderColor = value => {
+  propValidators.borderColor = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderColor”. Use “borderBottomColor”, “borderLeftColor” “borderRightColor” and “borderTopColor” instead.`
     }
 
     return
   }
-  propValidators.borderStyle = value => {
+  propValidators.borderStyle = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderStyle”. Use “borderBottomStyle”, “borderLeftStyle” “borderRightStyle” and “borderTopStyle” instead.`
     }
 
     return
   }
-  propValidators.borderWidth = value => {
+  propValidators.borderWidth = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderWidth”. Use “borderBottomWidth”, “borderLeftWidth” “borderRightWidth” and “borderTopWidth” instead.`
     }

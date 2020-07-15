@@ -14,7 +14,7 @@ function sheetForTag(tag: HTMLStyleElement): CSSStyleSheet | undefined {
   // This weirdness brought to you by firefox
   for (let i = 0; i < document.styleSheets.length; i += 1) {
     if (document.styleSheets[i].ownerNode === tag) {
-      return document.styleSheets[i]  as CSSStyleSheet
+      return document.styleSheets[i] as CSSStyleSheet
     }
   }
 
@@ -39,7 +39,7 @@ interface SSCSSRule {
 }
 
 interface ServerSideStyleSheet {
-  cssRules: SSCSSRule[],
+  cssRules: SSCSSRule[]
   insertRule(rule: string): any
 }
 
@@ -53,14 +53,12 @@ export default class CustomStyleSheet {
   private sheet?: Writeable<CSSStyleSheet> | ServerSideStyleSheet | null
   private tags: HTMLStyleElement[] = []
   private maxLength: number
-  private ctr: number = 0
-  private injected: boolean = false
+  private ctr = 0
+  private injected = false
 
   constructor(options: Options = {}) {
     // The big drawback here is that the css won't be editable in devtools
-    this.isSpeedy = options.speedy === undefined
-      ? process.env.NODE_ENV === 'production'
-      : options.speedy
+    this.isSpeedy = options.speedy === undefined ? process.env.NODE_ENV === 'production' : options.speedy
 
     this.maxLength = options.maxLength || 65000
   }
@@ -83,7 +81,7 @@ export default class CustomStyleSheet {
         insertRule: (rule: string) => {
           // Enough 'spec compliance' to be able to extract the rules later
           // in other words, just the cssText field
-          (this.sheet!.cssRules as SSCSSRule[]).push({ cssText: rule })
+          ;(this.sheet!.cssRules as SSCSSRule[]).push({ cssText: rule })
         }
       }
     }
@@ -131,7 +129,7 @@ export default class CustomStyleSheet {
 
   flush() {
     if (isBrowser) {
-      this.tags.forEach(tag => tag.parentNode!.removeChild(tag))
+      this.tags.forEach((tag) => tag.parentNode!.removeChild(tag))
       this.tags = []
       this.sheet = null
       this.ctr = 0
@@ -149,7 +147,7 @@ export default class CustomStyleSheet {
     }
 
     const arr: CSSRule[] = []
-    this.tags.forEach(tag => {
+    this.tags.forEach((tag) => {
       const sheet = sheetForTag(tag)
       if (sheet) {
         const rules = Array.from(sheet.cssRules)

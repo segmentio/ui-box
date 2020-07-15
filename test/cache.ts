@@ -11,9 +11,10 @@ test.serial('caches a className', t => {
 })
 
 test.serial('validates the value', t => {
-  t.throws(() => {
+  const error = t.throws(() => {
     cache.set('width', {herpa: 'derp'}, 'w-10px')
-  }, /invalid cache value/)
+  }, { instanceOf: TypeError })
+  t.regex(error.message, /invalid cache value/)
 })
 
 test.serial('returns the cache entries', t => {

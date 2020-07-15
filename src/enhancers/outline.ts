@@ -8,7 +8,7 @@ export const propTypes: PropTypesMapping = {
 
 export const propAliases = {}
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 const outline = {
   className: 'otln',

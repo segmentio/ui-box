@@ -1,4 +1,4 @@
-import {propAliases, propValidators} from './enhancers/index'
+import { propAliases, propValidators } from './enhancers/index'
 import { BoxPropValue } from './types/enhancers'
 
 /**
@@ -12,7 +12,7 @@ export default function expandAliases(props: { [key: string]: BoxPropValue }) {
   // Use a Map because it's faster for setting values and looping over than an Object
   const newProps = new Map<string, BoxPropValue>()
 
-  propNames.forEach(propName => {
+  propNames.forEach((propName) => {
     const propValue: BoxPropValue = props[propName]
     const aliases: string[] = propAliases[propName] || [propName]
 
@@ -28,7 +28,7 @@ export default function expandAliases(props: { [key: string]: BoxPropValue }) {
     }
 
     // Expand aliases
-    aliases.forEach(alias => {
+    aliases.forEach((alias) => {
       newProps.set(alias, propValue)
     })
   })

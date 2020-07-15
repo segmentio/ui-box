@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import getCss from '../get-css'
-import {spacesOutsideParentheses} from '../utils/regex'
+import { spacesOutsideParentheses } from '../utils/regex'
 import { PropEnhancerValueType, PropValidators, PropEnhancers, PropTypesMapping, PropAliases } from '../types/enhancers'
 
 export const propTypes: PropTypesMapping = {
@@ -32,42 +32,42 @@ export const propAliases: PropAliases = {
 export const propValidators: PropValidators = {}
 
 if (process.env.NODE_ENV !== 'production') {
-  propValidators.margin = value => {
+  propValidators.margin = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “margin”. Use “marginX”, “marginY” “marginBottom”, “marginLeft”, “marginRight” and “marginTop” instead.`
     }
     return
   }
 
-  propValidators.marginX = value => {
+  propValidators.marginX = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginX”. Use “marginLeft” and “marginRight” instead.`
     }
     return
   }
 
-  propValidators.marginY = value => {
+  propValidators.marginY = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “marginY”. Use “marginBottom” and “marginTop” instead.`
     }
     return
   }
 
-  propValidators.padding = value => {
+  propValidators.padding = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “padding”. Use “paddingX”, “paddingY” “paddingBottom”, “paddingLeft”, “paddingRight” and “paddingTop” instead.`
     }
     return
   }
 
-  propValidators.paddingX = value => {
+  propValidators.paddingX = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingX”. Use “paddingLeft” and “paddingRight” instead.`
     }
     return
   }
 
-  propValidators.paddingY = value => {
+  propValidators.paddingY = (value) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “paddingY”. Use “paddingBottom” and “paddingTop” instead.`
     }

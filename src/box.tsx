@@ -1,13 +1,14 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import {BoxComponent, ForwardRefBoxComponent} from './types/box-types'
-import {propTypes} from './enhancers'
+import { BoxComponent, ForwardRefBoxComponent } from './types/box-types'
+import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
-import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
+import { extractAnchorProps, getUseSafeHref } from './utils/safeHref'
 
+// eslint-disable-next-line react/prop-types
 const Box: ForwardRefBoxComponent = ({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
   // Convert the CSS props to class names (and inject the styles)
-  const {className, enhancedProps: parsedProps} = enhanceProps(props)
+  const { className, enhancedProps: parsedProps } = enhanceProps(props)
 
   parsedProps.className = className
 
@@ -20,9 +21,10 @@ const Box: ForwardRefBoxComponent = ({ is = 'div', children, allowUnsafeHref, ..
    * uses a safe protocol and that the other attributes that make the link safe are
    * added to the element
    */
-  const safeHrefEnabled = (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
+  const safeHrefEnabled =
+    (typeof allowUnsafeHref === 'boolean' ? !allowUnsafeHref : getUseSafeHref()) && is === 'a' && parsedProps.href
   if (safeHrefEnabled) {
-    const {safeHref, safeRel} = extractAnchorProps(parsedProps.href, parsedProps.rel)
+    const { safeHref, safeRel } = extractAnchorProps(parsedProps.href, parsedProps.rel)
     parsedProps.href = safeHref
     parsedProps.rel = safeRel
   }
