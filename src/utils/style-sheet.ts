@@ -14,7 +14,7 @@ function sheetForTag(tag: HTMLStyleElement): CSSStyleSheet | undefined {
   // This weirdness brought to you by firefox
   for (let i = 0; i < document.styleSheets.length; i += 1) {
     if (document.styleSheets[i].ownerNode === tag) {
-      return document.styleSheets[i]  as CSSStyleSheet
+      return document.styleSheets[i] as CSSStyleSheet
     }
   }
 

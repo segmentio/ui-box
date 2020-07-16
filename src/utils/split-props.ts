@@ -28,5 +28,5 @@ export default function splitProps<P extends Dictionary<any>, K extends keyof P>
     }
   }
 
-  return {matchedProps, remainingProps}
+  return { matchedProps, remainingProps }
 }

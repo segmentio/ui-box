@@ -74,8 +74,8 @@ export function getURLInfo(url: string): URLInfo {
 
 export function extractAnchorProps(href: string, rel: string) {
   /**
-  * Get url info and update href
-  */
+   * Get url info and update href
+   */
   const urlInfo = getURLInfo(href)
   const safeHref = urlInfo.url
 
@@ -83,8 +83,7 @@ export function extractAnchorProps(href: string, rel: string) {
    * If the url passed is safe, we want to also update the attributes of the element
    * to be safe
    */
-
-  let safeRel = rel ? rel : ''
+  let safeRel = rel || ''
   if (urlInfo.url) {
     if (!safeRel.includes('noopener')) {
       safeRel += `${safeRel.length > 0 ? ' ' : ''}noopener`
