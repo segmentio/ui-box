@@ -20,6 +20,9 @@
     "dist/src"
   ],
   "sideEffects": false,
+  "engines": {
+    "node": ">=10.18"
+  },
   "scripts": {
     "test": "xo && nyc ava",
     "prepublishOnly": "rm -rf dist && yarn run build",
