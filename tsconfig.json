@@ -12,6 +12,7 @@
     ],
     "declaration": true,
     "sourceMap": true,
+    "removeComments": true,
     "rootDirs": [
       "./src",
       "./tools"
