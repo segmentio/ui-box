@@ -11,8 +11,7 @@
       "dom"
     ],
     "declaration": true,
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "rootDirs": [
       "./src",
       "./tools"
