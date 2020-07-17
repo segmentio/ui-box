@@ -2,10 +2,9 @@ import {propEnhancers} from './enhancers'
 import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
-import {Without} from './types/box-types'
 import {EnhancerProps} from './types/enhancers'
 
-type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
+type PreservedProps = Omit<React.ComponentProps<any>, keyof EnhancerProps>
 
 interface EnhancedPropsResult {
   className: string
