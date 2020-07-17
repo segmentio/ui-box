@@ -3,6 +3,12 @@ import { EnhancerProps } from './enhancers'
 
 export { EnhancerProps }
 
+/**
+ * @template T Object
+ * @template K Union of keys (not necessarily present in T)
+ */
+export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
+
 export type PropsOf<
 	E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
 > = JSX.LibraryManagedAttributes<E, React.ComponentPropsWithRef<E>>
@@ -24,4 +30,4 @@ export type BoxOwnProps<E extends React.ElementType = React.ElementType> = Enhan
   allowUnsafeHref?: boolean
 }
 
-export type BoxProps<E extends React.ElementType> = BoxOwnProps<E> & Omit<PropsOf<E>, keyof BoxOwnProps>
+export type BoxProps<E extends React.ElementType> = BoxOwnProps<E> & Without<PropsOf<E>, keyof BoxOwnProps>
