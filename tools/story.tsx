@@ -9,7 +9,7 @@ const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
 )
 
 const logRef = (ref: Element | null) => console.log(ref)
-const reactRef = React.createRef<unknown>()
+const reactRef = React.createRef<HTMLDivElement>()
 
 interface CustomProps { children: React.ReactNode }
 const CustomComp: React.FunctionComponent<CustomProps> = props => {

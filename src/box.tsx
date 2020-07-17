@@ -46,4 +46,4 @@ Box.defaultProps = {
   boxSizing: 'border-box'
 }
 
-export default BoxWithRef
+export default Box
