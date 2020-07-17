@@ -154,7 +154,7 @@
   "size-limit": [
     {
       "path": "dist/src/index.js",
-      "limit": "53 KB",
+      "limit": "50 KB",
       "running": false,
       "gzip": false
     }
