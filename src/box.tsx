@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import {BoxComponent, ForwardRefBoxComponent} from './types/box-types'
-import {propTypes} from './enhancers'
+import { BoxProps } from './types/box-types'
+import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
-import {extractAnchorProps, getUseSafeHref} from './utils/safeHref'
+import { extractAnchorProps, getUseSafeHref } from './utils/safeHref'
 
-const Box: ForwardRefBoxComponent = ({ is = 'div', children, allowUnsafeHref, ...props }, ref) => {
+const Box = forwardRef(<E extends React.ElementType>({ is, children, allowUnsafeHref, ...props }: BoxProps<E>, ref: React.Ref<Element>) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 
@@ -27,22 +27,23 @@ const Box: ForwardRefBoxComponent = ({ is = 'div', children, allowUnsafeHref, ..
     parsedProps.rel = safeRel
   }
 
-  return React.createElement(is, parsedProps, children)
-}
+  return React.createElement(is || 'div', parsedProps, children)
+}) as <E extends React.ElementType = 'div'>(props: BoxProps<E>) => JSX.Element
 
+// @ts-ignore
 Box.displayName = 'Box'
 
-const BoxWithRef = forwardRef(Box) as BoxComponent
-
-BoxWithRef.propTypes = {
+// @ts-ignore
+Box.propTypes = {
   ...propTypes,
   is: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.elementType]),
   allowUnsafeHref: PropTypes.bool
 }
 
-BoxWithRef.defaultProps = {
+// @ts-ignore
+Box.defaultProps = {
   is: 'div',
   boxSizing: 'border-box'
 }
 
-export default BoxWithRef
+export default Box
