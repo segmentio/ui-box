@@ -69,13 +69,13 @@ const backgroundBlendMode = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  background: (value: PropEnhancerValueType) => getCss(background, value),
-  backgroundBlendMode: (value: PropEnhancerValueType) => getCss(backgroundBlendMode, value),
-  backgroundClip: (value: PropEnhancerValueType) => getCss(backgroundClip, value),
-  backgroundColor: (value: PropEnhancerValueType) => getCss(backgroundColor, value),
-  backgroundImage: (value: PropEnhancerValueType) => getCss(backgroundImage, value),
-  backgroundOrigin: (value: PropEnhancerValueType) => getCss(backgroundOrigin, value),
-  backgroundPosition: (value: PropEnhancerValueType) => getCss(backgroundPosition, value),
-  backgroundRepeat: (value: PropEnhancerValueType) => getCss(backgroundRepeat, value),
-  backgroundSize: (value: PropEnhancerValueType) => getCss(backgroundSize, value)
+  background: (value: PropEnhancerValueType, selector: string) => getCss(background, value, selector),
+  backgroundBlendMode: (value: PropEnhancerValueType, selector: string) => getCss(backgroundBlendMode, value, selector),
+  backgroundClip: (value: PropEnhancerValueType, selector: string) => getCss(backgroundClip, value, selector),
+  backgroundColor: (value: PropEnhancerValueType, selector: string) => getCss(backgroundColor, value, selector),
+  backgroundImage: (value: PropEnhancerValueType, selector: string) => getCss(backgroundImage, value, selector),
+  backgroundOrigin: (value: PropEnhancerValueType, selector: string) => getCss(backgroundOrigin, value, selector),
+  backgroundPosition: (value: PropEnhancerValueType, selector: string) => getCss(backgroundPosition, value, selector),
+  backgroundRepeat: (value: PropEnhancerValueType, selector: string) => getCss(backgroundRepeat, value, selector),
+  backgroundSize: (value: PropEnhancerValueType, selector: string) => getCss(backgroundSize, value, selector)
 }

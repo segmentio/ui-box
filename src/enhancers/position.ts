@@ -42,9 +42,9 @@ const left = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  bottom: (value: PropEnhancerValueType) => getCss(bottom, value),
-  left: (value: PropEnhancerValueType) => getCss(left, value),
-  position: (value: PropEnhancerValueType) => getCss(position, value),
-  right: (value: PropEnhancerValueType) => getCss(right, value),
-  top: (value: PropEnhancerValueType) => getCss(top, value)
+  bottom: (value: PropEnhancerValueType, selector: string) => getCss(bottom, value, selector),
+  left: (value: PropEnhancerValueType, selector: string) => getCss(left, value, selector),
+  position: (value: PropEnhancerValueType, selector: string) => getCss(position, value, selector),
+  right: (value: PropEnhancerValueType, selector: string) => getCss(right, value, selector),
+  top: (value: PropEnhancerValueType, selector: string) => getCss(top, value, selector)
 }

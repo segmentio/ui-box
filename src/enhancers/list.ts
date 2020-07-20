@@ -38,8 +38,8 @@ const listStylePosition = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  listStyle: (value: PropEnhancerValueType) => getCss(listStyle, value),
-  listStyleType: (value: PropEnhancerValueType) => getCss(listStyleType, value),
-  listStyleImage: (value: PropEnhancerValueType) => getCss(listStyleImage, value),
-  listStylePosition: (value: PropEnhancerValueType) => getCss(listStylePosition, value)
+  listStyle: (value: PropEnhancerValueType, selector: string) => getCss(listStyle, value, selector),
+  listStyleType: (value: PropEnhancerValueType, selector: string) => getCss(listStyleType, value, selector),
+  listStyleImage: (value: PropEnhancerValueType, selector: string) => getCss(listStyleImage, value, selector),
+  listStylePosition: (value: PropEnhancerValueType, selector: string) => getCss(listStylePosition, value, selector)
 }

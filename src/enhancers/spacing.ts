@@ -117,12 +117,12 @@ const paddingLeft = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  marginBottom: (value: PropEnhancerValueType) => getCss(marginBottom, value),
-  marginLeft: (value: PropEnhancerValueType) => getCss(marginLeft, value),
-  marginRight: (value: PropEnhancerValueType) => getCss(marginRight, value),
-  marginTop: (value: PropEnhancerValueType) => getCss(marginTop, value),
-  paddingBottom: (value: PropEnhancerValueType) => getCss(paddingBottom, value),
-  paddingLeft: (value: PropEnhancerValueType) => getCss(paddingLeft, value),
-  paddingRight: (value: PropEnhancerValueType) => getCss(paddingRight, value),
-  paddingTop: (value: PropEnhancerValueType) => getCss(paddingTop, value)
+  marginBottom: (value: PropEnhancerValueType, selector: string) => getCss(marginBottom, value, selector),
+  marginLeft: (value: PropEnhancerValueType, selector: string) => getCss(marginLeft, value, selector),
+  marginRight: (value: PropEnhancerValueType, selector: string) => getCss(marginRight, value, selector),
+  marginTop: (value: PropEnhancerValueType, selector: string) => getCss(marginTop, value, selector),
+  paddingBottom: (value: PropEnhancerValueType, selector: string) => getCss(paddingBottom, value, selector),
+  paddingLeft: (value: PropEnhancerValueType, selector: string) => getCss(paddingLeft, value, selector),
+  paddingRight: (value: PropEnhancerValueType, selector: string) => getCss(paddingRight, value, selector),
+  paddingTop: (value: PropEnhancerValueType, selector: string) => getCss(paddingTop, value, selector)
 }

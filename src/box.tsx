@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { BoxProps } from './types/box-types'
 import { propTypes } from './enhancers'
 import enhanceProps from './enhance-props'
 import { extractAnchorProps, getUseSafeHref } from './utils/safeHref'
 
-const Box = forwardRef(<E extends React.ElementType>({ is, children, allowUnsafeHref, ...props }: BoxProps<E>, ref: React.Ref<Element>) => {
+const Box = React.forwardRef(<E extends React.ElementType>({ is, children, allowUnsafeHref, ...props }: BoxProps<E>, ref: React.Ref<Element>) => {
   // Convert the CSS props to class names (and inject the styles)
   const {className, enhancedProps: parsedProps} = enhanceProps(props)
 

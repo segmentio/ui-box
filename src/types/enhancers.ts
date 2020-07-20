@@ -174,6 +174,10 @@ export type EnhancerProps = BoxCssProps<CssProps> & {
    * Utility property for easily adding clearfix styles to the element.
    */
   clearfix?: boolean
+
+  selectors?: {
+    [k: string]: BoxCssProps<CssProps>
+  }
 }
 
 export type PropEnhancerValueType = string | number
@@ -187,7 +191,7 @@ export interface PropAliases {
 }
 
 export interface PropEnhancers {
-  [key: string]: (value: any) => EnhancedProp | null
+  [key: string]: (value: PropEnhancerValueType, selector: string) => EnhancedProp | null
 }
 
 export interface PropValidators {

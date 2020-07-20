@@ -137,9 +137,9 @@ export default () => {
       top={10}
       transform="skew(10deg)"
       transformOrigin="50% 50%"
-      transition="background 1s ease-in 2s"
-      transitionDelay="2s"
-      transitionDuration="1s"
+      transition="background 500ms ease-in 1s"
+      transitionDelay="1s"
+      transitionDuration="500ms"
       transitionProperty="background"
       transitionTimingFunction="ease-in"
       userSelect="none"
@@ -149,6 +149,11 @@ export default () => {
       wordBreak="normal"
       wordWrap="break-word"
       zIndex={1}
+      selectors={{
+        '&:hover': {
+          backgroundColor: "blue"
+        }
+      }}
     />
   )
 }
