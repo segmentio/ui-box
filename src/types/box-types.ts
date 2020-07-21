@@ -10,10 +10,8 @@ export { EnhancerProps }
 export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
 
 export type PropsOf<
-	E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
-> = E extends React.JSXElementConstructor<infer P>
-  ? JSX.LibraryManagedAttributes<E, P>
-  : React.ComponentPropsWithRef<E>
+  E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
+> = JSX.LibraryManagedAttributes<E, React.ComponentPropsWithRef<E>>
 
 /**
  * Generic component props with "is" prop
