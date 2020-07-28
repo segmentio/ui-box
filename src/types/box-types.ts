@@ -1,6 +1,5 @@
 import React from 'react'
 import { EnhancerProps } from './enhancers'
-import { DomNodes } from './dom-nodes'
 
 export { EnhancerProps }
 
@@ -10,60 +9,42 @@ export { EnhancerProps }
  */
 export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
 
-/**
- * "is" prop
- * @template P Props
- */
-export type Is<P = any> = React.ElementType<P>
-
-/**
- * Custom Ref to handle `is` prop
- */
-export type RefType<T> = T extends keyof DomNodes
-  ? DomNodes[T] // Get the DOM node type
-  : T extends typeof React.Component
-  ? T['prototype'] // Convert component class type back to a class instance
-  : never // Functional components can't have refs
-
-/**
- * Remove box props from object `T` if they're present
- * @template T Object
- */
-type WithoutBoxProps<T> = Without<T, "is" | "innerRef">
-
-/**
- * Grab components passed to the `is` prop and return their props
- * @template T Component type
- */
-type InheritedProps<T extends Is> = WithoutBoxProps<React.ComponentPropsWithoutRef<T>>
+export type PropsOf<
+  E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
+> = JSX.LibraryManagedAttributes<E, React.ComponentPropsWithRef<E>>
 
 /**
  * Generic component props with "is" prop
  * @template P Additional props
  * @template T React component or string element
  */
-export type BoxProps<T extends Is> = InheritedProps<T> &
-    EnhancerProps & {
-    /**
-     * Replaces the underlying element
-     */
-    is?: T
+export type BoxOwnProps<E extends React.ElementType = React.ElementType, P = {}> = Without<EnhancerProps, keyof P> & {
+  /**
+   * Replaces the underlying element
+   */
+  is?: E
 
-    /**
-     * Callback that gets passed a ref to inner DOM node (or component if the
-     * `is` prop is set to a React component type).
-     */
-    innerRef?: React.Ref<RefType<T>>
-
-    /**
-     * Allows the high level value of safeHref to be overwritten on an individual component basis
-     */
-    allowUnsafeHref?: boolean
-  }
-
-export interface BoxComponent {
-  <T extends Is>(props: BoxProps<T>): React.ReactElement | null
-  propTypes?: React.FunctionComponent['propTypes']
-  defaultProps?: React.FunctionComponent['defaultProps']
-  displayName?: React.FunctionComponent['displayName']
+  /**
+   * Allows the high level value of safeHref to be overwritten on an individual component basis
+   */
+  allowUnsafeHref?: boolean
 }
+
+export type BoxProps<E extends React.ElementType> = BoxOwnProps<E> & Without<PropsOf<E>, keyof BoxOwnProps>
+
+/**
+ * Convenience type for defining your own component props that extend Box and pass-through props
+ */
+export type PolymorphicBoxProps<
+  E extends React.ElementType,
+  // optional additional props (which we get removed from BoxOwnProps and PropsOf)
+  // this is useful for defining some pass-through props on a wrapper for Box
+  P = {}
+> = BoxOwnProps<E, P> & Without<PropsOf<E>, keyof (BoxOwnProps & P)> & P
+
+/**
+ * Convenience type for defining your own components that extend Box and pass-through props
+ */
+export type BoxComponent<P = {}, D extends React.ElementType = React.ElementType> = <
+  E extends React.ElementType = D
+>(props: PolymorphicBoxProps<E, P>) => JSX.Element

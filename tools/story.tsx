@@ -9,7 +9,7 @@ const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
 )
 
 const logRef = (ref: Element | null) => console.log(ref)
-const reactRef = React.createRef<unknown>()
+const reactRef = React.createRef<HTMLDivElement>()
 
 interface CustomProps { children: React.ReactNode }
 const CustomComp: React.FunctionComponent<CustomProps> = props => {
@@ -180,14 +180,14 @@ storiesOf('Box', module)
       <Box boxSizing="border-box">boxSizing: border-box</Box>
     </Box>
   ))
-  .add('innerRef', () => (
+  .add('ref', () => (
     <Box>
-      <Box innerRef={logRef}>innerRef</Box>
+      <Box ref={logRef}>ref</Box>
     </Box>
   ))
-  .add('innerRef as React ref', () => (
+  .add('ref as React ref', () => (
     <Box>
-      <Box innerRef={reactRef}>React ref</Box>
+      <Box ref={reactRef}>React ref</Box>
     </Box>
   ))
   .add('props pass through', () => (

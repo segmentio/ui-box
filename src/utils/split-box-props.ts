@@ -1,4 +1,4 @@
-import {propNames} from '../enhancers/index'
+import { propNames } from '../enhancers/index'
 import splitProps from './split-props'
 import { EnhancerProps } from '../types/enhancers'
 

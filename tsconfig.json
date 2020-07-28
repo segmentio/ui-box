@@ -11,8 +11,8 @@
       "dom"
     ],
     "declaration": true,
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
+    "removeComments": true,
     "rootDirs": [
       "./src",
       "./tools"
@@ -27,6 +27,7 @@
     "esModuleInterop": true
   },
   "include": [
-    "src"
+    "src",
+    "tools"
   ]
 }

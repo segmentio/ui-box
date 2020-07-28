@@ -62,12 +62,6 @@ E.g:
 <Box is={Link} to="/login">Login</Box>
 ```
 
-##### innerRef
-
-Type: `function`
-
-Callback that gets passed a ref to inner DOM node (or component if the `is` prop is set to a React component type).
-
 ##### clearfix
 
 Type: `boolean`
@@ -310,14 +304,15 @@ setClassNamePrefix('📦')
 
 ### Safe `href`s
 
-By default `ui-box` does not ensure that urls use safe protocols when passed to an element. But we built this functionality into `ui-box` to  protect the end users of the products you are building. You can alter this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This will ensure that only safe protocols are used (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
+By default `ui-box` ensures that urls use safe protocols when passed to an element. We built this functionality into `ui-box` to protect the end users of the products you are building. You can opt-out of this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This allows you to configure which protocols are acceptable (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
 
 ```js
 import { configureSafeHref } from 'ui-box'
 configureSafeHref({
-  enabled: true,
+  enabled: true, // the default behavior
 })
 ```
+
 ```js
 import { configureSafeHref } from 'ui-box'
 configureSafeHref({
@@ -326,10 +321,10 @@ configureSafeHref({
 })
 ```
 
-Additionally you can overwrite the behavoir on an individual component basis using the prop `allowUnsafeHref`
+Additionally you can override the behavior on an individual component basis using the prop `allowUnsafeHref`
 
 ```jsx
-<Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>This is unsafe</Box>
+<Box is="a" href="javascript:alert('hi')" allowUnsafeHref>This is unsafe</Box>
 ```
 
 ### Server side rendering
