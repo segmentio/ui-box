@@ -17,6 +17,7 @@ export const propTypes: PropTypesMapping = {
   textOverflow: PropTypes.string,
   textShadow: PropTypes.string,
   textTransform: PropTypes.string,
+  verticalAlign: PropTypes.string,
   whiteSpace: PropTypes.string,
   wordBreak: PropTypes.string,
   wordWrap: PropTypes.string
@@ -100,6 +101,12 @@ const lineHeight = {
   jsName: 'lineHeight',
   defaultUnit: ''
 }
+const verticalAlign = {
+  className: 'ver-algn',
+  cssName: 'vertical-align',
+  jsName: 'verticalAlign',
+  safeValue: true
+}
 const wordBreak = {
   className: 'wrd-brk',
   cssName: 'word-break',
@@ -139,6 +146,7 @@ export const propEnhancers: PropEnhancers = {
   textOverflow: (value: PropEnhancerValueType) => getCss(textOverflow, value),
   textShadow: (value: PropEnhancerValueType) => getCss(textShadow, value),
   textTransform: (value: PropEnhancerValueType) => getCss(textTransform, value),
+  verticalAlign: (value: PropEnhancerValueType) => getCss(verticalAlign, value),
   whiteSpace: (value: PropEnhancerValueType) => getCss(whiteSpace, value),
   wordBreak: (value: PropEnhancerValueType) => getCss(wordBreak, value),
   wordWrap: (value: PropEnhancerValueType) => getCss(wordWrap, value)

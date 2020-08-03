@@ -160,6 +160,7 @@ storiesOf('Box', module)
     <Box>
       <Box textAlign="center">Center</Box>
       <Box textAlign="right">Right</Box>
+      <Box verticalAlign="middle">Middle</Box>
       <Box color="red">Right</Box>
       <Box fontFamily="sans-serif">sans-serif</Box>
       <Box fontWeight="bold">bold</Box>

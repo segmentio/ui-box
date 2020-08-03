@@ -131,6 +131,7 @@ type CssProps = Pick<
   | 'transitionProperty'
   | 'transitionTimingFunction'
   | 'userSelect'
+  | 'verticalAlign'
   | 'visibility'
   | 'whiteSpace'
   | 'width'
