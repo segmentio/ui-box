@@ -213,6 +213,7 @@ All of these CSS properties are supported. You can pass either a string or a num
 * `transitionProperty`
 * `transitionTimingFunction`
 * `userSelect`
+* `verticalAlign`
 * `visibility`
 * `whiteSpace`
 * `width`
