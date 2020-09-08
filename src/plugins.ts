@@ -22,7 +22,7 @@ export function use(plugin: Plugin): void {
  * Should be used only internally by ui-box, not by plugin authors or consumers.
  */
 export function apply(set: RuleSet) {
-  let newSet = {...set}
+  let newSet = set
 
   for (const plugin of plugins) {
     newSet = plugin({...newSet})
