@@ -2,7 +2,7 @@ import test from 'ava'
 import * as plugins from '../src/plugins'
 
 test.afterEach.always(() => {
-  plugins.reset()
+  plugins.clear()
 })
 
 test('applies a selector prefix to the styles', t => {

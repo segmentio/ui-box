@@ -5,7 +5,7 @@ import * as plugins from '../src/plugins'
 const originalNodeEnv = process.env.NODE_ENV
 test.afterEach.always(() => {
   process.env.NODE_ENV = originalNodeEnv
-  plugins.reset()
+  plugins.clear()
 })
 
 test('supports basic prop + value', t => {

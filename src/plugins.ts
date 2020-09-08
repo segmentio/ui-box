@@ -23,6 +23,6 @@ export function apply(set: RuleSet) {
   return newSet
 }
 
-export function reset(): void {
+export function clear(): void {
   plugins.length = 0
 }
