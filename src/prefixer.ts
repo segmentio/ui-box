@@ -1,5 +1,6 @@
 import {prefix} from 'inline-style-prefixer'
 import decamelize from './utils/decamelize'
+import hasOwnProperty from './utils/has-own-property'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 
@@ -7,6 +8,17 @@ export interface Rule {
   property: string
   value: string
 }
+
+export function isRule(rule: unknown): rule is Rule {
+  if (typeof rule !== 'object' || rule === null) {
+    return false
+  }
+  return hasOwnProperty(rule, 'property') &&
+         typeof rule.property === 'string' &&
+         hasOwnProperty(rule, 'value') &&
+         typeof rule.value === 'string'
+}
+
 /**
  * Adds vendor prefixes to properties and values.
  */

@@ -1,4 +1,5 @@
-import { Rule } from './prefixer'
+import { Rule, isRule } from './prefixer'
+import hasOwnProperty from './utils/has-own-property'
 
 export interface RuleSet {
   selector: string,
@@ -8,6 +9,23 @@ export interface RuleSet {
 type Plugin = (set: RuleSet) => RuleSet
 
 const plugins: Plugin[] = []
+
+function isRuleSet (set: unknown): set is RuleSet {
+  if (typeof set !== 'object' || set === null) {
+    return false
+  }
+  if (!hasOwnProperty(set, 'selector') ||
+      typeof set.selector !== 'string') {
+    return false
+  }
+  if (!hasOwnProperty(set, 'rules')) {
+    return false
+  }
+
+  const rules = set.rules
+
+  return Array.isArray(rules) && rules.every(isRule)
+}
 
 /**
  * Adds a plugin that ui-box will apply before emitting styles into a stylesheet.
@@ -25,7 +43,14 @@ export function apply(set: RuleSet) {
   let newSet = set
 
   for (const plugin of plugins) {
-    newSet = plugin({...newSet})
+    const updatedSet = plugin({...newSet})
+
+    // Skip broken plugins
+    if (isRuleSet(updatedSet)) {
+      newSet = updatedSet
+    } else if (process.env.NODE_ENV !== 'production') {
+      throw new Error(`📦 ui-box: Plugin "${plugin.name}" returned an invalid RuleSet.`)
+    }
   }
 
   return newSet
