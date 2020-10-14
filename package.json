@@ -30,7 +30,7 @@
     "build": "tsc",
     "build-storybook": "build-storybook -s .storybook/static -o .out",
     "release": "np",
-    "benchmark": "echo ui-box && react-benchmark dist/tools/benchmarks/box.js",
+    "benchmark": "react-benchmark tools/benchmarks/box.ts",
     "size": "size-limit",
     "coverage": "nyc report --reporter=html"
   },
@@ -71,7 +71,7 @@
     "lint-staged": "^8.1.5",
     "nyc": "^14.1.0",
     "react": "^16.8.4",
-    "react-benchmark": "^2.1.0",
+    "react-benchmark": "^3.0.0",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-dom": "^16.8.4",
     "react-test-renderer": "^16.8.4",
