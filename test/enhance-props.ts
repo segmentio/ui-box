@@ -73,3 +73,14 @@ test.serial('handles invalid values', t => {
   t.is(className, '')
   t.deepEqual(enhancedProps, {})
 })
+
+test.serial('supports initial pseudoclasses', t => {
+  const {className, enhancedProps} = enhanceProps({_hover: { width: 300 }})
+  t.is(
+    styles.getAll(),
+    `
+.ub-w_hover_300px:hover {
+  width: 300px;
+}`
+  )
+})
