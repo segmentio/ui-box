@@ -149,6 +149,14 @@ type BoxCssProps<CP> = {
 
 export type BoxPropValue = string | number | false | null | undefined
 
+export const PSEUDO_SELECTORS = ["_hover", "_focus", "_active", "_disabled"] as const
+
+export type PseudoSelectors = typeof PSEUDO_SELECTORS[number]
+
+type PseudoSelectorProps = {
+  [k in PseudoSelectors]?: BoxCssProps<CssProps>
+}
+
 export type EnhancerProps = BoxCssProps<CssProps> & {
   /**
    * Sets `marginLeft` and `marginRight` to the same value
@@ -174,7 +182,7 @@ export type EnhancerProps = BoxCssProps<CssProps> & {
    * Utility property for easily adding clearfix styles to the element.
    */
   clearfix?: boolean
-}
+} & PseudoSelectorProps
 
 export type PropEnhancerValueType = string | number
 
@@ -187,7 +195,7 @@ export interface PropAliases {
 }
 
 export interface PropEnhancers {
-  [key: string]: (value: any) => EnhancedProp | null
+  [key: string]: (value: any, pseudoSelector?: string) => EnhancedProp | null
 }
 
 export interface PropValidators {

@@ -49,8 +49,8 @@ const boxSizing = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  boxSizing: (value: PropEnhancerValueType) => getCss(boxSizing, value),
-  clear: (value: PropEnhancerValueType) => getCss(clear, value),
+  boxSizing: (value: PropEnhancerValueType, prefix?: string) => getCss(boxSizing, value, prefix),
+  clear: (value: PropEnhancerValueType, prefix?: string) => getCss(clear, value, prefix),
   clearfix: () => ({
     className: `${getClassNamePrefix()}clearfix`,
     styles: `
@@ -60,7 +60,7 @@ export const propEnhancers: PropEnhancers = {
   content: "";
 }`
   }),
-  display: (value: PropEnhancerValueType) => getCss(display, value),
-  float: (value: PropEnhancerValueType) => getCss(float, value),
-  zIndex: (value: PropEnhancerValueType) => getCss(zIndex, value)
+  display: (value: PropEnhancerValueType, prefix?: string) => getCss(display, value, prefix),
+  float: (value: PropEnhancerValueType, prefix?: string) => getCss(float, value, prefix),
+  zIndex: (value: PropEnhancerValueType, prefix?: string) => getCss(zIndex, value, prefix)
 }

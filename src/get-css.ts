@@ -6,7 +6,7 @@ import { EnhancedProp } from './types/enhancers'
 /**
  * Generates the class name and styles.
  */
-export default function getCss(propertyInfo: PropertyInfo, value: string | number): EnhancedProp | null {
+export default function getCss(propertyInfo: PropertyInfo, value: string | number, pseudoSelector?: string): EnhancedProp | null {
   let rules: Rule[]
 
   // Protect against unexpected values
@@ -24,7 +24,7 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
   }
 
   const valueString = valueToString(value, propertyInfo.defaultUnit)
-  const className = getClassName(propertyInfo, valueString)
+  const className = getClassName(propertyInfo, valueString, pseudoSelector)
 
   // Avoid running the prefixer when possible because it's slow
   if (propertyInfo.isPrefixed) {
@@ -44,7 +44,7 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
       .map(rule => `  ${rule.property}: ${rule.value};`)
       .join('\n')
     styles = `
-.${className} {
+.${className}${pseudoSelector ? `:${pseudoSelector}` : ''} {
 ${rulesString}
 }`
   }

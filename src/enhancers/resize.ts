@@ -17,5 +17,5 @@ const resize = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  resize: (value: PropEnhancerValueType) => getCss(resize, value)
+  resize: (value: PropEnhancerValueType, prefix?: string) => getCss(resize, value, prefix)
 }

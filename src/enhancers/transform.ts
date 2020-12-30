@@ -25,6 +25,6 @@ const transformOrigin = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  transform: (value: PropEnhancerValueType) => getCss(transform, value),
-  transformOrigin: (value: PropEnhancerValueType) => getCss(transformOrigin, value)
+  transform: (value: PropEnhancerValueType, prefix?: string) => getCss(transform, value, prefix),
+  transformOrigin: (value: PropEnhancerValueType, prefix?: string) => getCss(transformOrigin, value, prefix)
 }

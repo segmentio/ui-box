@@ -66,8 +66,8 @@ const borderBottomRightRadius = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  borderBottomLeftRadius: (value: PropEnhancerValueType) => getCss(borderBottomLeftRadius, value),
-  borderBottomRightRadius: (value: PropEnhancerValueType) => getCss(borderBottomRightRadius, value),
-  borderTopLeftRadius: (value: PropEnhancerValueType) => getCss(borderTopLeftRadius, value),
-  borderTopRightRadius: (value: PropEnhancerValueType) => getCss(borderTopRightRadius, value)
+  borderBottomLeftRadius: (value: PropEnhancerValueType, prefix?: string ) => getCss(borderBottomLeftRadius, value, prefix),
+  borderBottomRightRadius: (value: PropEnhancerValueType, prefix?: string) => getCss(borderBottomRightRadius, value, prefix),
+  borderTopLeftRadius: (value: PropEnhancerValueType, prefix?: string) => getCss(borderTopLeftRadius, value, prefix),
+  borderTopRightRadius: (value: PropEnhancerValueType, prefix?: string) => getCss(borderTopRightRadius, value, prefix)
 }

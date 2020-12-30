@@ -46,9 +46,9 @@ const transitionTimingFunction = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  transition: (value: PropEnhancerValueType) => getCss(transition, value),
-  transitionDelay: (value: PropEnhancerValueType) => getCss(transitionDelay, value),
-  transitionDuration: (value: PropEnhancerValueType) => getCss(transitionDuration, value),
-  transitionProperty: (value: PropEnhancerValueType) => getCss(transitionProperty, value),
-  transitionTimingFunction: (value: PropEnhancerValueType) => getCss(transitionTimingFunction, value)
+  transition: (value: PropEnhancerValueType, prefix?: string) => getCss(transition, value, prefix),
+  transitionDelay: (value: PropEnhancerValueType, prefix?: string) => getCss(transitionDelay, value, prefix),
+  transitionDuration: (value: PropEnhancerValueType, prefix?: string) => getCss(transitionDuration, value, prefix),
+  transitionProperty: (value: PropEnhancerValueType, prefix?: string) => getCss(transitionProperty, value, prefix),
+  transitionTimingFunction: (value: PropEnhancerValueType, prefix?: string) => getCss(transitionTimingFunction, value, prefix)
 }

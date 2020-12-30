@@ -18,5 +18,5 @@ const opacity = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  opacity: (value: PropEnhancerValueType) => getCss(opacity, value)
+  opacity: (value: PropEnhancerValueType, prefix?: string) => getCss(opacity, value, prefix)
 }

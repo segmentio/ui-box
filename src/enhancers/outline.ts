@@ -18,5 +18,5 @@ const outline = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  outline: (value: PropEnhancerValueType) => getCss(outline, value)
+  outline: (value: PropEnhancerValueType, prefix?: string) => getCss(outline, value, prefix)
 }

@@ -39,8 +39,8 @@ const pointerEvents = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  cursor: (value: PropEnhancerValueType) => getCss(cursor, value),
-  pointerEvents: (value: PropEnhancerValueType) => getCss(pointerEvents, value),
-  userSelect: (value: PropEnhancerValueType) => getCss(userSelect, value),
-  visibility: (value: PropEnhancerValueType) => getCss(visibility, value)
+  cursor: (value: PropEnhancerValueType, prefix?: string) => getCss(cursor, value, prefix),
+  pointerEvents: (value: PropEnhancerValueType, prefix?: string) => getCss(pointerEvents, value, prefix),
+  userSelect: (value: PropEnhancerValueType, prefix?: string) => getCss(userSelect, value, prefix),
+  visibility: (value: PropEnhancerValueType, prefix?: string) => getCss(visibility, value, prefix)
 }

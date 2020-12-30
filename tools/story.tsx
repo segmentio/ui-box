@@ -206,4 +206,6 @@ storiesOf('Box', module)
     <Box>
       <RedBox marginLeft="5px" />
     </Box>
+  )).add('pseudoselectors', () => (
+    <Box width={100} height={100} backgroundColor='blue' _hover={{ backgroundColor: 'red', width: 300 }} />
   ))
