@@ -40,7 +40,7 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0"
+    "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -50,8 +50,8 @@
     "@types/enzyme": "^3.9.1",
     "@types/inline-style-prefixer": "^5.0.0",
     "@types/prop-types": "^15.7.1",
-    "@types/react": "^16.8.16",
-    "@types/react-dom": "^16.8.4",
+    "@types/react": "18.0.3",
+    "@types/react-dom": "^18.0.3",
     "@types/react-test-renderer": "^16.8.1",
     "@types/sinon": "^7.0.11",
     "@types/storybook__react": "^4.0.1",
@@ -81,6 +81,9 @@
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "xo": "^0.24.0"
+  },
+  "resolutions": {
+    "@types/react": "18.0.3"
   },
   "xo": {
     "parser": "@typescript-eslint/parser",
