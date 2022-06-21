@@ -40,7 +40,7 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -70,11 +70,11 @@
     "husky": "^2.2.0",
     "lint-staged": "^8.1.5",
     "nyc": "^14.1.0",
-    "react": "^16.8.4",
+    "react": "^18.2.0",
     "react-benchmark": "^3.0.0",
     "react-docgen-typescript-loader": "^3.1.0",
-    "react-dom": "^16.8.4",
-    "react-test-renderer": "^16.8.4",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "sinon": "^7.2.7",
     "size-limit": "^4.5.4",
     "ts-node": "^8.1.0",
