@@ -1,5 +1,5 @@
-import React from 'react'
-import Box from '../src'
+import React from "react";
+import Box from "../src";
 
 // Built as a regular function instead of a component to reduce impact on the benchmark
 export default () => {
@@ -137,9 +137,9 @@ export default () => {
       top={10}
       transform="skew(10deg)"
       transformOrigin="50% 50%"
-      transition="background 500ms ease-in 1s"
-      transitionDelay="1s"
-      transitionDuration="500ms"
+      transition="background 1s ease-in 2s"
+      transitionDelay="2s"
+      transitionDuration="1s"
       transitionProperty="background"
       transitionTimingFunction="ease-in"
       userSelect="none"
@@ -150,10 +150,10 @@ export default () => {
       wordWrap="break-word"
       zIndex={1}
       selectors={{
-        '&:hover': {
+        "&:hover": {
           backgroundColor: "blue"
         }
       }}
     />
-  )
-}
+  );
+};
