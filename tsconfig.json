@@ -11,7 +11,7 @@
       "dom"
     ],
     "declaration": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "removeComments": true,
     "rootDirs": [
       "./src",
