@@ -1,9 +1,10 @@
-import {propEnhancers} from './enhancers'
+import { propEnhancers } from './enhancers'
 import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
-import {Without} from './types/box-types'
-import {EnhancerProps} from './types/enhancers'
+import { Without } from './types/box-types'
+import { EnhancerProps } from './types/enhancers'
+import getSafeValue from './get-safe-value'
 
 type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
 
@@ -19,16 +20,19 @@ function noAnd(s: string): string {
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
-export default function enhanceProps(props: EnhancerProps & React.ComponentPropsWithoutRef<any>, selectorHead = ''): EnhancedPropsResult {
+export default function enhanceProps(
+  props: EnhancerProps & React.ComponentPropsWithoutRef<any>,
+  selectorHead = ''
+): EnhancedPropsResult {
   const propsMap = expandAliases(props)
   const preservedProps: PreservedProps = {}
-  let className = props.className || ''
+  let className: string = props.className || ''
 
   for (const [property, value] of propsMap) {
     if (value && typeof value === 'object') {
       const prop = property === 'selectors' ? '' : property
       const parsed = enhanceProps(value, noAnd(selectorHead + prop))
-      className = `${className} ${parsed.className}`
+      className = concat(className, parsed.className)
       continue
     }
 
@@ -47,7 +51,7 @@ export default function enhanceProps(props: EnhancerProps & React.ComponentProps
 
     const cachedClassName = cache.get(property, value, selectorHead)
     if (cachedClassName) {
-      className = `${className} ${cachedClassName}`
+      className = concat(className, cachedClassName, selectorHead)
       continue
     }
 
@@ -56,7 +60,7 @@ export default function enhanceProps(props: EnhancerProps & React.ComponentProps
     if (newCss) {
       styles.add(newCss.styles)
       cache.set(property, value, newCss.className, selectorHead)
-      className = `${className} ${newCss.className}`
+      className = concat(className, newCss.className, selectorHead)
     }
   }
 
@@ -64,3 +68,6 @@ export default function enhanceProps(props: EnhancerProps & React.ComponentProps
 
   return { className, enhancedProps: preservedProps }
 }
+
+const concat = (currentClassNames: string, className: string, selector: string = ''): string =>
+  `${currentClassNames} ${className}${getSafeValue(selector)}`
