@@ -1,5 +1,5 @@
-import React from "react";
-import Box from "../src";
+import React from 'react'
+import Box from '../src'
 
 // Built as a regular function instead of a component to reduce impact on the benchmark
 export default () => {
@@ -129,6 +129,11 @@ export default () => {
       resize="none"
       right={10}
       rowGap={3}
+      selectors={{
+        '&:hover': {
+          backgroundColor: 'blue'
+        }
+      }}
       textAlign="right"
       textDecoration="underline dotted"
       textOverflow="ellipsis"
@@ -149,11 +154,6 @@ export default () => {
       wordBreak="normal"
       wordWrap="break-word"
       zIndex={1}
-      selectors={{
-        "&:hover": {
-          backgroundColor: "blue"
-        }
-      }}
     />
-  );
-};
+  )
+}
