@@ -23,7 +23,7 @@ export interface PropertyInfo {
 /**
  * Generates the class name.
  */
-export default function getClassName(propertyInfo: PropertyInfo, value: string) {
+export default function getClassName(propertyInfo: PropertyInfo, value: string, selector: string = '') {
   const {
     className,
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
@@ -37,7 +37,7 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
     /* Always hash values that contain a calc() because the operators get
     stripped which can result in class name collisions
     */
-  } else if (complexValue || value.includes('calc(')) {
+  } else if (selector || complexValue || value.includes('calc(')) {
     valueKey = hash(value)
   } else if (safeValue) {
     valueKey = value

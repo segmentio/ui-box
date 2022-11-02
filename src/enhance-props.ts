@@ -4,7 +4,6 @@ import * as cache from './cache'
 import * as styles from './styles'
 import { Without } from './types/box-types'
 import { EnhancerProps } from './types/enhancers'
-import getSafeValue from './get-safe-value'
 
 type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
 
@@ -32,7 +31,7 @@ export default function enhanceProps(
     if (value && typeof value === 'object') {
       const prop = property === 'selectors' ? '' : property
       const parsed = enhanceProps(value, noAnd(selectorHead + prop))
-      className = concat(className, parsed.className)
+      className = `${className} ${parsed.className}`
       continue
     }
 
@@ -51,7 +50,7 @@ export default function enhanceProps(
 
     const cachedClassName = cache.get(property, value, selectorHead)
     if (cachedClassName) {
-      className = concat(className, cachedClassName, selectorHead)
+      className = `${className} ${cachedClassName}`
       continue
     }
 
@@ -60,7 +59,7 @@ export default function enhanceProps(
     if (newCss) {
       styles.add(newCss.styles)
       cache.set(property, value, newCss.className, selectorHead)
-      className = concat(className, newCss.className, selectorHead)
+      className = `${className} ${newCss.className}`
     }
   }
 
@@ -68,6 +67,3 @@ export default function enhanceProps(
 
   return { className, enhancedProps: preservedProps }
 }
-
-const concat = (currentClassNames: string, className: string, selector: string = ''): string =>
-  `${currentClassNames} ${className}${getSafeValue(selector)}`

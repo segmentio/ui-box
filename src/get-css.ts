@@ -2,7 +2,6 @@ import prefixer, { Rule } from './prefixer'
 import valueToString from './value-to-string'
 import getClassName, { PropertyInfo } from './get-class-name'
 import { EnhancedProp } from './types/enhancers'
-import getSafeValue from './get-safe-value'
 
 /**
  * Generates the class name and styles.
@@ -25,7 +24,7 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
   }
 
   const valueString = valueToString(value, propertyInfo.defaultUnit)
-  const className = getClassName(propertyInfo, valueString)
+  const className = getClassName(propertyInfo, valueString, selector)
 
   // Avoid running the prefixer when possible because it's slow
   if (propertyInfo.isPrefixed) {
@@ -37,11 +36,11 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
   let styles: string
   if (process.env.NODE_ENV === 'production') {
     const rulesString = rules.map(rule => `${rule.property}:${rule.value}`).join(';')
-    styles = `.${className}${getSafeValue(selector)}${selector}{${rulesString}}`
+    styles = `.${className}${selector}{${rulesString}}`
   } else {
     const rulesString = rules.map(rule => `  ${rule.property}: ${rule.value};`).join('\n')
     styles = `
-.${className}${getSafeValue(selector)}${selector} {
+.${className}${selector} {
 ${rulesString}
 }`
   }
