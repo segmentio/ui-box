@@ -27,10 +27,10 @@ npm install --save ui-box
 ## Usage
 
 ```jsx
-import Box from "ui-box";
+import Box from 'ui-box'
 
 function Button(props) {
-  return <Box is="button" padding="10px" background="red" {...props} />;
+  return <Box is="button" padding="10px" background="red" {...props} />
 }
 
 function Example() {
@@ -38,7 +38,7 @@ function Example() {
     <Button disabled margin="10px">
       Hi
     </Button>
-  );
+  )
 }
 ```
 
@@ -73,6 +73,18 @@ Utility property for easily adding clearfix styles to the element.
 Type: `string`
 
 The className prop you know and love. Internally it gets enhanced with additional class names for the CSS properties you specify.
+
+##### selectors
+
+Type: `object<selector: string, props: CssProps>`
+
+This prop allows you to define selectors and custom styles to apply when the selector condition is met. This can be used to create richer element interactions, such as hover or focus states, without the use of another css-in-js library.
+
+```tsx
+<Box is="a" selectors={{ '&:hover': { cursor: 'pointer', textDecoration: 'underline' } }}>
+  Hello world
+</Box>
+```
 
 ##### CSS properties
 
@@ -299,8 +311,8 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 By default `ui-box` uses `ub-` as the classname prefix before all ui-box generated classnames. You can alter this by using `setClassNamePrefix('whatever-you-want-')`. Note that the delimiter is included in the prefix... this is to support backwards compatibility with the old classnames (< v3), which you can achieve using something like this:
 
 ```js
-import { setClassNamePrefix } from "ui-box";
-setClassNamePrefix("📦");
+import { setClassNamePrefix } from 'ui-box'
+setClassNamePrefix('📦')
 ```
 
 ### Safe `href`s
@@ -308,10 +320,10 @@ setClassNamePrefix("📦");
 By default `ui-box` ensures that urls use safe protocols when passed to an element. We built this functionality into `ui-box` to protect the end users of the products you are building. You can opt-out of this by using `configureSafeHref({enabled?: boolean, origin?: string})`. This allows you to configure which protocols are acceptable (`http:`, `https:`, `mailto:`, `tel:`, and `data:`) and that the correct `rel` values are added (`noopener`, `noreferrer`(for external links)).
 
 ```js
-import { configureSafeHref } from "ui-box";
+import { configureSafeHref } from 'ui-box'
 configureSafeHref({
-  enabled: true, // the default behavior
-});
+  enabled: true // the default behavior
+})
 ```
 
 ```js
@@ -337,19 +349,15 @@ To render the styles on the server side just use [`ReactDOMServer.renderToString
 For example:
 
 ```js
-"use strict";
-const React = require("react");
-const ReactDOMServer = require("react-dom/server");
-const { default: Box, extractStyles } = require(".");
+'use strict'
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const { default: Box, extractStyles } = require('.')
 
-const element = React.createElement(
-  Box,
-  { margin: "10px", color: "red" },
-  "hi"
-);
+const element = React.createElement(Box, { margin: '10px', color: 'red' }, 'hi')
 
-const html = ReactDOMServer.renderToString(element);
-const { styles, cache } = extractStyles();
+const html = ReactDOMServer.renderToString(element)
+const { styles, cache } = extractStyles()
 
 const page = `
 <!DOCTYPE html>
@@ -370,8 +378,8 @@ const page = `
     </script>
   </body>
 </html>
-`;
-console.log(page);
+`
+console.log(page)
 ```
 
 ## Development

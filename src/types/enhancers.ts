@@ -175,8 +175,15 @@ export type EnhancerProps = BoxCssProps<CssProps> & {
    */
   clearfix?: boolean
 
+  /**
+   * Map of selectors and styles to apply when the selector conditions are met
+   * @example
+   * <Box is="a" selectors={{ "&:hover": { textDecoration: "underline" } }}>
+   *   Hello world
+   * </Box>
+   */
   selectors?: {
-    [k: string]: BoxCssProps<CssProps>
+    [selector: string]: BoxCssProps<CssProps>
   }
 }
 
