@@ -18,5 +18,5 @@ const boxShadow = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  boxShadow: (value: PropEnhancerValueType) => getCss(boxShadow, value)
+  boxShadow: (value: PropEnhancerValueType, selector: string) => getCss(boxShadow, value, selector)
 }

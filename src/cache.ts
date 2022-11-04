@@ -3,11 +3,11 @@ import {BoxPropValue} from './types/enhancers'
 type CacheValue = BoxPropValue
 let cache = new Map<string, string>()
 
-export function get(property: string, value: CacheValue) {
-  return cache.get(property + value)
+export function get(property: string, value: CacheValue, selectorHead = '') {
+  return cache.get(selectorHead + property + value)
 }
 
-export function set(property: string, value: CacheValue | object, className: string) {
+export function set(property: string, value: CacheValue | object, className: string, selectorHead = '') {
   if (process.env.NODE_ENV !== 'production') {
     const valueType = typeof value
     if (
@@ -22,7 +22,7 @@ export function set(property: string, value: CacheValue | object, className: str
     }
   }
 
-  cache.set(property + value, className)
+  cache.set(selectorHead + property + value, className)
 }
 
 export function entries() {

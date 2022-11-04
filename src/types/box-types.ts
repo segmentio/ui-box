@@ -9,6 +9,9 @@ export { EnhancerProps }
  */
 export type Without<T, K> = Pick<T, Exclude<keyof T, K>>
 
+/**
+ * @see {@link https://github.com/emotion-js/emotion/blob/b4214b8757c7ede1db1688075251946b2082f9d1/packages/styled-base/types/helper.d.ts#L6-L8}
+ */
 export type PropsOf<
   E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
 > = JSX.LibraryManagedAttributes<E, React.ComponentPropsWithRef<E>>

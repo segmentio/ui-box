@@ -28,6 +28,6 @@ const overflowX = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  overflowX: (value: PropEnhancerValueType) => getCss(overflowX, value),
-  overflowY: (value: PropEnhancerValueType) => getCss(overflowY, value)
+  overflowX: (value: PropEnhancerValueType, selector: string) => getCss(overflowX, value, selector),
+  overflowY: (value: PropEnhancerValueType, selector: string) => getCss(overflowY, value, selector)
 }

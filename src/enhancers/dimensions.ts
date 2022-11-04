@@ -46,10 +46,10 @@ const maxHeight = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  height: (value: PropEnhancerValueType) => getCss(height, value),
-  maxHeight: (value: PropEnhancerValueType) => getCss(maxHeight, value),
-  maxWidth: (value: PropEnhancerValueType) => getCss(maxWidth, value),
-  minHeight: (value: PropEnhancerValueType) => getCss(minHeight, value),
-  minWidth: (value: PropEnhancerValueType) => getCss(minWidth, value),
-  width: (value: PropEnhancerValueType) => getCss(width, value)
+  height: (value: PropEnhancerValueType, selector: string) => getCss(height, value, selector),
+  maxHeight: (value: PropEnhancerValueType, selector: string) => getCss(maxHeight, value, selector),
+  maxWidth: (value: PropEnhancerValueType, selector: string) => getCss(maxWidth, value, selector),
+  minHeight: (value: PropEnhancerValueType, selector: string) => getCss(minHeight, value, selector),
+  minWidth: (value: PropEnhancerValueType, selector: string) => getCss(minWidth, value, selector),
+  width: (value: PropEnhancerValueType, selector: string) => getCss(width, value, selector)
 }

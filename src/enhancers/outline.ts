@@ -8,7 +8,7 @@ export const propTypes: PropTypesMapping = {
 
 export const propAliases = {}
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 const outline = {
   className: 'otln',
@@ -18,5 +18,5 @@ const outline = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  outline: (value: PropEnhancerValueType) => getCss(outline, value)
+  outline: (value: PropEnhancerValueType, selector: string) => getCss(outline, value, selector)
 }

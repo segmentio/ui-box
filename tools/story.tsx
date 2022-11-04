@@ -1,6 +1,6 @@
 import React from 'react'
-import {default as Box, configureSafeHref} from '../src'
-import {storiesOf} from '@storybook/react'
+import { default as Box, configureSafeHref } from '../src'
+import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 import { BoxProps } from '../src/types/box-types'
 
@@ -11,7 +11,10 @@ const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
 const logRef = (ref: Element | null) => console.log(ref)
 const reactRef = React.createRef<HTMLDivElement>()
 
-interface CustomProps { children: React.ReactNode }
+interface CustomProps {
+  children: React.ReactNode
+}
+
 const CustomComp: React.FunctionComponent<CustomProps> = props => {
   return (
     <div>
@@ -41,11 +44,21 @@ storiesOf('Box', module)
     return (
       <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
         <Box is="h2">Links</Box>
-        <Box is="a" href="/something/afile">Internal Link</Box>
-        <Box is="a" href="http://localhost:9009/test">Same Origin Link</Box>
-        <Box is="a" href="https://apple.com">External Link</Box>
-        <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
-        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>Overwride Safe Href</Box>
+        <Box is="a" href="/something/afile">
+          Internal Link
+        </Box>
+        <Box is="a" href="http://localhost:9009/test">
+          Same Origin Link
+        </Box>
+        <Box is="a" href="https://apple.com">
+          External Link
+        </Box>
+        <Box is="a" href="javascript:alert('hi')">
+          Javascript protocol Link
+        </Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={true}>
+          Overwride Safe Href
+        </Box>
       </Box>
     )
   })
@@ -56,11 +69,21 @@ storiesOf('Box', module)
     return (
       <Box paddingTop={30} borderTop="1px solid" marginTop={30}>
         <Box is="h2">Links</Box>
-        <Box is="a" href="/something/afile">Internal Link</Box>
-        <Box is="a" href="http://localhost:9009/test">Same Origin Link</Box>
-        <Box is="a" href="https://apple.com">External Link</Box>
-        <Box is="a" href="javascript:alert('hi')">Javascript protocol Link</Box>
-        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={false}>Overwride Safe Href</Box>
+        <Box is="a" href="/something/afile">
+          Internal Link
+        </Box>
+        <Box is="a" href="http://localhost:9009/test">
+          Same Origin Link
+        </Box>
+        <Box is="a" href="https://apple.com">
+          External Link
+        </Box>
+        <Box is="a" href="javascript:alert('hi')">
+          Javascript protocol Link
+        </Box>
+        <Box is="a" href="javascript:alert('hi')" allowUnsafeHref={false}>
+          Overwride Safe Href
+        </Box>
       </Box>
     )
   })
@@ -148,12 +171,7 @@ storiesOf('Box', module)
   ))
   .add('spacing', () => (
     <Box>
-      <Box
-        backgroundColor="red"
-        width="100px"
-        height="100px"
-        marginTop="100px"
-      />
+      <Box backgroundColor="red" width="100px" height="100px" marginTop="100px" />
     </Box>
   ))
   .add('text', () => (
@@ -207,3 +225,34 @@ storiesOf('Box', module)
       <RedBox marginLeft="5px" />
     </Box>
   ))
+  .add('selectors', () => {
+    return (
+      <Box>
+        <Box>
+          Border style on hover
+          <Box
+            is="input"
+            selectors={{
+              '&:hover': { borderColor: 'red' }
+            }}
+          />
+        </Box>
+        <Box>
+          No border style on hover - :not(:disabled) selector
+          <Box
+            is="input"
+            disabled={true}
+            selectors={{
+              '&:hover:not(:disabled)': { borderColor: 'blue' }
+            }}
+          />
+        </Box>
+        <Box selectors={{ '& .child:hover': { backgroundColor: 'red' } }}>
+          Red background on child hover
+          <Box className="child" backgroundColor="blue" width={200} height={100} />
+          <Box className="child" backgroundColor="yellow" width={200} height={100} />
+          <Box className="child" backgroundColor="green" width={200} height={100} />
+        </Box>
+      </Box>
+    )
+  })

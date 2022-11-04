@@ -129,6 +129,11 @@ export default () => {
       resize="none"
       right={10}
       rowGap={3}
+      selectors={{
+        '&:hover': {
+          backgroundColor: 'blue'
+        }
+      }}
       textAlign="right"
       textDecoration="underline dotted"
       textOverflow="ellipsis"

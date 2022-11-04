@@ -48,7 +48,7 @@ export const propAliases = {
   ]
 }
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 if (process.env.NODE_ENV !== 'production') {
   propValidators.borderColor = value => {
@@ -160,20 +160,20 @@ const borderBottomWidth = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  borderBottom: (value: PropEnhancerValueType) => getCss(borderBottom, value),
-  borderBottomColor: (value: PropEnhancerValueType) => getCss(borderBottomColor, value),
-  borderBottomStyle: (value: PropEnhancerValueType) => getCss(borderBottomStyle, value),
-  borderBottomWidth: (value: PropEnhancerValueType) => getCss(borderBottomWidth, value),
-  borderLeft: (value: PropEnhancerValueType) => getCss(borderLeft, value),
-  borderLeftColor: (value: PropEnhancerValueType) => getCss(borderLeftColor, value),
-  borderLeftStyle: (value: PropEnhancerValueType) => getCss(borderLeftStyle, value),
-  borderLeftWidth: (value: PropEnhancerValueType) => getCss(borderLeftWidth, value),
-  borderRight: (value: PropEnhancerValueType) => getCss(borderRight, value),
-  borderRightColor: (value: PropEnhancerValueType) => getCss(borderRightColor, value),
-  borderRightStyle: (value: PropEnhancerValueType) => getCss(borderRightStyle, value),
-  borderRightWidth: (value: PropEnhancerValueType) => getCss(borderRightWidth, value),
-  borderTop: (value: PropEnhancerValueType) => getCss(borderTop, value),
-  borderTopColor: (value: PropEnhancerValueType) => getCss(borderTopColor, value),
-  borderTopStyle: (value: PropEnhancerValueType) => getCss(borderTopStyle, value),
-  borderTopWidth: (value: PropEnhancerValueType) => getCss(borderTopWidth, value)
+  borderBottom: (value: PropEnhancerValueType, selector: string) => getCss(borderBottom, value, selector),
+  borderBottomColor: (value: PropEnhancerValueType, selector: string) => getCss(borderBottomColor, value, selector),
+  borderBottomStyle: (value: PropEnhancerValueType, selector: string) => getCss(borderBottomStyle, value, selector),
+  borderBottomWidth: (value: PropEnhancerValueType, selector: string) => getCss(borderBottomWidth, value, selector),
+  borderLeft: (value: PropEnhancerValueType, selector: string) => getCss(borderLeft, value, selector),
+  borderLeftColor: (value: PropEnhancerValueType, selector: string) => getCss(borderLeftColor, value, selector),
+  borderLeftStyle: (value: PropEnhancerValueType, selector: string) => getCss(borderLeftStyle, value, selector),
+  borderLeftWidth: (value: PropEnhancerValueType, selector: string) => getCss(borderLeftWidth, value, selector),
+  borderRight: (value: PropEnhancerValueType, selector: string) => getCss(borderRight, value, selector),
+  borderRightColor: (value: PropEnhancerValueType, selector: string) => getCss(borderRightColor, value, selector),
+  borderRightStyle: (value: PropEnhancerValueType, selector: string) => getCss(borderRightStyle, value, selector),
+  borderRightWidth: (value: PropEnhancerValueType, selector: string) => getCss(borderRightWidth, value, selector),
+  borderTop: (value: PropEnhancerValueType, selector: string) => getCss(borderTop, value, selector),
+  borderTopColor: (value: PropEnhancerValueType, selector: string) => getCss(borderTopColor, value, selector),
+  borderTopStyle: (value: PropEnhancerValueType, selector: string) => getCss(borderTopStyle, value, selector),
+  borderTopWidth: (value: PropEnhancerValueType, selector: string) => getCss(borderTopWidth, value, selector)
 }

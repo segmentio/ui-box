@@ -8,7 +8,7 @@ export const propTypes: PropTypesMapping = {
 
 export const propAliases = {}
 
-export const propValidators: PropValidators = { }
+export const propValidators: PropValidators = {}
 
 const resize = {
   className: 'rsz',
@@ -17,5 +17,5 @@ const resize = {
 }
 
 export const propEnhancers: PropEnhancers = {
-  resize: (value: PropEnhancerValueType) => getCss(resize, value)
+  resize: (value: PropEnhancerValueType, selector: string) => getCss(resize, value, selector)
 }

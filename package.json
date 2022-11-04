@@ -82,6 +82,13 @@
     "webpack": "^4.30.0",
     "xo": "^0.24.0"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false
+  },
   "xo": {
     "parser": "@typescript-eslint/parser",
     "extends": [

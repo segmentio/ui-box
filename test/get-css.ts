@@ -74,3 +74,19 @@ test.serial('returns minified css in production', t => {
     '.ub-usr-slct_none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}'
   )
 })
+
+test('appends selector when present', t => {
+  const propInfo = {
+    className: 'bg-clr',
+    cssName: 'background-color',
+    jsName: 'backgroundColor'
+  }
+  const result = getCss(propInfo, 'blue', ':hover')
+  t.deepEqual(result, {
+    className: 'ub-bg-clr_nfznl2',
+    styles: `
+.ub-bg-clr_nfznl2:hover {
+  background-color: blue;
+}`
+  })
+})
