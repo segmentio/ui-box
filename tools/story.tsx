@@ -209,11 +209,24 @@ storiesOf('Box', module)
       <Box ref={reactRef}>React ref</Box>
     </Box>
   ))
-  .add('props pass through', () => (
-    <Box>
-      <Box is="input" type="file" />
-    </Box>
-  ))
+  .add('props pass through', () => {
+    interface CustomComponentProps {
+      foo: string
+      baz: number
+      fizz: {
+        buzz: boolean
+      }
+    }
+
+    const CustomComponent: React.FC<CustomComponentProps> = props => <code>{JSON.stringify(props, undefined, 4)}</code>
+
+    return (
+      <Box display="flex" flexDirection="column">
+        <Box is="input" type="file" />
+        <Box is={CustomComponent} foo="bar" baz={123} fizz={{ buzz: true }} />
+      </Box>
+    )
+  })
   .add('all properties', () => (
     <Box>
       {allPropertiesComponent()}

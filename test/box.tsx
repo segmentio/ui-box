@@ -90,3 +90,21 @@ test('renders with style prop', t => {
 
   t.deepEqual(component.prop('style'), expected)
 })
+
+test('renders with arbitrary non-enhancer props', t => {
+  interface CustomComponentProps {
+    foo: string
+    baz: number
+    fizz: {
+      buzz: boolean
+    }
+  }
+
+  const CustomComponent: React.FC<CustomComponentProps> = props => <code>{JSON.stringify(props, undefined, 4)}</code>
+
+  const component = shallow(<Box is={CustomComponent} foo="bar" baz={123} fizz={{ buzz: true }} />)
+
+  t.is(component.prop('foo'), 'bar')
+  t.is(component.prop('baz'), 123)
+  t.deepEqual(component.prop('fizz'), { buzz: true })
+})
