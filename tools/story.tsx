@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { default as Box, configureSafeHref } from '../src'
 import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
@@ -255,4 +255,8 @@ storiesOf('Box', module)
         </Box>
       </Box>
     )
+  })
+  .add('style prop', () => {
+    const style: CSSProperties = { backgroundColor: 'red', width: 200 }
+    return <Box style={style}>{JSON.stringify(style, undefined, 4)}</Box>
   })

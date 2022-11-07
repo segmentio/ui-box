@@ -28,13 +28,8 @@ export default function enhanceProps(
   let className: string = props.className || ''
 
   for (const [property, value] of propsMap) {
-    if (value && typeof value === 'object') {
-      // Do not attempt to serialize style prop into a classname - preserve it and move on
-      if (property === 'style') {
-        preservedProps[property] = value
-        continue
-      }
-
+    // Do not attempt to serialize style prop into a classname - it will be preserved as a native prop below
+    if (value && typeof value === 'object' && property !== 'style') {
       const prop = property === 'selectors' ? '' : property
       const parsed = enhanceProps(value, noAnd(selectorHead + prop))
       className = `${className} ${parsed.className}`
