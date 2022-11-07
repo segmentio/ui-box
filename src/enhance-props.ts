@@ -3,7 +3,7 @@ import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
 import { Without } from './types/box-types'
-import { EnhancerProps } from './types/enhancers'
+import { BoxPropValue, EnhancerProps } from './types/enhancers'
 
 type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
 
@@ -12,26 +12,26 @@ interface EnhancedPropsResult {
   enhancedProps: PreservedProps
 }
 
-function noAnd(s: string): string {
-  return s.replace(/&/g, '')
-}
+const SELECTORS_PROP = 'selectors'
 
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
 export default function enhanceProps(
   props: EnhancerProps & React.ComponentPropsWithoutRef<any>,
-  selectorHead = ''
+  selectorHead = '',
+  parentProperty = ''
 ): EnhancedPropsResult {
   const propsMap = expandAliases(props)
   const preservedProps: PreservedProps = {}
   let className: string = props.className || ''
 
   for (const [property, value] of propsMap) {
-    // Do not attempt to serialize style prop into a classname - it will be preserved as a native prop below
-    if (value && typeof value === 'object' && property !== 'style') {
+    const isSelectorOrChildProp = property === SELECTORS_PROP || parentProperty === SELECTORS_PROP
+    // Only attempt to process objects for the `selectors` prop or the individual selectors below it
+    if (isObject(value) && isSelectorOrChildProp) {
       const prop = property === 'selectors' ? '' : property
-      const parsed = enhanceProps(value, noAnd(selectorHead + prop))
+      const parsed = enhanceProps(value, noAnd(selectorHead + prop), property)
       className = `${className} ${parsed.className}`
       continue
     }
@@ -68,3 +68,7 @@ export default function enhanceProps(
 
   return { className, enhancedProps: preservedProps }
 }
+
+const isObject = (value: BoxPropValue | object): value is object => value != null && typeof value === 'object'
+
+const noAnd = (value: string): string => value.replace(/&/g, '')
