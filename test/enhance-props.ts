@@ -9,19 +9,19 @@ test.afterEach.always(() => {
 })
 
 test.serial('enhances a prop', t => {
-  const {className, enhancedProps} = enhanceProps({width: 10})
+  const { className, enhancedProps } = enhanceProps({ width: 10 })
   t.is(className, 'ub-w_10px')
   t.deepEqual(enhancedProps, {})
 })
 
 test.serial('expands aliases', t => {
-  const {className, enhancedProps} = enhanceProps({margin: 11})
+  const { className, enhancedProps } = enhanceProps({ margin: 11 })
   t.is(className, 'ub-mb_11px ub-ml_11px ub-mr_11px ub-mt_11px')
   t.deepEqual(enhancedProps, {})
 })
 
 test.serial('injects styles', t => {
-  enhanceProps({width: 12})
+  enhanceProps({ width: 12 })
   t.is(
     styles.getAll(),
     `
@@ -32,8 +32,8 @@ test.serial('injects styles', t => {
 })
 
 test.serial('uses the cache', t => {
-  enhanceProps({width: 13})
-  enhanceProps({width: 13})
+  enhanceProps({ width: 13 })
+  enhanceProps({ width: 13 })
   t.is(
     styles.getAll(),
     `
@@ -45,32 +45,43 @@ test.serial('uses the cache', t => {
 })
 
 test.serial('strips falsey enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({width: false})
+  const { className, enhancedProps } = enhanceProps({ width: false })
   t.is(className, '')
   t.deepEqual(enhancedProps, {})
 })
 
 test.serial('does not strip enhancer props with 0 values', t => {
-  const {className, enhancedProps} = enhanceProps({width: 0})
+  const { className, enhancedProps } = enhanceProps({ width: 0 })
   t.is(className, 'ub-w_0px')
   t.deepEqual(enhancedProps, {})
 })
 
 test.serial('passes through non-enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({disabled: true})
+  const expected = { disabled: true, foo: 'bar', baz: 123, fizz: { buzz: true } }
+
+  const { className, enhancedProps } = enhanceProps(expected)
+
   t.is(className, '')
-  t.deepEqual(enhancedProps, {disabled: true})
+  t.deepEqual(enhancedProps, expected)
 })
 
 test.serial('passes through falsey non-enhancer props', t => {
-  const {className, enhancedProps} = enhanceProps({disabled: false})
+  const { className, enhancedProps } = enhanceProps({ disabled: false })
   t.is(className, '')
-  t.deepEqual(enhancedProps, {disabled: false})
+  t.deepEqual(enhancedProps, { disabled: false })
 })
 
 test.serial('handles invalid values', t => {
   // @ts-ignore
-  const {className, enhancedProps} = enhanceProps({minWidth: true})
+  const { className, enhancedProps } = enhanceProps({ minWidth: true })
   t.is(className, '')
   t.deepEqual(enhancedProps, {})
+})
+
+test.serial('preserves style prop', t => {
+  const expected = { style: { backgroundColor: 'red' } }
+
+  const { enhancedProps } = enhanceProps(expected)
+
+  t.deepEqual(enhancedProps, expected)
 })

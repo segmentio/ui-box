@@ -1,12 +1,12 @@
 import test from 'ava'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import * as render from 'react-test-renderer'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 import * as sinon from 'sinon'
 import Box from '../src/box'
 import * as styles from '../src/styles'
 import allPropertiesComponent from '../tools/all-properties-component'
-import {propNames} from '../src/enhancers'
+import { propNames } from '../src/enhancers'
 
 test.afterEach.always(() => {
   styles.clear()
@@ -58,7 +58,7 @@ test('is prop allows changing the component type', t => {
 })
 
 test('ref gets forwarded', t => {
-  const node = {domNode: true}
+  const node = { domNode: true }
   const ref = sinon.spy()
   render.create(<Box ref={ref} />, {
     createNodeMock() {
@@ -81,4 +81,30 @@ test('renders children', t => {
 test('maintains the original className', t => {
   const component = shallow(<Box className="derp" margin="10px" />)
   t.true(component.hasClass('derp'))
+})
+
+test('renders with style prop', t => {
+  const expected: CSSProperties = { backgroundColor: 'red' }
+
+  const component = shallow(<Box style={expected} />)
+
+  t.deepEqual(component.prop('style'), expected)
+})
+
+test('renders with arbitrary non-enhancer props', t => {
+  interface CustomComponentProps {
+    foo: string
+    baz: number
+    fizz: {
+      buzz: boolean
+    }
+  }
+
+  const CustomComponent: React.FC<CustomComponentProps> = props => <code>{JSON.stringify(props, undefined, 4)}</code>
+
+  const component = shallow(<Box is={CustomComponent} foo="bar" baz={123} fizz={{ buzz: true }} />)
+
+  t.is(component.prop('foo'), 'bar')
+  t.is(component.prop('baz'), 123)
+  t.deepEqual(component.prop('fizz'), { buzz: true })
 })

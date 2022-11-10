@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { default as Box, configureSafeHref } from '../src'
 import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
@@ -209,11 +209,24 @@ storiesOf('Box', module)
       <Box ref={reactRef}>React ref</Box>
     </Box>
   ))
-  .add('props pass through', () => (
-    <Box>
-      <Box is="input" type="file" />
-    </Box>
-  ))
+  .add('props pass through', () => {
+    interface CustomComponentProps {
+      foo: string
+      baz: number
+      fizz: {
+        buzz: boolean
+      }
+    }
+
+    const CustomComponent: React.FC<CustomComponentProps> = props => <code>{JSON.stringify(props, undefined, 4)}</code>
+
+    return (
+      <Box display="flex" flexDirection="column">
+        <Box is="input" type="file" />
+        <Box is={CustomComponent} foo="bar" baz={123} fizz={{ buzz: true }} />
+      </Box>
+    )
+  })
   .add('all properties', () => (
     <Box>
       {allPropertiesComponent()}
@@ -255,4 +268,8 @@ storiesOf('Box', module)
         </Box>
       </Box>
     )
+  })
+  .add('style prop', () => {
+    const style: CSSProperties = { backgroundColor: 'red', width: 200 }
+    return <Box style={style}>{JSON.stringify(style, undefined, 4)}</Box>
   })
