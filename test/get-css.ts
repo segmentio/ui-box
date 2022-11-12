@@ -18,7 +18,8 @@ test('supports basic prop + value', t => {
     styles: `
 .ub-min-w_10px {
   min-width: 10px;
-}`
+}`,
+    rules: [{ property: 'min-width', value: '10px' }]
   })
 })
 
@@ -34,7 +35,8 @@ test('supports number value', t => {
     styles: `
 .ub-min-w_10px {
   min-width: 10px;
-}`
+}`,
+    rules: [{ property: 'min-width', value: '10px' }]
   })
 })
 
@@ -87,6 +89,7 @@ test('appends selector when present', t => {
     styles: `
 .ub-bg-clr_nfznl2:hover {
   background-color: blue;
-}`
+}`,
+    rules: [{ property: 'background-color', value: 'blue' }]
   })
 })

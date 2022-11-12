@@ -93,6 +93,15 @@ All of these CSS properties are supported. You can pass either a string or a num
 - `alignContent`
 - `alignItems`
 - `alignSelf`
+- `animation`
+- `animationDelay`
+- `animationDirection`
+- `animationDuration`
+- `animationFillMode`
+- `animationIterationCount`
+- `animationName`
+- `animationPlayState`
+- `animationTimingFunction`
 - `background`
 - `backgroundBlendMode`
 - `backgroundClip`
@@ -133,6 +142,7 @@ All of these CSS properties are supported. You can pass either a string or a num
 - `clear`
 - `color`
 - `columnGap`
+- `content`
 - `cursor`
 - `display`
 - `flex`
@@ -269,6 +279,35 @@ Utility function for filtering out `Box` props. Returns an `{ matchedProps, rema
 
 Type: `object`
 
+#### keyframes(name, timeline)
+
+Function for generating an animation keyframe name and injecting the provided styles into the stylesheet. The `timeline` object is in the shape of `{ 'from' | 'to' | [0-100]: CssProps }` which define the styles to apply at each position of the animation. Returns the generated name for use with the `animation` or `animationName` props.
+
+```tsx
+import Box, { keyframes } from 'ui-box'
+
+const openAnimation = keyframes('openAnimation', {
+  from: {
+    opacity: 0,
+    transform: 'translateY(-120%)'
+  },
+  to: {
+    transform: 'translateY(0)'
+  }
+})
+
+const AnimatedBox = () => <Box animation={`${openAnimation} 240ms cubic-bezier(0.175, 0.885, 0.320, 1.175)`} />
+
+// Equivalent using individual props:
+const AnimatedBox = () => (
+  <Box
+    animationName={openAnimation}
+    animationDuration={240}
+    animationTimingFunction="cubic-bezier(0.175, 0.885, 0.320, 1.175)"
+  />
+)
+```
+
 #### propTypes
 
 Object of all the `Box` CSS property `propTypes`.
@@ -289,6 +328,7 @@ Object of all the CSS property enhancers (the methods that generate the class na
 
 These enhancer groups are also exported. They're all objects with `{ propTypes, propAliases, propEnhancers }` properties. They're mainly useful for if you want to inherit a subset of the `Box` CSS propTypes in your own components.
 
+- `animation`
 - `background`
 - `borderRadius`
 - `borders`

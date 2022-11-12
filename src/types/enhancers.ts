@@ -1,11 +1,21 @@
 import PropTypes from 'prop-types'
 import * as CSS from 'csstype'
+import { Rule } from '../prefixer'
 
-type CssProps = Pick<
+export type CssProps = Pick<
   CSS.StandardProperties,
   | 'alignContent'
   | 'alignItems'
   | 'alignSelf'
+  | 'animation'
+  | 'animationDelay'
+  | 'animationDirection'
+  | 'animationDuration'
+  | 'animationFillMode'
+  | 'animationIterationCount'
+  | 'animationName'
+  | 'animationPlayState'
+  | 'animationTimingFunction'
   | 'background'
   | 'backgroundBlendMode'
   | 'backgroundClip'
@@ -46,6 +56,7 @@ type CssProps = Pick<
   | 'clear'
   | 'color'
   | 'columnGap'
+  | 'content'
   | 'cursor'
   | 'display'
   | 'flex'
@@ -141,7 +152,7 @@ type CssProps = Pick<
 > &
   Pick<CSS.ObsoleteProperties, 'gridColumnGap' | 'gridGap' | 'gridRowGap'>
 
-type BoxCssProps<CP> = {
+export type BoxCssProps<CP> = {
   // Enhance the CSS props with the ui-box supported values.
   // `string` isn't added because it'll ruin props with string literal types (e.g textAlign)
   [P in keyof CP]: CP[P] | number | false | null | undefined
@@ -206,6 +217,18 @@ export interface PropValidators {
 }
 
 export interface EnhancedProp {
+  /**
+   * Generated class name representing the styles
+   */
   className: string
+
+  /**
+   * Collection of css property/value objects
+   */
+  rules: Rule[]
+
+  /**
+   * Full style string in the format of `.className[:selector] { property: value; }`
+   */
   styles: string
 }

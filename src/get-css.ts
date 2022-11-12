@@ -2,6 +2,7 @@ import prefixer, { Rule } from './prefixer'
 import valueToString from './value-to-string'
 import getClassName, { PropertyInfo } from './get-class-name'
 import { EnhancedProp } from './types/enhancers'
+import isProduction from './utils/is-production'
 
 /**
  * Generates the class name and styles.
@@ -34,7 +35,8 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
   }
 
   let styles: string
-  if (process.env.NODE_ENV === 'production') {
+
+  if (isProduction()) {
     const rulesString = rules.map(rule => `${rule.property}:${rule.value}`).join(';')
     styles = `.${className}${selector}{${rulesString}}`
   } else {
@@ -45,5 +47,5 @@ ${rulesString}
 }`
   }
 
-  return { className, styles }
+  return { className, styles, rules }
 }

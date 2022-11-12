@@ -7,7 +7,7 @@ import { BoxPropValue, EnhancerProps } from './types/enhancers'
 
 type PreservedProps = Without<React.ComponentProps<any>, keyof EnhancerProps>
 
-interface EnhancedPropsResult {
+interface EnhancePropsResult {
   className: string
   enhancedProps: PreservedProps
 }
@@ -21,7 +21,7 @@ export default function enhanceProps(
   props: EnhancerProps & React.ComponentPropsWithoutRef<any>,
   selectorHead = '',
   parentProperty = ''
-): EnhancedPropsResult {
+): EnhancePropsResult {
   const propsMap = expandAliases(props)
   const preservedProps: PreservedProps = {}
   let className: string = props.className || ''
