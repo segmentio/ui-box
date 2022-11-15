@@ -2,11 +2,18 @@ import * as cache from './cache'
 import * as styles from './styles'
 
 export { default } from './box'
+export { default as keyframes } from './keyframes'
 export { default as splitProps } from './utils/split-props'
 export { default as splitBoxProps } from './utils/split-box-props'
 export { setClassNamePrefix } from './get-class-name'
 export { configureSafeHref } from './utils/safeHref'
 export { BoxProps, BoxOwnProps, EnhancerProps, PropsOf, PolymorphicBoxProps, BoxComponent } from './types/box-types'
+export {
+  KeyframesPercentageKey,
+  KeyframesPositionalKey,
+  KeyframesTimeline,
+  KeyframesTimelineKey
+} from './types/keyframes'
 
 export {
   background,

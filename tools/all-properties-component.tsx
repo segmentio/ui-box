@@ -1,5 +1,15 @@
 import React from 'react'
-import Box from '../src'
+import Box, { keyframes } from '../src'
+
+const openAnimation = keyframes('openAnimation', {
+  from: {
+    opacity: 0,
+    transform: 'translateY(-120%)'
+  },
+  to: {
+    transform: 'translateY(0)'
+  }
+})
 
 // Built as a regular function instead of a component to reduce impact on the benchmark
 export default () => {
@@ -7,6 +17,13 @@ export default () => {
     <Box
       // Test prop pass through
       contentEditable
+      animationName={openAnimation}
+      animationDuration="2.5s"
+      animationIterationCount="infinite"
+      animationTimingFunction="cubic-bezier(0.175, 0.885, 0.320, 1.175)"
+      animationDirection="both"
+      animationPlayState="running"
+      animationDelay="0s"
       alignContent="center"
       alignItems="center"
       alignSelf="center"
@@ -51,6 +68,7 @@ export default () => {
       clearfix
       color="blue"
       columnGap={3}
+      content={`""`}
       cursor="pointer"
       display="flex"
       flex={1}

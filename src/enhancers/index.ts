@@ -1,3 +1,4 @@
+import * as animation from './animation'
 import * as background from './background'
 import * as borderRadius from './border-radius'
 import * as borders from './borders'
@@ -20,6 +21,7 @@ import * as transition from './transition'
 import { PropValidators, PropEnhancers, PropAliases, PropTypesMapping } from '../types/enhancers'
 
 export {
+  animation,
   background,
   borderRadius,
   borders,
@@ -42,6 +44,7 @@ export {
 }
 
 export const propTypes: PropTypesMapping = {
+  ...animation.propTypes,
   ...background.propTypes,
   ...borderRadius.propTypes,
   ...borders.propTypes,
@@ -66,6 +69,7 @@ export const propTypes: PropTypesMapping = {
 export const propNames = Object.keys(propTypes)
 
 export const propAliases: PropAliases = {
+  ...animation.propAliases,
   ...background.propAliases,
   ...borderRadius.propAliases,
   ...borders.propAliases,
@@ -88,6 +92,7 @@ export const propAliases: PropAliases = {
 }
 
 export const propValidators: PropValidators = {
+  ...animation.propValidators,
   ...background.propValidators,
   ...borderRadius.propValidators,
   ...borders.propValidators,
@@ -110,6 +115,7 @@ export const propValidators: PropValidators = {
 }
 
 export const propEnhancers: PropEnhancers = {
+  ...animation.propEnhancers,
   ...background.propEnhancers,
   ...borderRadius.propEnhancers,
   ...borders.propEnhancers,
