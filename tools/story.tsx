@@ -266,6 +266,22 @@ storiesOf('Box', module)
           <Box className="child" backgroundColor="yellow" width={200} height={100} />
           <Box className="child" backgroundColor="green" width={200} height={100} />
         </Box>
+        Nested selector - blue background when <Box is="code">data-active=true</Box>, red background on hover
+        <Box
+          data-active={true}
+          height={100}
+          width={200}
+          selectors={{
+            '[data-active=true]': {
+              backgroundColor: 'blue',
+              selectors: {
+                '&:hover': {
+                  backgroundColor: 'red'
+                }
+              }
+            }
+          }}
+        />
       </Box>
     )
   })
