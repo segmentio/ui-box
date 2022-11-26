@@ -37,12 +37,16 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string, 
     /* Always hash values that contain a calc() because the operators get
     stripped which can result in class name collisions
     */
-  } else if (selector || complexValue || value.includes('calc(')) {
+  } else if (complexValue || value.includes('calc(')) {
     valueKey = hash(value)
   } else if (safeValue) {
     valueKey = value
   } else {
     valueKey = getSafeValue(value)
+  }
+
+  if (selector) {
+    valueKey = `${valueKey}_${hash(selector)}`
   }
 
   return `${PREFIX}${className}_${valueKey}`

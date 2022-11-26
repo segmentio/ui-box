@@ -85,9 +85,9 @@ test('appends selector when present', t => {
   }
   const result = getCss(propInfo, 'blue', ':hover')
   t.deepEqual(result, {
-    className: 'ub-bg-clr_nfznl2',
+    className: 'ub-bg-clr_blue_1k2el8q',
     styles: `
-.ub-bg-clr_nfznl2:hover {
+.ub-bg-clr_blue_1k2el8q:hover {
   background-color: blue;
 }`,
     rules: [{ property: 'background-color', value: 'blue' }]

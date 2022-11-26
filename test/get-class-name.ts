@@ -1,5 +1,5 @@
 import test from 'ava'
-import getClassName, { setClassNamePrefix, getClassNamePrefix } from '../src/get-class-name'
+import getClassName, { setClassNamePrefix } from '../src/get-class-name'
 
 test('supports inherit', t => {
   t.is(getClassName({ className: 'w' }, 'inherit'), 'ub-w_inherit')
@@ -36,9 +36,9 @@ test('always hashes values that contain a calc()', t => {
   t.is(result, 'ub-w_1vuvdht')
 })
 
-test('always hashes when a selector is provided', t => {
-  const result = getClassName({ className: 'bg-clr' }, 'blue', '&:hover')
-  t.is(result, 'ub-bg-clr_nfznl2')
+test('always appends hash when a selector is provided', t => {
+  const result = getClassName({ className: 'bg-clr' }, 'blue', ':hover')
+  t.is(result, 'ub-bg-clr_blue_1k2el8q')
 })
 
 test('allows custom classname prefixes', t => {
