@@ -274,10 +274,8 @@ storiesOf('Box', module)
           selectors={{
             '[data-active=true]': {
               backgroundColor: 'blue',
-              selectors: {
-                '&:hover': {
-                  backgroundColor: 'red'
-                }
+              '&:hover': {
+                backgroundColor: 'red'
               }
             }
           }}
