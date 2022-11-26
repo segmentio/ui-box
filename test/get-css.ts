@@ -93,3 +93,15 @@ test('appends selector when present', t => {
     rules: [{ property: 'background-color', value: 'blue' }]
   })
 })
+
+test('props with same value but different selector should be unique', t => {
+  const propInfo = {
+    className: 'bg-clr',
+    cssName: 'background-color',
+    jsName: 'backgroundColor'
+  }
+  const blueHover = getCss(propInfo, 'blue', ':hover')
+  const blueDisabled = getCss(propInfo, 'blue', ':disabled')
+
+  t.notDeepEqual(blueHover!.className, blueDisabled!.className)
+})
