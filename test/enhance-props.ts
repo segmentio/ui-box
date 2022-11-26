@@ -134,6 +134,21 @@ test.serial('converts styles in nested selectors to class name', t => {
   t.deepEqual(enhancedProps, {})
 })
 
+test.serial("selectors can be nested without 'selectors' key", t => {
+  const { className, enhancedProps } = enhanceProps({
+    selectors: {
+      '&[data-active]': {
+        '&:hover': {
+          backgroundColor: 'blue'
+        }
+      }
+    }
+  })
+
+  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(enhancedProps, {})
+})
+
 test.serial('injects nested selector styles', t => {
   enhanceProps({
     selectors: {
