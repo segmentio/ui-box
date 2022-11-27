@@ -15,6 +15,7 @@ import * as overflow from './overflow'
 import * as position from './position'
 import * as resize from './resize'
 import * as spacing from './spacing'
+import * as svg from './svg'
 import * as text from './text'
 import * as transform from './transform'
 import * as transition from './transition'
@@ -38,6 +39,7 @@ export {
   position,
   resize,
   spacing,
+  svg,
   text,
   transform,
   transition
@@ -61,6 +63,7 @@ export const propTypes: PropTypesMapping = {
   ...position.propTypes,
   ...resize.propTypes,
   ...spacing.propTypes,
+  ...svg.propTypes,
   ...text.propTypes,
   ...transform.propTypes,
   ...transition.propTypes
@@ -86,6 +89,7 @@ export const propAliases: PropAliases = {
   ...position.propAliases,
   ...resize.propAliases,
   ...spacing.propAliases,
+  ...svg.propAliases,
   ...text.propAliases,
   ...transform.propAliases,
   ...transition.propAliases
@@ -109,6 +113,7 @@ export const propValidators: PropValidators = {
   ...position.propValidators,
   ...resize.propValidators,
   ...spacing.propValidators,
+  ...svg.propValidators,
   ...text.propValidators,
   ...transform.propValidators,
   ...transition.propValidators
@@ -132,6 +137,7 @@ export const propEnhancers: PropEnhancers = {
   ...position.propEnhancers,
   ...resize.propEnhancers,
   ...spacing.propEnhancers,
+  ...svg.propEnhancers,
   ...text.propEnhancers,
   ...transform.propEnhancers,
   ...transition.propEnhancers
