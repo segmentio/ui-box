@@ -83,11 +83,52 @@ test('appends selector when present', t => {
     cssName: 'background-color',
     jsName: 'backgroundColor'
   }
+
   const result = getCss(propInfo, 'blue', ':hover')
+
   t.deepEqual(result, {
     className: 'ub-bg-clr_nfznl2',
     styles: `
 .ub-bg-clr_nfznl2:hover {
+  background-color: blue;
+}`,
+    rules: [{ property: 'background-color', value: 'blue' }]
+  })
+})
+
+test('expands comma-separated selectors for class name', t => {
+  const propInfo = {
+    className: 'bg-clr',
+    cssName: 'background-color',
+    jsName: 'backgroundColor'
+  }
+
+  const result = getCss(propInfo, 'blue', ':hover,[data-active=true]')
+
+  t.deepEqual(result, {
+    className: 'ub-bg-clr_nfznl2',
+    styles: `
+.ub-bg-clr_nfznl2:hover, .ub-bg-clr_nfznl2[data-active=true] {
+  background-color: blue;
+}`,
+    rules: [{ property: 'background-color', value: 'blue' }]
+  })
+})
+
+test('maintains whitespace when expanding comma-separated selectors', t => {
+  const propInfo = {
+    className: 'bg-clr',
+    cssName: 'background-color',
+    jsName: 'backgroundColor'
+  }
+
+  const result = getCss(propInfo, 'blue', '.fancy-link:hover, .fancy-input:active')
+  t.deepEqual(result, {
+    className: 'ub-bg-clr_nfznl2',
+    // Intentionally expecting '.fancy-link' to be up against main class name since it does not start w/ a space
+    // while ' .fancy-input' should maintain space
+    styles: `
+.ub-bg-clr_nfznl2.fancy-link:hover, .ub-bg-clr_nfznl2 .fancy-input:active {
   background-color: blue;
 }`,
     rules: [{ property: 'background-color', value: 'blue' }]
