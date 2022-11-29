@@ -150,7 +150,11 @@ export type CssProps = Pick<
   | 'wordWrap'
   | 'zIndex'
 > &
-  Pick<CSS.ObsoleteProperties, 'gridColumnGap' | 'gridGap' | 'gridRowGap'>
+  Pick<CSS.ObsoleteProperties, 'gridColumnGap' | 'gridGap' | 'gridRowGap'> &
+  Pick<
+    CSS.SvgProperties,
+    'fill' | 'stroke' | 'strokeDasharray' | 'strokeDashoffset' | 'strokeLinecap' | 'strokeMiterlimit' | 'strokeWidth'
+  >
 
 export type BoxCssProps<CP> = {
   // Enhance the CSS props with the ui-box supported values.
