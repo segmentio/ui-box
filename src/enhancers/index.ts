@@ -14,6 +14,7 @@ import * as outline from './outline'
 import * as overflow from './overflow'
 import * as position from './position'
 import * as resize from './resize'
+import * as selectors from './selectors'
 import * as spacing from './spacing'
 import * as svg from './svg'
 import * as text from './text'
@@ -38,6 +39,7 @@ export {
   overflow,
   position,
   resize,
+  selectors,
   spacing,
   svg,
   text,
@@ -62,6 +64,7 @@ export const propTypes: PropTypesMapping = {
   ...overflow.propTypes,
   ...position.propTypes,
   ...resize.propTypes,
+  ...selectors.propTypes,
   ...spacing.propTypes,
   ...svg.propTypes,
   ...text.propTypes,
@@ -88,6 +91,7 @@ export const propAliases: PropAliases = {
   ...overflow.propAliases,
   ...position.propAliases,
   ...resize.propAliases,
+  ...selectors.propAliases,
   ...spacing.propAliases,
   ...svg.propAliases,
   ...text.propAliases,
@@ -112,6 +116,7 @@ export const propValidators: PropValidators = {
   ...overflow.propValidators,
   ...position.propValidators,
   ...resize.propValidators,
+  ...selectors.propValidators,
   ...spacing.propValidators,
   ...svg.propValidators,
   ...text.propValidators,
@@ -136,6 +141,7 @@ export const propEnhancers: PropEnhancers = {
   ...overflow.propEnhancers,
   ...position.propEnhancers,
   ...resize.propEnhancers,
+  ...selectors.propEnhancers,
   ...spacing.propEnhancers,
   ...svg.propEnhancers,
   ...text.propEnhancers,
