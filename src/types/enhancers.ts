@@ -197,9 +197,11 @@ export type EnhancerProps = BoxCssProps<CssProps> & {
    *   Hello world
    * </Box>
    */
-  selectors?: {
-    [selector: string]: BoxCssProps<CssProps>
-  }
+  selectors?: SelectorMap
+}
+
+export type SelectorMap = {
+  [selector: string]: BoxCssProps<CssProps> | SelectorMap
 }
 
 export type PropEnhancerValueType = string | number

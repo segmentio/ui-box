@@ -85,3 +85,88 @@ test.serial('preserves style prop', t => {
 
   t.deepEqual(enhancedProps, expected)
 })
+
+test.serial('converts styles in selectors to class name', t => {
+  const { className, enhancedProps } = enhanceProps({
+    selectors: {
+      '&:hover': {
+        backgroundColor: 'blue'
+      }
+    }
+  })
+
+  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(enhancedProps, {})
+})
+
+test.serial('injects selector styles', t => {
+  enhanceProps({
+    selectors: {
+      '&:hover': {
+        backgroundColor: 'blue'
+      }
+    }
+  })
+
+  t.deepEqual(
+    styles.getAll(),
+    `
+.ub-bg-clr_nfznl2:hover {
+  background-color: blue;
+}`
+  )
+})
+
+test.serial('converts styles in nested selectors to class name', t => {
+  const { className, enhancedProps } = enhanceProps({
+    selectors: {
+      '&[data-active]': {
+        selectors: {
+          '&:hover': {
+            backgroundColor: 'blue'
+          }
+        }
+      }
+    }
+  })
+
+  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(enhancedProps, {})
+})
+
+test.serial("selectors can be nested without 'selectors' key", t => {
+  const { className, enhancedProps } = enhanceProps({
+    selectors: {
+      '&[data-active]': {
+        '&:hover': {
+          backgroundColor: 'blue'
+        }
+      }
+    }
+  })
+
+  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(enhancedProps, {})
+})
+
+test.serial('injects nested selector styles', t => {
+  enhanceProps({
+    selectors: {
+      '&[data-active]': {
+        selectors: {
+          '&:hover': {
+            backgroundColor: 'blue'
+          }
+        }
+      }
+    }
+  })
+
+  t.deepEqual(
+    styles.getAll(),
+    `
+.ub-bg-clr_nfznl2[data-active]:hover {
+  background-color: blue;
+}`
+  )
+})
