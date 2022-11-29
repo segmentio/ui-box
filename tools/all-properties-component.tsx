@@ -71,6 +71,7 @@ export default () => {
       content={`""`}
       cursor="pointer"
       display="flex"
+      fill="black"
       flex={1}
       flexBasis="10px"
       flexDirection="column"
@@ -152,6 +153,12 @@ export default () => {
           backgroundColor: 'blue'
         }
       }}
+      stroke="black"
+      strokeDasharray={10}
+      strokeDashoffset={10}
+      strokeLinecap="round"
+      strokeMiterlimit={10}
+      strokeWidth={10}
       textAlign="right"
       textDecoration="underline dotted"
       textOverflow="ellipsis"

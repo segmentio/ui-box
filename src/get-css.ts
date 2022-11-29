@@ -38,14 +38,25 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
 
   if (isProduction()) {
     const rulesString = rules.map(rule => `${rule.property}:${rule.value}`).join(';')
-    styles = `.${className}${selector}{${rulesString}}`
+    styles = `${expandSelectors(className, selector)}{${rulesString}}`
   } else {
     const rulesString = rules.map(rule => `  ${rule.property}: ${rule.value};`).join('\n')
     styles = `
-.${className}${selector} {
+${expandSelectors(className, selector)} {
 ${rulesString}
 }`
   }
 
   return { className, styles, rules }
+}
+
+const expandSelectors = (className: string, selector: string): string => {
+  if (!selector.includes(',')) {
+    return `.${className}${selector}`
+  }
+
+  return selector
+    .split(',')
+    .map(selectorPart => `.${className}${selectorPart}`)
+    .join(', ')
 }

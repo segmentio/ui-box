@@ -150,7 +150,11 @@ export type CssProps = Pick<
   | 'wordWrap'
   | 'zIndex'
 > &
-  Pick<CSS.ObsoleteProperties, 'gridColumnGap' | 'gridGap' | 'gridRowGap'>
+  Pick<CSS.ObsoleteProperties, 'gridColumnGap' | 'gridGap' | 'gridRowGap'> &
+  Pick<
+    CSS.SvgProperties,
+    'fill' | 'stroke' | 'strokeDasharray' | 'strokeDashoffset' | 'strokeLinecap' | 'strokeMiterlimit' | 'strokeWidth'
+  >
 
 export type BoxCssProps<CP> = {
   // Enhance the CSS props with the ui-box supported values.
@@ -193,9 +197,11 @@ export type EnhancerProps = BoxCssProps<CssProps> & {
    *   Hello world
    * </Box>
    */
-  selectors?: {
-    [selector: string]: BoxCssProps<CssProps>
-  }
+  selectors?: SelectorMap
+}
+
+export type SelectorMap = {
+  [selector: string]: BoxCssProps<CssProps> | SelectorMap
 }
 
 export type PropEnhancerValueType = string | number

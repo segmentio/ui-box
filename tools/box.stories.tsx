@@ -1,8 +1,10 @@
 import React, { CSSProperties } from 'react'
-import { default as Box, configureSafeHref, keyframes } from '../src'
+import { default as Box, configureSafeHref, BoxProps } from '../src'
 import { storiesOf } from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
-import { BoxProps } from '../src/types/box-types'
+import SelectorUniqueness from './fixtures/selector-uniquness-story'
+import KeyframesStory from './fixtures/keyframes-story'
+import SelectorsStory from './fixtures/selectors-story'
 
 const RedBox: React.FunctionComponent<BoxProps<'div'>> = redBoxProps => (
   <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
@@ -238,87 +240,10 @@ storiesOf('Box', module)
       <RedBox marginLeft="5px" />
     </Box>
   ))
-  .add('selectors', () => {
-    return (
-      <Box>
-        <Box>
-          Border style on hover
-          <Box
-            is="input"
-            selectors={{
-              '&:hover': { borderColor: 'red' }
-            }}
-          />
-        </Box>
-        <Box>
-          No border style on hover - :not(:disabled) selector
-          <Box
-            is="input"
-            disabled={true}
-            selectors={{
-              '&:hover:not(:disabled)': { borderColor: 'blue' }
-            }}
-          />
-        </Box>
-        <Box selectors={{ '& .child:hover': { backgroundColor: 'red' } }}>
-          Red background on child hover
-          <Box className="child" backgroundColor="blue" width={200} height={100} />
-          <Box className="child" backgroundColor="yellow" width={200} height={100} />
-          <Box className="child" backgroundColor="green" width={200} height={100} />
-        </Box>
-      </Box>
-    )
-  })
+  .add('selectors', () => <SelectorsStory />)
+  .add('selector uniqueness', () => <SelectorUniqueness />)
   .add('style prop', () => {
     const style: CSSProperties = { backgroundColor: 'red', width: 200 }
     return <Box style={style}>{JSON.stringify(style, undefined, 4)}</Box>
   })
-  .add('keyframes', () => {
-    const translateTo0 = {
-      transform: 'translate3d(0,0,0)'
-    }
-    const translateNeg30 = {
-      transform: 'translate3d(0, -30px, 0)'
-    }
-
-    const translateNeg15 = {
-      transform: 'translate3d(0, -15px, 0)'
-    }
-
-    const translateNeg4 = {
-      transform: 'translate3d(0,-4px,0)'
-    }
-
-    // Based on https://emotion.sh/docs/keyframes
-    const bounce = keyframes('bounce', {
-      from: translateTo0,
-      20: translateTo0,
-      40: translateNeg30,
-      43: translateNeg30,
-      53: translateTo0,
-      70: translateNeg15,
-      80: translateTo0,
-      90: translateNeg4,
-      to: translateTo0
-    })
-
-    return (
-      <Box>
-        Single prop
-        <Box animation={`${bounce} 1s ease 0s infinite normal none running`}>some bouncing text!</Box>
-        Separate props
-        <Box
-          animationName={bounce}
-          animationDuration="1s"
-          animationTimingFunction="ease"
-          animationDelay="0s"
-          animationIterationCount="infinite"
-          animationDirection="normal"
-          animationFillMode="none"
-          animationPlayState="running"
-        >
-          some bouncing text!
-        </Box>
-      </Box>
-    )
-  })
+  .add('keyframes', () => <KeyframesStory />)
