@@ -145,6 +145,7 @@ All of these CSS properties are supported. You can pass either a string or a num
 - `content`
 - `cursor`
 - `display`
+- `fill`
 - `flex`
 - `flexBasis`
 - `flexDirection`
@@ -221,6 +222,12 @@ All of these CSS properties are supported. You can pass either a string or a num
 - `resize`
 - `right`
 - `rowGap`
+- `stroke`
+- `strokeDasharray`
+- `strokeDashoffset`
+- `strokeLinecap`
+- `strokeMiterlimit`
+- `strokeWidth`
 - `textAlign`
 - `textDecoration`
 - `textOverflow`
@@ -342,6 +349,7 @@ These enhancer groups are also exported. They're all objects with `{ propTypes, 
 - `overflow`
 - `position`
 - `spacing`
+- `svg`
 - `text`
 - `transform`
 - `transition`

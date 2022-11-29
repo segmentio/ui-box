@@ -27,7 +27,7 @@ export default function enhanceProps(
   let className: string = props.className || ''
 
   for (const [property, value] of propsMap) {
-    const isSelectorOrChildProp = property === SELECTORS_PROP || parentProperty === SELECTORS_PROP
+    const isSelectorOrChildProp = property === SELECTORS_PROP || parentProperty.length > 0
     // Only attempt to process objects for the `selectors` prop or the individual selectors below it
     if (isObject(value) && isSelectorOrChildProp) {
       const prop = property === 'selectors' ? '' : property

@@ -1,8 +1,6 @@
 import React from 'react'
 import { EnhancerProps } from './enhancers'
 
-export { EnhancerProps }
-
 /**
  * @template T Object
  * @template K Union of keys (not necessarily present in T)
@@ -48,6 +46,6 @@ export type PolymorphicBoxProps<
 /**
  * Convenience type for defining your own components that extend Box and pass-through props
  */
-export type BoxComponent<P = {}, D extends React.ElementType = React.ElementType> = <
-  E extends React.ElementType = D
->(props: PolymorphicBoxProps<E, P>) => JSX.Element
+export type BoxComponent<P = {}, D extends React.ElementType = React.ElementType> = <E extends React.ElementType = D>(
+  props: PolymorphicBoxProps<E, P>
+) => JSX.Element

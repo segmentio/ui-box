@@ -273,6 +273,20 @@ storiesOf('Box', module)
         </Box>
         Pink background on :focus or :hover
         <Box selectors={{ '&:focus,:hover': { backgroundColor: 'pink' } }} width={200} height={100} />
+        Nested selector - blue background when <Box is="code">data-active=true</Box>, red background on hover
+        <Box
+          data-active={true}
+          height={100}
+          width={200}
+          selectors={{
+            '[data-active=true]': {
+              backgroundColor: 'blue',
+              '&:hover': {
+                backgroundColor: 'red'
+              }
+            }
+          }}
+        />
       </Box>
     )
   })
