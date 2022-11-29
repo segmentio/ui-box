@@ -106,9 +106,9 @@ test('expands comma-separated selectors for class name', t => {
   const result = getCss(propInfo, 'blue', ':hover,[data-active=true]')
 
   t.deepEqual(result, {
-    className: 'ub-bg-clr_nfznl2',
+    className: 'ub-bg-clr_blue_vwpa9u',
     styles: `
-.ub-bg-clr_nfznl2:hover, .ub-bg-clr_nfznl2[data-active=true] {
+.ub-bg-clr_blue_vwpa9u:hover, .ub-bg-clr_blue_vwpa9u[data-active=true] {
   background-color: blue;
 }`,
     rules: [{ property: 'background-color', value: 'blue' }]
@@ -137,11 +137,11 @@ test('maintains whitespace when expanding comma-separated selectors', t => {
 
   const result = getCss(propInfo, 'blue', '.fancy-link:hover, .fancy-input:active')
   t.deepEqual(result, {
-    className: 'ub-bg-clr_nfznl2',
+    className: 'ub-bg-clr_blue_ua1hgg',
     // Intentionally expecting '.fancy-link' to be up against main class name since it does not start w/ a space
     // while ' .fancy-input' should maintain space
     styles: `
-.ub-bg-clr_nfznl2.fancy-link:hover, .ub-bg-clr_nfznl2 .fancy-input:active {
+.ub-bg-clr_blue_ua1hgg.fancy-link:hover, .ub-bg-clr_blue_ua1hgg .fancy-input:active {
   background-color: blue;
 }`,
     rules: [{ property: 'background-color', value: 'blue' }]
