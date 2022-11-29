@@ -95,7 +95,7 @@ test.serial('converts styles in selectors to class name', t => {
     }
   })
 
-  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(className, 'ub-bg-clr_blue_1k2el8q')
   t.deepEqual(enhancedProps, {})
 })
 
@@ -111,7 +111,7 @@ test.serial('injects selector styles', t => {
   t.deepEqual(
     styles.getAll(),
     `
-.ub-bg-clr_nfznl2:hover {
+.ub-bg-clr_blue_1k2el8q:hover {
   background-color: blue;
 }`
   )
@@ -130,7 +130,7 @@ test.serial('converts styles in nested selectors to class name', t => {
     }
   })
 
-  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(className, 'ub-bg-clr_blue_187q98e')
   t.deepEqual(enhancedProps, {})
 })
 
@@ -145,7 +145,7 @@ test.serial("selectors can be nested without 'selectors' key", t => {
     }
   })
 
-  t.deepEqual(className, 'ub-bg-clr_nfznl2')
+  t.deepEqual(className, 'ub-bg-clr_blue_187q98e')
   t.deepEqual(enhancedProps, {})
 })
 
@@ -165,7 +165,7 @@ test.serial('injects nested selector styles', t => {
   t.deepEqual(
     styles.getAll(),
     `
-.ub-bg-clr_nfznl2[data-active]:hover {
+.ub-bg-clr_blue_187q98e[data-active]:hover {
   background-color: blue;
 }`
   )
