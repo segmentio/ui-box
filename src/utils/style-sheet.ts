@@ -112,7 +112,7 @@ export default class CustomStyleSheet {
       const sheet = this.getSheet()
 
       // This is the ultrafast version, works across browsers
-      if (this.isSpeedy && sheet && sheet.insertRule) {
+      if (this.isSpeedy && sheet != null) {
         this._insert(sheet, rule)
       } else {
         last(this.tags).append(document.createTextNode(rule))
