@@ -30,8 +30,17 @@ export default function enhanceProps(
     const isSelectorOrChildProp = property === SELECTORS_PROP || parentProperty.length > 0
     // Only attempt to process objects for the `selectors` prop or the individual selectors below it
     if (isObject(value) && isSelectorOrChildProp) {
-      const prop = property === 'selectors' ? '' : property
-      const parsed = enhanceProps(value, noAnd(selectorHead + prop), property)
+      const prop = property === SELECTORS_PROP ? '' : property
+
+      // If the selector head includes a comma, map over selectorHead and attach property for nested selectors so it isn't just added to the last entry
+      // i.e. [aria-current="page"],[aria-selected="true"] + :before -> [aria-current="page"]:before,[aria-selected="true"]:before instead of [aria-current="page"],[aria-selected="true"]:before
+      const newSelectorHead = selectorHead.includes(',')
+        ? selectorHead
+            .split(',')
+            .map(selector => `${selector}${prop}`)
+            .join(',')
+        : `${selectorHead}${prop}`
+      const parsed = enhanceProps(value, noAnd(newSelectorHead), property)
       className = `${className} ${parsed.className}`
       continue
     }
