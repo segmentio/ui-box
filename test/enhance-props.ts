@@ -171,7 +171,7 @@ test.serial('injects nested selector styles', t => {
   )
 })
 
-test.serial.only('multiple selectors with nested selector are expanded properly', t => {
+test.serial('comma-separated selectors with nested selectors are expanded with nested selector appended to each', t => {
   enhanceProps({
     selectors: {
       '&[aria-current="page"],&[aria-selected="true"]': {
@@ -194,10 +194,10 @@ test.serial.only('multiple selectors with nested selector are expanded properly'
 .ub-color_3366FF_75lazh[aria-current="page"], .ub-color_3366FF_75lazh[aria-selected="true"] {
   color: #3366FF;
 }
-.ub-tfrm_qu4iyp_1d0tz5k[aria-current="page"]:before, .ub-tfrm_qu4iyp_1d0tz5k[aria-selected="true"]:before {
+.ub-tfrm_qu4iyp_fiauus[aria-current="page"]:before, .ub-tfrm_qu4iyp_fiauus[aria-selected="true"]:before {
   transform: scaleY(1);
 }
-.ub-color_2952CC_1tznks7[aria-current="page"]:focus, .ub-color_2952CC_1tznks7[aria-selected="true"]:focus {
+.ub-color_2952CC_drif9m[aria-current="page"]:focus, .ub-color_2952CC_drif9m[aria-selected="true"]:focus {
   color: #2952CC;
 }`
   )
