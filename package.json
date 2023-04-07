@@ -35,7 +35,7 @@
     "coverage": "nyc report --reporter=html"
   },
   "dependencies": {
-    "@emotion/hash": "^0.7.1",
+    "@emotion/hash": "^0.9.0",
     "inline-style-prefixer": "^5.0.4",
     "prop-types": "^15.7.2"
   },
