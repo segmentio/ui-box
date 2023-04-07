@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.7.1",
-    "inline-style-prefixer": "^5.0.4",
+    "inline-style-prefixer": "^5.1.2",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
